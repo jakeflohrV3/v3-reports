@@ -11,104 +11,83 @@
   a { color: #58a6ff; text-decoration: none; }
   a:hover { text-decoration: underline; }
   .container { max-width: 1400px; margin: 0 auto; padding: 24px 20px; }
-  .header { margin-bottom: 24px; border-bottom: 1px solid #30363d; padding-bottom: 20px; }
+  .header { margin-bottom: 24px; }
   .header h1 { font-size: 22px; font-weight: 700; color: #e6edf3; margin-bottom: 4px; }
   .header .meta { color: #8b949e; font-size: 12px; }
-  .tabs { display: flex; gap: 0; border-bottom: 1px solid #30363d; margin-bottom: 28px; }
-  .tab-btn { background: none; border: none; color: #8b949e; padding: 10px 20px; cursor: pointer; font-size: 14px; font-weight: 500; border-bottom: 2px solid transparent; transition: all 0.15s; margin-bottom: -1px; }
+  .tabs { display: flex; gap: 4px; margin-bottom: 24px; border-bottom: 1px solid #30363d; padding-bottom: 0; }
+  .tab-btn { background: none; border: none; color: #8b949e; padding: 10px 16px; cursor: pointer; font-size: 14px; font-weight: 500; border-bottom: 2px solid transparent; margin-bottom: -1px; transition: color 0.15s, border-color 0.15s; }
   .tab-btn:hover { color: #e6edf3; }
-  .tab-btn.active { color: #e6edf3; border-bottom-color: #238636; }
+  .tab-btn.active { color: #238636; border-bottom-color: #238636; }
   .tab-content { display: none; }
   .tab-content.active { display: block; }
   .section { margin-bottom: 32px; }
-  .section-title { font-size: 16px; font-weight: 600; color: #e6edf3; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+  .section-title { font-size: 16px; font-weight: 600; color: #e6edf3; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
   .section-title::after { content: ''; flex: 1; height: 1px; background: #30363d; }
-  .chips { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 0; }
-  .chip { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 12px 16px; min-width: 130px; }
+  .chips-row { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 24px; }
+  .chip { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 12px 16px; min-width: 140px; }
   .chip-label { font-size: 11px; color: #8b949e; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
   .chip-value { font-size: 22px; font-weight: 700; color: #e6edf3; }
   .chip-value.green { color: #238636; }
-  .chip-value.red { color: #da3633; }
+  .chip-value.red { color: #f85149; }
   .chip-value.orange { color: #d29922; }
-  .card { background: #161b22; border: 1px solid #30363d; border-radius: 10px; padding: 20px; margin-bottom: 20px; }
-  .card-title { font-size: 14px; font-weight: 600; color: #e6edf3; margin-bottom: 14px; }
+  .chip-delta { font-size: 11px; margin-top: 2px; }
+  .chip-delta.up { color: #238636; }
+  .chip-delta.down { color: #f85149; }
+  .card { background: #161b22; border: 1px solid #30363d; border-radius: 8px; overflow: hidden; margin-bottom: 20px; }
+  .card-header { padding: 14px 16px; border-bottom: 1px solid #30363d; font-weight: 600; font-size: 14px; color: #e6edf3; }
+  .card-body { padding: 16px; }
   table { width: 100%; border-collapse: collapse; }
   th { background: #0d1117; color: #8b949e; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; padding: 8px 12px; text-align: left; border-bottom: 1px solid #30363d; cursor: pointer; user-select: none; white-space: nowrap; }
   th:hover { color: #e6edf3; }
-  th.sort-asc::after { content: ' ↑'; color: #238636; }
-  th.sort-desc::after { content: ' ↓'; color: #238636; }
-  td { padding: 8px 12px; border-bottom: 1px solid #21262d; color: #e6edf3; vertical-align: middle; }
+  th .sort-arrow { margin-left: 4px; opacity: 0.5; }
+  td { padding: 8px 12px; border-bottom: 1px solid #21262d; font-size: 13px; }
   tr:last-child td { border-bottom: none; }
-  tr:hover td { background: #1c2129; }
-  .aging-red td { background: rgba(218,54,51,0.08); }
-  .aging-red:hover td { background: rgba(218,54,51,0.14); }
-  .aging-orange td { background: rgba(210,153,34,0.08); }
-  .aging-orange:hover td { background: rgba(210,153,34,0.14); }
+  tr:hover td { background: #1c2128; }
   .badge { display: inline-block; padding: 2px 8px; border-radius: 20px; font-size: 11px; font-weight: 600; }
-  .badge-green { background: rgba(35,134,54,0.2); color: #3fb950; border: 1px solid rgba(35,134,54,0.4); }
-  .badge-red { background: rgba(218,54,51,0.2); color: #f85149; border: 1px solid rgba(218,54,51,0.4); }
-  .badge-orange { background: rgba(210,153,34,0.2); color: #e3b341; border: 1px solid rgba(210,153,34,0.4); }
-  .badge-blue { background: rgba(88,166,255,0.15); color: #58a6ff; border: 1px solid rgba(88,166,255,0.3); }
+  .badge-green { background: rgba(35,134,54,0.2); color: #3fb950; border: 1px solid rgba(35,134,54,0.3); }
+  .badge-red { background: rgba(248,81,73,0.15); color: #f85149; border: 1px solid rgba(248,81,73,0.3); }
+  .badge-orange { background: rgba(210,153,34,0.15); color: #d29922; border: 1px solid rgba(210,153,34,0.3); }
+  .badge-blue { background: rgba(56,139,253,0.15); color: #58a6ff; border: 1px solid rgba(56,139,253,0.3); }
   .badge-gray { background: rgba(139,148,158,0.15); color: #8b949e; border: 1px solid rgba(139,148,158,0.3); }
-  .rate-low { color: #f85149; font-weight: 600; }
-  .rate-ok { color: #e6edf3; }
-  .rate-good { color: #3fb950; }
-  .chart-wrap { position: relative; height: 280px; }
-  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-  @media (max-width: 900px) { .two-col { grid-template-columns: 1fr; } }
-  .recruiter-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 16px; }
-  .rec-card { background: #161b22; border: 1px solid #30363d; border-radius: 10px; padding: 18px; }
-  .rec-card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 14px; }
-  .rec-name { font-size: 15px; font-weight: 700; color: #e6edf3; }
-  .rec-stats { display: flex; gap: 16px; margin-bottom: 12px; }
-  .rec-stat { }
-  .rec-stat-label { font-size: 11px; color: #8b949e; }
-  .rec-stat-value { font-size: 18px; font-weight: 700; color: #e6edf3; }
-  .mini-bar-wrap { margin-bottom: 10px; }
-  .mini-bar-label { font-size: 11px; color: #8b949e; margin-bottom: 4px; display: flex; justify-content: space-between; }
-  .mini-bar-track { background: #21262d; border-radius: 4px; height: 6px; overflow: hidden; }
-  .mini-bar-fill { height: 100%; border-radius: 4px; background: linear-gradient(90deg, #238636, #2ea043); transition: width 0.3s; }
+  .row-red td { background: rgba(248,81,73,0.07); }
+  .row-orange td { background: rgba(210,153,34,0.07); }
+  .row-red:hover td { background: rgba(248,81,73,0.12); }
+  .row-orange:hover td { background: rgba(210,153,34,0.12); }
+  .chart-container { position: relative; }
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  @media (max-width: 900px) { .grid-2 { grid-template-columns: 1fr; } }
+  .recruiter-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 16px; margin-bottom: 24px; }
+  .recruiter-card { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 16px; }
+  .recruiter-card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; }
+  .recruiter-name { font-size: 15px; font-weight: 700; color: #e6edf3; }
+  .recruiter-sub { font-size: 12px; color: #8b949e; margin-top: 2px; }
+  .mini-bar-container { margin: 10px 0; }
+  .mini-bar-label { display: flex; justify-content: space-between; font-size: 11px; color: #8b949e; margin-bottom: 3px; }
+  .mini-bar-track { background: #0d1117; border-radius: 3px; height: 6px; overflow: hidden; }
+  .mini-bar-fill { height: 100%; border-radius: 3px; background: linear-gradient(90deg, #238636, #3fb950); }
+  .stage-mini-bar { margin-bottom: 6px; }
   .top-clients { margin-top: 10px; }
-  .top-clients-label { font-size: 11px; color: #8b949e; margin-bottom: 6px; }
-  .top-client-item { display: flex; justify-content: space-between; align-items: center; padding: 3px 0; font-size: 12px; color: #8b949e; border-bottom: 1px solid #21262d; }
+  .top-client-item { display: flex; justify-content: space-between; align-items: center; padding: 3px 0; font-size: 12px; border-bottom: 1px solid #21262d; }
   .top-client-item:last-child { border-bottom: none; }
-  .top-client-name { color: #e6edf3; }
-  .neos-read { background: #161b22; border: 1px solid #30363d; border-radius: 10px; padding: 24px; }
-  .neos-read h3 { font-size: 16px; font-weight: 700; color: #e6edf3; margin-bottom: 4px; display: flex; align-items: center; gap: 8px; }
-  .neos-read h3 span { font-size: 20px; }
-  .neos-read .tagline { font-size: 12px; color: #8b949e; margin-bottom: 16px; font-style: italic; }
-  .neos-read p { color: #c9d1d9; line-height: 1.7; margin-bottom: 12px; font-size: 13.5px; }
-  .neos-read p:last-child { margin-bottom: 0; }
-  .neos-read strong { color: #e6edf3; }
-  .sparkline-wrap { height: 50px; }
-  .stage-pill { display: inline-block; padding: 1px 7px; border-radius: 4px; font-size: 11px; font-weight: 500; }
-  .stage-rs { background: rgba(88,166,255,0.15); color: #79c0ff; }
-  .stage-hmr { background: rgba(210,153,34,0.15); color: #e3b341; }
-  .stage-1st { background: rgba(139,148,158,0.15); color: #b1bac4; }
-  .stage-2nd { background: rgba(163,113,247,0.15); color: #d2a8ff; }
-  .stage-onsite { background: rgba(35,134,54,0.15); color: #3fb950; }
-  .stage-offer { background: rgba(210,153,34,0.3); color: #f0e68c; }
-  .leaderboard-rank { font-size: 16px; font-weight: 800; color: #8b949e; width: 28px; }
-  .leaderboard-rank.gold { color: #e3b341; }
-  .leaderboard-rank.silver { color: #b1bac4; }
-  .leaderboard-rank.bronze { color: #d18a6b; }
-  .pipeline-bar { display: flex; height: 8px; border-radius: 4px; overflow: hidden; gap: 1px; min-width: 120px; }
-  .pb-rs { background: #58a6ff; }
-  .pb-hmr { background: #e3b341; }
-  .pb-1st { background: #b1bac4; }
-  .pb-2nd { background: #d2a8ff; }
-  .pb-onsite { background: #3fb950; }
-  .pb-offer { background: #f0e68c; }
-  .scroll-table { overflow-x: auto; }
-  .empty-state { color: #8b949e; font-size: 13px; padding: 20px; text-align: center; }
+  .neo-read { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 20px 24px; }
+  .neo-read p { color: #c9d1d9; line-height: 1.7; margin-bottom: 14px; font-size: 14px; }
+  .neo-read p:last-child { margin-bottom: 0; }
+  .aging-group { margin-bottom: 16px; }
+  .aging-group-header { background: #1c2128; padding: 8px 12px; font-size: 12px; font-weight: 600; color: #8b949e; border-radius: 6px 6px 0 0; border: 1px solid #30363d; text-transform: uppercase; letter-spacing: 0.5px; }
+  .aging-group-table { border: 1px solid #30363d; border-top: none; border-radius: 0 0 6px 6px; overflow: hidden; }
+  .sparkline-container { display: inline-block; width: 80px; height: 30px; vertical-align: middle; }
+  .no-data { color: #8b949e; font-size: 12px; font-style: italic; }
+  .rate-low { color: #f85149; font-weight: 600; }
+  .rate-ok { color: #3fb950; }
+  .stage-count { display: inline-block; min-width: 28px; text-align: center; padding: 2px 6px; border-radius: 4px; font-size: 12px; font-weight: 600; background: #0d1117; color: #8b949e; }
+  .stage-count.has-value { color: #e6edf3; background: #1c2128; }
 </style>
 </head>
 <body>
-
 <div class="container">
   <div class="header">
     <h1>V3 Weekly Pipeline Report — Week of 2026-03-02</h1>
-    <div class="meta">Generated: 2026-03-03 17:45 UTC &nbsp;·&nbsp; 35 Active Clients &nbsp;·&nbsp; 524 Active Candidates</div>
+    <div class="meta">Generated: 2026-03-03 20:31 UTC &nbsp;|&nbsp; 35 active clients &nbsp;|&nbsp; 524 active candidates</div>
   </div>
 
   <div class="tabs">
@@ -119,57 +98,58 @@
   <!-- CLIENT REPORT TAB -->
   <div id="tab-client" class="tab-content active">
 
-    <!-- Summary Chips -->
-    <div class="section">
-      <div class="section-title">Portfolio Summary</div>
-      <div class="chips">
-        <div class="chip">
-          <div class="chip-label">Total Active Candidates</div>
-          <div class="chip-value">524</div>
-        </div>
-        <div class="chip">
-          <div class="chip-label">Active Clients</div>
-          <div class="chip-value">35</div>
-        </div>
-        <div class="chip">
-          <div class="chip-label">Submissions This Week</div>
-          <div class="chip-value green">311</div>
-        </div>
-        <div class="chip">
-          <div class="chip-label">WoW Delta</div>
-          <div class="chip-value" style="color:#8b949e;">N/A</div>
-        </div>
-        <div class="chip">
-          <div class="chip-label">Aging 14+ Days</div>
-          <div class="chip-value red">182</div>
-        </div>
-        <div class="chip">
-          <div class="chip-label">Offers Outstanding</div>
-          <div class="chip-value orange">2</div>
-        </div>
-        <div class="chip">
-          <div class="chip-label">Screen→HM Rate</div>
-          <div class="chip-value">59.4%</div>
-        </div>
+    <!-- Portfolio Summary Chips -->
+    <div class="chips-row">
+      <div class="chip">
+        <div class="chip-label">Total Active</div>
+        <div class="chip-value">524</div>
+      </div>
+      <div class="chip">
+        <div class="chip-label">Active Clients</div>
+        <div class="chip-value">35</div>
+      </div>
+      <div class="chip">
+        <div class="chip-label">Submissions This Week</div>
+        <div class="chip-value green">311</div>
+        <div class="chip-delta">1st Interview entries this week</div>
+      </div>
+      <div class="chip">
+        <div class="chip-label">WoW Delta</div>
+        <div class="chip-value" style="color:#8b949e;">N/A</div>
+        <div class="chip-delta" style="color:#8b949e;">No prior week data</div>
+      </div>
+      <div class="chip">
+        <div class="chip-label">Aging 14+ Days</div>
+        <div class="chip-value red">182</div>
+        <div class="chip-delta" style="color:#f85149;">Requires attention</div>
+      </div>
+      <div class="chip">
+        <div class="chip-label">Offers Outstanding</div>
+        <div class="chip-value orange">2</div>
+        <div class="chip-delta">Endeavor + GPTZero</div>
+      </div>
+      <div class="chip">
+        <div class="chip-label">Screen → HM Rate</div>
+        <div class="chip-value green">59.4%</div>
       </div>
     </div>
 
     <!-- Active Pipeline by Client Table -->
     <div class="section">
       <div class="section-title">Active Pipeline by Client</div>
-      <div class="card" style="padding:0; overflow:hidden;">
-        <div class="scroll-table">
+      <div class="card">
+        <div style="overflow-x:auto;">
           <table id="client-table">
             <thead>
               <tr>
-                <th data-col="name" data-type="str">Client</th>
-                <th data-col="total_active" data-type="num">Total</th>
-                <th data-col="rs" data-type="num">RS</th>
-                <th data-col="hmr" data-type="num">HMR</th>
-                <th data-col="first" data-type="num">1st</th>
-                <th data-col="second" data-type="num">2nd</th>
-                <th data-col="onsite" data-type="num">Onsite</th>
-                <th data-col="offer" data-type="num">Offer</th>
+                <th data-col="name">Client <span class="sort-arrow">↕</span></th>
+                <th data-col="total">Total <span class="sort-arrow">↕</span></th>
+                <th data-col="rs">RS <span class="sort-arrow">↕</span></th>
+                <th data-col="hmr">HMR <span class="sort-arrow">↕</span></th>
+                <th data-col="first">1st <span class="sort-arrow">↕</span></th>
+                <th data-col="second">2nd <span class="sort-arrow">↕</span></th>
+                <th data-col="onsite">Onsite <span class="sort-arrow">↕</span></th>
+                <th data-col="offer">Offer <span class="sort-arrow">↕</span></th>
               </tr>
             </thead>
             <tbody id="client-tbody"></tbody>
@@ -180,37 +160,39 @@
 
     <!-- Stage Funnel Chart -->
     <div class="section">
-      <div class="section-title">Stage Funnel (Global)</div>
-      <div class="two-col">
+      <div class="section-title">Global Stage Funnel</div>
+      <div class="grid-2">
         <div class="card">
-          <div class="chart-wrap">
+          <div class="card-header">Pipeline Volume by Stage</div>
+          <div class="card-body chart-container" style="height:280px;">
             <canvas id="funnelChart"></canvas>
           </div>
         </div>
-        <!-- Global Conversion Rates -->
         <div class="card">
-          <div class="card-title">Global Conversion Rates</div>
-          <table id="conv-table">
-            <thead>
-              <tr>
-                <th>Stage Transition</th>
-                <th>Rate</th>
-                <th>Passed</th>
-                <th>Total</th>
-              </tr>
-            </thead>
-            <tbody id="conv-tbody"></tbody>
-          </table>
+          <div class="card-header">Global Conversion Rates</div>
+          <div class="card-body" style="overflow-x:auto;">
+            <table>
+              <thead>
+                <tr>
+                  <th>Stage Transition</th>
+                  <th>Rate</th>
+                  <th>Passed</th>
+                  <th>Total</th>
+                </tr>
+              </thead>
+              <tbody id="global-conv-tbody"></tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>
 
     <!-- Aging Pipeline Table -->
     <div class="section">
-      <div class="section-title">Aging Pipeline (10+ Days)</div>
-      <div class="card" style="padding:0; overflow:hidden;">
-        <div class="scroll-table">
-          <table id="aging-table">
+      <div class="section-title">Aging Pipeline (10+ Days in Stage)</div>
+      <div class="card">
+        <div style="overflow-x:auto;">
+          <table>
             <thead>
               <tr>
                 <th>Candidate</th>
@@ -228,70 +210,62 @@
 
     <!-- Neo's Read -->
     <div class="section">
-      <div class="section-title">Neo's Read</div>
-      <div class="neos-read">
-        <h3><span>🤖</span> Neo's Read — Week of 2026-03-02</h3>
-        <div class="tagline">Straight talk on pipeline health, risks, and wins.</div>
-        <p>
-          The top-line numbers look active — <strong>524 candidates across 35 clients, 311 submissions this week</strong> — but the aging problem is the real story. <strong>182 candidates are 14+ days old</strong>, and some of these are genuinely alarming: Greater has candidates sitting in RS and 1st Interview for <strong>400–530 days</strong> — those are effectively zombie entries that need to be either advanced or closed immediately. Owner is similarly burdened with Dan Stein's queue showing candidates at 81–286 days in early stages. This is not a pipeline health issue, it's a pipeline hygiene crisis on specific accounts. The FutureHouse account has two candidates at 107 days with no movement — that account needs a status call this week.
-        </p>
-        <p>
-          On the positive side, <strong>Endeavor is the standout performer</strong> this week: 87.5% screen-to-HM conversion, 85.7% HM-to-1st, and — critically — the only client delivering an offer (100% Onsite→Offer rate). Paul Sledd owns that win. <strong>GPTZero</strong> is also quietly cooking with a 50% Onsite→Offer rate and both of V3's offers outstanding. <strong>Mercor remains the volume engine</strong> at 102 active candidates, with an impressive 97% 2nd→Onsite rate, but zero offers despite 32 candidates in Onsite — that conversion failure at the finish line is a red flag that warrants a conversation with the client. Nicole Starrantino leads all recruiters with 47 submissions and 16 active onsites (34% submitted-to-onsite rate), making her the clear MVP of the week. <strong>Hex</strong> is a concern: 28 candidates stuck in RS/HMR with zero moving to interviews — HM is not reviewing or is ghosting.
-        </p>
-        <p>
-          The Giga account at 16.7% 1st→2nd conversion and the Fleet account at 12.5% 1st→2nd are both underperforming at the critical mid-funnel stage — these clients may have standards misalignment that needs resetting. <strong>Krystin Warden has zero onsites and zero offers year-to-date</strong> despite 66 active candidates — that's a conversion problem worth coaching into. The global Onsite→Offer rate of <strong>3.9% (2 of 51)</strong> is the most alarming system-wide metric: candidates are getting to Onsite but not closing. Either quality needs to go up earlier in the funnel, or client expectations need to be recalibrated. This week's priority should be Mercor Onsite closures and clearing the 100+ day zombie candidates from Owner, Greater, and FutureHouse.
-        </p>
+      <div class="section-title">🤖 Neo's Read</div>
+      <div class="neo-read">
+        <p>This week's pipeline is the biggest V3 has fielded — 524 active candidates across 35 clients, with 311 new 1st Interview submissions. The top-line numbers look impressive, but the aging data tells a harder story: 182 candidates (35% of the active pool) have been sitting in stage for 14+ days, and the portfolio's Onsite-to-Offer conversion rate sits at a troubling 3.9% — just 2 live offers against 51 candidates who reached Onsite. Both offers are thin signal: one each at Endeavor and GPTZero. Until that conversion rate improves, raw submission volume is largely theater.</p>
+        <p>Mercor dominates the book at 102 active candidates, but the Onsite log there is an alarm — 32 candidates are in Onsite, 0 have converted to Offer, and 10+ are aging hard (Enming Luo at 122 days is an embarrassment that needs to be addressed immediately). The Charta Health and Owner pipelines are also carrying significant drag. Owner's RS stage is particularly egregious: Dan Stein has candidates in Recruiter Screen at 286, 272, 234, and 229 days — these aren't candidates in a pipeline, they're ghosts. The Greater account is even worse (Kavya Ganesh showing 531-day aging), suggesting these pipelines may be functionally dead and should be closed or archived. On the bright side, Endeavor is the standout performer this week — 87.5% RS-to-HM rate, 100% Onsite-to-Offer, and a live offer in market. GPTZero also has strong conversion metrics end-to-end. Nicole Starrantino leads the team with 47 submissions and 16 active Onsites (highest on the team by a wide margin), while Paul Sledd's 44 submissions with 7 Onsites and the portfolio's only offer shows execution depth. The Hex account (28 active, 14 in HMR, 0 in 1st Interview) needs immediate investigation — something is blocking progression at the HM Review stage.</p>
+        <p>The structural risk this week is clear: V3 is excellent at generating top-of-funnel activity but is struggling to close. The 1st→2nd conversion globally is 40%, which is acceptable, but the Onsite-to-Offer cliff at 3.9% is the real crisis. Either clients are not committing to offers, or candidates are falling out late. Either way, the team needs to pressure clients on offer timelines and get clarity on what's stalling at Onsite — particularly at Mercor where 32 candidates are waiting. Recruiter-level: Krystin Warden (66 active, 0 Onsites, 0 Offers) and Kavya Ganesh (7 active, years-old aging candidates, 2 submissions this week) are areas of concern that warrant coaching conversations.</p>
       </div>
     </div>
 
-  </div><!-- end tab-client -->
+  </div>
 
   <!-- RECRUITER REPORT TAB -->
   <div id="tab-recruiter" class="tab-content">
 
+    <!-- Recruiter Scorecards -->
+    <div class="section">
+      <div class="section-title">Recruiter Scorecards</div>
+      <div class="recruiter-grid" id="recruiter-cards"></div>
+    </div>
+
     <!-- Submissions Leaderboard -->
     <div class="section">
       <div class="section-title">Submissions Leaderboard</div>
-      <div class="card" style="padding:0; overflow:hidden;">
-        <div class="scroll-table">
-          <table id="leaderboard-table">
+      <div class="card">
+        <div style="overflow-x:auto;">
+          <table>
             <thead>
               <tr>
-                <th>#</th>
+                <th>Rank</th>
                 <th>Recruiter</th>
                 <th>This Week</th>
                 <th>Last Week</th>
                 <th>WoW Delta</th>
                 <th>Total Active</th>
                 <th>Onsite + Offer</th>
+                <th>Submitted→Onsite</th>
               </tr>
             </thead>
-            <tbody id="leaderboard-tbody"></tbody>
+            <tbody id="recruiter-leaderboard-tbody"></tbody>
           </table>
         </div>
       </div>
     </div>
 
-    <!-- Recruiter Scorecards -->
-    <div class="section">
-      <div class="section-title">Recruiter Scorecards</div>
-      <div class="recruiter-grid" id="recruiter-grid"></div>
-    </div>
-
     <!-- Aging Pipeline by Recruiter -->
     <div class="section">
       <div class="section-title">Aging Pipeline by Recruiter</div>
-      <div id="recruiter-aging-section"></div>
+      <div id="recruiter-aging-container"></div>
     </div>
 
-  </div><!-- end tab-recruiter -->
-
-</div><!-- end container -->
+  </div>
+</div>
 
 <script>
 const data = {
   "week": "2026-03-02",
-  "generated_at": "2026-03-03 17:45 UTC",
+  "generated_at": "2026-03-03 20:31 UTC",
   "global_stage_totals": {
     "Recruiter Screen": 213,
     "HM Review": 91,
@@ -311,66 +285,65 @@ const data = {
     "wow_delta": null
   },
   "clients": [
-    {"name":"Mercor","total_active":102,"stage_counts":{"Recruiter Screen":37,"HM Review":12,"1st Interview":20,"2nd Interview":1,"Onsite":32,"Offer":0},"conversion_rates":[{"transition":"Recruiter Screen → HM Review","rate":63.7,"numerator":65,"denominator":102},{"transition":"HM Review → 1st Interview","rate":81.5,"numerator":53,"denominator":65},{"transition":"1st Interview → 2nd Interview","rate":62.3,"numerator":33,"denominator":53},{"transition":"2nd Interview → Onsite","rate":97.0,"numerator":32,"denominator":33},{"transition":"Onsite → Offer","rate":0.0,"numerator":0,"denominator":32}],"aging_candidates":[{"full_name":"Y2FuZGlkYXRlczoyMDY5NzA0OTM=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoyMDY5NzA0OTM=","stage":"Onsite","recruiter":"Shannae Brydon","days_in_stage":122},{"full_name":"Y2FuZGlkYXRlczoyMTI1ODk4NjU=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoyMTI1ODk4NjU=","stage":"Recruiter Screen","recruiter":"Krystin Warden","days_in_stage":82},{"full_name":"Y2FuZGlkYXRlczoxNjc0Mzg0NDU=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoxNjc0Mzg0NDU=","stage":"Onsite","recruiter":"Paul Sledd","days_in_stage":77},{"full_name":"Y2FuZGlkYXRlczoxNzEzMDI5MzY=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoxNzEzMDI5MzY=","stage":"Recruiter Screen","recruiter":"Unknown","days_in_stage":77},{"full_name":"Y2FuZGlkYXRlczoxOTczMTA5NTk=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoxOTczMTA5NTk=","stage":"Onsite","recruiter":"Ryan Grudnitski","days_in_stage":47},{"full_name":"Y2FuZGlkYXRlczoyMTgwNjE0ODM=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoyMTgwNjE0ODM=","stage":"Onsite","recruiter":"Ryan Grudnitski","days_in_stage":39},{"full_name":"Y2FuZGlkYXRlczoxNjc0MTc3MTU=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoxNjc0MTc3MTU=","stage":"Onsite","recruiter":"Shannae Brydon","days_in_stage":38},{"full_name":"Y2FuZGlkYXRlczoxODg5OTM2OTQ=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoxODg5OTM2OTQ=","stage":"Onsite","recruiter":"Nicole Starrantino","days_in_stage":33},{"full_name":"Y2FuZGlkYXRlczoxNjczMzcyMTE=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoxNjczMzcyMTE=","stage":"Onsite","recruiter":"Paul Sledd","days_in_stage":32},{"full_name":"Y2FuZGlkYXRlczoyMDQwNDIxOTE=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoyMDQwNDIxOTE=","stage":"Onsite","recruiter":"Meghan Roper","days_in_stage":32},{"full_name":"Y2FuZGlkYXRlczoxODE1Mjk3NDQ=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoxODE1Mjk3NDQ=","stage":"Onsite","recruiter":"Meghan Roper","days_in_stage":32},{"full_name":"Y2FuZGlkYXRlczoyMDc0NzM0OTA=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoyMDc0NzM0OTA=","stage":"Onsite","recruiter":"Paul Sledd","days_in_stage":32},{"full_name":"Y2FuZGlkYXRlczoyMjEyNTAzMzY=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoyMjEyNTAzMzY=","stage":"1st Interview","recruiter":"Nicole Starrantino","days_in_stage":32},{"full_name":"Y2FuZGlkYXRlczoxODk3MDMzMTM=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoxODk3MDMzMTM=","stage":"Onsite","recruiter":"Meghan Roper","days_in_stage":31},{"full_name":"Y2FuZGlkYXRlczoxOTIzMDg4NzI=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoxOTIzMDg4NzI=","stage":"HM Review","recruiter":"Dan Stein","days_in_stage":27},{"full_name":"Y2FuZGlkYXRlczoxNjczNTk0Njc=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoxNjczNTk0Njc=","stage":"Onsite","recruiter":"Shannae Brydon","days_in_stage":25},{"full_name":"Y2FuZGlkYXRlczoxODE0NTMxMzg=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoxODE0NTMxMzg=","stage":"Onsite","recruiter":"Shannae Brydon","days_in_stage":23},{"full_name":"Y2FuZGlkYXRlczoxODE1NzY4MTI=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoxODE1NzY4MTI=","stage":"Onsite","recruiter":"Nicole Starrantino","days_in_stage":23},{"full_name":"Y2FuZGlkYXRlczoyMjA3Nzc0MzM=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoyMjA3Nzc0MzM=","stage":"Onsite","recruiter":"Val VanderLinden","days_in_stage":20},{"full_name":"Y2FuZGlkYXRlczoxODIxOTE3Nzk=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoxODIxOTE3Nzk=","stage":"Onsite","recruiter":"Nicole Starrantino","days_in_stage":20},{"full_name":"Y2FuZGlkYXRlczoxNjczNTE0ODM=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoxNjczNTE0ODM=","stage":"HM Review","recruiter":"Shannae Brydon","days_in_stage":20},{"full_name":"Y2FuZGlkYXRlczoxODE5MjAwODI=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoxODE5MjAwODI=","stage":"1st Interview","recruiter":"Ryan Grudnitski","days_in_stage":19},{"full_name":"Y2FuZGlkYXRlczoyMTc0MjAxMjE=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoyMTc0MjAxMjE=","stage":"Recruiter Screen","recruiter":"Kyle Holin","days_in_stage":19},{"full_name":"Y2FuZGlkYXRlczoxNjczNDM5ODA=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoxNjczNDM5ODA=","stage":"Recruiter Screen","recruiter":"Meghan Roper","days_in_stage":19},{"full_name":"Y2FuZGlkYXRlczoxOTY2MjUxMTk=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoxOTY2MjUxMTk=","stage":"Onsite","recruiter":"Meghan Roper","days_in_stage":18},{"full_name":"Y2FuZGlkYXRlczoxNjczNjMyNzg=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoxNjczNjMyNzg=","stage":"Recruiter Screen","recruiter":"Val VanderLinden","days_in_stage":18},{"full_name":"Y2FuZGlkYXRlczoxNjc0ODAxNzk=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoxNjc0ODAxNzk=","stage":"Recruiter Screen","recruiter":"Shannae Brydon","days_in_stage":17},{"full_name":"Y2FuZGlkYXRlczoxNjc0MDU2MDU=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoxNjc0MDU2MDU=","stage":"Recruiter Screen","recruiter":"Dan Stein","days_in_stage":17},{"full_name":"Y2FuZGlkYXRlczoxNjc0MDc2OTE=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoxNjc0MDc2OTE=","stage":"Recruiter Screen","recruiter":"Shannae Brydon","days_in_stage":17},{"full_name":"Y2FuZGlkYXRlczoyMjUwMTg5NDY=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoyMjUwMTg5NDY=","stage":"Recruiter Screen","recruiter":"Unknown","days_in_stage":17},{"full_name":"Y2FuZGlkYXRlczoxOTYzNzM1NjE=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoxOTYzNzM1NjE=","stage":"Onsite","recruiter":"Nicole Starrantino","days_in_stage":16},{"full_name":"Y2FuZGlkYXRlczoxOTE4MzkwMTc=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoxOTE4MzkwMTc=","stage":"Recruiter Screen","recruiter":"Nicole Starrantino","days_in_stage":16},{"full_name":"Y2FuZGlkYXRlczoyMjI1NzczNjc=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoyMjI1NzczNjc=","stage":"1st Interview","recruiter":"Nicole Starrantino","days_in_stage":12},{"full_name":"Y2FuZGlkYXRlczoyMDEzMjEyNTg=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoyMDEzMjEyNTg=","stage":"HM Review","recruiter":"Nicole Starrantino","days_in_stage":12},{"full_name":"Y2FuZGlkYXRlczoyMjYwMjY1MzM=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoyMjYwMjY1MzM=","stage":"1st Interview","recruiter":"Ryan Grudnitski","days_in_stage":12},{"full_name":"Y2FuZGlkYXRlczoyMjYxODQ0OTc=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoyMjYxODQ0OTc=","stage":"1st Interview","recruiter":"Nicole Starrantino","days_in_stage":12},{"full_name":"Y2FuZGlkYXRlczoxODA5MTA5MDQ=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoxODA5MTA5MDQ=","stage":"Onsite","recruiter":"Nicole Starrantino","days_in_stage":11},{"full_name":"Y2FuZGlkYXRlczoxOTk5ODM2NTE=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoxOTk5ODM2NTE=","stage":"Onsite","recruiter":"Ryan Grudnitski","days_in_stage":11},{"full_name":"Y2FuZGlkYXRlczoxNzYxMTM5NjQ=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoxNzYxMTM5NjQ=","stage":"1st Interview","recruiter":"Shannae Brydon","days_in_stage":11},{"full_name":"Y2FuZGlkYXRlczoxODE5MjAxMjI=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoxODE5MjAxMjI=","stage":"1st Interview","recruiter":"Paul Sledd","days_in_stage":11},{"full_name":"Y2FuZGlkYXRlczoyMDg4NTg4MDE=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoyMDg4NTg4MDE=","stage":"HM Review","recruiter":"Dan Stein","days_in_stage":11},{"full_name":"Y2FuZGlkYXRlczoyMjU2OTIwNjk=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoyMjU2OTIwNjk=","stage":"HM Review","recruiter":"Meghan Roper","days_in_stage":11},{"full_name":"Y2FuZGlkYXRlczoxOTExNjgyNTg=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoxOTExNjgyNTg=","stage":"1st Interview","recruiter":"Krystin Warden","days_in_stage":10},{"full_name":"Y2FuZGlkYXRlczoyMDA2MDU2NDU=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoyMDA2MDU2NDU=","stage":"Onsite","recruiter":"Val VanderLinden","days_in_stage":10}]},
-    {"name":"Charta Health","total_active":49,"stage_counts":{"Recruiter Screen":15,"HM Review":5,"1st Interview":18,"2nd Interview":4,"Onsite":7,"Offer":0},"conversion_rates":[{"transition":"Recruiter Screen → HM Review","rate":69.4,"numerator":34,"denominator":49},{"transition":"HM Review → 1st Interview","rate":85.3,"numerator":29,"denominator":34},{"transition":"1st Interview → 2nd Interview","rate":37.9,"numerator":11,"denominator":29},{"transition":"2nd Interview → Onsite","rate":63.6,"numerator":7,"denominator":11},{"transition":"Onsite → Offer","rate":0.0,"numerator":0,"denominator":7}],"aging_candidates":[{"full_name":"Y2FuZGlkYXRlczoyMDg5ODY0MDI=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoyMDg5ODY0MDI=","stage":"1st Interview","recruiter":"Dan Stein","days_in_stage":51},{"full_name":"Y2FuZGlkYXRlczoyMDA1MTgzMDE=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoyMDA1MTgzMDE=","stage":"Recruiter Screen","recruiter":"Val VanderLinden","days_in_stage":45},{"full_name":"Y2FuZGlkYXRlczoxNjc0OTE2MzE=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoxNjc0OTE2MzE=","stage":"Recruiter Screen","recruiter":"Val VanderLinden","days_in_stage":37},{"full_name":"Y2FuZGlkYXRlczoxODI3MzkwNTU=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoxODI3MzkwNTU=","stage":"Recruiter Screen","recruiter":"Val VanderLinden","days_in_stage":26},{"full_name":"Y2FuZGlkYXRlczoyMjM4NjEyMDY=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoyMjM4NjEyMDY=","stage":"Recruiter Screen","recruiter":"Val VanderLinden","days_in_stage":26},{"full_name":"Y2FuZGlkYXRlczoyMTQwMTQ3NjA=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoyMTQwMTQ3NjA=","stage":"2nd Interview","recruiter":"Meghan Roper","days_in_stage":23},{"full_name":"Y2FuZGlkYXRlczoyMTAyNjQzMjg=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoyMTAyNjQzMjg=","stage":"1st Interview","recruiter":"Val VanderLinden","days_in_stage":23},{"full_name":"Y2FuZGlkYXRlczoyMTkyMDQwMDM=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoyMTkyMDQwMDM=","stage":"Onsite","recruiter":"Nicole Starrantino","days_in_stage":19},{"full_name":"Y2FuZGlkYXRlczoyMjExOTM2MjY=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoyMjExOTM2MjY=","stage":"1st Interview","recruiter":"Val VanderLinden","days_in_stage":18},{"full_name":"Y2FuZGlkYXRlczoxOTA1OTAxNTU=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoxOTA1OTAxNTU=","stage":"1st Interview","recruiter":"Dan Stein","days_in_stage":18},{"full_name":"Y2FuZGlkYXRlczoxNzc4Mzk3NTE=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoxNzc4Mzk3NTE=","stage":"Onsite","recruiter":"Nicole Starrantino","days_in_stage":16},{"full_name":"Y2FuZGlkYXRlczoxODY3Mjg3NTI=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoxODY3Mjg3NTI=","stage":"Onsite","recruiter":"Nicole Starrantino","days_in_stage":16},{"full_name":"Y2FuZGlkYXRlczoyMjExOTM2NjY=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoyMjExOTM2NjY=","stage":"HM Review","recruiter":"Val VanderLinden","days_in_stage":15},{"full_name":"Y2FuZGlkYXRlczoxODcyMzgyMzQ=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoxODcyMzgyMzQ=","stage":"HM Review","recruiter":"Val VanderLinden","days_in_stage":12},{"full_name":"Y2FuZGlkYXRlczoxOTYzNzM1NjE=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoxOTYzNzM1NjE=","stage":"Onsite","recruiter":"Nicole Starrantino","days_in_stage":11},{"full_name":"Y2FuZGlkYXRlczoyMjM2MjM3NzM=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoyMjM2MjM3NzM=","stage":"1st Interview","recruiter":"Nicole Starrantino","days_in_stage":11},{"full_name":"Y2FuZGlkYXRlczoxOTcxNTIwMDM=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoxOTcxNTIwMDM=","stage":"1st Interview","recruiter":"Nicole Starrantino","days_in_stage":11},{"full_name":"Y2FuZGlkYXRlczoxNjc0MDU3MTg=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoxNjc0MDU3MTg=","stage":"1st Interview","recruiter":"Nicole Starrantino","days_in_stage":11},{"full_name":"Y2FuZGlkYXRlczoyMTk4NzMxMzY=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoyMTk4NzMxMzY=","stage":"1st Interview","recruiter":"Nicole Starrantino","days_in_stage":10},{"full_name":"Y2FuZGlkYXRlczoxNjczOTMyMjE=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoxNjczOTMyMjE=","stage":"Recruiter Screen","recruiter":"TJ Lee","days_in_stage":10},{"full_name":"Y2FuZGlkYXRlczoyMjM3MDc0ODY=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoyMjM3MDc0ODY=","stage":"HM Review","recruiter":"Paul Sledd","days_in_stage":10}]},
-    {"name":"Owner","total_active":48,"stage_counts":{"Recruiter Screen":25,"HM Review":6,"1st Interview":8,"2nd Interview":4,"Onsite":5,"Offer":0},"conversion_rates":[{"transition":"Recruiter Screen → HM Review","rate":47.9,"numerator":23,"denominator":48},{"transition":"HM Review → 1st Interview","rate":73.9,"numerator":17,"denominator":23},{"transition":"1st Interview → 2nd Interview","rate":52.9,"numerator":9,"denominator":17},{"transition":"2nd Interview → Onsite","rate":55.6,"numerator":5,"denominator":9},{"transition":"Onsite → Offer","rate":0.0,"numerator":0,"denominator":5}],"aging_candidates":[{"full_name":"Y2FuZGlkYXRlczoxNjczNjIxNDE=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoxNjczNjIxNDE=","stage":"1st Interview","recruiter":"Dan Stein","days_in_stage":286},{"full_name":"Y2FuZGlkYXRlczoxNzEzOTIxNDU=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoxNzEzOTIxNDU=","stage":"Recruiter Screen","recruiter":"Dan Stein","days_in_stage":272},{"full_name":"Y2FuZGlkYXRlczoxOTM2OTYwMzY=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoxOTM2OTYwMzY=","stage":"Recruiter Screen","recruiter":"Dan Stein","days_in_stage":234},{"full_name":"Y2FuZGlkYXRlczoxNjc0MzIyODU=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoxNjc0MzIyODU=","stage":"Recruiter Screen","recruiter":"Dan Stein","days_in_stage":229},{"full_name":"Y2FuZGlkYXRlczoxNjczNDE0MTI=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoxNjczNDE0MTI=","stage":"Recruiter Screen","recruiter":"Dan Stein","days_in_stage":219},{"full_name":"Y2FuZGlkYXRlczoxNjc0Nzk3MzA=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoxNjc0Nzk3MzA=","stage":"Recruiter Screen","recruiter":"Dan Stein","days_in_stage":213},{"full_name":"Y2FuZGlkYXRlczoxNjczOTAyMjY=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoxNjczOTAyMjY=","stage":"Recruiter Screen","recruiter":"Dan Stein","days_in_stage":151},{"full_name":"Y2FuZGlkYXRlczoyMDAxOTcyMjQ=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoyMDAxOTcyMjQ=","stage":"Recruiter Screen","recruiter":"Dan Stein","days_in_stage":151},{"full_name":"Y2FuZGlkYXRlczoxNjc0NzkwMTE=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoxNjc0NzkwMTE=","stage":"Recruiter Screen","recruiter":"Dan Stein","days_in_stage":139},{"full_name":"Y2FuZGlkYXRlczoyMTIzMzg1MDA=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoyMTIzMzg1MDA=","stage":"Recruiter Screen","recruiter":"Dan Stein","days_in_stage":97}]},
-    {"name":"Giga","total_active":31,"stage_counts":{"Recruiter Screen":17,"HM Review":8,"1st Interview":5,"2nd Interview":1,"Onsite":0,"Offer":0},"conversion_rates":[{"transition":"Recruiter Screen → HM Review","rate":45.2,"numerator":14,"denominator":31},{"transition":"HM Review → 1st Interview","rate":42.9,"numerator":6,"denominator":14},{"transition":"1st Interview → 2nd Interview","rate":16.7,"numerator":1,"denominator":6},{"transition":"2nd Interview → Onsite","rate":0.0,"numerator":0,"denominator":1},{"transition":"Onsite → Offer","rate":0.0,"numerator":0,"denominator":0}],"aging_candidates":[{"full_name":"Y2FuZGlkYXRlczoxNjczNTQyMzU=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoxNjczNTQyMzU=","stage":"Recruiter Screen","recruiter":"Meghan Roper","days_in_stage":10}]},
-    {"name":"Hex","total_active":28,"stage_counts":{"Recruiter Screen":14,"HM Review":14,"1st Interview":0,"2nd Interview":0,"Onsite":0,"Offer":0},"conversion_rates":[{"transition":"Recruiter Screen → HM Review","rate":50.0,"numerator":14,"denominator":28},{"transition":"HM Review → 1st Interview","rate":0.0,"numerator":0,"denominator":14},{"transition":"1st Interview → 2nd Interview","rate":0.0,"numerator":0,"denominator":0},{"transition":"2nd Interview → Onsite","rate":0.0,"numerator":0,"denominator":0},{"transition":"Onsite → Offer","rate":0.0,"numerator":0,"denominator":0}],"aging_candidates":[]},
-    {"name":"Known Dating","total_active":27,"stage_counts":{"Recruiter Screen":15,"HM Review":5,"1st Interview":3,"2nd Interview":4,"Onsite":0,"Offer":0},"conversion_rates":[{"transition":"Recruiter Screen → HM Review","rate":44.4,"numerator":12,"denominator":27},{"transition":"HM Review → 1st Interview","rate":58.3,"numerator":7,"denominator":12},{"transition":"1st Interview → 2nd Interview","rate":57.1,"numerator":4,"denominator":7},{"transition":"2nd Interview → Onsite","rate":0.0,"numerator":0,"denominator":4},{"transition":"Onsite → Offer","rate":0.0,"numerator":0,"denominator":0}],"aging_candidates":[{"full_name":"Y2FuZGlkYXRlczoxNjcxMjAyODM=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoxNjcxMjAyODM=","stage":"2nd Interview","recruiter":"Dan Stein","days_in_stage":20}]},
-    {"name":"Eluve","total_active":24,"stage_counts":{"Recruiter Screen":11,"HM Review":9,"1st Interview":3,"2nd Interview":1,"Onsite":0,"Offer":0},"conversion_rates":[{"transition":"Recruiter Screen → HM Review","rate":54.2,"numerator":13,"denominator":24},{"transition":"HM Review → 1st Interview","rate":30.8,"numerator":4,"denominator":13},{"transition":"1st Interview → 2nd Interview","rate":25.0,"numerator":1,"denominator":4},{"transition":"2nd Interview → Onsite","rate":0.0,"numerator":0,"denominator":1},{"transition":"Onsite → Offer","rate":0.0,"numerator":0,"denominator":0}],"aging_candidates":[{"full_name":"Y2FuZGlkYXRlczoyMjEzMjgyMjA=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoyMjEzMjgyMjA=","stage":"HM Review","recruiter":"Kyle Holin","days_in_stage":33}]},
-    {"name":"Base Power","total_active":20,"stage_counts":{"Recruiter Screen":4,"HM Review":3,"1st Interview":10,"2nd Interview":2,"Onsite":1,"Offer":0},"conversion_rates":[{"transition":"Recruiter Screen → HM Review","rate":80.0,"numerator":16,"denominator":20},{"transition":"HM Review → 1st Interview","rate":81.2,"numerator":13,"denominator":16},{"transition":"1st Interview → 2nd Interview","rate":23.1,"numerator":3,"denominator":13},{"transition":"2nd Interview → Onsite","rate":33.3,"numerator":1,"denominator":3},{"transition":"Onsite → Offer","rate":0.0,"numerator":0,"denominator":1}],"aging_candidates":[{"full_name":"Y2FuZGlkYXRlczoyMDI3NzczNTk=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoyMDI3NzczNTk=","stage":"2nd Interview","recruiter":"Kyle Holin","days_in_stage":81}]},
-    {"name":"Afterquery","total_active":20,"stage_counts":{"Recruiter Screen":10,"HM Review":1,"1st Interview":6,"2nd Interview":3,"Onsite":0,"Offer":0},"conversion_rates":[{"transition":"Recruiter Screen → HM Review","rate":50.0,"numerator":10,"denominator":20},{"transition":"HM Review → 1st Interview","rate":90.0,"numerator":9,"denominator":10},{"transition":"1st Interview → 2nd Interview","rate":33.3,"numerator":3,"denominator":9},{"transition":"2nd Interview → Onsite","rate":0.0,"numerator":0,"denominator":3},{"transition":"Onsite → Offer","rate":0.0,"numerator":0,"denominator":0}],"aging_candidates":[{"full_name":"Y2FuZGlkYXRlczoyMTkyNDg1ODE=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoyMTkyNDg1ODE=","stage":"Recruiter Screen","recruiter":"Kyle Holin","days_in_stage":44}]},
-    {"name":"Additive","total_active":18,"stage_counts":{"Recruiter Screen":8,"HM Review":2,"1st Interview":5,"2nd Interview":3,"Onsite":0,"Offer":0},"conversion_rates":[{"transition":"Recruiter Screen → HM Review","rate":55.6,"numerator":10,"denominator":18},{"transition":"HM Review → 1st Interview","rate":80.0,"numerator":8,"denominator":10},{"transition":"1st Interview → 2nd Interview","rate":37.5,"numerator":3,"denominator":8},{"transition":"2nd Interview → Onsite","rate":0.0,"numerator":0,"denominator":3},{"transition":"Onsite → Offer","rate":0.0,"numerator":0,"denominator":0}],"aging_candidates":[{"full_name":"Y2FuZGlkYXRlczoxNjczOTY3Njg=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoxNjczOTY3Njg=","stage":"Recruiter Screen","recruiter":"Sarah Keller","days_in_stage":340}]},
-    {"name":"Fleet","total_active":17,"stage_counts":{"Recruiter Screen":7,"HM Review":2,"1st Interview":7,"2nd Interview":1,"Onsite":0,"Offer":0},"conversion_rates":[{"transition":"Recruiter Screen → HM Review","rate":58.8,"numerator":10,"denominator":17},{"transition":"HM Review → 1st Interview","rate":80.0,"numerator":8,"denominator":10},{"transition":"1st Interview → 2nd Interview","rate":12.5,"numerator":1,"denominator":8},{"transition":"2nd Interview → Onsite","rate":0.0,"numerator":0,"denominator":1},{"transition":"Onsite → Offer","rate":0.0,"numerator":0,"denominator":0}],"aging_candidates":[{"full_name":"Y2FuZGlkYXRlczoxNjc0MDU3MTg=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoxNjc0MDU3MTg=","stage":"1st Interview","recruiter":"Nicole Starrantino","days_in_stage":10}]},
-    {"name":"Endeavor","total_active":16,"stage_counts":{"Recruiter Screen":2,"HM Review":2,"1st Interview":7,"2nd Interview":4,"Onsite":0,"Offer":1},"conversion_rates":[{"transition":"Recruiter Screen → HM Review","rate":87.5,"numerator":14,"denominator":16},{"transition":"HM Review → 1st Interview","rate":85.7,"numerator":12,"denominator":14},{"transition":"1st Interview → 2nd Interview","rate":41.7,"numerator":5,"denominator":12},{"transition":"2nd Interview → Onsite","rate":20.0,"numerator":1,"denominator":5},{"transition":"Onsite → Offer","rate":100.0,"numerator":1,"denominator":1}],"aging_candidates":[{"full_name":"Y2FuZGlkYXRlczoxNjg2MTUxNjk=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoxNjg2MTUxNjk=","stage":"Recruiter Screen","recruiter":"Dan Stein","days_in_stage":40}]},
-    {"name":"Junior","total_active":16,"stage_counts":{"Recruiter Screen":5,"HM Review":0,"1st Interview":10,"2nd Interview":0,"Onsite":1,"Offer":0},"conversion_rates":[{"transition":"Recruiter Screen → HM Review","rate":68.8,"numerator":11,"denominator":16},{"transition":"HM Review → 1st Interview","rate":100.0,"numerator":11,"denominator":11},{"transition":"1st Interview → 2nd Interview","rate":9.1,"numerator":1,"denominator":11},{"transition":"2nd Interview → Onsite","rate":100.0,"numerator":1,"denominator":1},{"transition":"Onsite → Offer","rate":0.0,"numerator":0,"denominator":1}],"aging_candidates":[{"full_name":"Y2FuZGlkYXRlczoyMTQ3NzAxMzg=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoyMTQ3NzAxMzg=","stage":"1st Interview","recruiter":"Val VanderLinden","days_in_stage":27}]},
-    {"name":"Edison Scientific","total_active":15,"stage_counts":{"Recruiter Screen":9,"HM Review":3,"1st Interview":3,"2nd Interview":0,"Onsite":0,"Offer":0},"conversion_rates":[{"transition":"Recruiter Screen → HM Review","rate":40.0,"numerator":6,"denominator":15},{"transition":"HM Review → 1st Interview","rate":50.0,"numerator":3,"denominator":6},{"transition":"1st Interview → 2nd Interview","rate":0.0,"numerator":0,"denominator":3},{"transition":"2nd Interview → Onsite","rate":0.0,"numerator":0,"denominator":0},{"transition":"Onsite → Offer","rate":0.0,"numerator":0,"denominator":0}],"aging_candidates":[{"full_name":"Y2FuZGlkYXRlczoxNjczNDI4NjI=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoxNjczNDI4NjI=","stage":"1st Interview","recruiter":"Ryan Grudnitski","days_in_stage":26}]},
-    {"name":"Bond Studio","total_active":12,"stage_counts":{"Recruiter Screen":3,"HM Review":5,"1st Interview":3,"2nd Interview":1,"Onsite":0,"Offer":0},"conversion_rates":[{"transition":"Recruiter Screen → HM Review","rate":75.0,"numerator":9,"denominator":12},{"transition":"HM Review → 1st Interview","rate":44.4,"numerator":4,"denominator":9},{"transition":"1st Interview → 2nd Interview","rate":25.0,"numerator":1,"denominator":4},{"transition":"2nd Interview → Onsite","rate":0.0,"numerator":0,"denominator":1},{"transition":"Onsite → Offer","rate":0.0,"numerator":0,"denominator":0}],"aging_candidates":[{"full_name":"Y2FuZGlkYXRlczoxODM2OTEzNjQ=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoxODM2OTEzNjQ=","stage":"HM Review","recruiter":"Paul Sledd","days_in_stage":45}]},
-    {"name":"Greater","total_active":11,"stage_counts":{"Recruiter Screen":5,"HM Review":1,"1st Interview":5,"2nd Interview":0,"Onsite":0,"Offer":0},"conversion_rates":[{"transition":"Recruiter Screen → HM Review","rate":54.5,"numerator":6,"denominator":11},{"transition":"HM Review → 1st Interview","rate":83.3,"numerator":5,"denominator":6},{"transition":"1st Interview → 2nd Interview","rate":0.0,"numerator":0,"denominator":5},{"transition":"2nd Interview → Onsite","rate":0.0,"numerator":0,"denominator":0},{"transition":"Onsite → Offer","rate":0.0,"numerator":0,"denominator":0}],"aging_candidates":[{"full_name":"Y2FuZGlkYXRlczoxNjc0MDEzMDY=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoxNjc0MDEzMDY=","stage":"Recruiter Screen","recruiter":"Kavya Ganesh","days_in_stage":531}]},
-    {"name":"DealOps","total_active":11,"stage_counts":{"Recruiter Screen":7,"HM Review":2,"1st Interview":1,"2nd Interview":1,"Onsite":0,"Offer":0},"conversion_rates":[{"transition":"Recruiter Screen → HM Review","rate":36.4,"numerator":4,"denominator":11},{"transition":"HM Review → 1st Interview","rate":50.0,"numerator":2,"denominator":4},{"transition":"1st Interview → 2nd Interview","rate":50.0,"numerator":1,"denominator":2},{"transition":"2nd Interview → Onsite","rate":0.0,"numerator":0,"denominator":1},{"transition":"Onsite → Offer","rate":0.0,"numerator":0,"denominator":0}],"aging_candidates":[{"full_name":"Y2FuZGlkYXRlczoxNjczMzU5Mzc=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoxNjczMzU5Mzc=","stage":"2nd Interview","recruiter":"Sarah Keller","days_in_stage":317}]},
-    {"name":"FeelsMusic","total_active":7,"stage_counts":{"Recruiter Screen":2,"HM Review":1,"1st Interview":2,"2nd Interview":2,"Onsite":0,"Offer":0},"conversion_rates":[{"transition":"Recruiter Screen → HM Review","rate":71.4,"numerator":5,"denominator":7},{"transition":"HM Review → 1st Interview","rate":80.0,"numerator":4,"denominator":5},{"transition":"1st Interview → 2nd Interview","rate":50.0,"numerator":2,"denominator":4},{"transition":"2nd Interview → Onsite","rate":0.0,"numerator":0,"denominator":2},{"transition":"Onsite → Offer","rate":0.0,"numerator":0,"denominator":0}],"aging_candidates":[{"full_name":"Y2FuZGlkYXRlczoxOTg2MDg5OTk=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoxOTg2MDg5OTk=","stage":"2nd Interview","recruiter":"Paul Sledd","days_in_stage":12}]},
-    {"name":"Paraform","total_active":6,"stage_counts":{"Recruiter Screen":2,"HM Review":2,"1st Interview":1,"2nd Interview":1,"Onsite":0,"Offer":0},"conversion_rates":[{"transition":"Recruiter Screen → HM Review","rate":66.7,"numerator":4,"denominator":6},{"transition":"HM Review → 1st Interview","rate":50.0,"numerator":2,"denominator":4},{"transition":"1st Interview → 2nd Interview","rate":50.0,"numerator":1,"denominator":2},{"transition":"2nd Interview → Onsite","rate":0.0,"numerator":0,"denominator":1},{"transition":"Onsite → Offer","rate":0.0,"numerator":0,"denominator":0}],"aging_candidates":[{"full_name":"Y2FuZGlkYXRlczoxNjc0NjM2NDM=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoxNjc0NjM2NDM=","stage":"HM Review","recruiter":"Kyle Holin","days_in_stage":24}]},
-    {"name":"Concourse","total_active":6,"stage_counts":{"Recruiter Screen":1,"HM Review":0,"1st Interview":5,"2nd Interview":0,"Onsite":0,"Offer":0},"conversion_rates":[{"transition":"Recruiter Screen → HM Review","rate":83.3,"numerator":5,"denominator":6},{"transition":"HM Review → 1st Interview","rate":100.0,"numerator":5,"denominator":5},{"transition":"1st Interview → 2nd Interview","rate":0.0,"numerator":0,"denominator":5},{"transition":"2nd Interview → Onsite","rate":0.0,"numerator":0,"denominator":0},{"transition":"Onsite → Offer","rate":0.0,"numerator":0,"denominator":0}],"aging_candidates":[{"full_name":"Y2FuZGlkYXRlczoyMDcxNjA2Njg=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoyMDcxNjA2Njg=","stage":"1st Interview","recruiter":"Shannae Brydon","days_in_stage":20}]},
+    {"name":"Mercor","total_active":102,"stage_counts":{"Recruiter Screen":37,"HM Review":12,"1st Interview":20,"2nd Interview":1,"Onsite":32,"Offer":0},"conversion_rates":[{"transition":"Recruiter Screen \u2192 HM Review","rate":63.7,"numerator":65,"denominator":102},{"transition":"HM Review \u2192 1st Interview","rate":81.5,"numerator":53,"denominator":65},{"transition":"1st Interview \u2192 2nd Interview","rate":62.3,"numerator":33,"denominator":53},{"transition":"2nd Interview \u2192 Onsite","rate":97.0,"numerator":32,"denominator":33},{"transition":"Onsite \u2192 Offer","rate":0.0,"numerator":0,"denominator":32}],"aging_candidates":[{"full_name":"Enming Luo","gem_profile_url":"https://app.gem.com/candidates/206970493","stage":"Onsite","recruiter":"Shannae Brydon","days_in_stage":122},{"full_name":"Navaneet Kadaba","gem_profile_url":"https://app.gem.com/candidates/212589865","stage":"Recruiter Screen","recruiter":"Krystin Warden","days_in_stage":82},{"full_name":"Radhika Parthasarathy","gem_profile_url":"https://app.gem.com/candidates/167438445","stage":"Onsite","recruiter":"Paul Sledd","days_in_stage":77},{"full_name":"Kamil Kisielewicz","gem_profile_url":"https://app.gem.com/candidates/171302936","stage":"Recruiter Screen","recruiter":"Unknown","days_in_stage":77},{"full_name":"Xinghai Hu","gem_profile_url":"https://app.gem.com/candidates/197310959","stage":"Onsite","recruiter":"Ryan Grudnitski","days_in_stage":47},{"full_name":"Vikram Agrawal","gem_profile_url":"https://app.gem.com/candidates/218061483","stage":"Onsite","recruiter":"Ryan Grudnitski","days_in_stage":39},{"full_name":"Vijay A","gem_profile_url":"https://app.gem.com/candidates/167417715","stage":"Onsite","recruiter":"Shannae Brydon","days_in_stage":38},{"full_name":"Lingxiao Wang","gem_profile_url":"https://app.gem.com/candidates/188993694","stage":"Onsite","recruiter":"Nicole Starrantino","days_in_stage":33},{"full_name":"Udit Saxena","gem_profile_url":"https://app.gem.com/candidates/167337211","stage":"Onsite","recruiter":"Paul Sledd","days_in_stage":32},{"full_name":"Aman Dhesi","gem_profile_url":"https://app.gem.com/candidates/204042191","stage":"Onsite","recruiter":"Meghan Roper","days_in_stage":32},{"full_name":"Shashank Srikanth","gem_profile_url":"https://app.gem.com/candidates/181529744","stage":"Onsite","recruiter":"Meghan Roper","days_in_stage":32},{"full_name":"Siddhi Bansal","gem_profile_url":"https://app.gem.com/candidates/207473490","stage":"Onsite","recruiter":"Paul Sledd","days_in_stage":32},{"full_name":"Kanishk Dutta","gem_profile_url":"https://app.gem.com/candidates/221250336","stage":"1st Interview","recruiter":"Nicole Starrantino","days_in_stage":32},{"full_name":"Wangyang Wu","gem_profile_url":"https://app.gem.com/candidates/189703313","stage":"Onsite","recruiter":"Meghan Roper","days_in_stage":31},{"full_name":"Nile J","gem_profile_url":"https://app.gem.com/candidates/192308872","stage":"HM Review","recruiter":"Dan Stein","days_in_stage":27},{"full_name":"Johari Wiggins","gem_profile_url":"https://app.gem.com/candidates/167359467","stage":"Onsite","recruiter":"Shannae Brydon","days_in_stage":25},{"full_name":"Luoshu Wang","gem_profile_url":"https://app.gem.com/candidates/181453138","stage":"Onsite","recruiter":"Shannae Brydon","days_in_stage":23},{"full_name":"Kanika Dutta","gem_profile_url":"https://app.gem.com/candidates/181576812","stage":"Onsite","recruiter":"Nicole Starrantino","days_in_stage":23},{"full_name":"Samuel Cohen","gem_profile_url":"https://app.gem.com/candidates/220777433","stage":"Onsite","recruiter":"Val VanderLinden","days_in_stage":20},{"full_name":"Surbhi Dang","gem_profile_url":"https://app.gem.com/candidates/182191779","stage":"Onsite","recruiter":"Nicole Starrantino","days_in_stage":20},{"full_name":"Taoyuan Wang","gem_profile_url":"https://app.gem.com/candidates/167351483","stage":"HM Review","recruiter":"Shannae Brydon","days_in_stage":20},{"full_name":"Kathan Shah","gem_profile_url":"https://app.gem.com/candidates/181920082","stage":"1st Interview","recruiter":"Ryan Grudnitski","days_in_stage":19},{"full_name":"Tianqi (Nick) Zhao","gem_profile_url":"https://app.gem.com/candidates/217420121","stage":"Recruiter Screen","recruiter":"Kyle Holin","days_in_stage":19},{"full_name":"Xiangyu Ji","gem_profile_url":"https://app.gem.com/candidates/167343980","stage":"Recruiter Screen","recruiter":"Meghan Roper","days_in_stage":19},{"full_name":"Yi Liu","gem_profile_url":"https://app.gem.com/candidates/196625119","stage":"Onsite","recruiter":"Meghan Roper","days_in_stage":18},{"full_name":"Satyam Nikhra","gem_profile_url":"https://app.gem.com/candidates/167363278","stage":"Recruiter Screen","recruiter":"Val VanderLinden","days_in_stage":18},{"full_name":"Prashant Sridhar","gem_profile_url":"https://app.gem.com/candidates/167480179","stage":"Recruiter Screen","recruiter":"Shannae Brydon","days_in_stage":17},{"full_name":"Lance Lin","gem_profile_url":"https://app.gem.com/candidates/167405605","stage":"Recruiter Screen","recruiter":"Dan Stein","days_in_stage":17},{"full_name":"Ryan Lee","gem_profile_url":"https://app.gem.com/candidates/167407691","stage":"Recruiter Screen","recruiter":"Shannae Brydon","days_in_stage":17},{"full_name":"Naman Tyagi","gem_profile_url":"https://app.gem.com/candidates/225018946","stage":"Recruiter Screen","recruiter":"Unknown","days_in_stage":17},{"full_name":"Keya Varia","gem_profile_url":"https://app.gem.com/candidates/196373561","stage":"Onsite","recruiter":"Nicole Starrantino","days_in_stage":16},{"full_name":"Harsh Chobisa","gem_profile_url":"https://app.gem.com/candidates/191839017","stage":"Recruiter Screen","recruiter":"Nicole Starrantino","days_in_stage":16},{"full_name":"Ethan Wu","gem_profile_url":"https://app.gem.com/candidates/222577367","stage":"1st Interview","recruiter":"Nicole Starrantino","days_in_stage":12},{"full_name":"Anagha Srivatsav","gem_profile_url":"https://app.gem.com/candidates/201321258","stage":"HM Review","recruiter":"Nicole Starrantino","days_in_stage":12},{"full_name":"Matthew Nguyen","gem_profile_url":"https://app.gem.com/candidates/226026533","stage":"1st Interview","recruiter":"Ryan Grudnitski","days_in_stage":12},{"full_name":"John Huang","gem_profile_url":"https://app.gem.com/candidates/226184497","stage":"1st Interview","recruiter":"Nicole Starrantino","days_in_stage":12},{"full_name":"Adheesh Chatterjee","gem_profile_url":"https://app.gem.com/candidates/180910904","stage":"Onsite","recruiter":"Nicole Starrantino","days_in_stage":11},{"full_name":"Tejas Pradeep","gem_profile_url":"https://app.gem.com/candidates/199983651","stage":"Onsite","recruiter":"Ryan Grudnitski","days_in_stage":11},{"full_name":"Matteo Agius-D'Arrigo","gem_profile_url":"https://app.gem.com/candidates/176113964","stage":"1st Interview","recruiter":"Shannae Brydon","days_in_stage":11},{"full_name":"Parth Shah","gem_profile_url":"https://app.gem.com/candidates/181920122","stage":"1st Interview","recruiter":"Paul Sledd","days_in_stage":11},{"full_name":"Derek W.","gem_profile_url":"https://app.gem.com/candidates/208858801","stage":"HM Review","recruiter":"Dan Stein","days_in_stage":11},{"full_name":"Swad Kukunooru","gem_profile_url":"https://app.gem.com/candidates/225692069","stage":"HM Review","recruiter":"Meghan Roper","days_in_stage":11},{"full_name":"Tushar Mhalsekar","gem_profile_url":"https://app.gem.com/candidates/191168258","stage":"1st Interview","recruiter":"Krystin Warden","days_in_stage":10},{"full_name":"Stephen Rice","gem_profile_url":"https://app.gem.com/candidates/200605645","stage":"Onsite","recruiter":"Val VanderLinden","days_in_stage":10}]},
+    {"name":"Charta Health","total_active":49,"stage_counts":{"Recruiter Screen":15,"HM Review":5,"1st Interview":18,"2nd Interview":4,"Onsite":7,"Offer":0},"conversion_rates":[{"transition":"Recruiter Screen \u2192 HM Review","rate":69.4,"numerator":34,"denominator":49},{"transition":"HM Review \u2192 1st Interview","rate":85.3,"numerator":29,"denominator":34},{"transition":"1st Interview \u2192 2nd Interview","rate":37.9,"numerator":11,"denominator":29},{"transition":"2nd Interview \u2192 Onsite","rate":63.6,"numerator":7,"denominator":11},{"transition":"Onsite \u2192 Offer","rate":0.0,"numerator":0,"denominator":7}],"aging_candidates":[{"full_name":"Anmol Kaur","gem_profile_url":"https://app.gem.com/candidates/208986402","stage":"1st Interview","recruiter":"Dan Stein","days_in_stage":51},{"full_name":"Aditya Pillai","gem_profile_url":"https://app.gem.com/candidates/200518301","stage":"Recruiter Screen","recruiter":"Val VanderLinden","days_in_stage":45},{"full_name":"Taras Kinash","gem_profile_url":"https://app.gem.com/candidates/167491631","stage":"Recruiter Screen","recruiter":"Val VanderLinden","days_in_stage":37},{"full_name":"Prathamesh Sonawane","gem_profile_url":"https://app.gem.com/candidates/182739055","stage":"Recruiter Screen","recruiter":"Val VanderLinden","days_in_stage":26},{"full_name":"Suyeon Cha","gem_profile_url":"https://app.gem.com/candidates/223861206","stage":"Recruiter Screen","recruiter":"Val VanderLinden","days_in_stage":26},{"full_name":"Zheyong Z","gem_profile_url":"https://app.gem.com/candidates/214014760","stage":"2nd Interview","recruiter":"Meghan Roper","days_in_stage":23},{"full_name":"Ivan Rivera","gem_profile_url":"https://app.gem.com/candidates/210264328","stage":"1st Interview","recruiter":"Val VanderLinden","days_in_stage":23},{"full_name":"Kimberly Collins","gem_profile_url":"https://app.gem.com/candidates/219204003","stage":"Onsite","recruiter":"Nicole Starrantino","days_in_stage":19},{"full_name":"Zach Peter","gem_profile_url":"https://app.gem.com/candidates/221193626","stage":"1st Interview","recruiter":"Val VanderLinden","days_in_stage":18},{"full_name":"Sharhad Bashar","gem_profile_url":"https://app.gem.com/candidates/190590155","stage":"1st Interview","recruiter":"Dan Stein","days_in_stage":18},{"full_name":"William Han","gem_profile_url":"https://app.gem.com/candidates/177839751","stage":"Onsite","recruiter":"Nicole Starrantino","days_in_stage":16},{"full_name":"Nten Nyiam","gem_profile_url":"https://app.gem.com/candidates/186728752","stage":"Onsite","recruiter":"Nicole Starrantino","days_in_stage":16},{"full_name":"Aneesh Pendyala","gem_profile_url":"https://app.gem.com/candidates/221193666","stage":"HM Review","recruiter":"Val VanderLinden","days_in_stage":15},{"full_name":"Bal Krishna Oli","gem_profile_url":"https://app.gem.com/candidates/187238234","stage":"HM Review","recruiter":"Val VanderLinden","days_in_stage":12},{"full_name":"Keya Varia","gem_profile_url":"https://app.gem.com/candidates/196373561","stage":"Onsite","recruiter":"Nicole Starrantino","days_in_stage":11},{"full_name":"Jaidev Mirchandani","gem_profile_url":"https://app.gem.com/candidates/223623773","stage":"1st Interview","recruiter":"Nicole Starrantino","days_in_stage":11},{"full_name":"Jason Nguyen","gem_profile_url":"https://app.gem.com/candidates/197152003","stage":"1st Interview","recruiter":"Nicole Starrantino","days_in_stage":11},{"full_name":"Mariel Aquino","gem_profile_url":"https://app.gem.com/candidates/167405718","stage":"1st Interview","recruiter":"Nicole Starrantino","days_in_stage":11},{"full_name":"Aryan Chaudhary","gem_profile_url":"https://app.gem.com/candidates/219873136","stage":"1st Interview","recruiter":"Nicole Starrantino","days_in_stage":10},{"full_name":"Aneesh Bhansali","gem_profile_url":"https://app.gem.com/candidates/167393221","stage":"Recruiter Screen","recruiter":"TJ Lee","days_in_stage":10},{"full_name":"Emily Ziyi Xiao","gem_profile_url":"https://app.gem.com/candidates/223707486","stage":"HM Review","recruiter":"Paul Sledd","days_in_stage":10}]},
+    {"name":"Owner","total_active":48,"stage_counts":{"Recruiter Screen":25,"HM Review":6,"1st Interview":8,"2nd Interview":4,"Onsite":5,"Offer":0},"conversion_rates":[{"transition":"Recruiter Screen \u2192 HM Review","rate":47.9,"numerator":23,"denominator":48},{"transition":"HM Review \u2192 1st Interview","rate":73.9,"numerator":17,"denominator":23},{"transition":"1st Interview \u2192 2nd Interview","rate":52.9,"numerator":9,"denominator":17},{"transition":"2nd Interview \u2192 Onsite","rate":55.6,"numerator":5,"denominator":9},{"transition":"Onsite \u2192 Offer","rate":0.0,"numerator":0,"denominator":5}],"aging_candidates":[{"full_name":"Pei-yi Lin","gem_profile_url":"https://app.gem.com/candidates/167362141","stage":"1st Interview","recruiter":"Dan Stein","days_in_stage":286},{"full_name":"Michael Yu","gem_profile_url":"https://app.gem.com/candidates/171392145","stage":"Recruiter Screen","recruiter":"Dan Stein","days_in_stage":272},{"full_name":"Navya Sowjanya","gem_profile_url":"https://app.gem.com/candidates/193696036","stage":"Recruiter Screen","recruiter":"Dan Stein","days_in_stage":234},{"full_name":"Dan Hepworth","gem_profile_url":"https://app.gem.com/candidates/167432285","stage":"Recruiter Screen","recruiter":"Dan Stein","days_in_stage":229},{"full_name":"Justin Chen","gem_profile_url":"https://app.gem.com/candidates/167341412","stage":"Recruiter Screen","recruiter":"Dan Stein","days_in_stage":219},{"full_name":"Han Yin","gem_profile_url":"https://app.gem.com/candidates/167479730","stage":"Recruiter Screen","recruiter":"Dan Stein","days_in_stage":213},{"full_name":"Sandesh Chandrashekar","gem_profile_url":"https://app.gem.com/candidates/167390226","stage":"Recruiter Screen","recruiter":"Dan Stein","days_in_stage":151},{"full_name":"Jacob Streckfus","gem_profile_url":"https://app.gem.com/candidates/200197224","stage":"Recruiter Screen","recruiter":"Dan Stein","days_in_stage":151},{"full_name":"Kyle Huang","gem_profile_url":"https://app.gem.com/candidates/167479011","stage":"Recruiter Screen","recruiter":"Dan Stein","days_in_stage":139},{"full_name":"Benjamin Madueme","gem_profile_url":"https://app.gem.com/candidates/212338500","stage":"Recruiter Screen","recruiter":"Dan Stein","days_in_stage":97},{"full_name":"Qi Chen","gem_profile_url":"https://app.gem.com/candidates/167993900","stage":"Recruiter Screen","recruiter":"Dan Stein","days_in_stage":95},{"full_name":"Patrick Hall Wurst","gem_profile_url":"https://app.gem.com/candidates/179252698","stage":"HM Review","recruiter":"Dan Stein","days_in_stage":95},{"full_name":"David Mason","gem_profile_url":"https://app.gem.com/candidates/214438577","stage":"Recruiter Screen","recruiter":"Dan Stein","days_in_stage":81},{"full_name":"Lotanna O","gem_profile_url":"https://app.gem.com/candidates/208974026","stage":"Onsite","recruiter":"Meghan Roper","days_in_stage":52},{"full_name":"Andrew Stokes","gem_profile_url":"https://app.gem.com/candidates/202889603","stage":"1st Interview","recruiter":"Dan Stein","days_in_stage":47},{"full_name":"Lance Huang","gem_profile_url":"https://app.gem.com/candidates/219403032","stage":"HM Review","recruiter":"Dan Stein","days_in_stage":44},{"full_name":"Evan Brunt","gem_profile_url":"https://app.gem.com/candidates/221615942","stage":"1st Interview","recruiter":"Krystin Warden","days_in_stage":25},{"full_name":"Kevin Tian","gem_profile_url":"https://app.gem.com/candidates/208806796","stage":"Recruiter Screen","recruiter":"Krystin Warden","days_in_stage":25},{"full_name":"Yash Tyagi","gem_profile_url":"https://app.gem.com/candidates/201317230","stage":"HM Review","recruiter":"Paul Sledd","days_in_stage":21},{"full_name":"Akash Puri","gem_profile_url":"https://app.gem.com/candidates/212327368","stage":"Onsite","recruiter":"Dan Stein","days_in_stage":20},{"full_name":"Roman Kogan","gem_profile_url":"https://app.gem.com/candidates/176712864","stage":"HM Review","recruiter":"Kyle Holin","days_in_stage":18},{"full_name":"Charlotte Resnick","gem_profile_url":"https://app.gem.com/candidates/167383758","stage":"Recruiter Screen","recruiter":"Kyle Holin","days_in_stage":17},{"full_name":"Nathan Heard","gem_profile_url":"https://app.gem.com/candidates/193543445","stage":"Recruiter Screen","recruiter":"Kyle Holin","days_in_stage":17},{"full_name":"Kayne Khoury","gem_profile_url":"https://app.gem.com/candidates/201707598","stage":"HM Review","recruiter":"Kyle Holin","days_in_stage":17},{"full_name":"Leah McKelvey","gem_profile_url":"https://app.gem.com/candidates/167374167","stage":"Recruiter Screen","recruiter":"Dan Stein","days_in_stage":13},{"full_name":"Maksym Karunos","gem_profile_url":"https://app.gem.com/candidates/207160668","stage":"Onsite","recruiter":"Shannae Brydon","days_in_stage":11},{"full_name":"Dong Xu","gem_profile_url":"https://app.gem.com/candidates/219615067","stage":"Recruiter Screen","recruiter":"Meghan Roper","days_in_stage":11},{"full_name":"Aadhya Puttur","gem_profile_url":"https://app.gem.com/candidates/226294105","stage":"Recruiter Screen","recruiter":"Dan Stein","days_in_stage":11},{"full_name":"Stephen Moon","gem_profile_url":"https://app.gem.com/candidates/204545676","stage":"2nd Interview","recruiter":"Val VanderLinden","days_in_stage":10},{"full_name":"Andrew Trinh","gem_profile_url":"https://app.gem.com/candidates/226531092","stage":"HM Review","recruiter":"Dan Stein","days_in_stage":10}]},
+    {"name":"Giga","total_active":31,"stage_counts":{"Recruiter Screen":17,"HM Review":8,"1st Interview":5,"2nd Interview":1,"Onsite":0,"Offer":0},"conversion_rates":[{"transition":"Recruiter Screen \u2192 HM Review","rate":45.2,"numerator":14,"denominator":31},{"transition":"HM Review \u2192 1st Interview","rate":42.9,"numerator":6,"denominator":14},{"transition":"1st Interview \u2192 2nd Interview","rate":16.7,"numerator":1,"denominator":6},{"transition":"2nd Interview \u2192 Onsite","rate":0.0,"numerator":0,"denominator":1},{"transition":"Onsite \u2192 Offer","rate":0.0,"numerator":0,"denominator":0}],"aging_candidates":[{"full_name":"John W Choi","gem_profile_url":"https://app.gem.com/candidates/167354235","stage":"Recruiter Screen","recruiter":"Meghan Roper","days_in_stage":10}]},
+    {"name":"Hex","total_active":28,"stage_counts":{"Recruiter Screen":14,"HM Review":14,"1st Interview":0,"2nd Interview":0,"Onsite":0,"Offer":0},"conversion_rates":[{"transition":"Recruiter Screen \u2192 HM Review","rate":50.0,"numerator":14,"denominator":28},{"transition":"HM Review \u2192 1st Interview","rate":0.0,"numerator":0,"denominator":14},{"transition":"1st Interview \u2192 2nd Interview","rate":0.0,"numerator":0,"denominator":0},{"transition":"2nd Interview \u2192 Onsite","rate":0.0,"numerator":0,"denominator":0},{"transition":"Onsite \u2192 Offer","rate":0.0,"numerator":0,"denominator":0}],"aging_candidates":[]},
+    {"name":"Known Dating","total_active":27,"stage_counts":{"Recruiter Screen":15,"HM Review":5,"1st Interview":3,"2nd Interview":4,"Onsite":0,"Offer":0},"conversion_rates":[{"transition":"Recruiter Screen \u2192 HM Review","rate":44.4,"numerator":12,"denominator":27},{"transition":"HM Review \u2192 1st Interview","rate":58.3,"numerator":7,"denominator":12},{"transition":"1st Interview \u2192 2nd Interview","rate":57.1,"numerator":4,"denominator":7},{"transition":"2nd Interview \u2192 Onsite","rate":0.0,"numerator":0,"denominator":4},{"transition":"Onsite \u2192 Offer","rate":0.0,"numerator":0,"denominator":0}],"aging_candidates":[{"full_name":"Noah Appel","gem_profile_url":"https://app.gem.com/candidates/167120283","stage":"2nd Interview","recruiter":"Dan Stein","days_in_stage":20},{"full_name":"Riti Agarwal","gem_profile_url":"https://app.gem.com/candidates/196463121","stage":"HM Review","recruiter":"Paul Sledd","days_in_stage":13},{"full_name":"Vaishnavi Sagar","gem_profile_url":"https://app.gem.com/candidates/222209918","stage":"HM Review","recruiter":"Paul Sledd","days_in_stage":13},{"full_name":"Dongbin Alistaire Suh","gem_profile_url":"https://app.gem.com/candidates/179212234","stage":"Recruiter Screen","recruiter":"Dan Stein","days_in_stage":12},{"full_name":"Derek C.","gem_profile_url":"https://app.gem.com/candidates/173355237","stage":"Recruiter Screen","recruiter":"Shannae Brydon","days_in_stage":12},{"full_name":"Stephen Moon","gem_profile_url":"https://app.gem.com/candidates/204545676","stage":"2nd Interview","recruiter":"Val VanderLinden","days_in_stage":11},{"full_name":"Pranav Rao","gem_profile_url":"https://app.gem.com/candidates/167351118","stage":"Recruiter Screen","recruiter":"Meghan Roper","days_in_stage":11},{"full_name":"Juzheng Li","gem_profile_url":"https://app.gem.com/candidates/224903190","stage":"2nd Interview","recruiter":"Dan Stein","days_in_stage":11},{"full_name":"Aditya Bhat","gem_profile_url":"https://app.gem.com/candidates/180263260","stage":"Recruiter Screen","recruiter":"Meghan Roper","days_in_stage":11},{"full_name":"Adil S","gem_profile_url":"https://app.gem.com/candidates/167363066","stage":"HM Review","recruiter":"Krystin Warden","days_in_stage":10},{"full_name":"Mariel Aquino","gem_profile_url":"https://app.gem.com/candidates/167405718","stage":"1st Interview","recruiter":"Nicole Starrantino","days_in_stage":10},{"full_name":"David Campbell","gem_profile_url":"https://app.gem.com/candidates/223572513","stage":"HM Review","recruiter":"Dan Stein","days_in_stage":10},{"full_name":"Siddhant Dubey","gem_profile_url":"https://app.gem.com/candidates/200007953","stage":"HM Review","recruiter":"Dan Stein","days_in_stage":10},{"full_name":"Carter Peyton","gem_profile_url":"https://app.gem.com/candidates/167410514","stage":"Recruiter Screen","recruiter":"Krystin Warden","days_in_stage":10}]},
+    {"name":"Eluve","total_active":24,"stage_counts":{"Recruiter Screen":11,"HM Review":9,"1st Interview":3,"2nd Interview":1,"Onsite":0,"Offer":0},"conversion_rates":[{"transition":"Recruiter Screen \u2192 HM Review","rate":54.2,"numerator":13,"denominator":24},{"transition":"HM Review \u2192 1st Interview","rate":30.8,"numerator":4,"denominator":13},{"transition":"1st Interview \u2192 2nd Interview","rate":25.0,"numerator":1,"denominator":4},{"transition":"2nd Interview \u2192 Onsite","rate":0.0,"numerator":0,"denominator":1},{"transition":"Onsite \u2192 Offer","rate":0.0,"numerator":0,"denominator":0}],"aging_candidates":[{"full_name":"Kimiko Mitchell","gem_profile_url":"https://app.gem.com/candidates/221328220","stage":"HM Review","recruiter":"Kyle Holin","days_in_stage":33},{"full_name":"Aimee Stephenson","gem_profile_url":"https://app.gem.com/candidates/221528146","stage":"HM Review","recruiter":"Kyle Holin","days_in_stage":32},{"full_name":"Sriram Natarajan","gem_profile_url":"https://app.gem.com/candidates/207805614","stage":"Recruiter Screen","recruiter":"Shannae Brydon","days_in_stage":31},{"full_name":"Fan Gui","gem_profile_url":"https://app.gem.com/candidates/167353611","stage":"HM Review","recruiter":"Kyle Holin","days_in_stage":27},{"full_name":"Libby (Eyre) Mattimore","gem_profile_url":"https://app.gem.com/candidates/204400503","stage":"HM Review","recruiter":"Kyle Holin","days_in_stage":27},{"full_name":"Nathan Zanzig","gem_profile_url":"https://app.gem.com/candidates/221479016","stage":"HM Review","recruiter":"Kyle Holin","days_in_stage":27},{"full_name":"Benjamin Evans","gem_profile_url":"https://app.gem.com/candidates/222612079","stage":"Recruiter Screen","recruiter":"Val VanderLinden","days_in_stage":25},{"full_name":"Emily Fuller","gem_profile_url":"https://app.gem.com/candidates/221517706","stage":"HM Review","recruiter":"Kyle Holin","days_in_stage":24},{"full_name":"Zach Blank","gem_profile_url":"https://app.gem.com/candidates/167364777","stage":"HM Review","recruiter":"Kyle Holin","days_in_stage":24},{"full_name":"Xiaoyan Wang","gem_profile_url":"https://app.gem.com/candidates/204396829","stage":"Recruiter Screen","recruiter":"Kyle Holin","days_in_stage":19},{"full_name":"Reilly Brown","gem_profile_url":"https://app.gem.com/candidates/167388595","stage":"Recruiter Screen","recruiter":"Kyle Holin","days_in_stage":19},{"full_name":"Lucca Cary","gem_profile_url":"https://app.gem.com/candidates/221533252","stage":"Recruiter Screen","recruiter":"Kyle Holin","days_in_stage":19},{"full_name":"Sarah Crotty","gem_profile_url":"https://app.gem.com/candidates/167353250","stage":"Recruiter Screen","recruiter":"Kyle Holin","days_in_stage":19},{"full_name":"Sophia Son","gem_profile_url":"https://app.gem.com/candidates/221747817","stage":"HM Review","recruiter":"Kyle Holin","days_in_stage":18},{"full_name":"Rosie (Neibel) Crowley","gem_profile_url":"https://app.gem.com/candidates/221328840","stage":"Recruiter Screen","recruiter":"Kyle Holin","days_in_stage":17},{"full_name":"Caden Garrett","gem_profile_url":"https://app.gem.com/candidates/224052289","stage":"1st Interview","recruiter":"Kyle Holin","days_in_stage":12},{"full_name":"Danielle Magrogan","gem_profile_url":"https://app.gem.com/candidates/167465355","stage":"Recruiter Screen","recruiter":"Shannae Brydon","days_in_stage":12},{"full_name":"Roger Rodriguez","gem_profile_url":"https://app.gem.com/candidates/167403624","stage":"HM Review","recruiter":"Shannae Brydon","days_in_stage":11},{"full_name":"Ryan Dushane","gem_profile_url":"https://app.gem.com/candidates/188811307","stage":"2nd Interview","recruiter":"Ryan Grudnitski","days_in_stage":10},{"full_name":"Tracy Sassaman","gem_profile_url":"https://app.gem.com/candidates/222612617","stage":"Recruiter Screen","recruiter":"Val VanderLinden","days_in_stage":10}]},
+    {"name":"Base Power","total_active":20,"stage_counts":{"Recruiter Screen":4,"HM Review":3,"1st Interview":10,"2nd Interview":2,"Onsite":1,"Offer":0},"conversion_rates":[{"transition":"Recruiter Screen \u2192 HM Review","rate":80.0,"numerator":16,"denominator":20},{"transition":"HM Review \u2192 1st Interview","rate":81.2,"numerator":13,"denominator":16},{"transition":"1st Interview \u2192 2nd Interview","rate":23.1,"numerator":3,"denominator":13},{"transition":"2nd Interview \u2192 Onsite","rate":33.3,"numerator":1,"denominator":3},{"transition":"Onsite \u2192 Offer","rate":0.0,"numerator":0,"denominator":1}],"aging_candidates":[{"full_name":"Ian P","gem_profile_url":"https://app.gem.com/candidates/202777359","stage":"2nd Interview","recruiter":"Kyle Holin","days_in_stage":81},{"full_name":"Vikas Sirwal","gem_profile_url":"https://app.gem.com/candidates/167386611","stage":"HM Review","recruiter":"Dan Stein","days_in_stage":73},{"full_name":"Brennan Rouhana","gem_profile_url":"https://app.gem.com/candidates/208892891","stage":"HM Review","recruiter":"Kyle Holin","days_in_stage":31},{"full_name":"KERRY CALLAHAN","gem_profile_url":"https://app.gem.com/candidates/222908909","stage":"1st Interview","recruiter":"Dan Stein","days_in_stage":30},{"full_name":"Sam Weinberger","gem_profile_url":"https://app.gem.com/candidates/167419459","stage":"1st Interview","recruiter":"Dan Stein","days_in_stage":27},{"full_name":"Evan A Roney","gem_profile_url":"https://app.gem.com/candidates/222427068","stage":"1st Interview","recruiter":"Dan Stein","days_in_stage":27},{"full_name":"Samuel Zaduk","gem_profile_url":"https://app.gem.com/candidates/222215090","stage":"1st Interview","recruiter":"Dan Stein","days_in_stage":27},{"full_name":"MICHELLE BALLESTEROS","gem_profile_url":"https://app.gem.com/candidates/222496382","stage":"Recruiter Screen","recruiter":"Dan Stein","days_in_stage":26},{"full_name":"Taylor Wilson","gem_profile_url":"https://app.gem.com/candidates/223861272","stage":"Recruiter Screen","recruiter":"Dan Stein","days_in_stage":26},{"full_name":"Albert Morlan","gem_profile_url":"https://app.gem.com/candidates/201533429","stage":"Recruiter Screen","recruiter":"Dan Stein","days_in_stage":26},{"full_name":"Viren Velacheri","gem_profile_url":"https://app.gem.com/candidates/190206985","stage":"1st Interview","recruiter":"Dan Stein","days_in_stage":18},{"full_name":"Vladimir Kovac","gem_profile_url":"https://app.gem.com/candidates/167382317","stage":"Recruiter Screen","recruiter":"Dan Stein","days_in_stage":17},{"full_name":"Jason Hobbs","gem_profile_url":"https://app.gem.com/candidates/224992045","stage":"HM Review","recruiter":"Kyle Holin","days_in_stage":17},{"full_name":"Vivek Gade","gem_profile_url":"https://app.gem.com/candidates/205779636","stage":"1st Interview","recruiter":"Dan Stein","days_in_stage":17}]},
+    {"name":"Afterquery","total_active":20,"stage_counts":{"Recruiter Screen":10,"HM Review":1,"1st Interview":6,"2nd Interview":3,"Onsite":0,"Offer":0},"conversion_rates":[{"transition":"Recruiter Screen \u2192 HM Review","rate":50.0,"numerator":10,"denominator":20},{"transition":"HM Review \u2192 1st Interview","rate":90.0,"numerator":9,"denominator":10},{"transition":"1st Interview \u2192 2nd Interview","rate":33.3,"numerator":3,"denominator":9},{"transition":"2nd Interview \u2192 Onsite","rate":0.0,"numerator":0,"denominator":3},{"transition":"Onsite \u2192 Offer","rate":0.0,"numerator":0,"denominator":0}],"aging_candidates":[{"full_name":"Inchara Srinivasa","gem_profile_url":"https://app.gem.com/candidates/219248581","stage":"Recruiter Screen","recruiter":"Kyle Holin","days_in_stage":44},{"full_name":"Karnan Rajendran","gem_profile_url":"https://app.gem.com/candidates/172255894","stage":"Recruiter Screen","recruiter":"Kyle Holin","days_in_stage":44},{"full_name":"Siddhi Bansal","gem_profile_url":"https://app.gem.com/candidates/207473490","stage":"1st Interview","recruiter":"Paul Sledd","days_in_stage":43},{"full_name":"Haijing ZHANG","gem_profile_url":"https://app.gem.com/candidates/216815216","stage":"Recruiter Screen","recruiter":"Val VanderLinden","days_in_stage":32},{"full_name":"Shreya Vinjamuri","gem_profile_url":"https://app.gem.com/candidates/197584980","stage":"Recruiter Screen","recruiter":"Val VanderLinden","days_in_stage":30},{"full_name":"Vendy Prum","gem_profile_url":"https://app.gem.com/candidates/167364948","stage":"Recruiter Screen","recruiter":"Val VanderLinden","days_in_stage":30},{"full_name":"Aneesh Pendyala","gem_profile_url":"https://app.gem.com/candidates/221193666","stage":"HM Review","recruiter":"Val VanderLinden","days_in_stage":27},{"full_name":"Siddhant Satapathy","gem_profile_url":"https://app.gem.com/candidates/167342862","stage":"1st Interview","recruiter":"Ryan Grudnitski","days_in_stage":26},{"full_name":"AIGERIM (AJ) ASKERGALI","gem_profile_url":"https://app.gem.com/candidates/197582760","stage":"1st Interview","recruiter":"Shannae Brydon","days_in_stage":24},{"full_name":"Anay Bhakat","gem_profile_url":"https://app.gem.com/candidates/219309227","stage":"2nd Interview","recruiter":"Paul Sledd","days_in_stage":21},{"full_name":"Samuel Cohen","gem_profile_url":"https://app.gem.com/candidates/220777433","stage":"2nd Interview","recruiter":"Val VanderLinden","days_in_stage":20},{"full_name":"Kaushik Pulgari","gem_profile_url":"https://app.gem.com/candidates/197570859","stage":"2nd Interview","recruiter":"Paul Sledd","days_in_stage":17}]},
+    {"name":"Additive","total_active":18,"stage_counts":{"Recruiter Screen":8,"HM Review":2,"1st Interview":5,"2nd Interview":3,"Onsite":0,"Offer":0},"conversion_rates":[{"transition":"Recruiter Screen \u2192 HM Review","rate":55.6,"numerator":10,"denominator":18},{"transition":"HM Review \u2192 1st Interview","rate":80.0,"numerator":8,"denominator":10},{"transition":"1st Interview \u2192 2nd Interview","rate":37.5,"numerator":3,"denominator":8},{"transition":"2nd Interview \u2192 Onsite","rate":0.0,"numerator":0,"denominator":3},{"transition":"Onsite \u2192 Offer","rate":0.0,"numerator":0,"denominator":0}],"aging_candidates":[{"full_name":"Jashwanth Madem","gem_profile_url":"https://app.gem.com/candidates/167396768","stage":"Recruiter Screen","recruiter":"Sarah Keller","days_in_stage":340},{"full_name":"Guangyu Yang","gem_profile_url":"https://app.gem.com/candidates/187760488","stage":"1st Interview","recruiter":"Nicole Starrantino","days_in_stage":74},{"full_name":"Chinyet Lin","gem_profile_url":"https://app.gem.com/candidates/206954886","stage":"Recruiter Screen","recruiter":"Shannae Brydon","days_in_stage":45},{"full_name":"Chong Li","gem_profile_url":"https://app.gem.com/candidates/189803256","stage":"2nd Interview","recruiter":"Paul Sledd","days_in_stage":37},{"full_name":"Prashant Gadagi","gem_profile_url":"https://app.gem.com/candidates/167654608","stage":"Recruiter Screen","recruiter":"Shannae Brydon","days_in_stage":20},{"full_name":"Gabriel Underwood","gem_profile_url":"https://app.gem.com/candidates/178175051","stage":"Recruiter Screen","recruiter":"Ryan Grudnitski","days_in_stage":19},{"full_name":"Dhruvika Sahni","gem_profile_url":"https://app.gem.com/candidates/167362178","stage":"2nd Interview","recruiter":"Paul Sledd","days_in_stage":18},{"full_name":"John Nguyen","gem_profile_url":"https://app.gem.com/candidates/181156041","stage":"Recruiter Screen","recruiter":"Kyle Holin","days_in_stage":17},{"full_name":"Bharath Ramaprasad","gem_profile_url":"https://app.gem.com/candidates/167382472","stage":"1st Interview","recruiter":"Meghan Roper","days_in_stage":16},{"full_name":"Animesh Kumar Singh Bhadouria","gem_profile_url":"https://app.gem.com/candidates/207522145","stage":"Recruiter Screen","recruiter":"Shannae Brydon","days_in_stage":12},{"full_name":"John Patrick Lewis","gem_profile_url":"https://app.gem.com/candidates/167356139","stage":"Recruiter Screen","recruiter":"Kyle Holin","days_in_stage":11},{"full_name":"Xiaoxiao Li","gem_profile_url":"https://app.gem.com/candidates/182604177","stage":"1st Interview","recruiter":"Paul Sledd","days_in_stage":10}]},
+    {"name":"Fleet","total_active":17,"stage_counts":{"Recruiter Screen":7,"HM Review":2,"1st Interview":7,"2nd Interview":1,"Onsite":0,"Offer":0},"conversion_rates":[{"transition":"Recruiter Screen \u2192 HM Review","rate":58.8,"numerator":10,"denominator":17},{"transition":"HM Review \u2192 1st Interview","rate":80.0,"numerator":8,"denominator":10},{"transition":"1st Interview \u2192 2nd Interview","rate":12.5,"numerator":1,"denominator":8},{"transition":"2nd Interview \u2192 Onsite","rate":0.0,"numerator":0,"denominator":1},{"transition":"Onsite \u2192 Offer","rate":0.0,"numerator":0,"denominator":0}],"aging_candidates":[{"full_name":"Mariel Aquino","gem_profile_url":"https://app.gem.com/candidates/167405718","stage":"1st Interview","recruiter":"Nicole Starrantino","days_in_stage":10},{"full_name":"Elshad Mustafayev","gem_profile_url":"https://app.gem.com/candidates/183498053","stage":"Recruiter Screen","recruiter":"Ryan Grudnitski","days_in_stage":10}]},
+    {"name":"Endeavor","total_active":16,"stage_counts":{"Recruiter Screen":2,"HM Review":2,"1st Interview":7,"2nd Interview":4,"Onsite":0,"Offer":1},"conversion_rates":[{"transition":"Recruiter Screen \u2192 HM Review","rate":87.5,"numerator":14,"denominator":16},{"transition":"HM Review \u2192 1st Interview","rate":85.7,"numerator":12,"denominator":14},{"transition":"1st Interview \u2192 2nd Interview","rate":41.7,"numerator":5,"denominator":12},{"transition":"2nd Interview \u2192 Onsite","rate":20.0,"numerator":1,"denominator":5},{"transition":"Onsite \u2192 Offer","rate":100.0,"numerator":1,"denominator":1}],"aging_candidates":[{"full_name":"Julian Perez","gem_profile_url":"https://app.gem.com/candidates/168615169","stage":"Recruiter Screen","recruiter":"Dan Stein","days_in_stage":40},{"full_name":"Tianchen Wang","gem_profile_url":"https://app.gem.com/candidates/189545667","stage":"1st Interview","recruiter":"Shannae Brydon","days_in_stage":32},{"full_name":"You Z.","gem_profile_url":"https://app.gem.com/candidates/167352397","stage":"1st Interview","recruiter":"Dan Stein","days_in_stage":26},{"full_name":"Nicholas Lin","gem_profile_url":"https://app.gem.com/candidates/167405336","stage":"Recruiter Screen","recruiter":"Dan Stein","days_in_stage":26},{"full_name":"Stephen Moon","gem_profile_url":"https://app.gem.com/candidates/204545676","stage":"1st Interview","recruiter":"Val VanderLinden","days_in_stage":18},{"full_name":"Vaishnavi Sagar","gem_profile_url":"https://app.gem.com/candidates/222209918","stage":"HM Review","recruiter":"Paul Sledd","days_in_stage":10}]},
+    {"name":"Junior","total_active":16,"stage_counts":{"Recruiter Screen":5,"HM Review":0,"1st Interview":10,"2nd Interview":0,"Onsite":1,"Offer":0},"conversion_rates":[{"transition":"Recruiter Screen \u2192 HM Review","rate":68.8,"numerator":11,"denominator":16},{"transition":"HM Review \u2192 1st Interview","rate":100.0,"numerator":11,"denominator":11},{"transition":"1st Interview \u2192 2nd Interview","rate":9.1,"numerator":1,"denominator":11},{"transition":"2nd Interview \u2192 Onsite","rate":100.0,"numerator":1,"denominator":1},{"transition":"Onsite \u2192 Offer","rate":0.0,"numerator":0,"denominator":1}],"aging_candidates":[{"full_name":"Eli Kugelsky","gem_profile_url":"https://app.gem.com/candidates/214770138","stage":"1st Interview","recruiter":"Val VanderLinden","days_in_stage":27},{"full_name":"Benjamin Xu","gem_profile_url":"https://app.gem.com/candidates/188937131","stage":"Recruiter Screen","recruiter":"Val VanderLinden","days_in_stage":20},{"full_name":"Alice Liang","gem_profile_url":"https://app.gem.com/candidates/222939757","stage":"Recruiter Screen","recruiter":"Nicole Starrantino","days_in_stage":19},{"full_name":"Luke Halko","gem_profile_url":"https://app.gem.com/candidates/222629098","stage":"1st Interview","recruiter":"Val VanderLinden","days_in_stage":18},{"full_name":"Leo Lien","gem_profile_url":"https://app.gem.com/candidates/212674889","stage":"1st Interview","recruiter":"Val VanderLinden","days_in_stage":17},{"full_name":"Matteo Agius-D'Arrigo","gem_profile_url":"https://app.gem.com/candidates/176113964","stage":"1st Interview","recruiter":"Shannae Brydon","days_in_stage":11},{"full_name":"Anthony Diké","gem_profile_url":"https://app.gem.com/candidates/194916953","stage":"1st Interview","recruiter":"Nicole Starrantino","days_in_stage":11},{"full_name":"Mariel Aquino","gem_profile_url":"https://app.gem.com/candidates/167405718","stage":"1st Interview","recruiter":"Nicole Starrantino","days_in_stage":11}]},
+    {"name":"Edison Scientific","total_active":15,"stage_counts":{"Recruiter Screen":9,"HM Review":3,"1st Interview":3,"2nd Interview":0,"Onsite":0,"Offer":0},"conversion_rates":[{"transition":"Recruiter Screen \u2192 HM Review","rate":40.0,"numerator":6,"denominator":15},{"transition":"HM Review \u2192 1st Interview","rate":50.0,"numerator":3,"denominator":6},{"transition":"1st Interview \u2192 2nd Interview","rate":0.0,"numerator":0,"denominator":3},{"transition":"2nd Interview \u2192 Onsite","rate":0.0,"numerator":0,"denominator":0},{"transition":"Onsite \u2192 Offer","rate":0.0,"numerator":0,"denominator":0}],"aging_candidates":[{"full_name":"Siddhant Satapathy","gem_profile_url":"https://app.gem.com/candidates/167342862","stage":"1st Interview","recruiter":"Ryan Grudnitski","days_in_stage":26},{"full_name":"Joshua Jansen-Montoya","gem_profile_url":"https://app.gem.com/candidates/219334741","stage":"Recruiter Screen","recruiter":"Krystin Warden","days_in_stage":19},{"full_name":"Nitish Natarajan","gem_profile_url":"https://app.gem.com/candidates/188069073","stage":"1st Interview","recruiter":"Ryan Grudnitski","days_in_stage":19},{"full_name":"Monica Bellare","gem_profile_url":"https://app.gem.com/candidates/167342467","stage":"Recruiter Screen","recruiter":"Ryan Grudnitski","days_in_stage":17},{"full_name":"Sherwin Soroushian","gem_profile_url":"https://app.gem.com/candidates/220195753","stage":"Recruiter Screen","recruiter":"Krystin Warden","days_in_stage":16},{"full_name":"William W.","gem_profile_url":"https://app.gem.com/candidates/218187348","stage":"Recruiter Screen","recruiter":"Krystin Warden","days_in_stage":16},{"full_name":"Anmol Kaur","gem_profile_url":"https://app.gem.com/candidates/208986402","stage":"1st Interview","recruiter":"Ryan Grudnitski","days_in_stage":13},{"full_name":"Alissa Vuillier","gem_profile_url":"https://app.gem.com/candidates/179037053","stage":"Recruiter Screen","recruiter":"Krystin Warden","days_in_stage":13},{"full_name":"Konstantin Rud","gem_profile_url":"https://app.gem.com/candidates/180613323","stage":"Recruiter Screen","recruiter":"Ryan Grudnitski","days_in_stage":13},{"full_name":"Max Dykhuizen","gem_profile_url":"https://app.gem.com/candidates/189613207","stage":"HM Review","recruiter":"Ryan Grudnitski","days_in_stage":12},{"full_name":"Neelay Das","gem_profile_url":"https://app.gem.com/candidates/175937434","stage":"HM Review","recruiter":"Krystin Warden","days_in_stage":10}]},
+    {"name":"Bond Studio","total_active":12,"stage_counts":{"Recruiter Screen":3,"HM Review":5,"1st Interview":3,"2nd Interview":1,"Onsite":0,"Offer":0},"conversion_rates":[{"transition":"Recruiter Screen \u2192 HM Review","rate":75.0,"numerator":9,"denominator":12},{"transition":"HM Review \u2192 1st Interview","rate":44.4,"numerator":4,"denominator":9},{"transition":"1st Interview \u2192 2nd Interview","rate":25.0,"numerator":1,"denominator":4},{"transition":"2nd Interview \u2192 Onsite","rate":0.0,"numerator":0,"denominator":1},{"transition":"Onsite \u2192 Offer","rate":0.0,"numerator":0,"denominator":0}],"aging_candidates":[{"full_name":"Tong Gao","gem_profile_url":"https://app.gem.com/candidates/183691364","stage":"HM Review","recruiter":"Paul Sledd","days_in_stage":45},{"full_name":"Bharath Ramaprasad","gem_profile_url":"https://app.gem.com/candidates/167382472","stage":"1st Interview","recruiter":"Meghan Roper","days_in_stage":44},{"full_name":"Yu Hu","gem_profile_url":"https://app.gem.com/candidates/167422597","stage":"1st Interview","recruiter":"Paul Sledd","days_in_stage":42},{"full_name":"Jobanjot Sidhu","gem_profile_url":"https://app.gem.com/candidates/179376382","stage":"1st Interview","recruiter":"Paul Sledd","days_in_stage":37},{"full_name":"Kangning Hu","gem_profile_url":"https://app.gem.com/candidates/167341139","stage":"2nd Interview","recruiter":"Meghan Roper","days_in_stage":33},{"full_name":"Maksym Karunos","gem_profile_url":"https://app.gem.com/candidates/207160668","stage":"HM Review","recruiter":"Shannae Brydon","days_in_stage":26},{"full_name":"Dachao Li","gem_profile_url":"https://app.gem.com/candidates/167358229","stage":"HM Review","recruiter":"Shannae Brydon","days_in_stage":11}]},
+    {"name":"Greater","total_active":11,"stage_counts":{"Recruiter Screen":5,"HM Review":1,"1st Interview":5,"2nd Interview":0,"Onsite":0,"Offer":0},"conversion_rates":[{"transition":"Recruiter Screen \u2192 HM Review","rate":54.5,"numerator":6,"denominator":11},{"transition":"HM Review \u2192 1st Interview","rate":83.3,"numerator":5,"denominator":6},{"transition":"1st Interview \u2192 2nd Interview","rate":0.0,"numerator":0,"denominator":5},{"transition":"2nd Interview \u2192 Onsite","rate":0.0,"numerator":0,"denominator":0},{"transition":"Onsite \u2192 Offer","rate":0.0,"numerator":0,"denominator":0}],"aging_candidates":[{"full_name":"Sumanth Neerumalla","gem_profile_url":"https://app.gem.com/candidates/167401306","stage":"Recruiter Screen","recruiter":"Kavya Ganesh","days_in_stage":531},{"full_name":"Nikita Chepik","gem_profile_url":"https://app.gem.com/candidates/167399880","stage":"1st Interview","recruiter":"Dan Stein","days_in_stage":510},{"full_name":"Alex Chaparro","gem_profile_url":"https://app.gem.com/candidates/167345097","stage":"Recruiter Screen","recruiter":"Kavya Ganesh","days_in_stage":501},{"full_name":"Anand N","gem_profile_url":"https://app.gem.com/candidates/167330474","stage":"1st Interview","recruiter":"Kavya Ganesh","days_in_stage":479},{"full_name":"Paul Ricks","gem_profile_url":"https://app.gem.com/candidates/167499953","stage":"Recruiter Screen","recruiter":"Kavya Ganesh","days_in_stage":474},{"full_name":"Ryan Chan","gem_profile_url":"https://app.gem.com/candidates/167373576","stage":"1st Interview","recruiter":"Kavya Ganesh","days_in_stage":466},{"full_name":"Josh Dimarsky","gem_profile_url":"https://app.gem.com/candidates/167499913","stage":"Recruiter Screen","recruiter":"Kavya Ganesh","days_in_stage":465},{"full_name":"Yannis Tzemos","gem_profile_url":"https://app.gem.com/candidates/167499822","stage":"Recruiter Screen","recruiter":"Kavya Ganesh","days_in_stage":446},{"full_name":"Anthony D'Alessandro","gem_profile_url":"https://app.gem.com/candidates/167341298","stage":"1st Interview","recruiter":"Dan Stein","days_in_stage":230},{"full_name":"Daniel K.","gem_profile_url":"https://app.gem.com/candidates/167436476","stage":"HM Review","recruiter":"Dan Stein","days_in_stage":180}]},
+    {"name":"DealOps","total_active":11,"stage_counts":{"Recruiter Screen":7,"HM Review":2,"1st Interview":1,"2nd Interview":1,"Onsite":0,"Offer":0},"conversion_rates":[{"transition":"Recruiter Screen \u2192 HM Review","rate":36.4,"numerator":4,"denominator":11},{"transition":"HM Review \u2192 1st Interview","rate":50.0,"numerator":2,"denominator":4},{"transition":"1st Interview \u2192 2nd Interview","rate":50.0,"numerator":1,"denominator":2},{"transition":"2nd Interview \u2192 Onsite","rate":0.0,"numerator":0,"denominator":1},{"transition":"Onsite \u2192 Offer","rate":0.0,"numerator":0,"denominator":0}],"aging_candidates":[{"full_name":"Joanie Hollberg","gem_profile_url":"https://app.gem.com/candidates/167335937","stage":"2nd Interview","recruiter":"Sarah Keller","days_in_stage":317},{"full_name":"Sukh Sangha","gem_profile_url":"https://app.gem.com/candidates/167417161","stage":"Recruiter Screen","recruiter":"Meghan Roper","days_in_stage":11},{"full_name":"Benjamin Zou","gem_profile_url":"https://app.gem.com/candidates/203798570","stage":"HM Review","recruiter":"Meghan Roper","days_in_stage":11}]},
+    {"name":"FeelsMusic","total_active":7,"stage_counts":{"Recruiter Screen":2,"HM Review":1,"1st Interview":2,"2nd Interview":2,"Onsite":0,"Offer":0},"conversion_rates":[{"transition":"Recruiter Screen \u2192 HM Review","rate":71.4,"numerator":5,"denominator":7},{"transition":"HM Review \u2192 1st Interview","rate":80.0,"numerator":4,"denominator":5},{"transition":"1st Interview \u2192 2nd Interview","rate":50.0,"numerator":2,"denominator":4},{"transition":"2nd Interview \u2192 Onsite","rate":0.0,"numerator":0,"denominator":2},{"transition":"Onsite \u2192 Offer","rate":0.0,"numerator":0,"denominator":0}],"aging_candidates":[{"full_name":"Pranav Jain","gem_profile_url":"https://app.gem.com/candidates/198608999","stage":"2nd Interview","recruiter":"Paul Sledd","days_in_stage":12},{"full_name":"Ryan Dushane","gem_profile_url":"https://app.gem.com/candidates/188811307","stage":"2nd Interview","recruiter":"Ryan Grudnitski","days_in_stage":10}]},
+    {"name":"Paraform","total_active":6,"stage_counts":{"Recruiter Screen":2,"HM Review":2,"1st Interview":1,"2nd Interview":1,"Onsite":0,"Offer":0},"conversion_rates":[{"transition":"Recruiter Screen \u2192 HM Review","rate":66.7,"numerator":4,"denominator":6},{"transition":"HM Review \u2192 1st Interview","rate":50.0,"numerator":2,"denominator":4},{"transition":"1st Interview \u2192 2nd Interview","rate":50.0,"numerator":1,"denominator":2},{"transition":"2nd Interview \u2192 Onsite","rate":0.0,"numerator":0,"denominator":1},{"transition":"Onsite \u2192 Offer","rate":0.0,"numerator":0,"denominator":0}],"aging_candidates":[{"full_name":"Prateek Mehrotra","gem_profile_url":"https://app.gem.com/candidates/167463643","stage":"HM Review","recruiter":"Kyle Holin","days_in_stage":24},{"full_name":"Julia Y.","gem_profile_url":"https://app.gem.com/candidates/222879313","stage":"Recruiter Screen","recruiter":"Krystin Warden","days_in_stage":19},{"full_name":"William Chang","gem_profile_url":"https://app.gem.com/candidates/181017802","stage":"Recruiter Screen","recruiter":"Shannae Brydon","days_in_stage":17},{"full_name":"Myles Gámez","gem_profile_url":"https://app.gem.com/candidates/167483666","stage":"HM Review","recruiter":"TJ Lee","days_in_stage":10}]},
+    {"name":"Concourse","total_active":6,"stage_counts":{"Recruiter Screen":1,"HM Review":0,"1st Interview":5,"2nd Interview":0,"Onsite":0,"Offer":0},"conversion_rates":[{"transition":"Recruiter Screen \u2192 HM Review","rate":83.3,"numerator":5,"denominator":6},{"transition":"HM Review \u2192 1st Interview","rate":100.0,"numerator":5,"denominator":5},{"transition":"1st Interview \u2192 2nd Interview","rate":0.0,"numerator":0,"denominator":5},{"transition":"2nd Interview \u2192 Onsite","rate":0.0,"numerator":0,"denominator":0},{"transition":"Onsite \u2192 Offer","rate":0.0,"numerator":0,"denominator":0}],"aging_candidates":[{"full_name":"Maksym Karunos","gem_profile_url":"https://app.gem.com/candidates/207160668","stage":"1st Interview","recruiter":"Shannae Brydon","days_in_stage":20},{"full_name":"Arystan Tatishev","gem_profile_url":"https://app.gem.com/candidates/222411382","stage":"Recruiter Screen","recruiter":"Val VanderLinden","days_in_stage":20},{"full_name":"Eli Kugelsky","gem_profile_url":"https://app.gem.com/candidates/214770138","stage":"1st Interview","recruiter":"Val VanderLinden","days_in_stage":17},{"full_name":"Stephen Moon","gem_profile_url":"https://app.gem.com/candidates/204545676","stage":"1st Interview","recruiter":"Val VanderLinden","days_in_stage":17},{"full_name":"Aadesh Bajaj","gem_profile_url":"https://app.gem.com/candidates/203010067","stage":"1st Interview","recruiter":"Val VanderLinden","days_in_stage":13}]},
     {"name":"BuildOps","total_active":5,"stage_counts":{"Recruiter Screen":3,"HM Review":1,"1st Interview":1,"2nd Interview":0,"Onsite":0,"Offer":0},"conversion_rates":[],"aging_candidates":[]},
-    {"name":"Airtop","total_active":4,"stage_counts":{"Recruiter Screen":1,"HM Review":1,"1st Interview":2,"2nd Interview":0,"Onsite":0,"Offer":0},"conversion_rates":[{"transition":"Recruiter Screen → HM Review","rate":75.0,"numerator":3,"denominator":4},{"transition":"HM Review → 1st Interview","rate":66.7,"numerator":2,"denominator":3},{"transition":"1st Interview → 2nd Interview","rate":0.0,"numerator":0,"denominator":2},{"transition":"2nd Interview → Onsite","rate":0.0,"numerator":0,"denominator":0},{"transition":"Onsite → Offer","rate":0.0,"numerator":0,"denominator":0}],"aging_candidates":[{"full_name":"Y2FuZGlkYXRlczoxNjc0NTQ3NTQ=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoxNjc0NTQ3NTQ=","stage":"1st Interview","recruiter":"Krystin Warden","days_in_stage":25}]},
-    {"name":"GPTZero","total_active":4,"stage_counts":{"Recruiter Screen":1,"HM Review":1,"1st Interview":0,"2nd Interview":0,"Onsite":1,"Offer":1},"conversion_rates":[{"transition":"Recruiter Screen → HM Review","rate":75.0,"numerator":3,"denominator":4},{"transition":"HM Review → 1st Interview","rate":66.7,"numerator":2,"denominator":3},{"transition":"1st Interview → 2nd Interview","rate":100.0,"numerator":2,"denominator":2},{"transition":"2nd Interview → Onsite","rate":100.0,"numerator":2,"denominator":2},{"transition":"Onsite → Offer","rate":50.0,"numerator":1,"denominator":2}],"aging_candidates":[{"full_name":"Y2FuZGlkYXRlczoyMTAyNjQ5ODY=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoyMTAyNjQ5ODY=","stage":"Recruiter Screen","recruiter":"Val VanderLinden","days_in_stage":37}]},
-    {"name":"Phia","total_active":4,"stage_counts":{"Recruiter Screen":1,"HM Review":0,"1st Interview":3,"2nd Interview":0,"Onsite":0,"Offer":0},"conversion_rates":[],"aging_candidates":[{"full_name":"Y2FuZGlkYXRlczoxNjczNzg0NzA=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoxNjczNzg0NzA=","stage":"Recruiter Screen","recruiter":"Val VanderLinden","days_in_stage":23}]},
-    {"name":"Antimetal","total_active":3,"stage_counts":{"Recruiter Screen":1,"HM Review":0,"1st Interview":1,"2nd Interview":0,"Onsite":1,"Offer":0},"conversion_rates":[],"aging_candidates":[{"full_name":"Y2FuZGlkYXRlczoxNjc0MzU4MTg=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoxNjc0MzU4MTg=","stage":"Recruiter Screen","recruiter":"Dan Stein","days_in_stage":17}]},
-    {"name":"Twingate","total_active":3,"stage_counts":{"Recruiter Screen":0,"HM Review":0,"1st Interview":0,"2nd Interview":2,"Onsite":1,"Offer":0},"conversion_rates":[],"aging_candidates":[{"full_name":"Y2FuZGlkYXRlczoyMTc2NDExNTk=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoyMTc2NDExNTk=","stage":"2nd Interview","recruiter":"Dan Stein","days_in_stage":26}]},
-    {"name":"FutureHouse","total_active":2,"stage_counts":{"Recruiter Screen":1,"HM Review":1,"1st Interview":0,"2nd Interview":0,"Onsite":0,"Offer":0},"conversion_rates":[],"aging_candidates":[{"full_name":"Y2FuZGlkYXRlczoxODg5NzI2MDU=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoxODg5NzI2MDU=","stage":"HM Review","recruiter":"Ryan Grudnitski","days_in_stage":107}]},
-    {"name":"Frec","total_active":2,"stage_counts":{"Recruiter Screen":0,"HM Review":1,"1st Interview":0,"2nd Interview":1,"Onsite":0,"Offer":0},"conversion_rates":[],"aging_candidates":[{"full_name":"Y2FuZGlkYXRlczoxNjczODI0NzI=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoxNjczODI0NzI=","stage":"2nd Interview","recruiter":"Meghan Roper","days_in_stage":25}]},
-    {"name":"Moonlake Labs","total_active":2,"stage_counts":{"Recruiter Screen":0,"HM Review":2,"1st Interview":0,"2nd Interview":0,"Onsite":0,"Offer":0},"conversion_rates":[],"aging_candidates":[{"full_name":"Y2FuZGlkYXRlczoxODk3MDMzMTM=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoxODk3MDMzMTM=","stage":"HM Review","recruiter":"Meghan Roper","days_in_stage":38}]},
+    {"name":"Airtop","total_active":4,"stage_counts":{"Recruiter Screen":1,"HM Review":1,"1st Interview":2,"2nd Interview":0,"Onsite":0,"Offer":0},"conversion_rates":[{"transition":"Recruiter Screen \u2192 HM Review","rate":75.0,"numerator":3,"denominator":4},{"transition":"HM Review \u2192 1st Interview","rate":66.7,"numerator":2,"denominator":3},{"transition":"1st Interview \u2192 2nd Interview","rate":0.0,"numerator":0,"denominator":2},{"transition":"2nd Interview \u2192 Onsite","rate":0.0,"numerator":0,"denominator":0},{"transition":"Onsite \u2192 Offer","rate":0.0,"numerator":0,"denominator":0}],"aging_candidates":[{"full_name":"Neha Mehrotra","gem_profile_url":"https://app.gem.com/candidates/167454754","stage":"1st Interview","recruiter":"Krystin Warden","days_in_stage":25},{"full_name":"Carmen DeCouto","gem_profile_url":"https://app.gem.com/candidates/222660011","stage":"1st Interview","recruiter":"Krystin Warden","days_in_stage":25},{"full_name":"Nicole Sun, CMRP","gem_profile_url":"https://app.gem.com/candidates/218076163","stage":"HM Review","recruiter":"Krystin Warden","days_in_stage":20},{"full_name":"Shilpi Srivastava","gem_profile_url":"https://app.gem.com/candidates/225206600","stage":"Recruiter Screen","recruiter":"TJ Lee","days_in_stage":18}]},
+    {"name":"GPTZero","total_active":4,"stage_counts":{"Recruiter Screen":1,"HM Review":1,"1st Interview":0,"2nd Interview":0,"Onsite":1,"Offer":1},"conversion_rates":[{"transition":"Recruiter Screen \u2192 HM Review","rate":75.0,"numerator":3,"denominator":4},{"transition":"HM Review \u2192 1st Interview","rate":66.7,"numerator":2,"denominator":3},{"transition":"1st Interview \u2192 2nd Interview","rate":100.0,"numerator":2,"denominator":2},{"transition":"2nd Interview \u2192 Onsite","rate":100.0,"numerator":2,"denominator":2},{"transition":"Onsite \u2192 Offer","rate":50.0,"numerator":1,"denominator":2}],"aging_candidates":[{"full_name":"Jeevan Mokkala","gem_profile_url":"https://app.gem.com/candidates/210264986","stage":"Recruiter Screen","recruiter":"Val VanderLinden","days_in_stage":37},{"full_name":"Albert Ho","gem_profile_url":"https://app.gem.com/candidates/167378470","stage":"HM Review","recruiter":"Val VanderLinden","days_in_stage":23}]},
+    {"name":"Phia","total_active":4,"stage_counts":{"Recruiter Screen":1,"HM Review":0,"1st Interview":3,"2nd Interview":0,"Onsite":0,"Offer":0},"conversion_rates":[],"aging_candidates":[{"full_name":"Albert Ho","gem_profile_url":"https://app.gem.com/candidates/167378470","stage":"Recruiter Screen","recruiter":"Val VanderLinden","days_in_stage":23},{"full_name":"Stephen Moon","gem_profile_url":"https://app.gem.com/candidates/204545676","stage":"1st Interview","recruiter":"Val VanderLinden","days_in_stage":16}]},
+    {"name":"Antimetal","total_active":3,"stage_counts":{"Recruiter Screen":1,"HM Review":0,"1st Interview":1,"2nd Interview":0,"Onsite":1,"Offer":0},"conversion_rates":[],"aging_candidates":[{"full_name":"Nook Harquail","gem_profile_url":"https://app.gem.com/candidates/167435818","stage":"Recruiter Screen","recruiter":"Dan Stein","days_in_stage":17},{"full_name":"Matteo Agius-D'Arrigo","gem_profile_url":"https://app.gem.com/candidates/176113964","stage":"1st Interview","recruiter":"Shannae Brydon","days_in_stage":11}]},
+    {"name":"Twingate","total_active":3,"stage_counts":{"Recruiter Screen":0,"HM Review":0,"1st Interview":0,"2nd Interview":2,"Onsite":1,"Offer":0},"conversion_rates":[],"aging_candidates":[{"full_name":"Puja Wheeldon","gem_profile_url":"https://app.gem.com/candidates/217641159","stage":"2nd Interview","recruiter":"Dan Stein","days_in_stage":26},{"full_name":"David L.","gem_profile_url":"https://app.gem.com/candidates/218347736","stage":"2nd Interview","recruiter":"Dan Stein","days_in_stage":25}]},
+    {"name":"FutureHouse","total_active":2,"stage_counts":{"Recruiter Screen":1,"HM Review":1,"1st Interview":0,"2nd Interview":0,"Onsite":0,"Offer":0},"conversion_rates":[],"aging_candidates":[{"full_name":"Benjamin K Chang","gem_profile_url":"https://app.gem.com/candidates/188972605","stage":"HM Review","recruiter":"Ryan Grudnitski","days_in_stage":107},{"full_name":"Jason Liu","gem_profile_url":"https://app.gem.com/candidates/167418446","stage":"Recruiter Screen","recruiter":"Ryan Grudnitski","days_in_stage":107}]},
+    {"name":"Frec","total_active":2,"stage_counts":{"Recruiter Screen":0,"HM Review":1,"1st Interview":0,"2nd Interview":1,"Onsite":0,"Offer":0},"conversion_rates":[],"aging_candidates":[{"full_name":"Bharath Ramaprasad","gem_profile_url":"https://app.gem.com/candidates/167382472","stage":"2nd Interview","recruiter":"Meghan Roper","days_in_stage":25},{"full_name":"Maksym Karunos","gem_profile_url":"https://app.gem.com/candidates/207160668","stage":"HM Review","recruiter":"Shannae Brydon","days_in_stage":23}]},
+    {"name":"Moonlake Labs","total_active":2,"stage_counts":{"Recruiter Screen":0,"HM Review":2,"1st Interview":0,"2nd Interview":0,"Onsite":0,"Offer":0},"conversion_rates":[],"aging_candidates":[{"full_name":"Wangyang Wu","gem_profile_url":"https://app.gem.com/candidates/189703313","stage":"HM Review","recruiter":"Meghan Roper","days_in_stage":38},{"full_name":"Om Saran","gem_profile_url":"https://app.gem.com/candidates/188788314","stage":"HM Review","recruiter":"Shannae Brydon","days_in_stage":38}]},
     {"name":"ChatBCC","total_active":1,"stage_counts":{"Recruiter Screen":1,"HM Review":0,"1st Interview":0,"2nd Interview":0,"Onsite":0,"Offer":0},"conversion_rates":[],"aging_candidates":[]},
-    {"name":"Weave Bio","total_active":1,"stage_counts":{"Recruiter Screen":0,"HM Review":0,"1st Interview":0,"2nd Interview":1,"Onsite":0,"Offer":0},"conversion_rates":[],"aging_candidates":[{"full_name":"Y2FuZGlkYXRlczoxOTg3NDQ2Mjk=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoxOTg3NDQ2Mjk=","stage":"2nd Interview","recruiter":"Nicole Starrantino","days_in_stage":10}]},
+    {"name":"Weave Bio","total_active":1,"stage_counts":{"Recruiter Screen":0,"HM Review":0,"1st Interview":0,"2nd Interview":1,"Onsite":0,"Offer":0},"conversion_rates":[],"aging_candidates":[{"full_name":"Liren Zhu","gem_profile_url":"https://app.gem.com/candidates/198744629","stage":"2nd Interview","recruiter":"Nicole Starrantino","days_in_stage":10}]},
     {"name":"Basis","total_active":1,"stage_counts":{"Recruiter Screen":0,"HM Review":0,"1st Interview":1,"2nd Interview":0,"Onsite":0,"Offer":0},"conversion_rates":[],"aging_candidates":[]},
     {"name":"Weave","total_active":1,"stage_counts":{"Recruiter Screen":0,"HM Review":1,"1st Interview":0,"2nd Interview":0,"Onsite":0,"Offer":0},"conversion_rates":[],"aging_candidates":[]},
     {"name":"Modus","total_active":1,"stage_counts":{"Recruiter Screen":0,"HM Review":0,"1st Interview":1,"2nd Interview":0,"Onsite":0,"Offer":0},"conversion_rates":[],"aging_candidates":[]},
     {"name":"unitQ","total_active":1,"stage_counts":{"Recruiter Screen":0,"HM Review":0,"1st Interview":1,"2nd Interview":0,"Onsite":0,"Offer":0},"conversion_rates":[],"aging_candidates":[]}
   ],
   "recruiters": [
-    {"name":"Meghan Roper","submissions_this_week":41,"submissions_last_week":null,"total_active":75,"stage_counts":{"Recruiter Screen":34,"HM Review":9,"1st Interview":14,"2nd Interview":8,"Onsite":10,"Offer":0},"fy_onsites":10,"fy_offers":0,"submissions_by_client":[{"client":"Giga","count":16},{"client":"Mercor","count":14},{"client":"Known Dating","count":9},{"client":"Bond Studio","count":5},{"client":"Charta Health","count":5}],"aging_candidates":[{"full_name":"Y2FuZGlkYXRlczoyMDg5NzQwMjY=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoyMDg5NzQwMjY=","client":"Owner","stage":"Onsite","days_in_stage":52},{"full_name":"Y2FuZGlkYXRlczoxNjczODI0NzI=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoxNjczODI0NzI=","client":"Bond Studio","stage":"1st Interview","days_in_stage":44},{"full_name":"Y2FuZGlkYXRlczoxODk3MDMzMTM=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoxODk3MDMzMTM=","client":"Moonlake Labs","stage":"HM Review","days_in_stage":38},{"full_name":"Y2FuZGlkYXRlczoxNjczNDExMzk=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoxNjczNDExMzk=","client":"Bond Studio","stage":"2nd Interview","days_in_stage":33},{"full_name":"Y2FuZGlkYXRlczoyMDQwNDIxOTE=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoyMDQwNDIxOTE=","client":"Mercor","stage":"Onsite","days_in_stage":32}]},
-    {"name":"Dan Stein","submissions_this_week":39,"submissions_last_week":null,"total_active":71,"stage_counts":{"Recruiter Screen":32,"HM Review":11,"1st Interview":20,"2nd Interview":5,"Onsite":2,"Offer":1},"fy_onsites":2,"fy_offers":1,"submissions_by_client":[{"client":"Owner","count":19},{"client":"Base Power","count":14},{"client":"Known Dating","count":8},{"client":"DealOps","count":5},{"client":"Greater","count":4}],"aging_candidates":[{"full_name":"Y2FuZGlkYXRlczoxNjczOTk4ODA=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoxNjczOTk4ODA=","client":"Greater","stage":"1st Interview","days_in_stage":510},{"full_name":"Y2FuZGlkYXRlczoxNjczNjIxNDE=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoxNjczNjIxNDE=","client":"Owner","stage":"1st Interview","days_in_stage":286},{"full_name":"Y2FuZGlkYXRlczoxNzEzOTIxNDU=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoxNzEzOTIxNDU=","client":"Owner","stage":"Recruiter Screen","days_in_stage":272},{"full_name":"Y2FuZGlkYXRlczoxOTM2OTYwMzY=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoxOTM2OTYwMzY=","client":"Owner","stage":"Recruiter Screen","days_in_stage":234},{"full_name":"Y2FuZGlkYXRlczoxNjczNDEyOTg=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoxNjczNDEyOTg=","client":"Greater","stage":"1st Interview","days_in_stage":230}]},
-    {"name":"Krystin Warden","submissions_this_week":27,"submissions_last_week":null,"total_active":66,"stage_counts":{"Recruiter Screen":39,"HM Review":10,"1st Interview":14,"2nd Interview":3,"Onsite":0,"Offer":0},"fy_onsites":0,"fy_offers":0,"submissions_by_client":[{"client":"Mercor","count":14},{"client":"Hex","count":14},{"client":"Owner","count":9},{"client":"Edison Scientific","count":7},{"client":"Fleet","count":5}],"aging_candidates":[{"full_name":"Y2FuZGlkYXRlczoyMTI1ODk4NjU=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoyMTI1ODk4NjU=","client":"Mercor","stage":"Recruiter Screen","days_in_stage":82},{"full_name":"Y2FuZGlkYXRlczoxNjc0NTQ3NTQ=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoxNjc0NTQ3NTQ=","client":"Airtop","stage":"1st Interview","days_in_stage":25},{"full_name":"Y2FuZGlkYXRlczoyMjE2MTU5NDI=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoyMjE2MTU5NDI=","client":"Owner","stage":"1st Interview","days_in_stage":25},{"full_name":"Y2FuZGlkYXRlczoyMjI2NjAwMTE=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoyMjI2NjAwMTE=","client":"Airtop","stage":"1st Interview","days_in_stage":25},{"full_name":"Y2FuZGlkYXRlczoyMDg4MDY3OTY=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoyMDg4MDY3OTY=","client":"Owner","stage":"Recruiter Screen","days_in_stage":25}]},
-    {"name":"Val VanderLinden","submissions_this_week":32,"submissions_last_week":null,"total_active":61,"stage_counts":{"Recruiter Screen":29,"HM Review":7,"1st Interview":17,"2nd Interview":5,"Onsite":3,"Offer":0},"fy_onsites":3,"fy_offers":0,"submissions_by_client":[{"client":"Charta Health","count":11},{"client":"Mercor","count":10},{"client":"Junior","count":8},{"client":"Afterquery","count":6},{"client":"Owner","count":5}],"aging_candidates":[{"full_name":"Y2FuZGlkYXRlczoyMDA1MTgzMDE=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoyMDA1MTgzMDE=","client":"Charta Health","stage":"Recruiter Screen","days_in_stage":45},{"full_name":"Y2FuZGlkYXRlczoyMTAyNjQ5ODY=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoyMTAyNjQ5ODY=","client":"GPTZero","stage":"Recruiter Screen","days_in_stage":37},{"full_name":"Y2FuZGlkYXRlczoxNjc0OTE2MzE=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoxNjc0OTE2MzE=","client":"Charta Health","stage":"Recruiter Screen","days_in_stage":37},{"full_name":"Y2FuZGlkYXRlczoyMTY4MTUyMTY=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoyMTY4MTUyMTY=","client":"Afterquery","stage":"Recruiter Screen","days_in_stage":32},{"full_name":"Y2FuZGlkYXRlczoxOTc1ODQ5ODA=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoxOTc1ODQ5ODA=","client":"Afterquery","stage":"Recruiter Screen","days_in_stage":30}]},
-    {"name":"Nicole Starrantino","submissions_this_week":47,"submissions_last_week":null,"total_active":58,"stage_counts":{"Recruiter Screen":11,"HM Review":2,"1st Interview":25,"2nd Interview":4,"Onsite":16,"Offer":0},"fy_onsites":16,"fy_offers":0,"submissions_by_client":[{"client":"Mercor","count":19},{"client":"Charta Health","count":13},{"client":"Junior","count":6},{"client":"Known Dating","count":2},{"client":"Fleet","count":2}],"aging_candidates":[{"full_name":"Y2FuZGlkYXRlczoxODc3NjA0ODg=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoxODc3NjA0ODg=","client":"Additive","stage":"1st Interview","days_in_stage":74},{"full_name":"Y2FuZGlkYXRlczoxODg5OTM2OTQ=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoxODg5OTM2OTQ=","client":"Mercor","stage":"Onsite","days_in_stage":33},{"full_name":"Y2FuZGlkYXRlczoyMjEyNTAzMzY=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoyMjEyNTAzMzY=","client":"Mercor","stage":"1st Interview","days_in_stage":32},{"full_name":"Y2FuZGlkYXRlczoxODE1NzY4MTI=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoxODE1NzY4MTI=","client":"Mercor","stage":"Onsite","days_in_stage":23},{"full_name":"Y2FuZGlkYXRlczoxODIxOTE3Nzk=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoxODIxOTE3Nzk=","client":"Mercor","stage":"Onsite","days_in_stage":20}]},
-    {"name":"Paul Sledd","submissions_this_week":44,"submissions_last_week":null,"total_active":46,"stage_counts":{"Recruiter Screen":2,"HM Review":17,"1st Interview":14,"2nd Interview":5,"Onsite":7,"Offer":1},"fy_onsites":7,"fy_offers":1,"submissions_by_client":[{"client":"Mercor","count":12},{"client":"Hex","count":8},{"client":"Additive","count":5},{"client":"Afterquery","count":3},{"client":"Bond Studio","count":3}],"aging_candidates":[{"full_name":"Y2FuZGlkYXRlczoxNjc0Mzg0NDU=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoxNjc0Mzg0NDU=","client":"Mercor","stage":"Onsite","days_in_stage":77},{"full_name":"Y2FuZGlkYXRlczoxODM2OTEzNjQ=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoxODM2OTEzNjQ=","client":"Bond Studio","stage":"HM Review","days_in_stage":45},{"full_name":"Y2FuZGlkYXRlczoyMDc0NzM0OTA=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoyMDc0NzM0OTA=","client":"Afterquery","stage":"1st Interview","days_in_stage":43},{"full_name":"Y2FuZGlkYXRlczoxNjc0MjI1OTc=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoxNjc0MjI1OTc=","client":"Bond Studio","stage":"1st Interview","days_in_stage":42},{"full_name":"Y2FuZGlkYXRlczoxODk4MDMyNTY=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoxODk4MDMyNTY=","client":"Additive","stage":"2nd Interview","days_in_stage":37}]},
-    {"name":"Shannae Brydon","submissions_this_week":25,"submissions_last_week":null,"total_active":38,"stage_counts":{"Recruiter Screen":13,"HM Review":8,"1st Interview":10,"2nd Interview":1,"Onsite":6,"Offer":0},"fy_onsites":6,"fy_offers":0,"submissions_by_client":[{"client":"Mercor","count":11},{"client":"Owner","count":4},{"client":"Additive","count":3},{"client":"Eluve","count":3},{"client":"Afterquery","count":2}],"aging_candidates":[{"full_name":"Y2FuZGlkYXRlczoyMDY5NzA0OTM=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoyMDY5NzA0OTM=","client":"Mercor","stage":"Onsite","days_in_stage":122},{"full_name":"Y2FuZGlkYXRlczoyMDY5NTQ4ODY=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoyMDY5NTQ4ODY=","client":"Additive","stage":"Recruiter Screen","days_in_stage":45},{"full_name":"Y2FuZGlkYXRlczoxNjc0MTc3MTU=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoxNjc0MTc3MTU=","client":"Mercor","stage":"Onsite","days_in_stage":38},{"full_name":"Y2FuZGlkYXRlczoxODg3ODgzMTQ=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoxODg3ODgzMTQ=","client":"Moonlake Labs","stage":"HM Review","days_in_stage":38},{"full_name":"Y2FuZGlkYXRlczoxODk1NDU2Njc=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoxODk1NDU2Njc=","client":"Endeavor","stage":"1st Interview","days_in_stage":32}]},
-    {"name":"Kyle Holin","submissions_this_week":22,"submissions_last_week":null,"total_active":35,"stage_counts":{"Recruiter Screen":13,"HM Review":17,"1st Interview":2,"2nd Interview":2,"Onsite":1,"Offer":0},"fy_onsites":1,"fy_offers":0,"submissions_by_client":[{"client":"Eluve","count":15},{"client":"Owner","count":4},{"client":"Base Power","count":4},{"client":"Afterquery","count":2},{"client":"Additive","count":2}],"aging_candidates":[{"full_name":"Y2FuZGlkYXRlczoyMDI3NzczNTk=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoyMDI3NzczNTk=","client":"Base Power","stage":"2nd Interview","days_in_stage":81},{"full_name":"Y2FuZGlkYXRlczoyMTkyNDg1ODE=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoyMTkyNDg1ODE=","client":"Afterquery","stage":"Recruiter Screen","days_in_stage":44},{"full_name":"Y2FuZGlkYXRlczoxNzIyNTU4OTQ=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoxNzIyNTU4OTQ=","client":"Afterquery","stage":"Recruiter Screen","days_in_stage":44},{"full_name":"Y2FuZGlkYXRlczoyMjEzMjgyMjA=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoyMjEzMjgyMjA=","client":"Eluve","stage":"HM Review","days_in_stage":33},{"full_name":"Y2FuZGlkYXRlczoyMjE1MjgxNDY=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoyMjE1MjgxNDY=","client":"Eluve","stage":"HM Review","days_in_stage":32}]},
-    {"name":"Ryan Grudnitski","submissions_this_week":17,"submissions_last_week":null,"total_active":27,"stage_counts":{"Recruiter Screen":10,"HM Review":3,"1st Interview":9,"2nd Interview":2,"Onsite":3,"Offer":0},"fy_onsites":3,"fy_offers":0,"submissions_by_client":[{"client":"Edison Scientific","count":8},{"client":"Mercor","count":7},{"client":"Fleet","count":4},{"client":"FutureHouse","count":2},{"client":"Afterquery","count":1}],"aging_candidates":[{"full_name":"Y2FuZGlkYXRlczoxODg5NzI2MDU=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoxODg5NzI2MDU=","client":"FutureHouse","stage":"HM Review","days_in_stage":107},{"full_name":"Y2FuZGlkYXRlczoxNjc0MTg0NDY=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoxNjc0MTg0NDY=","client":"FutureHouse","stage":"Recruiter Screen","days_in_stage":107},{"full_name":"Y2FuZGlkYXRlczoxOTczMTA5NTk=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoxOTczMTA5NTk=","client":"Mercor","stage":"Onsite","days_in_stage":47},{"full_name":"Y2FuZGlkYXRlczoyMTgwNjE0ODM=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoyMTgwNjE0ODM=","client":"Mercor","stage":"Onsite","days_in_stage":39},{"full_name":"Y2FuZGlkYXRlczoxNjczNDI4NjI=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoxNjczNDI4NjI=","client":"Afterquery","stage":"1st Interview","days_in_stage":26}]},
-    {"name":"TJ Lee","submissions_this_week":13,"submissions_last_week":null,"total_active":25,"stage_counts":{"Recruiter Screen":12,"HM Review":7,"1st Interview":5,"2nd Interview":0,"Onsite":1,"Offer":0},"fy_onsites":1,"fy_offers":0,"submissions_by_client":[{"client":"Charta Health","count":12},{"client":"Mercor","count":5},{"client":"Additive","count":2},{"client":"Airtop","count":1},{"client":"Paraform","count":1}],"aging_candidates":[{"full_name":"Y2FuZGlkYXRlczoyMjUyMDY2MDA=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoyMjUyMDY2MDA=","client":"Airtop","stage":"Recruiter Screen","days_in_stage":18},{"full_name":"Y2FuZGlkYXRlczoxNjczOTMyMjE=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoxNjczOTMyMjE=","client":"Charta Health","stage":"Recruiter Screen","days_in_stage":10},{"full_name":"Y2FuZGlkYXRlczoxNjc0ODM2NjY=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoxNjc0ODM2NjY=","client":"Paraform","stage":"HM Review","days_in_stage":10}]},
-    {"name":"Kavya Ganesh","submissions_this_week":2,"submissions_last_week":null,"total_active":7,"stage_counts":{"Recruiter Screen":5,"HM Review":0,"1st Interview":2,"2nd Interview":0,"Onsite":0,"Offer":0},"fy_onsites":0,"fy_offers":0,"submissions_by_client":[{"client":"Greater","count":7}],"aging_candidates":[{"full_name":"Y2FuZGlkYXRlczoxNjc0MDEzMDY=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoxNjc0MDEzMDY=","client":"Greater","stage":"Recruiter Screen","days_in_stage":531},{"full_name":"Y2FuZGlkYXRlczoxNjczNDUwOTc=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoxNjczNDUwOTc=","client":"Greater","stage":"Recruiter Screen","days_in_stage":501},{"full_name":"Y2FuZGlkYXRlczoxNjczMzA0NzQ=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoxNjczMzA0NzQ=","client":"Greater","stage":"1st Interview","days_in_stage":479},{"full_name":"Y2FuZGlkYXRlczoxNjc0OTk5NTM=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoxNjc0OTk5NTM=","client":"Greater","stage":"Recruiter Screen","days_in_stage":474},{"full_name":"Y2FuZGlkYXRlczoxNjczNzM1NzY=","gem_profile_url":"","candidate_id":"Y2FuZGlkYXRlczoxNjczNzM1NzY=","client":"Greater","stage":"1st Interview","days_in_stage":466}]}
+    {"name":"Meghan Roper","submissions_this_week":41,"submissions_last_week":null,"weekly_submissions_history":[],"total_active":75,"stage_counts":{"Recruiter Screen":34,"HM Review":9,"1st Interview":14,"2nd Interview":8,"Onsite":10,"Offer":0},"fy_onsites":10,"fy_offers":0,"win_rates":{"submitted_to_onsite":24.4,"submitted_to_offer":0.0},"submissions_by_client":[{"client":"Giga","count":16},{"client":"Mercor","count":14},{"client":"Known Dating","count":9},{"client":"Bond Studio","count":5},{"client":"Charta Health","count":5}],"aging_candidates":[{"full_name":"Lotanna O","gem_profile_url":"https://app.gem.com/candidates/208974026","client":"Owner","stage":"Onsite","days_in_stage":52},{"full_name":"Bharath Ramaprasad","gem_profile_url":"https://app.gem.com/candidates/167382472","client":"Bond Studio","stage":"1st Interview","days_in_stage":44},{"full_name":"Wangyang Wu","gem_profile_url":"https://app.gem.com/candidates/189703313","client":"Moonlake Labs","stage":"HM Review","days_in_stage":38},{"full_name":"Kangning Hu","gem_profile_url":"https://app.gem.com/candidates/167341139","client":"Bond Studio","stage":"2nd Interview","days_in_stage":33},{"full_name":"Aman Dhesi","gem_profile_url":"https://app.gem.com/candidates/204042191","client":"Mercor","stage":"Onsite","days_in_stage":32},{"full_name":"Shashank Srikanth","gem_profile_url":"https://app.gem.com/candidates/181529744","client":"Mercor","stage":"Onsite","days_in_stage":32},{"full_name":"Wangyang Wu","gem_profile_url":"https://app.gem.com/candidates/189703313","client":"Mercor","stage":"Onsite","days_in_stage":31},{"full_name":"Bharath Ramaprasad","gem_profile_url":"https://app.gem.com/candidates/167382472","client":"Frec","stage":"2nd Interview","days_in_stage":25},{"full_name":"Zheyong Z","gem_profile_url":"https://app.gem.com/candidates/214014760","client":"Charta Health","stage":"2nd Interview","days_in_stage":23},{"full_name":"Xiangyu Ji","gem_profile_url":"https://app.gem.com/candidates/167343980","client":"Mercor","stage":"Recruiter Screen","days_in_stage":19},{"full_name":"Yi Liu","gem_profile_url":"https://app.gem.com/candidates/196625119","client":"Mercor","stage":"Onsite","days_in_stage":18},{"full_name":"Bharath Ramaprasad","gem_profile_url":"https://app.gem.com/candidates/167382472","client":"Additive","stage":"1st Interview","days_in_stage":16},{"full_name":"Dong Xu","gem_profile_url":"https://app.gem.com/candidates/219615067","client":"Owner","stage":"Recruiter Screen","days_in_stage":11},{"full_name":"Pranav Rao","gem_profile_url":"https://app.gem.com/candidates/167351118","client":"Known Dating","stage":"Recruiter Screen","days_in_stage":11},{"full_name":"Sukh Sangha","gem_profile_url":"https://app.gem.com/candidates/167417161","client":"DealOps","stage":"Recruiter Screen","days_in_stage":11},{"full_name":"Benjamin Zou","gem_profile_url":"https://app.gem.com/candidates/203798570","client":"DealOps","stage":"HM Review","days_in_stage":11},{"full_name":"Aditya Bhat","gem_profile_url":"https://app.gem.com/candidates/180263260","client":"Known Dating","stage":"Recruiter Screen","days_in_stage":11},{"full_name":"Swad Kukunooru","gem_profile_url":"https://app.gem.com/candidates/225692069","client":"Mercor","stage":"HM Review","days_in_stage":11},{"full_name":"John W Choi","gem_profile_url":"https://app.gem.com/candidates/167354235","client":"Giga","stage":"Recruiter Screen","days_in_stage":10}]},
+    {"name":"Dan Stein","submissions_this_week":39,"submissions_last_week":null,"weekly_submissions_history":[],"total_active":71,"stage_counts":{"Recruiter Screen":32,"HM Review":11,"1st Interview":20,"2nd Interview":5,"Onsite":2,"Offer":1},"fy_onsites":2,"fy_offers":1,"win_rates":{"submitted_to_onsite":7.7,"submitted_to_offer":2.6},"submissions_by_client":[{"client":"Owner","count":19},{"client":"Base Power","count":14},{"client":"Known Dating","count":8},{"client":"DealOps","count":5},{"client":"Greater","count":4}],"aging_candidates":[{"full_name":"Nikita Chepik","gem_profile_url":"https://app.gem.com/candidates/167399880","client":"Greater","stage":"1st Interview","days_in_stage":510},{"full_name":"Pei-yi Lin","gem_profile_url":"https://app.gem.com/candidates/167362141","client":"Owner","stage":"1st Interview","days_in_stage":286},{"full_name":"Michael Yu","gem_profile_url":"https://app.gem.com/candidates/171392145","client":"Owner","stage":"Recruiter Screen","days_in_stage":272},{"full_name":"Navya Sowjanya","gem_profile_url":"https://app.gem.com/candidates/193696036","client":"Owner","stage":"Recruiter Screen","days_in_stage":234},{"full_name":"Anthony D'Alessandro","gem_profile_url":"https://app.gem.com/candidates/167341298","client":"Greater","stage":"1st Interview","days_in_stage":230},{"full_name":"Dan Hepworth","gem_profile_url":"https://app.gem.com/candidates/167432285","client":"Owner","stage":"Recruiter Screen","days_in_stage":229},{"full_name":"Justin Chen","gem_profile_url":"https://app.gem.com/candidates/167341412","client":"Owner","stage":"Recruiter Screen","days_in_stage":219},{"full_name":"Han Yin","gem_profile_url":"https://app.gem.com/candidates/167479730","client":"Owner","stage":"Recruiter Screen","days_in_stage":213},{"full_name":"Daniel K.","gem_profile_url":"https://app.gem.com/candidates/167436476","client":"Greater","stage":"HM Review","days_in_stage":180},{"full_name":"Sandesh Chandrashekar","gem_profile_url":"https://app.gem.com/candidates/167390226","client":"Owner","stage":"Recruiter Screen","days_in_stage":151},{"full_name":"Jacob Streckfus","gem_profile_url":"https://app.gem.com/candidates/200197224","client":"Owner","stage":"Recruiter Screen","days_in_stage":151},{"full_name":"Kyle Huang","gem_profile_url":"https://app.gem.com/candidates/167479011","client":"Owner","stage":"Recruiter Screen","days_in_stage":139},{"full_name":"Benjamin Madueme","gem_profile_url":"https://app.gem.com/candidates/212338500","client":"Owner","stage":"Recruiter Screen","days_in_stage":97},{"full_name":"Qi Chen","gem_profile_url":"https://app.gem.com/candidates/167993900","client":"Owner","stage":"Recruiter Screen","days_in_stage":95},{"full_name":"Patrick Hall Wurst","gem_profile_url":"https://app.gem.com/candidates/179252698","client":"Owner","stage":"HM Review","days_in_stage":95},{"full_name":"David Mason","gem_profile_url":"https://app.gem.com/candidates/214438577","client":"Owner","stage":"Recruiter Screen","days_in_stage":81},{"full_name":"Vikas Sirwal","gem_profile_url":"https://app.gem.com/candidates/167386611","client":"Base Power","stage":"HM Review","days_in_stage":73},{"full_name":"Anmol Kaur","gem_profile_url":"https://app.gem.com/candidates/208986402","client":"Charta Health","stage":"1st Interview","days_in_stage":51},{"full_name":"Andrew Stokes","gem_profile_url":"https://app.gem.com/candidates/202889603","client":"Owner","stage":"1st Interview","days_in_stage":47},{"full_name":"Lance Huang","gem_profile_url":"https://app.gem.com/candidates/219403032","client":"Owner","stage":"HM Review","days_in_stage":44},{"full_name":"Julian Perez","gem_profile_url":"https://app.gem.com/candidates/168615169","client":"Endeavor","stage":"Recruiter Screen","days_in_stage":40},{"full_name":"KERRY CALLAHAN","gem_profile_url":"https://app.gem.com/candidates/222908909","client":"Base Power","stage":"1st Interview","days_in_stage":30},{"full_name":"Sam Weinberger","gem_profile_url":"https://app.gem.com/candidates/167419459","client":"Base Power","stage":"1st Interview","days_in_stage":27},{"full_name":"Evan A Roney","gem_profile_url":"https://app.gem.com/candidates/222427068","client":"Base Power","stage":"1st Interview","days_in_stage":27},{"full_name":"Samuel Zaduk","gem_profile_url":"https://app.gem.com/candidates/222215090","client":"Base Power","stage":"1st Interview","days_in_stage":27},{"full_name":"Nile J","gem_profile_url":"https://app.gem.com/candidates/192308872","client":"Mercor","stage":"HM Review","days_in_stage":27},{"full_name":"Puja Wheeldon","gem_profile_url":"https://app.gem.com/candidates/217641159","client":"Twingate","stage":"2nd Interview","days_in_stage":26},{"full_name":"You Z.","gem_profile_url":"https://app.gem.com/candidates/167352397","client":"Endeavor","stage":"1st Interview","days_in_stage":26},{"full_name":"Nicholas Lin","gem_profile_url":"https://app.gem.com/candidates/167405336","client":"Endeavor","stage":"Recruiter Screen","days_in_stage":26},{"full_name":"MICHELLE BALLESTEROS","gem_profile_url":"https://app.gem.com/candidates/222496382","client":"Base Power","stage":"Recruiter Screen","days_in_stage":26},{"full_name":"Taylor Wilson","gem_profile_url":"https://app.gem.com/candidates/223861272","client":"Base Power","stage":"Recruiter Screen","days_in_stage":26},{"full_name":"Albert Morlan","gem_profile_url":"https://app.gem.com/candidates/201533429","client":"Base Power","stage":"Recruiter Screen","days_in_stage":26},{"full_name":"David L.","gem_profile_url":"https://app.gem.com/candidates/218347736","client":"Twingate","stage":"2nd Interview","days_in_stage":25},{"full_name":"Noah Appel","gem_profile_url":"https://app.gem.com/candidates/167120283","client":"Known Dating","stage":"2nd Interview","days_in_stage":20},{"full_name":"Akash Puri","gem_profile_url":"https://app.gem.com/candidates/212327368","client":"Owner","stage":"Onsite","days_in_stage":20},{"full_name":"Viren Velacheri","gem_profile_url":"https://app.gem.com/candidates/190206985","client":"Base Power","stage":"1st Interview","days_in_stage":18},{"full_name":"Sharhad Bashar","gem_profile_url":"https://app.gem.com/candidates/190590155","client":"Charta Health","stage":"1st Interview","days_in_stage":18},{"full_name":"Lance Lin","gem_profile_url":"https://app.gem.com/candidates/167405605","client":"Mercor","stage":"Recruiter Screen","days_in_stage":17},{"full_name":"Nook Harquail","gem_profile_url":"https://app.gem.com/candidates/167435818","client":"Antimetal","stage":"Recruiter Screen","days_in_stage":17},{"full_name":"Vladimir Kovac","gem_profile_url":"https://app.gem.com/candidates/167382317","client":"Base Power","stage":"Recruiter Screen","days_in_stage":17},{"full_name":"Vivek Gade","gem_profile_url":"https://app.gem.com/candidates/205779636","client":"Base Power","stage":"1st Interview","days_in_stage":17},{"full_name":"Leah McKelvey","gem_profile_url":"https://app.gem.com/candidates/167374167","client":"Owner","stage":"Recruiter Screen","days_in_stage":13},{"full_name":"Dongbin Alistaire Suh","gem_profile_url":"https://app.gem.com/candidates/179212234","client":"Known Dating","stage":"Recruiter Screen","days_in_stage":12},{"full_name":"Juzheng Li","gem_profile_url":"https://app.gem.com/candidates/224903190","client":"Known Dating","stage":"2nd Interview","days_in_stage":11},{"full_name":"Derek W.","gem_profile_url":"https://app.gem.com/candidates/208858801","client":"Mercor","stage":"HM Review","days_in_stage":11},{"full_name":"Aadhya Puttur","gem_profile_url":"https://app.gem.com/candidates/226294105","client":"Owner","stage":"Recruiter Screen","days_in_stage":11},{"full_name":"David Campbell","gem_profile_url":"https://app.gem.com/candidates/223572513","client":"Known Dating","stage":"HM Review","days_in_stage":10},{"full_name":"Siddhant Dubey","gem_profile_url":"https://app.gem.com/candidates/200007953","client":"Known Dating","stage":"HM Review","days_in_stage":10},{"full_name":"Andrew Trinh","gem_profile_url":"https://app.gem.com/candidates/226531092","client":"Owner","stage":"HM Review","days_in_stage":10}]},
+    {"name":"Krystin Warden","submissions_this_week":27,"submissions_last_week":null,"weekly_submissions_history":[],"total_active":66,"stage_counts":{"Recruiter Screen":39,"HM Review":10,"1st Interview":14,"2nd Interview":3,"Onsite":0,"Offer":0},"fy_onsites":0,"fy_offers":0,"win_rates":{"submitted_to_onsite":0.0,"submitted_to_offer":0.0},"submissions_by_client":[{"client":"Mercor","count":14},{"client":"Hex","count":14},{"client":"Owner","count":9},{"client":"Edison Scientific","count":7},{"client":"Fleet","count":5}],"aging_candidates":[{"full_name":"Navaneet Kadaba","gem_profile_url":"https://app.gem.com/candidates/212589865","client":"Mercor","stage":"Recruiter Screen","days_in_stage":82},{"full_name":"Neha Mehrotra","gem_profile_url":"https://app.gem.com/candidates/167454754","client":"Airtop","stage":"1st Interview","days_in_stage":25},{"full_name":"Evan Brunt","gem_profile_url":"https://app.gem.com/candidates/221615942","client":"Owner","stage":"1st Interview","days_in_stage":25},{"full_name":"Carmen DeCouto","gem_profile_url":"https://app.gem.com/candidates/222660011","client":"Airtop","stage":"1st Interview","days_in_stage":25},{"full_name":"Kevin Tian","gem_profile_url":"https://app.gem.com/candidates/208806796","client":"Owner","stage":"Recruiter Screen","days_in_stage":25},{"full_name":"Nicole Sun, CMRP","gem_profile_url":"https://app.gem.com/candidates/218076163","client":"Airtop","stage":"HM Review","days_in_stage":20},{"full_name":"Joshua Jansen-Montoya","gem_profile_url":"https://app.gem.com/candidates/219334741","client":"Edison Scientific","stage":"Recruiter Screen","days_in_stage":19},{"full_name":"Julia Y.","gem_profile_url":"https://app.gem.com/candidates/222879313","client":"Paraform","stage":"Recruiter Screen","days_in_stage":19},{"full_name":"Sherwin Soroushian","gem_profile_url":"https://app.gem.com/candidates/220195753","client":"Edison Scientific","stage":"Recruiter Screen","days_in_stage":16},{"full_name":"William W.","gem_profile_url":"https://app.gem.com/candidates/218187348","client":"Edison Scientific","stage":"Recruiter Screen","days_in_stage":16},{"full_name":"Alissa Vuillier","gem_profile_url":"https://app.gem.com/candidates/179037053","client":"Edison Scientific","stage":"Recruiter Screen","days_in_stage":13},{"full_name":"Tushar Mhalsekar","gem_profile_url":"https://app.gem.com/candidates/191168258","client":"Mercor","stage":"1st Interview","days_in_stage":10},{"full_name":"Neelay Das","gem_profile_url":"https://app.gem.com/candidates/175937434","client":"Edison Scientific","stage":"HM Review","days_in_stage":10},{"full_name":"Adil S","gem_profile_url":"https://app.gem.com/candidates/167363066","client":"Known Dating","stage":"HM Review","days_in_stage":10},{"full_name":"Carter Peyton","gem_profile_url":"https://app.gem.com/candidates/167410514","client":"Known Dating","stage":"Recruiter Screen","days_in_stage":10}]},
+    {"name":"Val VanderLinden","submissions_this_week":32,"submissions_last_week":null,"weekly_submissions_history":[],"total_active":61,"stage_counts":{"Recruiter Screen":29,"HM Review":7,"1st Interview":17,"2nd Interview":5,"Onsite":3,"Offer":0},"fy_onsites":3,"fy_offers":0,"win_rates":{"submitted_to_onsite":9.4,"submitted_to_offer":0.0},"submissions_by_client":[{"client":"Charta Health","count":11},{"client":"Mercor","count":10},{"client":"Junior","count":8},{"client":"Afterquery","count":6},{"client":"Owner","count":5}],"aging_candidates":[{"full_name":"Aditya Pillai","gem_profile_url":"https://app.gem.com/candidates/200518301","client":"Charta Health","stage":"Recruiter Screen","days_in_stage":45},{"full_name":"Jeevan Mokkala","gem_profile_url":"https://app.gem.com/candidates/210264986","client":"GPTZero","stage":"Recruiter Screen","days_in_stage":37},{"full_name":"Taras Kinash","gem_profile_url":"https://app.gem.com/candidates/167491631","client":"Charta Health","stage":"Recruiter Screen","days_in_stage":37},{"full_name":"Haijing ZHANG","gem_profile_url":"https://app.gem.com/candidates/216815216","client":"Afterquery","stage":"Recruiter Screen","days_in_stage":32},{"full_name":"Shreya Vinjamuri","gem_profile_url":"https://app.gem.com/candidates/197584980","client":"Afterquery","stage":"Recruiter Screen","days_in_stage":30},{"full_name":"Vendy Prum","gem_profile_url":"https://app.gem.com/candidates/167364948","client":"Afterquery","stage":"Recruiter Screen","days_in_stage":30},{"full_name":"Eli Kugelsky","gem_profile_url":"https://app.gem.com/candidates/214770138","client":"Junior","stage":"1st Interview","days_in_stage":27},{"full_name":"Aneesh Pendyala","gem_profile_url":"https://app.gem.com/candidates/221193666","client":"Afterquery","stage":"HM Review","days_in_stage":27},{"full_name":"Prathamesh Sonawane","gem_profile_url":"https://app.gem.com/candidates/182739055","client":"Charta Health","stage":"Recruiter Screen","days_in_stage":26},{"full_name":"Suyeon Cha","gem_profile_url":"https://app.gem.com/candidates/223861206","client":"Charta Health","stage":"Recruiter Screen","days_in_stage":26},{"full_name":"Benjamin Evans","gem_profile_url":"https://app.gem.com/candidates/222612079","client":"Eluve","stage":"Recruiter Screen","days_in_stage":25},{"full_name":"Ivan Rivera","gem_profile_url":"https://app.gem.com/candidates/210264328","client":"Charta Health","stage":"1st Interview","days_in_stage":23},{"full_name":"Albert Ho","gem_profile_url":"https://app.gem.com/candidates/167378470","client":"GPTZero","stage":"HM Review","days_in_stage":23},{"full_name":"Albert Ho","gem_profile_url":"https://app.gem.com/candidates/167378470","client":"Phia","stage":"Recruiter Screen","days_in_stage":23},{"full_name":"Samuel Cohen","gem_profile_url":"https://app.gem.com/candidates/220777433","client":"Mercor","stage":"Onsite","days_in_stage":20},{"full_name":"Samuel Cohen","gem_profile_url":"https://app.gem.com/candidates/220777433","client":"Afterquery","stage":"2nd Interview","days_in_stage":20},{"full_name":"Benjamin Xu","gem_profile_url":"https://app.gem.com/candidates/188937131","client":"Junior","stage":"Recruiter Screen","days_in_stage":20},{"full_name":"Arystan Tatishev","gem_profile_url":"https://app.gem.com/candidates/222411382","client":"Concourse","stage":"Recruiter Screen","days_in_stage":20},{"full_name":"Zach Peter","gem_profile_url":"https://app.gem.com/candidates/221193626","client":"Charta Health","stage":"1st Interview","days_in_stage":18},{"full_name":"Stephen Moon","gem_profile_url":"https://app.gem.com/candidates/204545676","client":"Endeavor","stage":"1st Interview","days_in_stage":18},{"full_name":"Luke Halko","gem_profile_url":"https://app.gem.com/candidates/222629098","client":"Junior","stage":"1st Interview","days_in_stage":18},{"full_name":"Satyam Nikhra","gem_profile_url":"https://app.gem.com/candidates/167363278","client":"Mercor","stage":"Recruiter Screen","days_in_stage":18},{"full_name":"Eli Kugelsky","gem_profile_url":"https://app.gem.com/candidates/214770138","client":"Concourse","stage":"1st Interview","days_in_stage":17},{"full_name":"Leo Lien","gem_profile_url":"https://app.gem.com/candidates/212674889","client":"Junior","stage":"1st Interview","days_in_stage":17},{"full_name":"Stephen Moon","gem_profile_url":"https://app.gem.com/candidates/204545676","client":"Concourse","stage":"1st Interview","days_in_stage":17},{"full_name":"Stephen Moon","gem_profile_url":"https://app.gem.com/candidates/204545676","client":"Phia","stage":"1st Interview","days_in_stage":16},{"full_name":"Aneesh Pendyala","gem_profile_url":"https://app.gem.com/candidates/221193666","client":"Charta Health","stage":"HM Review","days_in_stage":15},{"full_name":"Aadesh Bajaj","gem_profile_url":"https://app.gem.com/candidates/203010067","client":"Concourse","stage":"1st Interview","days_in_stage":13},{"full_name":"Bal Krishna Oli","gem_profile_url":"https://app.gem.com/candidates/187238234","client":"Charta Health","stage":"HM Review","days_in_stage":12},{"full_name":"Stephen Moon","gem_profile_url":"https://app.gem.com/candidates/204545676","client":"Known Dating","stage":"2nd Interview","days_in_stage":11},{"full_name":"Stephen Rice","gem_profile_url":"https://app.gem.com/candidates/200605645","client":"Mercor","stage":"Onsite","days_in_stage":10},{"full_name":"Stephen Moon","gem_profile_url":"https://app.gem.com/candidates/204545676","client":"Owner","stage":"2nd Interview","days_in_stage":10},{"full_name":"Tracy Sassaman","gem_profile_url":"https://app.gem.com/candidates/222612617","client":"Eluve","stage":"Recruiter Screen","days_in_stage":10}]},
+    {"name":"Nicole Starrantino","submissions_this_week":47,"submissions_last_week":null,"weekly_submissions_history":[],"total_active":58,"stage_counts":{"Recruiter Screen":11,"HM Review":2,"1st Interview":25,"2nd Interview":4,"Onsite":16,"Offer":0},"fy_onsites":16,"fy_offers":0,"win_rates":{"submitted_to_onsite":34.0,"submitted_to_offer":0.0},"submissions_by_client":[{"client":"Mercor","count":19},{"client":"Charta Health","count":13},{"client":"Junior","count":6},{"client":"Known Dating","count":2},{"client":"Fleet","count":2}],"aging_candidates":[{"full_name":"Guangyu Yang","gem_profile_url":"https://app.gem.com/candidates/187760488","client":"Additive","stage":"1st Interview","days_in_stage":74},{"full_name":"Lingxiao Wang","gem_profile_url":"https://app.gem.com/candidates/188993694","client":"Mercor","stage":"Onsite","days_in_stage":33},{"full_name":"Kanishk Dutta","gem_profile_url":"https://app.gem.com/candidates/221250336","client":"Mercor","stage":"1st Interview","days_in_stage":32},{"full_name":"Kanika Dutta","gem_profile_url":"https://app.gem.com/candidates/181576812","client":"Mercor","stage":"Onsite","days_in_stage":23},{"full_name":"Surbhi Dang","gem_profile_url":"https://app.gem.com/candidates/182191779","client":"Mercor","stage":"Onsite","days_in_stage":20},{"full_name":"Kimberly Collins","gem_profile_url":"https://app.gem.com/candidates/219204003","client":"Charta Health","stage":"Onsite","days_in_stage":19},{"full_name":"Alice Liang","gem_profile_url":"https://app.gem.com/candidates/222939757","client":"Junior","stage":"Recruiter Screen","days_in_stage":19},{"full_name":"William Han","gem_profile_url":"https://app.gem.com/candidates/177839751","client":"Charta Health","stage":"Onsite","days_in_stage":16},{"full_name":"Keya Varia","gem_profile_url":"https://app.gem.com/candidates/196373561","client":"Mercor","stage":"Onsite","days_in_stage":16},{"full_name":"Nten Nyiam","gem_profile_url":"https://app.gem.com/candidates/186728752","client":"Charta Health","stage":"Onsite","days_in_stage":16},{"full_name":"Harsh Chobisa","gem_profile_url":"https://app.gem.com/candidates/191839017","client":"Mercor","stage":"Recruiter Screen","days_in_stage":16},{"full_name":"Ethan Wu","gem_profile_url":"https://app.gem.com/candidates/222577367","client":"Mercor","stage":"1st Interview","days_in_stage":12},{"full_name":"Anagha Srivatsav","gem_profile_url":"https://app.gem.com/candidates/201321258","client":"Mercor","stage":"HM Review","days_in_stage":12},{"full_name":"John Huang","gem_profile_url":"https://app.gem.com/candidates/226184497","client":"Mercor","stage":"1st Interview","days_in_stage":12},{"full_name":"Adheesh Chatterjee","gem_profile_url":"https://app.gem.com/candidates/180910904","client":"Mercor","stage":"Onsite","days_in_stage":11},{"full_name":"Keya Varia","gem_profile_url":"https://app.gem.com/candidates/196373561","client":"Charta Health","stage":"Onsite","days_in_stage":11},{"full_name":"Jaidev Mirchandani","gem_profile_url":"https://app.gem.com/candidates/223623773","client":"Charta Health","stage":"1st Interview","days_in_stage":11},{"full_name":"Jason Nguyen","gem_profile_url":"https://app.gem.com/candidates/197152003","client":"Charta Health","stage":"1st Interview","days_in_stage":11},{"full_name":"Anthony Diké","gem_profile_url":"https://app.gem.com/candidates/194916953","client":"Junior","stage":"1st Interview","days_in_stage":11},{"full_name":"Mariel Aquino","gem_profile_url":"https://app.gem.com/candidates/167405718","client":"Junior","stage":"1st Interview","days_in_stage":11},{"full_name":"Mariel Aquino","gem_profile_url":"https://app.gem.com/candidates/167405718","client":"Charta Health","stage":"1st Interview","days_in_stage":11},{"full_name":"Liren Zhu","gem_profile_url":"https://app.gem.com/candidates/198744629","client":"Weave Bio","stage":"2nd Interview","days_in_stage":10},{"full_name":"Aryan Chaudhary","gem_profile_url":"https://app.gem.com/candidates/219873136","client":"Charta Health","stage":"1st Interview","days_in_stage":10},{"full_name":"Mariel Aquino","gem_profile_url":"https://app.gem.com/candidates/167405718","client":"Known Dating","stage":"1st Interview","days_in_stage":10},{"full_name":"Mariel Aquino","gem_profile_url":"https://app.gem.com/candidates/167405718","client":"Fleet","stage":"1st Interview","days_in_stage":10}]},
+    {"name":"Paul Sledd","submissions_this_week":44,"submissions_last_week":null,"weekly_submissions_history":[],"total_active":46,"stage_counts":{"Recruiter Screen":2,"HM Review":17,"1st Interview":14,"2nd Interview":5,"Onsite":7,"Offer":1},"fy_onsites":7,"fy_offers":1,"win_rates":{"submitted_to_onsite":18.2,"submitted_to_offer":2.3},"submissions_by_client":[{"client":"Mercor","count":12},{"client":"Hex","count":8},{"client":"Additive","count":5},{"client":"Afterquery","count":3},{"client":"Bond Studio","count":3}],"aging_candidates":[{"full_name":"Radhika Parthasarathy","gem_profile_url":"https://app.gem.com/candidates/167438445","client":"Mercor","stage":"Onsite","days_in_stage":77},{"full_name":"Tong Gao","gem_profile_url":"https://app.gem.com/candidates/183691364","client":"Bond Studio","stage":"HM Review","days_in_stage":45},{"full_name":"Siddhi Bansal","gem_profile_url":"https://app.gem.com/candidates/207473490","client":"Afterquery","stage":"1st Interview","days_in_stage":43},{"full_name":"Yu Hu","gem_profile_url":"https://app.gem.com/candidates/167422597","client":"Bond Studio","stage":"1st Interview","days_in_stage":42},{"full_name":"Chong Li","gem_profile_url":"https://app.gem.com/candidates/189803256","client":"Additive","stage":"2nd Interview","days_in_stage":37},{"full_name":"Jobanjot Sidhu","gem_profile_url":"https://app.gem.com/candidates/179376382","client":"Bond Studio","stage":"1st Interview","days_in_stage":37},{"full_name":"Udit Saxena","gem_profile_url":"https://app.gem.com/candidates/167337211","client":"Mercor","stage":"Onsite","days_in_stage":32},{"full_name":"Siddhi Bansal","gem_profile_url":"https://app.gem.com/candidates/207473490","client":"Mercor","stage":"Onsite","days_in_stage":32},{"full_name":"Anay Bhakat","gem_profile_url":"https://app.gem.com/candidates/219309227","client":"Afterquery","stage":"2nd Interview","days_in_stage":21},{"full_name":"Yash Tyagi","gem_profile_url":"https://app.gem.com/candidates/201317230","client":"Owner","stage":"HM Review","days_in_stage":21},{"full_name":"Dhruvika Sahni","gem_profile_url":"https://app.gem.com/candidates/167362178","client":"Additive","stage":"2nd Interview","days_in_stage":18},{"full_name":"Kaushik Pulgari","gem_profile_url":"https://app.gem.com/candidates/197570859","client":"Afterquery","stage":"2nd Interview","days_in_stage":17},{"full_name":"Riti Agarwal","gem_profile_url":"https://app.gem.com/candidates/196463121","client":"Known Dating","stage":"HM Review","days_in_stage":13},{"full_name":"Vaishnavi Sagar","gem_profile_url":"https://app.gem.com/candidates/222209918","client":"Known Dating","stage":"HM Review","days_in_stage":13},{"full_name":"Pranav Jain","gem_profile_url":"https://app.gem.com/candidates/198608999","client":"FeelsMusic","stage":"2nd Interview","days_in_stage":12},{"full_name":"Parth Shah","gem_profile_url":"https://app.gem.com/candidates/181920122","client":"Mercor","stage":"1st Interview","days_in_stage":11},{"full_name":"Xiaoxiao Li","gem_profile_url":"https://app.gem.com/candidates/182604177","client":"Additive","stage":"1st Interview","days_in_stage":10},{"full_name":"Emily Ziyi Xiao","gem_profile_url":"https://app.gem.com/candidates/223707486","client":"Charta Health","stage":"HM Review","days_in_stage":10},{"full_name":"Vaishnavi Sagar","gem_profile_url":"https://app.gem.com/candidates/222209918","client":"Endeavor","stage":"HM Review","days_in_stage":10}]},
+    {"name":"Shannae Brydon","submissions_this_week":25,"submissions_last_week":null,"weekly_submissions_history":[],"total_active":38,"stage_counts":{"Recruiter Screen":13,"HM Review":8,"1st Interview":10,"2nd Interview":1,"Onsite":6,"Offer":0},"fy_onsites":6,"fy_offers":0,"win_rates":{"submitted_to_onsite":24.0,"submitted_to_offer":0.0},"submissions_by_client":[{"client":"Mercor","count":11},{"client":"Owner","count":4},{"client":"Additive","count":3},{"client":"Eluve","count":3},{"client":"Afterquery","count":2}],"aging_candidates":[{"full_name":"Enming Luo","gem_profile_url":"https://app.gem.com/candidates/206970493","client":"Mercor","stage":"Onsite","days_in_stage":122},{"full_name":"Chinyet Lin","gem_profile_url":"https://app.gem.com/candidates/206954886","client":"Additive","stage":"Recruiter Screen","days_in_stage":45},{"full_name":"Vijay A","gem_profile_url":"https://app.gem.com/candidates/167417715","client":"Mercor","stage":"Onsite","days_in_stage":38},{"full_name":"Om Saran","gem_profile_url":"https://app.gem.com/candidates/188788314","client":"Moonlake Labs","stage":"HM Review","days_in_stage":38},{"full_name":"Tianchen Wang","gem_profile_url":"https://app.gem.com/candidates/189545667","client":"Endeavor","stage":"1st Interview","days_in_stage":32},{"full_name":"Sriram Natarajan","gem_profile_url":"https://app.gem.com/candidates/207805614","client":"Eluve","stage":"Recruiter Screen","days_in_stage":31},{"full_name":"Maksym Karunos","gem_profile_url":"https://app.gem.com/candidates/207160668","client":"Bond Studio","stage":"HM Review","days_in_stage":26},{"full_name":"Johari Wiggins","gem_profile_url":"https://app.gem.com/candidates/167359467","client":"Mercor","stage":"Onsite","days_in_stage":25},{"full_name":"AIGERIM (AJ) ASKERGALI","gem_profile_url":"https://app.gem.com/candidates/197582760","client":"Afterquery","stage":"1st Interview","days_in_stage":24},{"full_name":"Luoshu Wang","gem_profile_url":"https://app.gem.com/candidates/181453138","client":"Mercor","stage":"Onsite","days_in_stage":23},{"full_name":"Maksym Karunos","gem_profile_url":"https://app.gem.com/candidates/207160668","client":"Frec","stage":"HM Review","days_in_stage":23},{"full_name":"Prashant Gadagi","gem_profile_url":"https://app.gem.com/candidates/167654608","client":"Additive","stage":"Recruiter Screen","days_in_stage":20},{"full_name":"Maksym Karunos","gem_profile_url":"https://app.gem.com/candidates/207160668","client":"Concourse","stage":"1st Interview","days_in_stage":20},{"full_name":"Taoyuan Wang","gem_profile_url":"https://app.gem.com/candidates/167351483","client":"Mercor","stage":"HM Review","days_in_stage":20},{"full_name":"Prashant Sridhar","gem_profile_url":"https://app.gem.com/candidates/167480179","client":"Mercor","stage":"Recruiter Screen","days_in_stage":17},{"full_name":"William Chang","gem_profile_url":"https://app.gem.com/candidates/181017802","client":"Paraform","stage":"Recruiter Screen","days_in_stage":17},{"full_name":"Ryan Lee","gem_profile_url":"https://app.gem.com/candidates/167407691","client":"Mercor","stage":"Recruiter Screen","days_in_stage":17},{"full_name":"Danielle Magrogan","gem_profile_url":"https://app.gem.com/candidates/167465355","client":"Eluve","stage":"Recruiter Screen","days_in_stage":12},{"full_name":"Derek C.","gem_profile_url":"https://app.gem.com/candidates/173355237","client":"Known Dating","stage":"Recruiter Screen","days_in_stage":12},{"full_name":"Animesh Kumar Singh Bhadouria","gem_profile_url":"https://app.gem.com/candidates/207522145","client":"Additive","stage":"Recruiter Screen","days_in_stage":12},{"full_name":"Maksym Karunos","gem_profile_url":"https://app.gem.com/candidates/207160668","client":"Owner","stage":"Onsite","days_in_stage":11},{"full_name":"Matteo Agius-D'Arrigo","gem_profile_url":"https://app.gem.com/candidates/176113964","client":"Mercor","stage":"1st Interview","days_in_stage":11},{"full_name":"Dachao Li","gem_profile_url":"https://app.gem.com/candidates/167358229","client":"Bond Studio","stage":"HM Review","days_in_stage":11},{"full_name":"Matteo Agius-D'Arrigo","gem_profile_url":"https://app.gem.com/candidates/176113964","client":"Antimetal","stage":"1st Interview","days_in_stage":11},{"full_name":"Matteo Agius-D'Arrigo","gem_profile_url":"https://app.gem.com/candidates/176113964","client":"Junior","stage":"1st Interview","days_in_stage":11},{"full_name":"Roger Rodriguez","gem_profile_url":"https://app.gem.com/candidates/167403624","client":"Eluve","stage":"HM Review","days_in_stage":11}]},
+    {"name":"Kyle Holin","submissions_this_week":22,"submissions_last_week":null,"weekly_submissions_history":[],"total_active":35,"stage_counts":{"Recruiter Screen":13,"HM Review":17,"1st Interview":2,"2nd Interview":2,"Onsite":1,"Offer":0},"fy_onsites":1,"fy_offers":0,"win_rates":{"submitted_to_onsite":4.5,"submitted_to_offer":0.0},"submissions_by_client":[{"client":"Eluve","count":15},{"client":"Owner","count":4},{"client":"Base Power","count":4},{"client":"Afterquery","count":2},{"client":"Additive","count":2}],"aging_candidates":[{"full_name":"Ian P","gem_profile_url":"https://app.gem.com/candidates/202777359","client":"Base Power","stage":"2nd Interview","days_in_stage":81},{"full_name":"Inchara Srinivasa","gem_profile_url":"https://app.gem.com/candidates/219248581","client":"Afterquery","stage":"Recruiter Screen","days_in_stage":44},{"full_name":"Karnan Rajendran","gem_profile_url":"https://app.gem.com/candidates/172255894","client":"Afterquery","stage":"Recruiter Screen","days_in_stage":44},{"full_name":"Kimiko Mitchell","gem_profile_url":"https://app.gem.com/candidates/221328220","client":"Eluve","stage":"HM Review","days_in_stage":33},{"full_name":"Aimee Stephenson","gem_profile_url":"https://app.gem.com/candidates/221528146","client":"Eluve","stage":"HM Review","days_in_stage":32},{"full_name":"Brennan Rouhana","gem_profile_url":"https://app.gem.com/candidates/208892891","client":"Base Power","stage":"HM Review","days_in_stage":31},{"full_name":"Fan Gui","gem_profile_url":"https://app.gem.com/candidates/167353611","client":"Eluve","stage":"HM Review","days_in_stage":27},{"full_name":"Libby (Eyre) Mattimore","gem_profile_url":"https://app.gem.com/candidates/204400503","client":"Eluve","stage":"HM Review","days_in_stage":27},{"full_name":"Nathan Zanzig","gem_profile_url":"https://app.gem.com/candidates/221479016","client":"Eluve","stage":"HM Review","days_in_stage":27},{"full_name":"Emily Fuller","gem_profile_url":"https://app.gem.com/candidates/221517706","client":"Eluve","stage":"HM Review","days_in_stage":24},{"full_name":"Zach Blank","gem_profile_url":"https://app.gem.com/candidates/167364777","client":"Eluve","stage":"HM Review","days_in_stage":24},{"full_name":"Prateek Mehrotra","gem_profile_url":"https://app.gem.com/candidates/167463643","client":"Paraform","stage":"HM Review","days_in_stage":24},{"full_name":"Xiaoyan Wang","gem_profile_url":"https://app.gem.com/candidates/204396829","client":"Eluve","stage":"Recruiter Screen","days_in_stage":19},{"full_name":"Reilly Brown","gem_profile_url":"https://app.gem.com/candidates/167388595","client":"Eluve","stage":"Recruiter Screen","days_in_stage":19},{"full_name":"Lucca Cary","gem_profile_url":"https://app.gem.com/candidates/221533252","client":"Eluve","stage":"Recruiter Screen","days_in_stage":19},{"full_name":"Sarah Crotty","gem_profile_url":"https://app.gem.com/candidates/167353250","client":"Eluve","stage":"Recruiter Screen","days_in_stage":19},{"full_name":"Tianqi (Nick) Zhao","gem_profile_url":"https://app.gem.com/candidates/217420121","client":"Mercor","stage":"Recruiter Screen","days_in_stage":19},{"full_name":"Roman Kogan","gem_profile_url":"https://app.gem.com/candidates/176712864","client":"Owner","stage":"HM Review","days_in_stage":18},{"full_name":"Sophia Son","gem_profile_url":"https://app.gem.com/candidates/221747817","client":"Eluve","stage":"HM Review","days_in_stage":18},{"full_name":"Charlotte Resnick","gem_profile_url":"https://app.gem.com/candidates/167383758","client":"Owner","stage":"Recruiter Screen","days_in_stage":17},{"full_name":"Nathan Heard","gem_profile_url":"https://app.gem.com/candidates/193543445","client":"Owner","stage":"Recruiter Screen","days_in_stage":17},{"full_name":"Kayne Khoury","gem_profile_url":"https://app.gem.com/candidates/201707598","client":"Owner","stage":"HM Review","days_in_stage":17},{"full_name":"John Nguyen","gem_profile_url":"https://app.gem.com/candidates/181156041","client":"Additive","stage":"Recruiter Screen","days_in_stage":17},{"full_name":"Jason Hobbs","gem_profile_url":"https://app.gem.com/candidates/224992045","client":"Base Power","stage":"HM Review","days_in_stage":17},{"full_name":"Rosie (Neibel) Crowley","gem_profile_url":"https://app.gem.com/candidates/221328840","client":"Eluve","stage":"Recruiter Screen","days_in_stage":17},{"full_name":"Caden Garrett","gem_profile_url":"https://app.gem.com/candidates/224052289","client":"Eluve","stage":"1st Interview","days_in_stage":12},{"full_name":"John Patrick Lewis","gem_profile_url":"https://app.gem.com/candidates/167356139","client":"Additive","stage":"Recruiter Screen","days_in_stage":11}]},
+    {"name":"Ryan Grudnitski","submissions_this_week":17,"submissions_last_week":null,"weekly_submissions_history":[],"total_active":27,"stage_counts":{"Recruiter Screen":10,"HM Review":3,"1st Interview":9,"2nd Interview":2,"Onsite":3,"Offer":0},"fy_onsites":3,"fy_offers":0,"win_rates":{"submitted_to_onsite":17.6,"submitted_to_offer":0.0},"submissions_by_client":[{"client":"Edison Scientific","count":8},{"client":"Mercor","count":7},{"client":"Fleet","count":4},{"client":"FutureHouse","count":2},{"client":"Afterquery","count":1}],"aging_candidates":[{"full_name":"Benjamin K Chang","gem_profile_url":"https://app.gem.com/candidates/188972605","client":"FutureHouse","stage":"HM Review","days_in_stage":107},{"full_name":"Jason Liu","gem_profile_url":"https://app.gem.com/candidates/167418446","client":"FutureHouse","stage":"Recruiter Screen","days_in_stage":107},{"full_name":"Xinghai Hu","gem_profile_url":"https://app.gem.com/candidates/197310959","client":"Mercor","stage":"Onsite","days_in_stage":47},{"full_name":"Vikram Agrawal","gem_profile_url":"https://app.gem.com/candidates/218061483","client":"Mercor","stage":"Onsite","days_in_stage":39},{"full_name":"Siddhant Satapathy","gem_profile_url":"https://app.gem.com/candidates/167342862","client":"Afterquery","stage":"1st Interview","days_in_stage":26},{"full_name":"Siddhant Satapathy","gem_profile_url":"https://app.gem.com/candidates/167342862","client":"Edison Scientific","stage":"1st Interview","days_in_stage":26},{"full_name":"Kathan Shah","gem_profile_url":"https://app.gem.com/candidates/181920082","client":"Mercor","stage":"1st Interview","days_in_stage":19},{"full_name":"Gabriel Underwood","gem_profile_url":"https://app.gem.com/candidates/178175051","client":"Additive","stage":"Recruiter Screen","days_in_stage":19},{"full_name":"Nitish Natarajan","gem_profile_url":"https://app.gem.com/candidates/188069073","client":"Edison Scientific","stage":"1st Interview","days_in_stage":19},{"full_name":"Monica Bellare","gem_profile_url":"https://app.gem.com/candidates/167342467","client":"Edison Scientific","stage":"Recruiter Screen","days_in_stage":17},{"full_name":"Anmol Kaur","gem_profile_url":"https://app.gem.com/candidates/208986402","client":"Edison Scientific","stage":"1st Interview","days_in_stage":13},{"full_name":"Konstantin Rud","gem_profile_url":"https://app.gem.com/candidates/180613323","client":"Edison Scientific","stage":"Recruiter Screen","days_in_stage":13},{"full_name":"Matthew Nguyen","gem_profile_url":"https://app.gem.com/candidates/226026533","client":"Mercor","stage":"1st Interview","days_in_stage":12},{"full_name":"Max Dykhuizen","gem_profile_url":"https://app.gem.com/candidates/189613207","client":"Edison Scientific","stage":"HM Review","days_in_stage":12},{"full_name":"Tejas Pradeep","gem_profile_url":"https://app.gem.com/candidates/199983651","client":"Mercor","stage":"Onsite","days_in_stage":11},{"full_name":"Ryan Dushane","gem_profile_url":"https://app.gem.com/candidates/188811307","client":"Eluve","stage":"2nd Interview","days_in_stage":10},{"full_name":"Ryan Dushane","gem_profile_url":"https://app.gem.com/candidates/188811307","client":"FeelsMusic","stage":"2nd Interview","days_in_stage":10},{"full_name":"Elshad Mustafayev","gem_profile_url":"https://app.gem.com/candidates/183498053","client":"Fleet","stage":"Recruiter Screen","days_in_stage":10}]},
+    {"name":"TJ Lee","submissions_this_week":13,"submissions_last_week":null,"weekly_submissions_history":[],"total_active":25,"stage_counts":{"Recruiter Screen":12,"HM Review":7,"1st Interview":5,"2nd Interview":0,"Onsite":1,"Offer":0},"fy_onsites":1,"fy_offers":0,"win_rates":{"submitted_to_onsite":7.7,"submitted_to_offer":0.0},"submissions_by_client":[{"client":"Charta Health","count":12},{"client":"Mercor","count":5},{"client":"Additive","count":2},{"client":"Airtop","count":1},{"client":"Paraform","count":1}],"aging_candidates":[{"full_name":"Shilpi Srivastava","gem_profile_url":"https://app.gem.com/candidates/225206600","client":"Airtop","stage":"Recruiter Screen","days_in_stage":18},{"full_name":"Aneesh Bhansali","gem_profile_url":"https://app.gem.com/candidates/167393221","client":"Charta Health","stage":"Recruiter Screen","days_in_stage":10},{"full_name":"Myles Gámez","gem_profile_url":"https://app.gem.com/candidates/167483666","client":"Paraform","stage":"HM Review","days_in_stage":10}]},
+    {"name":"Kavya Ganesh","submissions_this_week":2,"submissions_last_week":null,"weekly_submissions_history":[],"total_active":7,"stage_counts":{"Recruiter Screen":5,"HM Review":0,"1st Interview":2,"2nd Interview":0,"Onsite":0,"Offer":0},"fy_onsites":0,"fy_offers":0,"win_rates":{"submitted_to_onsite":0.0,"submitted_to_offer":0.0},"submissions_by_client":[{"client":"Greater","count":7}],"aging_candidates":[{"full_name":"Sumanth Neerumalla","gem_profile_url":"https://app.gem.com/candidates/167401306","client":"Greater","stage":"Recruiter Screen","days_in_stage":531},{"full_name":"Alex Chaparro","gem_profile_url":"https://app.gem.com/candidates/167345097","client":"Greater","stage":"Recruiter Screen","days_in_stage":501},{"full_name":"Anand N","gem_profile_url":"https://app.gem.com/candidates/167330474","client":"Greater","stage":"1st Interview","days_in_stage":479},{"full_name":"Paul Ricks","gem_profile_url":"https://app.gem.com/candidates/167499953","client":"Greater","stage":"Recruiter Screen","days_in_stage":474},{"full_name":"Ryan Chan","gem_profile_url":"https://app.gem.com/candidates/167373576","client":"Greater","stage":"1st Interview","days_in_stage":466},{"full_name":"Josh Dimarsky","gem_profile_url":"https://app.gem.com/candidates/167499913","client":"Greater","stage":"Recruiter Screen","days_in_stage":465},{"full_name":"Yannis Tzemos","gem_profile_url":"https://app.gem.com/candidates/167499822","client":"Greater","stage":"Recruiter Screen","days_in_stage":446}]}
   ],
   "global_conversion_rates": {
-    "Recruiter Screen → HM Review": {"rate":59.4,"numerator":311,"denominator":524},
-    "HM Review → 1st Interview": {"rate":70.7,"numerator":220,"denominator":311},
-    "1st Interview → 2nd Interview": {"rate":40.0,"numerator":88,"denominator":220},
-    "2nd Interview → Onsite": {"rate":58.0,"numerator":51,"denominator":88},
-    "Onsite → Offer": {"rate":3.9,"numerator":2,"denominator":51}
+    "Recruiter Screen \u2192 HM Review": {"rate":59.4,"numerator":311,"denominator":524},
+    "HM Review \u2192 1st Interview": {"rate":70.7,"numerator":220,"denominator":311},
+    "1st Interview \u2192 2nd Interview": {"rate":40.0,"numerator":88,"denominator":220},
+    "2nd Interview \u2192 Onsite": {"rate":58.0,"numerator":51,"denominator":88},
+    "Onsite \u2192 Offer": {"rate":3.9,"numerator":2,"denominator":51}
   }
 };
 
 document.addEventListener('DOMContentLoaded', function() {
-
   // Tab switching
   document.querySelectorAll('.tab-btn').forEach(function(btn) {
     btn.addEventListener('click', function() {
@@ -383,303 +356,257 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   buildClientTable();
-  buildConversionTable();
+  buildGlobalConvTable();
   buildAgingTable();
-  buildRecruiterTab();
+  buildRecruiterCards();
+  buildRecruiterLeaderboard();
+  buildRecruiterAgingGroups();
   initCharts();
-
 });
 
-function getStagePill(stage) {
-  var classMap = {
-    'Recruiter Screen': 'stage-rs',
-    'HM Review': 'stage-hmr',
-    '1st Interview': 'stage-1st',
-    '2nd Interview': 'stage-2nd',
-    'Onsite': 'stage-onsite',
-    'Offer': 'stage-offer'
-  };
-  var cls = classMap[stage] || 'stage-rs';
-  return '<span class="stage-pill ' + cls + '">' + stage + '</span>';
-}
-
-function getCandidateDisplay(c) {
-  var name = c.full_name && c.full_name.length > 0 && !c.full_name.startsWith('Y2Zu') ? c.full_name : null;
-  if (!name || name === c.candidate_id) {
-    name = 'Candidate …' + c.candidate_id.slice(-6);
+function candidateLink(name, url) {
+  var display = (name && name.trim()) ? name : 'Unknown';
+  if (url) {
+    return '<a href="' + url + '" target="_blank">' + escapeHtml(display) + '</a>';
   }
-  if (c.gem_profile_url && c.gem_profile_url.length > 0) {
-    return '<a href="' + c.gem_profile_url + '" target="_blank">' + name + '</a>';
-  }
-  return name;
+  return escapeHtml(display);
 }
 
-function shortId(id) {
-  return 'Cand …' + id.slice(-6);
+function escapeHtml(str) {
+  if (!str) return '';
+  return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
 
-// Client Table
-var clientSortState = { col: 'total_active', dir: -1, type: 'num' };
+function stageCount(val) {
+  if (!val) return '<span class="stage-count">0</span>';
+  return '<span class="stage-count ' + (val > 0 ? 'has-value' : '') + '">' + val + '</span>';
+}
+
+var clientSortState = { col: 'total', dir: -1 };
 
 function buildClientTable() {
   var tbody = document.getElementById('client-tbody');
-  tbody.innerHTML = '';
-  var sorted = data.clients.slice().sort(function(a, b) {
-    var av, bv;
-    if (clientSortState.col === 'name') { av = a.name; bv = b.name; }
-    else if (clientSortState.col === 'total_active') { av = a.total_active; bv = b.total_active; }
-    else if (clientSortState.col === 'rs') { av = a.stage_counts['Recruiter Screen']; bv = b.stage_counts['Recruiter Screen']; }
-    else if (clientSortState.col === 'hmr') { av = a.stage_counts['HM Review']; bv = b.stage_counts['HM Review']; }
-    else if (clientSortState.col === 'first') { av = a.stage_counts['1st Interview']; bv = b.stage_counts['1st Interview']; }
-    else if (clientSortState.col === 'second') { av = a.stage_counts['2nd Interview']; bv = b.stage_counts['2nd Interview']; }
-    else if (clientSortState.col === 'onsite') { av = a.stage_counts['Onsite']; bv = b.stage_counts['Onsite']; }
-    else if (clientSortState.col === 'offer') { av = a.stage_counts['Offer']; bv = b.stage_counts['Offer']; }
-    if (clientSortState.type === 'str') { return av < bv ? -clientSortState.dir : clientSortState.dir; }
-    return (av - bv) * clientSortState.dir;
-  });
-  sorted.forEach(function(c) {
-    var tr = document.createElement('tr');
-    var offer = c.stage_counts['Offer'];
-    var offerTd = offer > 0 ? '<td><span class="badge badge-green">' + offer + '</span></td>' : '<td style="color:#8b949e;">0</td>';
-    tr.innerHTML = '<td style="font-weight:600;color:#e6edf3;">' + c.name + '</td>' +
-      '<td style="font-weight:700;">' + c.total_active + '</td>' +
-      '<td>' + c.stage_counts['Recruiter Screen'] + '</td>' +
-      '<td>' + c.stage_counts['HM Review'] + '</td>' +
-      '<td>' + c.stage_counts['1st Interview'] + '</td>' +
-      '<td>' + c.stage_counts['2nd Interview'] + '</td>' +
-      '<td>' + (c.stage_counts['Onsite'] > 0 ? '<span style="color:#3fb950;font-weight:600;">' + c.stage_counts['Onsite'] + '</span>' : '0') + '</td>' +
-      offerTd;
-    tbody.appendChild(tr);
-  });
-
-  // Sortable headers
-  var ths = document.querySelectorAll('#client-table thead th');
-  ths.forEach(function(th) {
+  var headers = document.querySelectorAll('#client-table th');
+  headers.forEach(function(th) {
     th.addEventListener('click', function() {
       var col = this.dataset.col;
-      var type = this.dataset.type;
-      if (clientSortState.col === col) { clientSortState.dir *= -1; }
-      else { clientSortState.col = col; clientSortState.dir = type === 'num' ? -1 : 1; clientSortState.type = type; }
-      ths.forEach(function(h) { h.classList.remove('sort-asc', 'sort-desc'); });
-      this.classList.add(clientSortState.dir === 1 ? 'sort-asc' : 'sort-desc');
-      buildClientTable();
+      if (clientSortState.col === col) {
+        clientSortState.dir *= -1;
+      } else {
+        clientSortState.col = col;
+        clientSortState.dir = -1;
+      }
+      renderClientRows();
     });
   });
-  // Set initial sort indicator
-  ths.forEach(function(h) { h.classList.remove('sort-asc', 'sort-desc'); });
-  ths.forEach(function(h) {
-    if (h.dataset.col === clientSortState.col) {
-      h.classList.add(clientSortState.dir === 1 ? 'sort-asc' : 'sort-desc');
-    }
+  renderClientRows();
+}
+
+function renderClientRows() {
+  var tbody = document.getElementById('client-tbody');
+  var sorted = data.clients.slice().sort(function(a, b) {
+    var col = clientSortState.col;
+    var va, vb;
+    if (col === 'name') { va = a.name; vb = b.name; return clientSortState.dir * va.localeCompare(vb); }
+    if (col === 'total') { va = a.total_active; vb = b.total_active; }
+    else if (col === 'rs') { va = a.stage_counts['Recruiter Screen']||0; vb = b.stage_counts['Recruiter Screen']||0; }
+    else if (col === 'hmr') { va = a.stage_counts['HM Review']||0; vb = b.stage_counts['HM Review']||0; }
+    else if (col === 'first') { va = a.stage_counts['1st Interview']||0; vb = b.stage_counts['1st Interview']||0; }
+    else if (col === 'second') { va = a.stage_counts['2nd Interview']||0; vb = b.stage_counts['2nd Interview']||0; }
+    else if (col === 'onsite') { va = a.stage_counts['Onsite']||0; vb = b.stage_counts['Onsite']||0; }
+    else if (col === 'offer') { va = a.stage_counts['Offer']||0; vb = b.stage_counts['Offer']||0; }
+    return clientSortState.dir * (va - vb);
+  });
+  tbody.innerHTML = '';
+  sorted.forEach(function(c) {
+    var sc = c.stage_counts;
+    var offerVal = sc['Offer'] || 0;
+    var tr = document.createElement('tr');
+    tr.innerHTML = '<td style="font-weight:600;color:#e6edf3;">' + escapeHtml(c.name) + '</td>' +
+      '<td><strong>' + c.total_active + '</strong></td>' +
+      '<td>' + stageCount(sc['Recruiter Screen']||0) + '</td>' +
+      '<td>' + stageCount(sc['HM Review']||0) + '</td>' +
+      '<td>' + stageCount(sc['1st Interview']||0) + '</td>' +
+      '<td>' + stageCount(sc['2nd Interview']||0) + '</td>' +
+      '<td>' + stageCount(sc['Onsite']||0) + '</td>' +
+      '<td>' + (offerVal > 0 ? '<span class="badge badge-green">' + offerVal + '</span>' : stageCount(0)) + '</td>';
+    tbody.appendChild(tr);
   });
 }
 
-function buildConversionTable() {
-  var tbody = document.getElementById('conv-tbody');
-  tbody.innerHTML = '';
+function buildGlobalConvTable() {
+  var tbody = document.getElementById('global-conv-tbody');
   var gcr = data.global_conversion_rates;
-  Object.keys(gcr).forEach(function(key) {
-    var cr = gcr[key];
-    var rateClass = cr.rate < 20 ? 'rate-low' : cr.rate >= 60 ? 'rate-good' : 'rate-ok';
+  var order = ['Recruiter Screen \u2192 HM Review','HM Review \u2192 1st Interview','1st Interview \u2192 2nd Interview','2nd Interview \u2192 Onsite','Onsite \u2192 Offer'];
+  order.forEach(function(key) {
+    if (!gcr[key]) return;
+    var item = gcr[key];
+    var rate = item.rate;
+    var rateClass = rate < 20 ? 'rate-low' : 'rate-ok';
+    var badgeClass = rate < 20 ? 'badge-red' : 'badge-green';
     var tr = document.createElement('tr');
-    tr.innerHTML = '<td style="font-size:12px;">' + key + '</td>' +
-      '<td class="' + rateClass + '" style="font-weight:700;">' + cr.rate.toFixed(1) + '%</td>' +
-      '<td>' + cr.numerator + '</td>' +
-      '<td style="color:#8b949e;">' + cr.denominator + '</td>';
+    tr.innerHTML = '<td style="color:#c9d1d9;">' + escapeHtml(key) + '</td>' +
+      '<td><span class="badge ' + badgeClass + '">' + rate.toFixed(1) + '%</span></td>' +
+      '<td>' + item.numerator + '</td>' +
+      '<td>' + item.denominator + '</td>';
     tbody.appendChild(tr);
   });
 }
 
 function buildAgingTable() {
   var tbody = document.getElementById('aging-tbody');
-  tbody.innerHTML = '';
   var rows = [];
   data.clients.forEach(function(client) {
-    if (!client.aging_candidates) return;
-    client.aging_candidates.forEach(function(c) {
-      rows.push({ client: client.name, candidate: c, days: c.days_in_stage });
+    (client.aging_candidates || []).forEach(function(c) {
+      rows.push({
+        name: c.full_name,
+        url: c.gem_profile_url,
+        client: client.name,
+        stage: c.stage,
+        recruiter: c.recruiter,
+        days: c.days_in_stage
+      });
     });
   });
-  rows.sort(function(a, b) { return b.days - a.days; });
-  var shown = rows.slice(0, 80);
-  shown.forEach(function(row) {
-    var c = row.candidate;
-    var d = row.days;
+  rows.sort(function(a,b) { return b.days - a.days; });
+  rows.forEach(function(r) {
     var tr = document.createElement('tr');
-    if (d >= 14) tr.classList.add('aging-red');
-    else if (d >= 10) tr.classList.add('aging-orange');
-    var daysBadge = d >= 14 ? '<span class="badge badge-red">' + d + 'd</span>' : '<span class="badge badge-orange">' + d + 'd</span>';
-    var nameDisplay = shortId(c.candidate_id);
-    if (c.gem_profile_url && c.gem_profile_url.length > 0) {
-      nameDisplay = '<a href="' + c.gem_profile_url + '" target="_blank">' + shortId(c.candidate_id) + '</a>';
-    }
-    tr.innerHTML = '<td style="font-family:monospace;font-size:12px;">' + nameDisplay + '</td>' +
-      '<td style="font-weight:600;">' + row.client + '</td>' +
-      '<td>' + getStagePill(c.stage) + '</td>' +
-      '<td style="color:#8b949e;">' + (c.recruiter || 'Unknown') + '</td>' +
-      '<td>' + daysBadge + '</td>';
+    if (r.days >= 14) tr.classList.add('row-red');
+    else if (r.days >= 10) tr.classList.add('row-orange');
+    var dayBadge = r.days >= 14 ? 'badge-red' : 'badge-orange';
+    tr.innerHTML = '<td>' + candidateLink(r.name, r.url) + '</td>' +
+      '<td style="color:#8b949e;">' + escapeHtml(r.client) + '</td>' +
+      '<td><span class="badge badge-gray">' + escapeHtml(r.stage) + '</span></td>' +
+      '<td style="color:#8b949e;">' + escapeHtml(r.recruiter || 'Unknown') + '</td>' +
+      '<td><span class="badge ' + dayBadge + '">' + r.days + 'd</span></td>';
     tbody.appendChild(tr);
   });
 }
 
-function buildRecruiterTab() {
-  var skipList = ['Unknown', 'Jake Flohr', 'Sarah Keller'];
-  var recruiters = data.recruiters.filter(function(r) { return skipList.indexOf(r.name) === -1; });
+function buildRecruiterCards() {
+  var container = document.getElementById('recruiter-cards');
+  var skip = ['Unknown', 'Jake Flohr', 'Sarah Keller'];
+  var sorted = data.recruiters.filter(function(r) { return skip.indexOf(r.name) === -1; })
+    .sort(function(a,b) { return b.submissions_this_week - a.submissions_this_week; });
 
-  // Sort by submissions_this_week descending
-  var sorted = recruiters.slice().sort(function(a, b) { return b.submissions_this_week - a.submissions_this_week; });
-
-  // Leaderboard
-  var lbody = document.getElementById('leaderboard-tbody');
-  lbody.innerHTML = '';
-  sorted.forEach(function(r, i) {
-    var rank = i + 1;
-    var rankClass = rank === 1 ? 'gold' : rank === 2 ? 'silver' : rank === 3 ? 'bronze' : '';
-    var onsiteOffer = (r.stage_counts['Onsite'] || 0) + (r.stage_counts['Offer'] || 0);
-    var wowBadge = '<span class="badge badge-gray">N/A</span>';
-    var tr = document.createElement('tr');
-    tr.innerHTML = '<td class="leaderboard-rank ' + rankClass + '">' + rank + '</td>' +
-      '<td style="font-weight:600;">' + r.name + '</td>' +
-      '<td style="font-weight:700;color:#3fb950;">' + r.submissions_this_week + '</td>' +
-      '<td style="color:#8b949e;">—</td>' +
-      '<td>' + wowBadge + '</td>' +
-      '<td>' + r.total_active + '</td>' +
-      '<td><span class="badge badge-green">' + onsiteOffer + '</span></td>';
-    lbody.appendChild(tr);
-  });
-
-  // Scorecards
-  var grid = document.getElementById('recruiter-grid');
-  grid.innerHTML = '';
-  var maxActive = Math.max.apply(null, sorted.map(function(r) { return r.total_active; }));
   sorted.forEach(function(r) {
     var sc = r.stage_counts;
     var total = r.total_active || 1;
+    var maxStage = Math.max(sc['Recruiter Screen']||0, sc['HM Review']||0, sc['1st Interview']||0, sc['2nd Interview']||0, sc['Onsite']||0, sc['Offer']||0, 1);
     var stages = [
-      { key: 'Recruiter Screen', cls: 'pb-rs', label: 'RS' },
-      { key: 'HM Review', cls: 'pb-hmr', label: 'HMR' },
-      { key: '1st Interview', cls: 'pb-1st', label: '1st' },
-      { key: '2nd Interview', cls: 'pb-2nd', label: '2nd' },
-      { key: 'Onsite', cls: 'pb-onsite', label: 'On' },
-      { key: 'Offer', cls: 'pb-offer', label: 'Off' }
+      {label:'RS', val: sc['Recruiter Screen']||0},
+      {label:'HMR', val: sc['HM Review']||0},
+      {label:'1st', val: sc['1st Interview']||0},
+      {label:'2nd', val: sc['2nd Interview']||0},
+      {label:'Onsite', val: sc['Onsite']||0},
+      {label:'Offer', val: sc['Offer']||0}
     ];
-    var barHtml = '<div class="pipeline-bar">';
-    stages.forEach(function(s) {
-      var cnt = sc[s.key] || 0;
-      var pct = Math.max(1, Math.round((cnt / total) * 100));
-      if (cnt > 0) {
-        barHtml += '<div class="' + s.cls + '" style="width:' + pct + 'px;min-width:' + (cnt > 0 ? 3 : 0) + 'px;" title="' + s.label + ': ' + cnt + '"></div>';
-      }
-    });
-    barHtml += '</div>';
 
-    var stageLabels = '';
-    stages.forEach(function(s) {
-      var cnt = sc[s.key] || 0;
-      if (cnt > 0) {
-        stageLabels += '<span style="font-size:11px;color:#8b949e;margin-right:8px;">' + s.label + ':<strong style="color:#e6edf3;">' + cnt + '</strong></span>';
-      }
-    });
+    var barsHtml = stages.map(function(s) {
+      var pct = maxStage > 0 ? (s.val / maxStage * 100) : 0;
+      return '<div class="stage-mini-bar">' +
+        '<div class="mini-bar-label"><span>' + s.label + '</span><span>' + s.val + '</span></div>' +
+        '<div class="mini-bar-track"><div class="mini-bar-fill" style="width:' + pct + '%"></div></div>' +
+        '</div>';
+    }).join('');
 
-    var topClientsHtml = '<div class="top-clients"><div class="top-clients-label">Top Clients</div>';
-    var topC = (r.submissions_by_client || []).slice(0, 3);
-    topC.forEach(function(cl) {
-      topClientsHtml += '<div class="top-client-item"><span class="top-client-name">' + cl.client + '</span><span class="badge badge-blue">' + cl.count + '</span></div>';
-    });
-    topClientsHtml += '</div>';
+    var topClients = (r.submissions_by_client || []).slice(0,3).map(function(c) {
+      return '<div class="top-client-item"><span>' + escapeHtml(c.client) + '</span><span class="badge badge-blue">' + c.count + '</span></div>';
+    }).join('');
+
+    var onsiteOffer = (sc['Onsite']||0) + (sc['Offer']||0);
 
     var card = document.createElement('div');
-    card.className = 'rec-card';
-    card.innerHTML = '<div class="rec-card-header">' +
-      '<div class="rec-name">' + r.name + '</div>' +
-      '<span class="badge badge-green" style="font-size:13px;">' + r.submissions_this_week + ' subs</span>' +
+    card.className = 'recruiter-card';
+    card.innerHTML = '<div class="recruiter-card-header">' +
+      '<div><div class="recruiter-name">' + escapeHtml(r.name) + '</div>' +
+      '<div class="recruiter-sub">Active: ' + r.total_active + ' &nbsp;|&nbsp; Onsite+Offer: ' + onsiteOffer + '</div></div>' +
+      '<span class="badge badge-green" style="font-size:14px;padding:4px 10px;">' + r.submissions_this_week + '</span>' +
       '</div>' +
-      '<div class="rec-stats">' +
-      '<div class="rec-stat"><div class="rec-stat-label">Total Active</div><div class="rec-stat-value">' + r.total_active + '</div></div>' +
-      '<div class="rec-stat"><div class="rec-stat-label">Onsites</div><div class="rec-stat-value" style="color:#3fb950;">' + r.fy_onsites + '</div></div>' +
-      '<div class="rec-stat"><div class="rec-stat-label">Offers</div><div class="rec-stat-value" style="color:#e3b341;">' + r.fy_offers + '</div></div>' +
-      '</div>' +
-      '<div style="margin-bottom:8px;">' + barHtml + '</div>' +
-      '<div style="margin-bottom:10px;">' + stageLabels + '</div>' +
-      topClientsHtml;
-    grid.appendChild(card);
+      '<div class="mini-bar-container">' + barsHtml + '</div>' +
+      '<div class="top-clients"><div style="font-size:11px;color:#8b949e;margin-bottom:4px;text-transform:uppercase;letter-spacing:0.5px;">Top Clients</div>' + topClients + '</div>';
+    container.appendChild(card);
   });
+}
 
-  // Aging by recruiter
-  var agingSection = document.getElementById('recruiter-aging-section');
-  agingSection.innerHTML = '';
+function buildRecruiterLeaderboard() {
+  var tbody = document.getElementById('recruiter-leaderboard-tbody');
+  var skip = ['Unknown', 'Jake Flohr', 'Sarah Keller'];
+  var sorted = data.recruiters.filter(function(r) { return skip.indexOf(r.name) === -1; })
+    .sort(function(a,b) { return b.submissions_this_week - a.submissions_this_week; });
+
+  sorted.forEach(function(r, i) {
+    var sc = r.stage_counts;
+    var onsiteOffer = (sc['Onsite']||0) + (sc['Offer']||0);
+    var rank = i + 1;
+    var rankDisplay = rank === 1 ? '🥇 1' : rank === 2 ? '🥈 2' : rank === 3 ? '🥉 3' : rank;
+    var wowDisplay = r.submissions_last_week !== null ? (r.submissions_this_week - r.submissions_last_week) : null;
+    var wowBadge = wowDisplay !== null ? (wowDisplay >= 0 ? '<span class="badge badge-green">+' + wowDisplay + '</span>' : '<span class="badge badge-red">' + wowDisplay + '</span>') : '<span class="badge badge-gray">N/A</span>';
+    var lastWk = r.submissions_last_week !== null ? r.submissions_last_week : '<span style="color:#8b949e;">—</span>';
+    var tr = document.createElement('tr');
+    tr.innerHTML = '<td style="color:#8b949e;">' + rankDisplay + '</td>' +
+      '<td style="font-weight:600;color:#e6edf3;">' + escapeHtml(r.name) + '</td>' +
+      '<td><span class="badge badge-green" style="font-size:13px;">' + r.submissions_this_week + '</span></td>' +
+      '<td>' + lastWk + '</td>' +
+      '<td>' + wowBadge + '</td>' +
+      '<td>' + r.total_active + '</td>' +
+      '<td>' + (onsiteOffer > 0 ? '<span class="badge badge-blue">' + onsiteOffer + '</span>' : '0') + '</td>' +
+      '<td>' + r.win_rates.submitted_to_onsite.toFixed(1) + '%</td>';
+    tbody.appendChild(tr);
+  });
+}
+
+function buildRecruiterAgingGroups() {
+  var container = document.getElementById('recruiter-aging-container');
+  var skip = ['Unknown', 'Jake Flohr', 'Sarah Keller'];
+  var sorted = data.recruiters.filter(function(r) { return skip.indexOf(r.name) === -1 && r.aging_candidates && r.aging_candidates.length > 0; })
+    .sort(function(a,b) { return b.submissions_this_week - a.submissions_this_week; });
+
   sorted.forEach(function(r) {
-    if (!r.aging_candidates || r.aging_candidates.length === 0) return;
-    var wrapper = document.createElement('div');
-    wrapper.className = 'card';
-    wrapper.style.marginBottom = '16px';
-    wrapper.style.padding = '0';
-    wrapper.style.overflow = 'hidden';
+    var agingSorted = r.aging_candidates.slice().sort(function(a,b) { return b.days_in_stage - a.days_in_stage; });
+    var rowsHtml = agingSorted.map(function(c) {
+      var rowClass = c.days_in_stage >= 14 ? 'row-red' : 'row-orange';
+      var dayBadge = c.days_in_stage >= 14 ? 'badge-red' : 'badge-orange';
+      return '<tr class="' + rowClass + '">' +
+        '<td>' + candidateLink(c.full_name, c.gem_profile_url) + '</td>' +
+        '<td style="color:#8b949e;">' + escapeHtml(c.client || '') + '</td>' +
+        '<td><span class="badge badge-gray">' + escapeHtml(c.stage) + '</span></td>' +
+        '<td><span class="badge ' + dayBadge + '">' + c.days_in_stage + 'd</span></td>' +
+        '</tr>';
+    }).join('');
 
-    var title = document.createElement('div');
-    title.style.cssText = 'padding:12px 16px;font-weight:700;font-size:13px;border-bottom:1px solid #30363d;background:#0d1117;';
-    title.innerHTML = r.name + ' <span style="color:#8b949e;font-weight:400;font-size:12px;">(' + r.aging_candidates.length + ' aging)</span>';
-    wrapper.appendChild(title);
-
-    var scrollDiv = document.createElement('div');
-    scrollDiv.className = 'scroll-table';
-    var table = document.createElement('table');
-    var thead = document.createElement('thead');
-    thead.innerHTML = '<tr><th>Candidate</th><th>Client</th><th>Stage</th><th>Days</th></tr>';
-    table.appendChild(thead);
-    var tbody2 = document.createElement('tbody');
-    var sortedAging = r.aging_candidates.slice().sort(function(a, b) { return b.days_in_stage - a.days_in_stage; });
-    sortedAging.slice(0, 15).forEach(function(c) {
-      var d = c.days_in_stage;
-      var tr = document.createElement('tr');
-      if (d >= 14) tr.classList.add('aging-red');
-      else if (d >= 10) tr.classList.add('aging-orange');
-      var daysBadge = d >= 14 ? '<span class="badge badge-red">' + d + 'd</span>' : '<span class="badge badge-orange">' + d + 'd</span>';
-      var nameDisplay = shortId(c.candidate_id);
-      if (c.gem_profile_url && c.gem_profile_url.length > 0) {
-        nameDisplay = '<a href="' + c.gem_profile_url + '" target="_blank">' + shortId(c.candidate_id) + '</a>';
-      }
-      tr.innerHTML = '<td style="font-size:12px;font-family:monospace;">' + nameDisplay + '</td>' +
-        '<td style="font-weight:600;">' + (c.client || '') + '</td>' +
-        '<td>' + getStagePill(c.stage) + '</td>' +
-        '<td>' + daysBadge + '</td>';
-      tbody2.appendChild(tr);
-    });
-    table.appendChild(tbody2);
-    scrollDiv.appendChild(table);
-    wrapper.appendChild(scrollDiv);
-    agingSection.appendChild(wrapper);
+    var group = document.createElement('div');
+    group.className = 'aging-group';
+    group.innerHTML = '<div class="aging-group-header">' + escapeHtml(r.name) + ' <span style="color:#8b949e;font-weight:400;">(' + agingSorted.length + ' aging)</span></div>' +
+      '<div class="aging-group-table"><table>' +
+      '<thead><tr><th>Candidate</th><th>Client</th><th>Stage</th><th>Days</th></tr></thead>' +
+      '<tbody>' + rowsHtml + '</tbody></table></div>';
+    container.appendChild(group);
   });
 }
 
 function initCharts() {
-  // Funnel Chart
+  // Funnel bar chart
   var funnelCtx = document.getElementById('funnelChart').getContext('2d');
-  var gst = data.global_stage_totals;
-  var funnelLabels = ['RS', 'HM Review', '1st Interview', '2nd Interview', 'Onsite', 'Offer'];
-  var funnelValues = [
-    gst['Recruiter Screen'],
-    gst['HM Review'],
-    gst['1st Interview'],
-    gst['2nd Interview'],
-    gst['Onsite'],
-    gst['Offer']
-  ];
+  var stages = ['Recruiter Screen','HM Review','1st Interview','2nd Interview','Onsite','Offer'];
+  var stageLabels = ['RS','HMR','1st','2nd','Onsite','Offer'];
+  var stageVals = stages.map(function(s) { return data.global_stage_totals[s] || 0; });
 
-  var gradient = funnelCtx.createLinearGradient(0, 0, 0, 280);
-  gradient.addColorStop(0, '#238636');
-  gradient.addColorStop(1, '#0d4a20');
+  var gradient = funnelCtx.createLinearGradient(0,0,0,280);
+  gradient.addColorStop(0,'rgba(63,185,80,0.9)');
+  gradient.addColorStop(1,'rgba(35,134,54,0.6)');
 
   new Chart(funnelCtx, {
     type: 'bar',
     data: {
-      labels: funnelLabels,
+      labels: stageLabels,
       datasets: [{
         label: 'Candidates',
-        data: funnelValues,
-        backgroundColor: ['#1f6feb','#388bfd','#2ea043','#2ea043','#3fb950','#f0e68c'],
-        borderRadius: 6,
-        borderSkipped: false
+        data: stageVals,
+        backgroundColor: gradient,
+        borderColor: 'rgba(63,185,80,0.3)',
+        borderWidth: 1,
+        borderRadius: 4
       }]
     },
     options: {
@@ -688,7 +615,7 @@ function initCharts() {
       plugins: {
         legend: { display: false },
         tooltip: {
-          backgroundColor: '#161b22',
+          backgroundColor: '#1c2128',
           borderColor: '#30363d',
           borderWidth: 1,
           titleColor: '#e6edf3',
@@ -697,12 +624,12 @@ function initCharts() {
       },
       scales: {
         x: {
-          grid: { color: '#21262d' },
-          ticks: { color: '#8b949e' }
+          ticks: { color: '#8b949e', font: { size: 11 } },
+          grid: { color: '#21262d' }
         },
         y: {
+          ticks: { color: '#8b949e', font: { size: 11 } },
           grid: { color: '#21262d' },
-          ticks: { color: '#8b949e' },
           beginAtZero: true
         }
       }
