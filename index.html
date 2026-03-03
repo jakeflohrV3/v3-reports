@@ -10,93 +10,94 @@
   body { background: #0d1117; color: #e6edf3; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.5; }
   a { color: #58a6ff; }
   .container { max-width: 1400px; margin: 0 auto; padding: 24px; }
-  .header { margin-bottom: 24px; }
+  .header { padding: 24px 0 16px; border-bottom: 1px solid #30363d; margin-bottom: 24px; }
   .header h1 { font-size: 22px; font-weight: 700; color: #e6edf3; }
-  .header .meta { font-size: 12px; color: #8b949e; margin-top: 4px; }
-  .tabs { display: flex; gap: 0; border-bottom: 1px solid #30363d; margin-bottom: 24px; }
-  .tab-btn { background: none; border: none; color: #8b949e; padding: 10px 20px; font-size: 14px; cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -1px; transition: all 0.15s; font-family: inherit; }
-  .tab-btn:hover { color: #e6edf3; background: #161b22; }
-  .tab-btn.active { color: #e6edf3; border-bottom-color: #238636; font-weight: 600; }
+  .header .meta { color: #8b949e; font-size: 12px; margin-top: 4px; }
+  .tabs { display: flex; gap: 4px; border-bottom: 1px solid #30363d; margin-bottom: 28px; }
+  .tab-btn { background: none; border: none; color: #8b949e; padding: 10px 18px; cursor: pointer; font-size: 14px; font-weight: 500; border-bottom: 2px solid transparent; margin-bottom: -1px; transition: all 0.15s; }
+  .tab-btn:hover { color: #e6edf3; background: rgba(255,255,255,0.04); border-radius: 6px 6px 0 0; }
+  .tab-btn.active { color: #e6edf3; border-bottom-color: #238636; }
   .tab-content { display: none; }
   .tab-content.active { display: block; }
-  .section { margin-bottom: 32px; }
-  .section-title { font-size: 16px; font-weight: 600; color: #e6edf3; margin-bottom: 14px; padding-bottom: 8px; border-bottom: 1px solid #30363d; }
-  .chips { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 24px; }
-  .chip { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 12px 16px; min-width: 140px; }
-  .chip .chip-label { font-size: 11px; color: #8b949e; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
-  .chip .chip-value { font-size: 22px; font-weight: 700; color: #e6edf3; }
-  .chip .chip-value.green { color: #3fb950; }
-  .chip .chip-value.red { color: #f85149; }
-  .chip .chip-value.yellow { color: #d29922; }
   .card { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 20px; margin-bottom: 20px; }
-  .table-wrap { overflow-x: auto; border-radius: 8px; border: 1px solid #30363d; }
+  .card-title { font-size: 15px; font-weight: 600; color: #e6edf3; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+  .card-title .icon { font-size: 16px; }
+  .chips-row { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 20px; }
+  .chip { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 12px 18px; min-width: 140px; }
+  .chip-label { font-size: 11px; color: #8b949e; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+  .chip-value { font-size: 22px; font-weight: 700; color: #e6edf3; }
+  .chip-value.green { color: #3fb950; }
+  .chip-value.red { color: #f85149; }
+  .chip-value.orange { color: #d29922; }
+  .chip-value.blue { color: #58a6ff; }
+  .delta-badge { display: inline-block; font-size: 11px; font-weight: 600; padding: 2px 7px; border-radius: 20px; margin-left: 6px; }
+  .delta-badge.up { background: rgba(63,185,80,0.15); color: #3fb950; }
+  .delta-badge.down { background: rgba(248,81,73,0.15); color: #f85149; }
+  .delta-badge.neutral { background: rgba(139,148,158,0.15); color: #8b949e; }
   table { width: 100%; border-collapse: collapse; font-size: 13px; }
-  th { background: #161b22; color: #8b949e; font-weight: 600; padding: 10px 14px; text-align: left; border-bottom: 1px solid #30363d; white-space: nowrap; }
-  th.sortable { cursor: pointer; user-select: none; }
-  th.sortable:hover { color: #e6edf3; background: #1c2128; }
-  th .sort-icon { margin-left: 4px; opacity: 0.5; }
-  td { padding: 9px 14px; border-bottom: 1px solid #21262d; color: #e6edf3; }
-  tr:last-child td { border-bottom: none; }
-  tr:hover td { background: #1c2128; }
-  .row-red td { background: rgba(248,81,73,0.08); }
-  .row-red:hover td { background: rgba(248,81,73,0.14); }
-  .row-orange td { background: rgba(210,153,34,0.08); }
-  .row-orange:hover td { background: rgba(210,153,34,0.14); }
-  .badge { display: inline-block; padding: 2px 8px; border-radius: 12px; font-size: 11px; font-weight: 600; }
-  .badge-green { background: rgba(35,134,54,0.2); color: #3fb950; border: 1px solid rgba(35,134,54,0.3); }
-  .badge-red { background: rgba(248,81,73,0.2); color: #f85149; border: 1px solid rgba(248,81,73,0.3); }
-  .badge-orange { background: rgba(210,153,34,0.2); color: #d29922; border: 1px solid rgba(210,153,34,0.3); }
-  .badge-blue { background: rgba(88,166,255,0.15); color: #58a6ff; border: 1px solid rgba(88,166,255,0.25); }
-  .badge-gray { background: rgba(139,148,158,0.15); color: #8b949e; border: 1px solid rgba(139,148,158,0.25); }
-  .rate-low { color: #f85149; font-weight: 600; }
-  .rate-ok { color: #e6edf3; }
-  .chart-container { position: relative; height: 300px; }
+  thead th { background: #0d1117; color: #8b949e; font-weight: 600; text-transform: uppercase; font-size: 11px; letter-spacing: 0.5px; padding: 10px 12px; border-bottom: 1px solid #30363d; text-align: left; cursor: pointer; user-select: none; white-space: nowrap; }
+  thead th:hover { color: #e6edf3; }
+  thead th .sort-arrow { margin-left: 4px; opacity: 0.5; }
+  thead th.sorted .sort-arrow { opacity: 1; color: #238636; }
+  tbody tr { border-bottom: 1px solid #21262d; transition: background 0.1s; }
+  tbody tr:hover { background: rgba(255,255,255,0.03); }
+  tbody td { padding: 9px 12px; color: #e6edf3; }
+  tbody tr:last-child { border-bottom: none; }
+  .row-red td { background: rgba(248,81,73,0.06); }
+  .row-orange td { background: rgba(210,153,34,0.06); }
+  .stage-badge { display: inline-block; font-size: 11px; font-weight: 500; padding: 2px 8px; border-radius: 20px; }
+  .stage-rs { background: rgba(139,148,158,0.15); color: #8b949e; }
+  .stage-hmr { background: rgba(88,166,255,0.15); color: #58a6ff; }
+  .stage-1st { background: rgba(210,153,34,0.15); color: #d29922; }
+  .stage-2nd { background: rgba(163,113,247,0.15); color: #a371f7; }
+  .stage-onsite { background: rgba(63,185,80,0.15); color: #3fb950; }
+  .stage-offer { background: rgba(35,134,54,0.25); color: #56d364; }
+  .rate-red { color: #f85149; font-weight: 600; }
+  .rate-ok { color: #3fb950; }
+  .rate-warn { color: #d29922; }
+  .section-title { font-size: 16px; font-weight: 700; color: #e6edf3; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid #30363d; }
+  .chart-wrapper { position: relative; height: 280px; }
   .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-  .recruiter-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 16px; margin-bottom: 24px; }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  @media (max-width: 900px) { .grid-2 { grid-template-columns: 1fr; } .grid-3 { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 600px) { .grid-3 { grid-template-columns: 1fr; } }
   .recruiter-card { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 16px; }
-  .recruiter-card h3 { font-size: 15px; font-weight: 700; color: #e6edf3; margin-bottom: 4px; }
-  .recruiter-card .rc-meta { font-size: 11px; color: #8b949e; margin-bottom: 12px; }
-  .rc-stat-row { display: flex; gap: 12px; margin-bottom: 12px; flex-wrap: wrap; }
-  .rc-stat { text-align: center; }
-  .rc-stat .val { font-size: 18px; font-weight: 700; color: #e6edf3; }
-  .rc-stat .lbl { font-size: 10px; color: #8b949e; text-transform: uppercase; }
+  .recruiter-name { font-size: 15px; font-weight: 700; color: #e6edf3; margin-bottom: 10px; }
+  .recruiter-stats { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 12px; }
+  .recruiter-stat { text-align: center; }
+  .recruiter-stat-val { font-size: 18px; font-weight: 700; }
+  .recruiter-stat-lbl { font-size: 10px; color: #8b949e; text-transform: uppercase; }
   .mini-bar-wrap { margin-bottom: 10px; }
-  .mini-bar-label { font-size: 11px; color: #8b949e; margin-bottom: 4px; display: flex; justify-content: space-between; }
-  .mini-bar-track { background: #21262d; border-radius: 3px; height: 6px; overflow: hidden; display: flex; gap: 1px; }
-  .mini-bar-seg { height: 100%; border-radius: 2px; }
-  .top-clients { margin-top: 10px; }
-  .top-clients .tc-label { font-size: 11px; color: #8b949e; margin-bottom: 4px; }
-  .tc-item { display: flex; justify-content: space-between; font-size: 12px; padding: 2px 0; border-bottom: 1px solid #21262d; }
-  .tc-item:last-child { border-bottom: none; }
-  .neo-read { background: #161b22; border: 1px solid #30363d; border-left: 3px solid #238636; border-radius: 8px; padding: 20px 24px; }
-  .neo-read h3 { font-size: 15px; font-weight: 700; color: #3fb950; margin-bottom: 12px; }
-  .neo-read p { color: #c9d1d9; line-height: 1.7; margin-bottom: 12px; font-size: 13.5px; }
+  .mini-bar-label { display: flex; justify-content: space-between; font-size: 11px; color: #8b949e; margin-bottom: 3px; }
+  .mini-bar-track { background: #21262d; border-radius: 3px; height: 6px; overflow: hidden; }
+  .mini-bar-fill { height: 100%; border-radius: 3px; background: linear-gradient(90deg, #238636, #3fb950); transition: width 0.3s; }
+  .top-clients { font-size: 12px; color: #8b949e; }
+  .top-clients span { color: #58a6ff; }
+  .neo-read { background: linear-gradient(135deg, #161b22 0%, #0d1117 100%); border: 1px solid #238636; border-radius: 8px; padding: 24px; margin-bottom: 20px; }
+  .neo-read-header { font-size: 16px; font-weight: 700; color: #3fb950; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+  .neo-read p { color: #c9d1d9; line-height: 1.7; margin-bottom: 12px; font-size: 14px; }
   .neo-read p:last-child { margin-bottom: 0; }
-  .sparkline-wrap { display: inline-block; vertical-align: middle; }
-  .stage-pill { display: inline-block; padding: 1px 7px; border-radius: 10px; font-size: 11px; font-weight: 500; }
-  .stage-rs { background: rgba(88,166,255,0.15); color: #58a6ff; }
-  .stage-hmr { background: rgba(210,153,34,0.15); color: #d29922; }
-  .stage-1st { background: rgba(163,113,247,0.15); color: #a371f7; }
-  .stage-2nd { background: rgba(56,189,248,0.15); color: #38bdf8; }
-  .stage-onsite { background: rgba(251,146,60,0.15); color: #fb923c; }
-  .stage-offer { background: rgba(63,185,80,0.2); color: #3fb950; }
-  .days-badge { display: inline-block; padding: 1px 7px; border-radius: 10px; font-size: 12px; font-weight: 600; }
-  .leaderboard-rank { font-size: 18px; font-weight: 800; color: #8b949e; }
+  .neo-read strong { color: #e6edf3; }
+  .aging-days-red { color: #f85149; font-weight: 700; }
+  .aging-days-orange { color: #d29922; font-weight: 700; }
+  .aging-days-ok { color: #8b949e; }
+  .leaderboard-rank { font-weight: 700; color: #8b949e; }
   .leaderboard-rank.gold { color: #d29922; }
   .leaderboard-rank.silver { color: #8b949e; }
-  .leaderboard-rank.bronze { color: #fb923c; }
-  @media (max-width: 768px) {
-    .grid-2 { grid-template-columns: 1fr; }
-    .chips { gap: 8px; }
-    .chip { min-width: 110px; }
-  }
+  .leaderboard-rank.bronze { color: #a4703e; }
+  .empty-state { color: #8b949e; font-size: 13px; text-align: center; padding: 24px; }
+  .sparkline-wrap { width: 100%; height: 50px; }
+  hr.section-divider { border: none; border-top: 1px solid #30363d; margin: 24px 0; }
+  .aging-group-header { background: #0d1117; font-weight: 700; color: #8b949e; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .pill { display: inline-block; font-size: 11px; padding: 1px 6px; border-radius: 20px; border: 1px solid #30363d; color: #8b949e; }
+  .overflow-x { overflow-x: auto; }
 </style>
 </head>
 <body>
 <div class="container">
   <div class="header">
-    <h1>V3 Weekly Pipeline Report &mdash; Week of 2026-03-02</h1>
-    <div class="meta">Generated: 2026-03-03 06:48 UTC &nbsp;|&nbsp; 35 Active Clients &nbsp;|&nbsp; Snapshot powered by V3 Intelligence</div>
+    <h1>V3 Weekly Pipeline Report — Week of 2026-03-02</h1>
+    <div class="meta">Generated: 2026-03-03 07:18 UTC &nbsp;·&nbsp; 35 Active Clients &nbsp;·&nbsp; 524 Active Candidates</div>
   </div>
 
   <div class="tabs">
@@ -108,118 +109,116 @@
   <div id="tab-client" class="tab-content active">
 
     <!-- Portfolio Summary -->
-    <div class="section">
-      <div class="section-title">Portfolio Summary</div>
-      <div class="chips">
-        <div class="chip">
-          <div class="chip-label">Active Candidates</div>
-          <div class="chip-value">524</div>
-        </div>
-        <div class="chip">
-          <div class="chip-label">Active Clients</div>
-          <div class="chip-value">35</div>
-        </div>
-        <div class="chip">
-          <div class="chip-label">Submissions This Week</div>
-          <div class="chip-value green">311</div>
-        </div>
-        <div class="chip">
-          <div class="chip-label">WoW Delta</div>
-          <div class="chip-value yellow">N/A</div>
-        </div>
-        <div class="chip">
-          <div class="chip-label">Aging 14+ Days</div>
-          <div class="chip-value red">182</div>
-        </div>
-        <div class="chip">
-          <div class="chip-label">Offers Outstanding</div>
-          <div class="chip-value green">2</div>
-        </div>
-        <div class="chip">
-          <div class="chip-label">Screen → HM Rate</div>
-          <div class="chip-value">59.4%</div>
-        </div>
+    <div class="chips-row">
+      <div class="chip">
+        <div class="chip-label">Active Candidates</div>
+        <div class="chip-value blue">524</div>
+      </div>
+      <div class="chip">
+        <div class="chip-label">Active Clients</div>
+        <div class="chip-value">35</div>
+      </div>
+      <div class="chip">
+        <div class="chip-label">Submissions This Week</div>
+        <div class="chip-value green">311</div>
+      </div>
+      <div class="chip">
+        <div class="chip-label">WoW Delta</div>
+        <div class="chip-value" style="color:#8b949e">N/A</div>
+      </div>
+      <div class="chip">
+        <div class="chip-label">Aging 14+ Days</div>
+        <div class="chip-value red">182</div>
+      </div>
+      <div class="chip">
+        <div class="chip-label">Offers Outstanding</div>
+        <div class="chip-value orange">2</div>
+      </div>
+      <div class="chip">
+        <div class="chip-label">Screen → HM Rate</div>
+        <div class="chip-value">59.4%</div>
       </div>
     </div>
 
     <!-- Active Pipeline by Client -->
-    <div class="section">
-      <div class="section-title">Active Pipeline by Client</div>
-      <div class="table-wrap">
+    <div class="card">
+      <div class="card-title"><span class="icon">🏢</span> Active Pipeline by Client</div>
+      <div class="overflow-x">
         <table id="client-table">
           <thead>
             <tr>
-              <th class="sortable" onclick="sortTable('client-table',0)">Client <span class="sort-icon">↕</span></th>
-              <th class="sortable" onclick="sortTable('client-table',1)">Total <span class="sort-icon">↕</span></th>
-              <th class="sortable" onclick="sortTable('client-table',2)">RS <span class="sort-icon">↕</span></th>
-              <th class="sortable" onclick="sortTable('client-table',3)">HMR <span class="sort-icon">↕</span></th>
-              <th class="sortable" onclick="sortTable('client-table',4)">1st <span class="sort-icon">↕</span></th>
-              <th class="sortable" onclick="sortTable('client-table',5)">2nd <span class="sort-icon">↕</span></th>
-              <th class="sortable" onclick="sortTable('client-table',6)">Onsite <span class="sort-icon">↕</span></th>
-              <th class="sortable" onclick="sortTable('client-table',7)">Offer <span class="sort-icon">↕</span></th>
+              <th onclick="sortTable('client-table',0)" class="sorted">Client <span class="sort-arrow">↕</span></th>
+              <th onclick="sortTable('client-table',1)">Total <span class="sort-arrow">↕</span></th>
+              <th onclick="sortTable('client-table',2)">RS <span class="sort-arrow">↕</span></th>
+              <th onclick="sortTable('client-table',3)">HMR <span class="sort-arrow">↕</span></th>
+              <th onclick="sortTable('client-table',4)">1st <span class="sort-arrow">↕</span></th>
+              <th onclick="sortTable('client-table',5)">2nd <span class="sort-arrow">↕</span></th>
+              <th onclick="sortTable('client-table',6)">Onsite <span class="sort-arrow">↕</span></th>
+              <th onclick="sortTable('client-table',7)">Offer <span class="sort-arrow">↕</span></th>
             </tr>
           </thead>
-          <tbody id="client-table-body"></tbody>
+          <tbody id="client-tbody"></tbody>
         </table>
       </div>
     </div>
 
     <!-- Stage Funnel Chart -->
-    <div class="section">
-      <div class="section-title">Global Stage Funnel</div>
+    <div class="grid-2">
       <div class="card">
-        <div class="chart-container">
+        <div class="card-title"><span class="icon">📈</span> Global Stage Funnel</div>
+        <div class="chart-wrapper">
           <canvas id="funnelChart"></canvas>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title"><span class="icon">🔄</span> Global Conversion Rates</div>
+        <div class="overflow-x">
+          <table>
+            <thead>
+              <tr>
+                <th>Stage Transition</th>
+                <th>Rate</th>
+                <th>Passed</th>
+                <th>Total</th>
+              </tr>
+            </thead>
+            <tbody id="conversion-tbody"></tbody>
+          </table>
         </div>
       </div>
     </div>
 
-    <!-- Conversion Rate Table -->
-    <div class="section">
-      <div class="section-title">Global Conversion Rates</div>
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr>
-              <th>Stage Transition</th>
-              <th>Rate</th>
-              <th>Passed</th>
-              <th>Total</th>
-            </tr>
-          </thead>
-          <tbody id="conversion-table-body"></tbody>
-        </table>
-      </div>
-    </div>
-
     <!-- Aging Pipeline -->
-    <div class="section">
-      <div class="section-title">Aging Pipeline (10+ Days in Stage)</div>
-      <div class="table-wrap">
+    <div class="card">
+      <div class="card-title"><span class="icon">⏰</span> Aging Pipeline — All Clients (10+ Days)</div>
+      <div class="overflow-x">
         <table id="aging-table">
           <thead>
             <tr>
-              <th class="sortable" onclick="sortTable('aging-table',0)">Candidate ID <span class="sort-icon">↕</span></th>
-              <th class="sortable" onclick="sortTable('aging-table',1)">Client <span class="sort-icon">↕</span></th>
-              <th class="sortable" onclick="sortTable('aging-table',2)">Stage <span class="sort-icon">↕</span></th>
-              <th class="sortable" onclick="sortTable('aging-table',3)">Recruiter <span class="sort-icon">↕</span></th>
-              <th class="sortable" onclick="sortTable('aging-table',4)">Days <span class="sort-icon">↕</span></th>
+              <th onclick="sortTable('aging-table',0)">Candidate ID <span class="sort-arrow">↕</span></th>
+              <th onclick="sortTable('aging-table',1)">Client <span class="sort-arrow">↕</span></th>
+              <th onclick="sortTable('aging-table',2)">Stage <span class="sort-arrow">↕</span></th>
+              <th onclick="sortTable('aging-table',3)">Recruiter <span class="sort-arrow">↕</span></th>
+              <th onclick="sortTable('aging-table',4)" class="sorted">Days <span class="sort-arrow">↓</span></th>
             </tr>
           </thead>
-          <tbody id="aging-table-body"></tbody>
+          <tbody id="aging-tbody"></tbody>
         </table>
       </div>
     </div>
 
     <!-- Neo's Read -->
-    <div class="section">
-      <div class="section-title">🧠 Neo's Read</div>
-      <div class="neo-read">
-        <h3>Pipeline Health Assessment — Week of March 2, 2026</h3>
-        <p>This week's pipeline is large and busy on paper — 524 active candidates across 35 clients, 311 submissions — but the headline number hiding underneath is stark: <strong>182 candidates have been sitting in stage for 14+ days</strong>, representing roughly 35% of the entire active pool. That's not a pipeline, that's a parking lot. The Onsite→Offer conversion rate globally sits at a brutal <strong>3.9%</strong> (2 offers from 51 onsites), and both of the portfolio's current offers belong to Endeavor and GPTZero — two smaller engagements. Mercor, the portfolio's largest client at 102 active candidates, has <strong>zero offers</strong> despite running 32 candidates through Onsite. That Onsite population includes candidates who have been sitting there for 122, 77, 47, 39, 38 days — multiple months with no resolution. This is a fundamental process breakdown at the Mercor Onsite stage and needs an urgent client-side conversation. The Owner account is similarly alarming: Dan Stein has candidates in Recruiter Screen dating back 286 days, and a candidate in 1st Interview for 286 days — these records should be audited for whether the roles are even still open.</p>
-        <p><strong>Bright spots:</strong> Nicole Starrantino leads all recruiters in both submissions (47) and Onsite placements (16 fy), showing strong candidate-to-client match on Mercor and Charta Health. Paul Sledd has the only offer-bearing book outside of minor accounts with an Endeavor offer in-hand and 7 fy onsites — his pipeline is deep and progressing. The Endeavor account itself is a standout: 87.5% RS→HM conversion, 85.7% HM→1st, and a live offer with a 100% Onsite→Offer rate — a showcase engagement worth replicating. Giga is a new burst of activity from Meghan Roper (16 submissions there this week), and Hex's 14 candidates sitting in HM Review suggests the HM is actively evaluating a fresh wave — watch that one for 1st interview conversions next week.</p>
-        <p><strong>Risks requiring immediate action:</strong> The Greater account is a ghost account — 11 "active" candidates, most of whom have been sitting in stage for 446–531 days under Kavya Ganesh and Dan Stein. This is almost certainly stale data from roles that no longer exist; these records are polluting the aging metrics and need to be closed. DealOps has a candidate in 2nd Interview for 317 days (Sarah Keller). The Afterquery and Base Power accounts both have multiple 2nd Interview candidates with no Onsite conversions at all — someone needs to chase those hiring managers for decisions. The 1st→2nd Interview rate globally (40.0%) is acceptable, but the Onsite→Offer cliff (3.9%) is the biggest funnel risk in the portfolio. That's a deal-closing problem, not a sourcing problem.</p>
-      </div>
+    <div class="neo-read">
+      <div class="neo-read-header">🤖 Neo's Read — Week of 2026-03-02</div>
+      <p>
+        The V3 portfolio is carrying <strong>524 active candidates across 35 clients</strong>, and with <strong>311 submissions this week</strong>, the team is clearly pushing volume hard. But the pipeline health signals are mixed at best. The biggest red flag: <strong>182 candidates — 35% of the entire active book — have been sitting in-stage for 14+ days</strong>. That's not a pipeline, that's a waiting room. The worst offenders are <strong>Owner</strong> and <strong>Greater</strong>, where Dan Stein holds candidates aged 80–286+ days in Recruiter Screen and HM Review. These are candidates who should have either been advanced or archived months ago. The Greater account has candidates from Kavya Ganesh that have been in stage <strong>446–531 days</strong> — that's over a year. These records need to be resolved immediately or they're polluting the entire health picture.
+      </p>
+      <p>
+        On the conversion funnel, the global <strong>Onsite → Offer rate is a critical 3.9%</strong> — only 2 offers from 51 onsites. Endeavor is the bright spot here with a 100% Onsite → Offer conversion, and GPTZero shows clean stage progression. But <strong>Mercor, the largest account at 102 actives with 32 candidates at Onsite, has produced zero offers</strong>. That's a critical conversion failure at the final gate — either the client is stalling, candidates are declining, or the pipeline quality has deteriorated. This needs an urgent client call. Hex is another concern: 28 candidates split evenly between RS and HM Review with a 0% HM → 1st Interview rate — meaning zero candidates have progressed past HM Review. Giga's 1st → 2nd conversion is only 16.7%. These clients may be experiencing engagement issues or the HM is ghosting the process.
+      </p>
+      <p>
+        Nicole Starrantino leads the team with <strong>47 submissions and a 34% submitted-to-onsite rate</strong> — the best win rate on the team and the highest FY onsite count at 16. Paul Sledd is also strong with 44 subs, 7 FY onsites, and the team's only offer this week (Endeavor). Ryan Grudnitski is quietly solid at 17 submissions with 3 onsites. The concern is <strong>Krystin Warden's 66 active candidates with zero onsites and zero offers</strong> — high volume activity not translating to late-stage traction. Dan Stein manages the largest active book at 71 candidates but carries massive aging debt from Owner and Greater that needs urgent cleanup. <strong>The team should prioritize a pipeline audit this week: kill stale Owner/Greater records, escalate the Mercor onsite bottleneck, and investigate Hex's HM Review paralysis.</strong>
+      </p>
     </div>
 
   </div><!-- end client tab -->
@@ -227,20 +226,14 @@
   <!-- RECRUITER REPORT TAB -->
   <div id="tab-recruiter" class="tab-content">
 
-    <!-- Recruiter Scorecards -->
-    <div class="section">
-      <div class="section-title">Recruiter Scorecards</div>
-      <div class="recruiter-grid" id="recruiter-cards"></div>
-    </div>
-
     <!-- Submissions Leaderboard -->
-    <div class="section">
-      <div class="section-title">Submissions Leaderboard</div>
-      <div class="table-wrap">
+    <div class="card">
+      <div class="card-title"><span class="icon">🏆</span> Submissions Leaderboard</div>
+      <div class="overflow-x">
         <table>
           <thead>
             <tr>
-              <th>#</th>
+              <th>Rank</th>
               <th>Recruiter</th>
               <th>This Week</th>
               <th>Last Week</th>
@@ -250,15 +243,32 @@
               <th>Onsite Rate</th>
             </tr>
           </thead>
-          <tbody id="leaderboard-body"></tbody>
+          <tbody id="leaderboard-tbody"></tbody>
         </table>
       </div>
     </div>
 
-    <!-- Aging Pipeline by Recruiter -->
-    <div class="section">
-      <div class="section-title">Aging Pipeline by Recruiter (10+ Days)</div>
-      <div id="recruiter-aging-section"></div>
+    <!-- Recruiter Scorecards -->
+    <div class="section-title">Recruiter Scorecards</div>
+    <div id="recruiter-cards" class="grid-3"></div>
+
+    <!-- Aging by Recruiter -->
+    <div class="card" style="margin-top:20px">
+      <div class="card-title"><span class="icon">⏰</span> Aging Pipeline by Recruiter</div>
+      <div class="overflow-x">
+        <table>
+          <thead>
+            <tr>
+              <th>Recruiter</th>
+              <th>Client</th>
+              <th>Stage</th>
+              <th>Days</th>
+              <th>Last Activity</th>
+            </tr>
+          </thead>
+          <tbody id="recruiter-aging-tbody"></tbody>
+        </table>
+      </div>
     </div>
 
   </div><!-- end recruiter tab -->
@@ -268,7 +278,7 @@
 <script>
 const data = {
   week: "2026-03-02",
-  generated_at: "2026-03-03 06:48 UTC",
+  generated_at: "2026-03-03 07:18 UTC",
   global_stage_totals: {
     "Recruiter Screen": 213,
     "HM Review": 91,
@@ -279,6 +289,7 @@ const data = {
   },
   portfolio_summary: {
     submissions_this_week: 311,
+    submissions_last_week: null,
     active_candidates: 524,
     active_client_count: 35,
     screen_to_hm_rate: 59.4,
@@ -286,157 +297,20 @@ const data = {
     aging_14_plus_count: 182,
     wow_delta: null
   },
-  global_conversion_rates: {
-    "Recruiter Screen → HM Review": { rate: 59.4, numerator: 311, denominator: 524 },
-    "HM Review → 1st Interview": { rate: 70.7, numerator: 220, denominator: 311 },
-    "1st Interview → 2nd Interview": { rate: 40.0, numerator: 88, denominator: 220 },
-    "2nd Interview → Onsite": { rate: 58.0, numerator: 51, denominator: 88 },
-    "Onsite → Offer": { rate: 3.9, numerator: 2, denominator: 51 }
-  },
   clients: [
-    { name: "Mercor", total_active: 102, stage_counts: { "Recruiter Screen": 37, "HM Review": 12, "1st Interview": 20, "2nd Interview": 1, "Onsite": 32, "Offer": 0 } },
-    { name: "Charta Health", total_active: 49, stage_counts: { "Recruiter Screen": 15, "HM Review": 5, "1st Interview": 18, "2nd Interview": 4, "Onsite": 7, "Offer": 0 } },
-    { name: "Owner", total_active: 48, stage_counts: { "Recruiter Screen": 25, "HM Review": 6, "1st Interview": 8, "2nd Interview": 4, "Onsite": 5, "Offer": 0 } },
-    { name: "Giga", total_active: 31, stage_counts: { "Recruiter Screen": 17, "HM Review": 8, "1st Interview": 5, "2nd Interview": 1, "Onsite": 0, "Offer": 0 } },
-    { name: "Hex", total_active: 28, stage_counts: { "Recruiter Screen": 14, "HM Review": 14, "1st Interview": 0, "2nd Interview": 0, "Onsite": 0, "Offer": 0 } },
-    { name: "Known Dating", total_active: 27, stage_counts: { "Recruiter Screen": 15, "HM Review": 5, "1st Interview": 3, "2nd Interview": 4, "Onsite": 0, "Offer": 0 } },
-    { name: "Eluve", total_active: 24, stage_counts: { "Recruiter Screen": 11, "HM Review": 9, "1st Interview": 3, "2nd Interview": 1, "Onsite": 0, "Offer": 0 } },
-    { name: "Base Power", total_active: 20, stage_counts: { "Recruiter Screen": 4, "HM Review": 3, "1st Interview": 10, "2nd Interview": 2, "Onsite": 1, "Offer": 0 } },
-    { name: "Afterquery", total_active: 20, stage_counts: { "Recruiter Screen": 10, "HM Review": 1, "1st Interview": 6, "2nd Interview": 3, "Onsite": 0, "Offer": 0 } },
-    { name: "Additive", total_active: 18, stage_counts: { "Recruiter Screen": 8, "HM Review": 2, "1st Interview": 5, "2nd Interview": 3, "Onsite": 0, "Offer": 0 } },
-    { name: "Fleet", total_active: 17, stage_counts: { "Recruiter Screen": 7, "HM Review": 2, "1st Interview": 7, "2nd Interview": 1, "Onsite": 0, "Offer": 0 } },
-    { name: "Endeavor", total_active: 16, stage_counts: { "Recruiter Screen": 2, "HM Review": 2, "1st Interview": 7, "2nd Interview": 4, "Onsite": 0, "Offer": 1 } },
-    { name: "Junior", total_active: 16, stage_counts: { "Recruiter Screen": 5, "HM Review": 0, "1st Interview": 10, "2nd Interview": 0, "Onsite": 1, "Offer": 0 } },
-    { name: "Edison Scientific", total_active: 15, stage_counts: { "Recruiter Screen": 9, "HM Review": 3, "1st Interview": 3, "2nd Interview": 0, "Onsite": 0, "Offer": 0 } },
-    { name: "Bond Studio", total_active: 12, stage_counts: { "Recruiter Screen": 3, "HM Review": 5, "1st Interview": 3, "2nd Interview": 1, "Onsite": 0, "Offer": 0 } },
-    { name: "Greater", total_active: 11, stage_counts: { "Recruiter Screen": 5, "HM Review": 1, "1st Interview": 5, "2nd Interview": 0, "Onsite": 0, "Offer": 0 } },
-    { name: "DealOps", total_active: 11, stage_counts: { "Recruiter Screen": 7, "HM Review": 2, "1st Interview": 1, "2nd Interview": 1, "Onsite": 0, "Offer": 0 } },
-    { name: "FeelsMusic", total_active: 7, stage_counts: { "Recruiter Screen": 2, "HM Review": 1, "1st Interview": 2, "2nd Interview": 2, "Onsite": 0, "Offer": 0 } },
-    { name: "Paraform", total_active: 6, stage_counts: { "Recruiter Screen": 2, "HM Review": 2, "1st Interview": 1, "2nd Interview": 1, "Onsite": 0, "Offer": 0 } },
-    { name: "Concourse", total_active: 6, stage_counts: { "Recruiter Screen": 1, "HM Review": 0, "1st Interview": 5, "2nd Interview": 0, "Onsite": 0, "Offer": 0 } },
-    { name: "BuildOps", total_active: 5, stage_counts: { "Recruiter Screen": 3, "HM Review": 1, "1st Interview": 1, "2nd Interview": 0, "Onsite": 0, "Offer": 0 } },
-    { name: "Airtop", total_active: 4, stage_counts: { "Recruiter Screen": 1, "HM Review": 1, "1st Interview": 2, "2nd Interview": 0, "Onsite": 0, "Offer": 0 } },
-    { name: "GPTZero", total_active: 4, stage_counts: { "Recruiter Screen": 1, "HM Review": 1, "1st Interview": 0, "2nd Interview": 0, "Onsite": 1, "Offer": 1 } },
-    { name: "Phia", total_active: 4, stage_counts: { "Recruiter Screen": 1, "HM Review": 0, "1st Interview": 3, "2nd Interview": 0, "Onsite": 0, "Offer": 0 } },
-    { name: "Antimetal", total_active: 3, stage_counts: { "Recruiter Screen": 1, "HM Review": 0, "1st Interview": 1, "2nd Interview": 0, "Onsite": 1, "Offer": 0 } },
-    { name: "Twingate", total_active: 3, stage_counts: { "Recruiter Screen": 0, "HM Review": 0, "1st Interview": 0, "2nd Interview": 2, "Onsite": 1, "Offer": 0 } },
-    { name: "FutureHouse", total_active: 2, stage_counts: { "Recruiter Screen": 1, "HM Review": 1, "1st Interview": 0, "2nd Interview": 0, "Onsite": 0, "Offer": 0 } },
-    { name: "Frec", total_active: 2, stage_counts: { "Recruiter Screen": 0, "HM Review": 1, "1st Interview": 0, "2nd Interview": 1, "Onsite": 0, "Offer": 0 } },
-    { name: "Moonlake Labs", total_active: 2, stage_counts: { "Recruiter Screen": 0, "HM Review": 2, "1st Interview": 0, "2nd Interview": 0, "Onsite": 0, "Offer": 0 } },
-    { name: "ChatBCC", total_active: 1, stage_counts: { "Recruiter Screen": 1, "HM Review": 0, "1st Interview": 0, "2nd Interview": 0, "Onsite": 0, "Offer": 0 } },
-    { name: "Weave Bio", total_active: 1, stage_counts: { "Recruiter Screen": 0, "HM Review": 0, "1st Interview": 0, "2nd Interview": 1, "Onsite": 0, "Offer": 0 } },
-    { name: "Basis", total_active: 1, stage_counts: { "Recruiter Screen": 0, "HM Review": 0, "1st Interview": 1, "2nd Interview": 0, "Onsite": 0, "Offer": 0 } },
-    { name: "Weave", total_active: 1, stage_counts: { "Recruiter Screen": 0, "HM Review": 1, "1st Interview": 0, "2nd Interview": 0, "Onsite": 0, "Offer": 0 } },
-    { name: "Modus", total_active: 1, stage_counts: { "Recruiter Screen": 0, "HM Review": 0, "1st Interview": 1, "2nd Interview": 0, "Onsite": 0, "Offer": 0 } },
-    { name: "unitQ", total_active: 1, stage_counts: { "Recruiter Screen": 0, "HM Review": 0, "1st Interview": 1, "2nd Interview": 0, "Onsite": 0, "Offer": 0 } }
-  ],
-  aging_all: [],
-  recruiters: [
-    { name: "Nicole Starrantino", submissions_this_week: 47, submissions_last_week: null, total_active: 58, stage_counts: { "Recruiter Screen": 11, "HM Review": 2, "1st Interview": 25, "2nd Interview": 4, "Onsite": 16, "Offer": 0 }, fy_onsites: 16, fy_offers: 0, win_rates: { submitted_to_onsite: 34.0 }, submissions_by_client: [{ client: "Mercor", count: 19 }, { client: "Charta Health", count: 13 }, { client: "Junior", count: 6 }], aging_candidates: [] },
-    { name: "Paul Sledd", submissions_this_week: 44, submissions_last_week: null, total_active: 46, stage_counts: { "Recruiter Screen": 2, "HM Review": 17, "1st Interview": 14, "2nd Interview": 5, "Onsite": 7, "Offer": 1 }, fy_onsites: 7, fy_offers: 1, win_rates: { submitted_to_onsite: 18.2 }, submissions_by_client: [{ client: "Mercor", count: 12 }, { client: "Hex", count: 8 }, { client: "Additive", count: 5 }], aging_candidates: [] },
-    { name: "Meghan Roper", submissions_this_week: 41, submissions_last_week: null, total_active: 75, stage_counts: { "Recruiter Screen": 34, "HM Review": 9, "1st Interview": 14, "2nd Interview": 8, "Onsite": 10, "Offer": 0 }, fy_onsites: 10, fy_offers: 0, win_rates: { submitted_to_onsite: 24.4 }, submissions_by_client: [{ client: "Giga", count: 16 }, { client: "Mercor", count: 14 }, { client: "Known Dating", count: 9 }], aging_candidates: [] },
-    { name: "Val VanderLinden", submissions_this_week: 32, submissions_last_week: null, total_active: 61, stage_counts: { "Recruiter Screen": 29, "HM Review": 7, "1st Interview": 17, "2nd Interview": 5, "Onsite": 3, "Offer": 0 }, fy_onsites: 3, fy_offers: 0, win_rates: { submitted_to_onsite: 9.4 }, submissions_by_client: [{ client: "Charta Health", count: 11 }, { client: "Mercor", count: 10 }, { client: "Junior", count: 8 }], aging_candidates: [] },
-    { name: "Krystin Warden", submissions_this_week: 27, submissions_last_week: null, total_active: 66, stage_counts: { "Recruiter Screen": 39, "HM Review": 10, "1st Interview": 14, "2nd Interview": 3, "Onsite": 0, "Offer": 0 }, fy_onsites: 0, fy_offers: 0, win_rates: { submitted_to_onsite: 0.0 }, submissions_by_client: [{ client: "Mercor", count: 14 }, { client: "Hex", count: 14 }, { client: "Owner", count: 9 }], aging_candidates: [] },
-    { name: "Shannae Brydon", submissions_this_week: 25, submissions_last_week: null, total_active: 38, stage_counts: { "Recruiter Screen": 13, "HM Review": 8, "1st Interview": 10, "2nd Interview": 1, "Onsite": 6, "Offer": 0 }, fy_onsites: 6, fy_offers: 0, win_rates: { submitted_to_onsite: 24.0 }, submissions_by_client: [{ client: "Mercor", count: 11 }, { client: "Owner", count: 4 }, { client: "Additive", count: 3 }], aging_candidates: [] },
-    { name: "Kyle Holin", submissions_this_week: 22, submissions_last_week: null, total_active: 35, stage_counts: { "Recruiter Screen": 13, "HM Review": 17, "1st Interview": 2, "2nd Interview": 2, "Onsite": 1, "Offer": 0 }, fy_onsites: 1, fy_offers: 0, win_rates: { submitted_to_onsite: 4.5 }, submissions_by_client: [{ client: "Eluve", count: 15 }, { client: "Owner", count: 4 }, { client: "Base Power", count: 4 }], aging_candidates: [] },
-    { name: "Ryan Grudnitski", submissions_this_week: 17, submissions_last_week: null, total_active: 27, stage_counts: { "Recruiter Screen": 10, "HM Review": 3, "1st Interview": 9, "2nd Interview": 2, "Onsite": 3, "Offer": 0 }, fy_onsites: 3, fy_offers: 0, win_rates: { submitted_to_onsite: 17.6 }, submissions_by_client: [{ client: "Edison Scientific", count: 8 }, { client: "Mercor", count: 7 }, { client: "Fleet", count: 4 }], aging_candidates: [] },
-    { name: "TJ Lee", submissions_this_week: 13, submissions_last_week: null, total_active: 25, stage_counts: { "Recruiter Screen": 12, "HM Review": 7, "1st Interview": 5, "2nd Interview": 0, "Onsite": 1, "Offer": 0 }, fy_onsites: 1, fy_offers: 0, win_rates: { submitted_to_onsite: 7.7 }, submissions_by_client: [{ client: "Charta Health", count: 12 }, { client: "Mercor", count: 5 }, { client: "Additive", count: 2 }], aging_candidates: [] },
-    { name: "Kavya Ganesh", submissions_this_week: 2, submissions_last_week: null, total_active: 7, stage_counts: { "Recruiter Screen": 5, "HM Review": 0, "1st Interview": 2, "2nd Interview": 0, "Onsite": 0, "Offer": 0 }, fy_onsites: 0, fy_offers: 0, win_rates: { submitted_to_onsite: 0.0 }, submissions_by_client: [{ client: "Greater", count: 7 }], aging_candidates: [] }
-  ]
-};
-
-// Aging data flattened
-const allAgingCandidates = [
-  // Mercor
-  { candidate_id: "Y2FuZGlkYXRlczoyMDY5NzA0OTM=", client: "Mercor", stage: "Onsite", recruiter: "Shannae Brydon", days_in_stage: 122 },
-  { candidate_id: "Y2FuZGlkYXRlczoyMTI1ODk4NjU=", client: "Mercor", stage: "Recruiter Screen", recruiter: "Krystin Warden", days_in_stage: 82 },
-  { candidate_id: "Y2FuZGlkYXRlczoxNjc0Mzg0NDU=", client: "Mercor", stage: "Onsite", recruiter: "Paul Sledd", days_in_stage: 77 },
-  { candidate_id: "Y2FuZGlkYXRlczoxNzEzMDI5MzY=", client: "Mercor", stage: "Recruiter Screen", recruiter: "Unknown", days_in_stage: 77 },
-  { candidate_id: "Y2FuZGlkYXRlczoxOTczMTA5NTk=", client: "Mercor", stage: "Onsite", recruiter: "Ryan Grudnitski", days_in_stage: 47 },
-  { candidate_id: "Y2FuZGlkYXRlczoyMTgwNjE0ODM=", client: "Mercor", stage: "Onsite", recruiter: "Ryan Grudnitski", days_in_stage: 39 },
-  { candidate_id: "Y2FuZGlkYXRlczoxNjc0MTc3MTU=", client: "Mercor", stage: "Onsite", recruiter: "Shannae Brydon", days_in_stage: 38 },
-  { candidate_id: "Y2FuZGlkYXRlczoxODg5OTM2OTQ=", client: "Mercor", stage: "Onsite", recruiter: "Nicole Starrantino", days_in_stage: 33 },
-  { candidate_id: "Y2FuZGlkYXRlczoxNjczMzcyMTE=", client: "Mercor", stage: "Onsite", recruiter: "Paul Sledd", days_in_stage: 32 },
-  { candidate_id: "Y2FuZGlkYXRlczoyMDQwNDIxOTE=", client: "Mercor", stage: "Onsite", recruiter: "Meghan Roper", days_in_stage: 32 },
-  { candidate_id: "Y2FuZGlkYXRlczoxODE1Mjk3NDQ=", client: "Mercor", stage: "Onsite", recruiter: "Meghan Roper", days_in_stage: 32 },
-  { candidate_id: "Y2FuZGlkYXRlczoyMDc0NzM0OTA=", client: "Mercor", stage: "Onsite", recruiter: "Paul Sledd", days_in_stage: 32 },
-  { candidate_id: "Y2FuZGlkYXRlczoyMjEyNTAzMzY=", client: "Mercor", stage: "1st Interview", recruiter: "Nicole Starrantino", days_in_stage: 32 },
-  { candidate_id: "Y2FuZGlkYXRlczoxODk3MDMzMTM=", client: "Mercor", stage: "Onsite", recruiter: "Meghan Roper", days_in_stage: 31 },
-  { candidate_id: "Y2FuZGlkYXRlczoxOTIzMDg4NzI=", client: "Mercor", stage: "HM Review", recruiter: "Dan Stein", days_in_stage: 27 },
-  { candidate_id: "Y2FuZGlkYXRlczoxNjczNTk0Njc=", client: "Mercor", stage: "Onsite", recruiter: "Shannae Brydon", days_in_stage: 25 },
-  { candidate_id: "Y2FuZGlkYXRlczoxODE0NTMxMzg=", client: "Mercor", stage: "Onsite", recruiter: "Shannae Brydon", days_in_stage: 23 },
-  { candidate_id: "Y2FuZGlkYXRlczoxODE1NzY4MTI=", client: "Mercor", stage: "Onsite", recruiter: "Nicole Starrantino", days_in_stage: 23 },
-  { candidate_id: "Y2FuZGlkYXRlczoyMjA3Nzc0MzM=", client: "Mercor", stage: "Onsite", recruiter: "Val VanderLinden", days_in_stage: 20 },
-  { candidate_id: "Y2FuZGlkYXRlczoxODIxOTE3Nzk=", client: "Mercor", stage: "Onsite", recruiter: "Nicole Starrantino", days_in_stage: 20 },
-  { candidate_id: "Y2FuZGlkYXRlczoxNjczNTE0ODM=", client: "Mercor", stage: "HM Review", recruiter: "Shannae Brydon", days_in_stage: 20 },
-  { candidate_id: "Y2FuZGlkYXRlczoxODE5MjAwODI=", client: "Mercor", stage: "1st Interview", recruiter: "Ryan Grudnitski", days_in_stage: 19 },
-  { candidate_id: "Y2FuZGlkYXRlczoyMTc0MjAxMjE=", client: "Mercor", stage: "Recruiter Screen", recruiter: "Kyle Holin", days_in_stage: 19 },
-  { candidate_id: "Y2FuZGlkYXRlczoxNjczNDM5ODA=", client: "Mercor", stage: "Recruiter Screen", recruiter: "Meghan Roper", days_in_stage: 19 },
-  { candidate_id: "Y2FuZGlkYXRlczoxOTY2MjUxMTk=", client: "Mercor", stage: "Onsite", recruiter: "Meghan Roper", days_in_stage: 18 },
-  { candidate_id: "Y2FuZGlkYXRlczoxNjczNjMyNzg=", client: "Mercor", stage: "Recruiter Screen", recruiter: "Val VanderLinden", days_in_stage: 18 },
-  { candidate_id: "Y2FuZGlkYXRlczoxNjc0ODAxNzk=", client: "Mercor", stage: "Recruiter Screen", recruiter: "Shannae Brydon", days_in_stage: 17 },
-  { candidate_id: "Y2FuZGlkYXRlczoxNjc0MDU2MDU=", client: "Mercor", stage: "Recruiter Screen", recruiter: "Dan Stein", days_in_stage: 17 },
-  { candidate_id: "Y2FuZGlkYXRlczoxNjc0MDc2OTE=", client: "Mercor", stage: "Recruiter Screen", recruiter: "Shannae Brydon", days_in_stage: 17 },
-  { candidate_id: "Y2FuZGlkYXRlczoyMjUwMTg5NDY=", client: "Mercor", stage: "Recruiter Screen", recruiter: "Unknown", days_in_stage: 17 },
-  { candidate_id: "Y2FuZGlkYXRlczoxOTYzNzM1NjE=", client: "Mercor", stage: "Onsite", recruiter: "Nicole Starrantino", days_in_stage: 16 },
-  { candidate_id: "Y2FuZGlkYXRlczoxOTE4MzkwMTc=", client: "Mercor", stage: "Recruiter Screen", recruiter: "Nicole Starrantino", days_in_stage: 16 },
-  // Owner
-  { candidate_id: "Y2FuZGlkYXRlczoxNjczNjIxNDE=", client: "Owner", stage: "1st Interview", recruiter: "Dan Stein", days_in_stage: 286 },
-  { candidate_id: "Y2FuZGlkYXRlczoxNzEzOTIxNDU=", client: "Owner", stage: "Recruiter Screen", recruiter: "Dan Stein", days_in_stage: 272 },
-  { candidate_id: "Y2FuZGlkYXRlczoxOTM2OTYwMzY=", client: "Owner", stage: "Recruiter Screen", recruiter: "Dan Stein", days_in_stage: 234 },
-  { candidate_id: "Y2FuZGlkYXRlczoxNjc0MzIyODU=", client: "Owner", stage: "Recruiter Screen", recruiter: "Dan Stein", days_in_stage: 229 },
-  { candidate_id: "Y2FuZGlkYXRlczoxNjczNDE0MTI=", client: "Owner", stage: "Recruiter Screen", recruiter: "Dan Stein", days_in_stage: 219 },
-  { candidate_id: "Y2FuZGlkYXRlczoxNjc0Nzk3MzA=", client: "Owner", stage: "Recruiter Screen", recruiter: "Dan Stein", days_in_stage: 213 },
-  { candidate_id: "Y2FuZGlkYXRlczoxNjczOTAyMjY=", client: "Owner", stage: "Recruiter Screen", recruiter: "Dan Stein", days_in_stage: 151 },
-  { candidate_id: "Y2FuZGlkYXRlczoyMDAxOTcyMjQ=", client: "Owner", stage: "Recruiter Screen", recruiter: "Dan Stein", days_in_stage: 151 },
-  { candidate_id: "Y2FuZGlkYXRlczoxNjc0NzkwMTE=", client: "Owner", stage: "Recruiter Screen", recruiter: "Dan Stein", days_in_stage: 139 },
-  { candidate_id: "Y2FuZGlkYXRlczoyMTIzMzg1MDA=", client: "Owner", stage: "Recruiter Screen", recruiter: "Dan Stein", days_in_stage: 97 },
-  { candidate_id: "Y2FuZGlkYXRlczoxNjc5OTM5MDA=", client: "Owner", stage: "Recruiter Screen", recruiter: "Dan Stein", days_in_stage: 95 },
-  { candidate_id: "Y2FuZGlkYXRlczoxNzkyNTI2OTg=", client: "Owner", stage: "HM Review", recruiter: "Dan Stein", days_in_stage: 95 },
-  { candidate_id: "Y2FuZGlkYXRlczoyMTQ0Mzg1Nzc=", client: "Owner", stage: "Recruiter Screen", recruiter: "Dan Stein", days_in_stage: 81 },
-  { candidate_id: "Y2FuZGlkYXRlczoyMDg5NzQwMjY=", client: "Owner", stage: "Onsite", recruiter: "Meghan Roper", days_in_stage: 52 },
-  { candidate_id: "Y2FuZGlkYXRlczoyMDI4ODk2MDM=", client: "Owner", stage: "1st Interview", recruiter: "Dan Stein", days_in_stage: 47 },
-  { candidate_id: "Y2FuZGlkYXRlczoyMTk0MDMwMzI=", client: "Owner", stage: "HM Review", recruiter: "Dan Stein", days_in_stage: 44 },
-  { candidate_id: "Y2FuZGlkYXRlczoyMjE2MTU5NDI=", client: "Owner", stage: "1st Interview", recruiter: "Krystin Warden", days_in_stage: 25 },
-  { candidate_id: "Y2FuZGlkYXRlczoyMDg4MDY3OTY=", client: "Owner", stage: "Recruiter Screen", recruiter: "Krystin Warden", days_in_stage: 25 },
-  { candidate_id: "Y2FuZGlkYXRlczoyMDEzMTcyMzA=", client: "Owner", stage: "HM Review", recruiter: "Paul Sledd", days_in_stage: 21 },
-  { candidate_id: "Y2FuZGlkYXRlczoyMTIzMjczNjg=", client: "Owner", stage: "Onsite", recruiter: "Dan Stein", days_in_stage: 20 },
-  { candidate_id: "Y2FuZGlkYXRlczoxNzY3MTI4NjQ=", client: "Owner", stage: "HM Review", recruiter: "Kyle Holin", days_in_stage: 18 },
-  { candidate_id: "Y2FuZGlkYXRlczoxNjczODM3NTg=", client: "Owner", stage: "Recruiter Screen", recruiter: "Kyle Holin", days_in_stage: 17 },
-  { candidate_id: "Y2FuZGlkYXRlczoxOTM1NDM0NDU=", client: "Owner", stage: "Recruiter Screen", recruiter: "Kyle Holin", days_in_stage: 17 },
-  { candidate_id: "Y2FuZGlkYXRlczoyMDE3MDc1OTg=", client: "Owner", stage: "HM Review", recruiter: "Kyle Holin", days_in_stage: 17 },
-  { candidate_id: "Y2FuZGlkYXRlczoxNjczNzQxNjc=", client: "Owner", stage: "Recruiter Screen", recruiter: "Dan Stein", days_in_stage: 13 },
-  { candidate_id: "Y2FuZGlkYXRlczoyMDcxNjA2Njg=", client: "Owner", stage: "Onsite", recruiter: "Shannae Brydon", days_in_stage: 11 },
-  // Greater
-  { candidate_id: "Y2FuZGlkYXRlczoxNjc0MDEzMDY=", client: "Greater", stage: "Recruiter Screen", recruiter: "Kavya Ganesh", days_in_stage: 531 },
-  { candidate_id: "Y2FuZGlkYXRlczoxNjczOTk4ODA=", client: "Greater", stage: "1st Interview", recruiter: "Dan Stein", days_in_stage: 510 },
-  { candidate_id: "Y2FuZGlkYXRlczoxNjczNDUwOTc=", client: "Greater", stage: "Recruiter Screen", recruiter: "Kavya Ganesh", days_in_stage: 501 },
-  { candidate_id: "Y2FuZGlkYXRlczoxNjczMzA0NzQ=", client: "Greater", stage: "1st Interview", recruiter: "Kavya Ganesh", days_in_stage: 479 },
-  { candidate_id: "Y2FuZGlkYXRlczoxNjc0OTk5NTM=", client: "Greater", stage: "Recruiter Screen", recruiter: "Kavya Ganesh", days_in_stage: 474 },
-  { candidate_id: "Y2FuZGlkYXRlczoxNjczNzM1NzY=", client: "Greater", stage: "1st Interview", recruiter: "Kavya Ganesh", days_in_stage: 466 },
-  { candidate_id: "Y2FuZGlkYXRlczoxNjc0OTk5MTM=", client: "Greater", stage: "Recruiter Screen", recruiter: "Kavya Ganesh", days_in_stage: 465 },
-  { candidate_id: "Y2FuZGlkYXRlczoxNjc0OTk4MjI=", client: "Greater", stage: "Recruiter Screen", recruiter: "Kavya Ganesh", days_in_stage: 446 },
-  { candidate_id: "Y2FuZGlkYXRlczoxNjczNDEyOTg=", client: "Greater", stage: "1st Interview", recruiter: "Dan Stein", days_in_stage: 230 },
-  { candidate_id: "Y2FuZGlkYXRlczoxNjc0MzY0NzY=", client: "Greater", stage: "HM Review", recruiter: "Dan Stein", days_in_stage: 180 },
-  // DealOps
-  { candidate_id: "Y2FuZGlkYXRlczoxNjczMzU5Mzc=", client: "DealOps", stage: "2nd Interview", recruiter: "Sarah Keller", days_in_stage: 317 },
-  { candidate_id: "Y2FuZGlkYXRlczoxNjc0MTcxNjE=", client: "DealOps", stage: "Recruiter Screen", recruiter: "Meghan Roper", days_in_stage: 11 },
-  { candidate_id: "Y2FuZGlkYXRlczoyMDM3OTg1NzA=", client: "DealOps", stage: "HM Review", recruiter: "Meghan Roper", days_in_stage: 11 },
-  // Additive
-  { candidate_id: "Y2FuZGlkYXRlczoxNjczOTY3Njg=", client: "Additive", stage: "Recruiter Screen", recruiter: "Sarah Keller", days_in_stage: 340 },
-  { candidate_id: "Y2FuZGlkYXRlczoxODc3NjA0ODg=", client: "Additive", stage: "1st Interview", recruiter: "Nicole Starrantino", days_in_stage: 74 },
-  { candidate_id: "Y2FuZGlkYXRlczoyMDY5NTQ4ODY=", client: "Additive", stage: "Recruiter Screen", recruiter: "Shannae Brydon", days_in_stage: 45 },
-  { candidate_id: "Y2FuZGlkYXRlczoxODk4MDMyNTY=", client: "Additive", stage: "2nd Interview", recruiter: "Paul Sledd", days_in_stage: 37 },
-  { candidate_id: "Y2FuZGlkYXRlczoxNjc2NTQ2MDg=", client: "Additive", stage: "Recruiter Screen", recruiter: "Shannae Brydon", days_in_stage: 20 },
-  { candidate_id: "Y2FuZGlkYXRlczoxNzgxNzUwNTE=", client: "Additive", stage: "Recruiter Screen", recruiter: "Ryan Grudnitski", days_in_stage: 19 },
-  { candidate_id: "Y2FuZGlkYXRlczoxNjczNjIxNzg=", client: "Additive", stage: "2nd Interview", recruiter: "Paul Sledd", days_in_stage: 18 },
-  { candidate_id: "Y2FuZGlkYXRlczoxODExNTYwNDE=", client: "Additive", stage: "Recruiter Screen", recruiter: "Kyle Holin", days_in_stage: 17 },
-  { candidate_id: "Y2FuZGlkYXRlczoxNjczODI0NzI=", client: "Additive", stage: "1st Interview", recruiter: "Meghan Roper", days_in_stage: 16 },
-  { candidate_id: "Y2FuZGlkYXRlczoyMDc1MjIxNDU=", client: "Additive", stage: "Recruiter Screen", recruiter: "Shannae Brydon", days_in_stage: 12 },
-  { candidate_id: "Y2FuZGlkYXRlczoxNjczNTYxMzk=", client: "Additive", stage: "Recruiter Screen", recruiter: "Kyle Holin", days_in_stage: 11 },
-  // Charta Health
-  { candidate_id: "Y2FuZGlkYXRlczoyMDg5ODY0MDI=", client: "Charta Health", stage: "1st Interview", recruiter: "Dan Stein", days_in_stage: 51 },
-  { candidate_id: "Y2FuZGlkYXRlczoyMDA1MTgzMDE=", client: "Charta Health", stage: "Recruiter Screen", recruiter: "Val VanderLinden", days_in_stage: 45 },
-  { candidate_id: "Y2FuZGlkYXRlczoxNjc0OTE2MzE=", client: "Charta Health", stage: "Recruiter Screen", recruiter: "Val VanderLinden", days_in_stage: 37 },
-  { candidate_id: "Y2FuZGlkYXRlczoxODI3MzkwNTU=", client: "Charta Health", stage: "Recruiter Screen", recruiter: "Val VanderLinden", days_in_stage: 26 },
-  { candidate_id: "Y2FuZGlkYXR
+    { name: "Mercor", total_active: 102, stage_counts: { "Recruiter Screen": 37, "HM Review": 12, "1st Interview": 20, "2nd Interview": 1, "Onsite": 32, "Offer": 0 }, conversion_rates: [{ transition: "Recruiter Screen → HM Review", rate: 63.7, numerator: 65, denominator: 102 }, { transition: "HM Review → 1st Interview", rate: 81.5, numerator: 53, denominator: 65 }, { transition: "1st Interview → 2nd Interview", rate: 62.3, numerator: 33, denominator: 53 }, { transition: "2nd Interview → Onsite", rate: 97.0, numerator: 32, denominator: 33 }, { transition: "Onsite → Offer", rate: 0.0, numerator: 0, denominator: 32 }], aging_candidates: [{ candidate_id: "Y2FuZGlkYXRlczoyMDY5NzA0OTM=", client: "Mercor", stage: "Onsite", recruiter: "Shannae Brydon", days_in_stage: 122 }, { candidate_id: "Y2FuZGlkYXRlczoyMTI1ODk4NjU=", client: "Mercor", stage: "Recruiter Screen", recruiter: "Krystin Warden", days_in_stage: 82 }, { candidate_id: "Y2FuZGlkYXRlczoxNjc0Mzg0NDU=", client: "Mercor", stage: "Onsite", recruiter: "Paul Sledd", days_in_stage: 77 }, { candidate_id: "Y2FuZGlkYXRlczoxNzEzMDI5MzY=", client: "Mercor", stage: "Recruiter Screen", recruiter: "Unknown", days_in_stage: 77 }, { candidate_id: "Y2FuZGlkYXRlczoxOTczMTA5NTk=", client: "Mercor", stage: "Onsite", recruiter: "Ryan Grudnitski", days_in_stage: 47 }, { candidate_id: "Y2FuZGlkYXRlczoyMTgwNjE0ODM=", client: "Mercor", stage: "Onsite", recruiter: "Ryan Grudnitski", days_in_stage: 39 }, { candidate_id: "Y2FuZGlkYXRlczoxNjc0MTc3MTU=", client: "Mercor", stage: "Onsite", recruiter: "Shannae Brydon", days_in_stage: 38 }, { candidate_id: "Y2FuZGlkYXRlczoxODg5OTM2OTQ=", client: "Mercor", stage: "Onsite", recruiter: "Nicole Starrantino", days_in_stage: 33 }, { candidate_id: "Y2FuZGlkYXRlczoxNjczMzcyMTE=", client: "Mercor", stage: "Onsite", recruiter: "Paul Sledd", days_in_stage: 32 }, { candidate_id: "Y2FuZGlkYXRlczoyMDQwNDIxOTE=", client: "Mercor", stage: "Onsite", recruiter: "Meghan Roper", days_in_stage: 32 }, { candidate_id: "Y2FuZGlkYXRlczoxODE1Mjk3NDQ=", client: "Mercor", stage: "Onsite", recruiter: "Meghan Roper", days_in_stage: 32 }, { candidate_id: "Y2FuZGlkYXRlczoyMDc0NzM0OTA=", client: "Mercor", stage: "Onsite", recruiter: "Paul Sledd", days_in_stage: 32 }, { candidate_id: "Y2FuZGlkYXRlczoyMjEyNTAzMzY=", client: "Mercor", stage: "1st Interview", recruiter: "Nicole Starrantino", days_in_stage: 32 }, { candidate_id: "Y2FuZGlkYXRlczoxODk3MDMzMTM=", client: "Mercor", stage: "Onsite", recruiter: "Meghan Roper", days_in_stage: 31 }, { candidate_id: "Y2FuZGlkYXRlczoxOTIzMDg4NzI=", client: "Mercor", stage: "HM Review", recruiter: "Dan Stein", days_in_stage: 27 }, { candidate_id: "Y2FuZGlkYXRlczoxNjczNTk0Njc=", client: "Mercor", stage: "Onsite", recruiter: "Shannae Brydon", days_in_stage: 25 }, { candidate_id: "Y2FuZGlkYXRlczoxODE0NTMxMzg=", client: "Mercor", stage: "Onsite", recruiter: "Shannae Brydon", days_in_stage: 23 }, { candidate_id: "Y2FuZGlkYXRlczoxODE1NzY4MTI=", client: "Mercor", stage: "Onsite", recruiter: "Nicole Starrantino", days_in_stage: 23 }, { candidate_id: "Y2FuZGlkYXRlczoyMjA3Nzc0MzM=", client: "Mercor", stage: "Onsite", recruiter: "Val VanderLinden", days_in_stage: 20 }, { candidate_id: "Y2FuZGlkYXRlczoxODIxOTE3Nzk=", client: "Mercor", stage: "Onsite", recruiter: "Nicole Starrantino", days_in_stage: 20 }, { candidate_id: "Y2FuZGlkYXRlczoxNjczNTE0ODM=", client: "Mercor", stage: "HM Review", recruiter: "Shannae Brydon", days_in_stage: 20 }, { candidate_id: "Y2FuZGlkYXRlczoxODE5MjAwODI=", client: "Mercor", stage: "1st Interview", recruiter: "Ryan Grudnitski", days_in_stage: 19 }, { candidate_id: "Y2FuZGlkYXRlczoyMTc0MjAxMjE=", client: "Mercor", stage: "Recruiter Screen", recruiter: "Kyle Holin", days_in_stage: 19 }, { candidate_id: "Y2FuZGlkYXRlczoxNjczNDM5ODA=", client: "Mercor", stage: "Recruiter Screen", recruiter: "Meghan Roper", days_in_stage: 19 }, { candidate_id: "Y2FuZGlkYXRlczoxOTY2MjUxMTk=", client: "Mercor", stage: "Onsite", recruiter: "Meghan Roper", days_in_stage: 18 }, { candidate_id: "Y2FuZGlkYXRlczoxNjczNjMyNzg=", client: "Mercor", stage: "Recruiter Screen", recruiter: "Val VanderLinden", days_in_stage: 18 }, { candidate_id: "Y2FuZGlkYXRlczoxNjc0ODAxNzk=", client: "Mercor", stage: "Recruiter Screen", recruiter: "Shannae Brydon", days_in_stage: 17 }, { candidate_id: "Y2FuZGlkYXRlczoxNjc0MDU2MDU=", client: "Mercor", stage: "Recruiter Screen", recruiter: "Dan Stein", days_in_stage: 17 }, { candidate_id: "Y2FuZGlkYXRlczoxNjc0MDc2OTE=", client: "Mercor", stage: "Recruiter Screen", recruiter: "Shannae Brydon", days_in_stage: 17 }, { candidate_id: "Y2FuZGlkYXRlczoyMjUwMTg5NDY=", client: "Mercor", stage: "Recruiter Screen", recruiter: "Unknown", days_in_stage: 17 }, { candidate_id: "Y2FuZGlkYXRlczoxOTYzNzM1NjE=", client: "Mercor", stage: "Onsite", recruiter: "Nicole Starrantino", days_in_stage: 16 }, { candidate_id: "Y2FuZGlkYXRlczoxOTE4MzkwMTc=", client: "Mercor", stage: "Recruiter Screen", recruiter: "Nicole Starrantino", days_in_stage: 16 }, { candidate_id: "Y2FuZGlkYXRlczoyMjI1NzczNjc=", client: "Mercor", stage: "1st Interview", recruiter: "Nicole Starrantino", days_in_stage: 12 }, { candidate_id: "Y2FuZGlkYXRlczoyMDEzMjEyNTg=", client: "Mercor", stage: "HM Review", recruiter: "Nicole Starrantino", days_in_stage: 12 }, { candidate_id: "Y2FuZGlkYXRlczoyMjYwMjY1MzM=", client: "Mercor", stage: "1st Interview", recruiter: "Ryan Grudnitski", days_in_stage: 12 }, { candidate_id: "Y2FuZGlkYXRlczoyMjYxODQ0OTc=", client: "Mercor", stage: "1st Interview", recruiter: "Nicole Starrantino", days_in_stage: 12 }, { candidate_id: "Y2FuZGlkYXRlczoxODA5MTA5MDQ=", client: "Mercor", stage: "Onsite", recruiter: "Nicole Starrantino", days_in_stage: 11 }, { candidate_id: "Y2FuZGlkYXRlczoxOTk5ODM2NTE=", client: "Mercor", stage: "Onsite", recruiter: "Ryan Grudnitski", days_in_stage: 11 }, { candidate_id: "Y2FuZGlkYXRlczoxNzYxMTM5NjQ=", client: "Mercor", stage: "1st Interview", recruiter: "Shannae Brydon", days_in_stage: 11 }, { candidate_id: "Y2FuZGlkYXRlczoxODE5MjAxMjI=", client: "Mercor", stage: "1st Interview", recruiter: "Paul Sledd", days_in_stage: 11 }, { candidate_id: "Y2FuZGlkYXRlczoyMDg4NTg4MDE=", client: "Mercor", stage: "HM Review", recruiter: "Dan Stein", days_in_stage: 11 }, { candidate_id: "Y2FuZGlkYXRlczoyMjU2OTIwNjk=", client: "Mercor", stage: "HM Review", recruiter: "Meghan Roper", days_in_stage: 11 }, { candidate_id: "Y2FuZGlkYXRlczoxOTExNjgyNTg=", client: "Mercor", stage: "1st Interview", recruiter: "Krystin Warden", days_in_stage: 10 }, { candidate_id: "Y2FuZGlkYXRlczoyMDA2MDU2NDU=", client: "Mercor", stage: "Onsite", recruiter: "Val VanderLinden", days_in_stage: 10 }] },
+    { name: "Charta Health", total_active: 49, stage_counts: { "Recruiter Screen": 15, "HM Review": 5, "1st Interview": 18, "2nd Interview": 4, "Onsite": 7, "Offer": 0 }, conversion_rates: [{ transition: "Recruiter Screen → HM Review", rate: 69.4 }, { transition: "HM Review → 1st Interview", rate: 85.3 }, { transition: "1st Interview → 2nd Interview", rate: 37.9 }, { transition: "2nd Interview → Onsite", rate: 63.6 }, { transition: "Onsite → Offer", rate: 0.0 }], aging_candidates: [{ candidate_id: "Y2FuZGlkYXRlczoyMDg5ODY0MDI=", client: "Charta Health", stage: "1st Interview", recruiter: "Dan Stein", days_in_stage: 51 }, { candidate_id: "Y2FuZGlkYXRlczoyMDA1MTgzMDE=", client: "Charta Health", stage: "Recruiter Screen", recruiter: "Val VanderLinden", days_in_stage: 45 }, { candidate_id: "Y2FuZGlkYXRlczoxNjc0OTE2MzE=", client: "Charta Health", stage: "Recruiter Screen", recruiter: "Val VanderLinden", days_in_stage: 37 }, { candidate_id: "Y2FuZGlkYXRlczoxODI3MzkwNTU=", client: "Charta Health", stage: "Recruiter Screen", recruiter: "Val VanderLinden", days_in_stage: 26 }, { candidate_id: "Y2FuZGlkYXRlczoyMjM4NjEyMDY=", client: "Charta Health", stage: "Recruiter Screen", recruiter: "Val VanderLinden", days_in_stage: 26 }, { candidate_id: "Y2FuZGlkYXRlczoyMTQwMTQ3NjA=", client: "Charta Health", stage: "2nd Interview", recruiter: "Meghan Roper", days_in_stage: 23 }, { candidate_id: "Y2FuZGlkYXRlczoyMTAyNjQzMjg=", client: "Charta Health", stage: "1st Interview", recruiter: "Val VanderLinden", days_in_stage: 23 }, { candidate_id: "Y2FuZGlkYXRlczoyMTkyMDQwMDM=", client: "Charta Health", stage: "Onsite", recruiter: "Nicole Starrantino", days_in_stage: 19 }, { candidate_id: "Y2FuZGlkYXRlczoyMjExOTM2MjY=", client: "Charta Health", stage: "1st Interview", recruiter: "Val VanderLinden", days_in_stage: 18 }, { candidate_id: "Y2FuZGlkYXRlczoxOTA1OTAxNTU=", client: "Charta Health", stage: "1st Interview", recruiter: "Dan Stein", days_in_stage: 18 }, { candidate_id: "Y2FuZGlkYXRlczoxNzc4Mzk3NTE=", client: "Charta Health", stage: "Onsite", recruiter: "Nicole Starrantino", days_in_stage: 16 }, { candidate_id: "Y2FuZGlkYXRlczoxODY3Mjg3NTI=", client: "Charta Health", stage: "Onsite", recruiter: "Nicole Starrantino", days_in_stage: 16 }, { candidate_id: "Y2FuZGlkYXRlczoyMjExOTM2NjY=", client: "Charta Health", stage: "HM Review", recruiter: "Val VanderLinden", days_in_stage: 15 }, { candidate_id: "Y2FuZGlkYXRlczoxODcyMzgyMzQ=", client: "Charta Health", stage: "HM Review", recruiter: "Val VanderLinden", days_in_stage: 12 }, { candidate_id: "Y2FuZGlkYXRlczoxOTYzNzM1NjE=", client: "Charta Health", stage: "Onsite", recruiter: "Nicole Starrantino", days_in_stage: 11 }, { candidate_id: "Y2FuZGlkYXRlczoyMjM2MjM3NzM=", client: "Charta Health", stage: "1st Interview", recruiter: "Nicole Starrantino", days_in_stage: 11 }, { candidate_id: "Y2FuZGlkYXRlczoxOTcxNTIwMDM=", client: "Charta Health", stage: "1st Interview", recruiter: "Nicole Starrantino", days_in_stage: 11 }, { candidate_id: "Y2FuZGlkYXRlczoxNjc0MDU3MTg=", client: "Charta Health", stage: "1st Interview", recruiter: "Nicole Starrantino", days_in_stage: 11 }, { candidate_id: "Y2FuZGlkYXRlczoyMTk4NzMxMzY=", client: "Charta Health", stage: "1st Interview", recruiter: "Nicole Starrantino", days_in_stage: 10 }, { candidate_id: "Y2FuZGlkYXRlczoxNjczOTMyMjE=", client: "Charta Health", stage: "Recruiter Screen", recruiter: "TJ Lee", days_in_stage: 10 }, { candidate_id: "Y2FuZGlkYXRlczoyMjM3MDc0ODY=", client: "Charta Health", stage: "HM Review", recruiter: "Paul Sledd", days_in_stage: 10 }] },
+    { name: "Owner", total_active: 48, stage_counts: { "Recruiter Screen": 25, "HM Review": 6, "1st Interview": 8, "2nd Interview": 4, "Onsite": 5, "Offer": 0 }, conversion_rates: [{ transition: "Recruiter Screen → HM Review", rate: 47.9 }, { transition: "HM Review → 1st Interview", rate: 73.9 }, { transition: "1st Interview → 2nd Interview", rate: 52.9 }, { transition: "2nd Interview → Onsite", rate: 55.6 }, { transition: "Onsite → Offer", rate: 0.0 }], aging_candidates: [{ candidate_id: "Y2FuZGlkYXRlczoxNjczNjIxNDE=", client: "Owner", stage: "1st Interview", recruiter: "Dan Stein", days_in_stage: 286 }, { candidate_id: "Y2FuZGlkYXRlczoxNzEzOTIxNDU=", client: "Owner", stage: "Recruiter Screen", recruiter: "Dan Stein", days_in_stage: 272 }, { candidate_id: "Y2FuZGlkYXRlczoxOTM2OTYwMzY=", client: "Owner", stage: "Recruiter Screen", recruiter: "Dan Stein", days_in_stage: 234 }, { candidate_id: "Y2FuZGlkYXRlczoxNjc0MzIyODU=", client: "Owner", stage: "Recruiter Screen", recruiter: "Dan Stein", days_in_stage: 229 }, { candidate_id: "Y2FuZGlkYXRlczoxNjczNDE0MTI=", client: "Owner", stage: "Recruiter Screen", recruiter: "Dan Stein", days_in_stage: 219 }, { candidate_id: "Y2FuZGlkYXRlczoxNjc0Nzk3MzA=", client: "Owner", stage: "Recruiter Screen", recruiter: "Dan Stein", days_in_stage: 213 }, { candidate_id: "Y2FuZGlkYXRlczoxNjczOTAyMjY=", client: "Owner", stage: "Recruiter Screen", recruiter: "Dan Stein", days_in_stage: 151 }, { candidate_id: "Y2FuZGlkYXRlczoyMDAxOTcyMjQ=", client: "Owner", stage: "Recruiter Screen", recruiter: "Dan Stein", days_in_stage: 151 }, { candidate_id: "Y2FuZGlkYXRlczoxNjc0NzkwMTE=", client: "Owner", stage: "Recruiter Screen", recruiter: "Dan Stein", days_in_stage: 139 }, { candidate_id: "Y2FuZGlkYXRlczoyMTIzMzg1MDA=", client: "Owner", stage: "Recruiter Screen", recruiter: "Dan Stein", days_in_stage: 97 }, { candidate_id: "Y2FuZGlkYXRlczoxNjc5OTM5MDA=", client: "Owner", stage: "Recruiter Screen", recruiter: "Dan Stein", days_in_stage: 95 }, { candidate_id: "Y2FuZGlkYXRlczoxNzkyNTI2OTg=", client: "Owner", stage: "HM Review", recruiter: "Dan Stein", days_in_stage: 95 }, { candidate_id: "Y2FuZGlkYXRlczoyMTQ0Mzg1Nzc=", client: "Owner", stage: "Recruiter Screen", recruiter: "Dan Stein", days_in_stage: 81 }, { candidate_id: "Y2FuZGlkYXRlczoyMDg5NzQwMjY=", client: "Owner", stage: "Onsite", recruiter: "Meghan Roper", days_in_stage: 52 }, { candidate_id: "Y2FuZGlkYXRlczoyMDI4ODk2MDM=", client: "Owner", stage: "1st Interview", recruiter: "Dan Stein", days_in_stage: 47 }, { candidate_id: "Y2FuZGlkYXRlczoyMTk0MDMwMzI=", client: "Owner", stage: "HM Review", recruiter: "Dan Stein", days_in_stage: 44 }, { candidate_id: "Y2FuZGlkYXRlczoyMjE2MTU5NDI=", client: "Owner", stage: "1st Interview", recruiter: "Krystin Warden", days_in_stage: 25 }, { candidate_id: "Y2FuZGlkYXRlczoyMDg4MDY3OTY=", client: "Owner", stage: "Recruiter Screen", recruiter: "Krystin Warden", days_in_stage: 25 }, { candidate_id: "Y2FuZGlkYXRlczoyMDEzMTcyMzA=", client: "Owner", stage: "HM Review", recruiter: "Paul Sledd", days_in_stage: 21 }, { candidate_id: "Y2FuZGlkYXRlczoyMTIzMjczNjg=", client: "Owner", stage: "Onsite", recruiter: "Dan Stein", days_in_stage: 20 }, { candidate_id: "Y2FuZGlkYXRlczoxNzY3MTI4NjQ=", client: "Owner", stage: "HM Review", recruiter: "Kyle Holin", days_in_stage: 18 }, { candidate_id: "Y2FuZGlkYXRlczoxNjczODM3NTg=", client: "Owner", stage: "Recruiter Screen", recruiter: "Kyle Holin", days_in_stage: 17 }, { candidate_id: "Y2FuZGlkYXRlczoxOTM1NDM0NDU=", client: "Owner", stage: "Recruiter Screen", recruiter: "Kyle Holin", days_in_stage: 17 }, { candidate_id: "Y2FuZGlkYXRlczoyMDE3MDc1OTg=", client: "Owner", stage: "HM Review", recruiter: "Kyle Holin", days_in_stage: 17 }, { candidate_id: "Y2FuZGlkYXRlczoxNjczNzQxNjc=", client: "Owner", stage: "Recruiter Screen", recruiter: "Dan Stein", days_in_stage: 13 }, { candidate_id: "Y2FuZGlkYXRlczoyMDcxNjA2Njg=", client: "Owner", stage: "Onsite", recruiter: "Shannae Brydon", days_in_stage: 11 }, { candidate_id: "Y2FuZGlkYXRlczoyMTk2MTUwNjc=", client: "Owner", stage: "Recruiter Screen", recruiter: "Meghan Roper", days_in_stage: 11 }, { candidate_id: "Y2FuZGlkYXRlczoyMjYyOTQxMDU=", client: "Owner", stage: "Recruiter Screen", recruiter: "Dan Stein", days_in_stage: 11 }, { candidate_id: "Y2FuZGlkYXRlczoyMDQ1NDU2NzY=", client: "Owner", stage: "2nd Interview", recruiter: "Val VanderLinden", days_in_stage: 10 }, { candidate_id: "Y2FuZGlkYXRlczoyMjY1MzEwOTI=", client: "Owner", stage: "HM Review", recruiter: "Dan Stein", days_in_stage: 10 }] },
+    { name: "Giga", total_active: 31, stage_counts: { "Recruiter Screen": 17, "HM Review": 8, "1st Interview": 5, "2nd Interview": 1, "Onsite": 0, "Offer": 0 }, conversion_rates: [{ transition: "Recruiter Screen → HM Review", rate: 45.2 }, { transition: "HM Review → 1st Interview", rate: 42.9 }, { transition: "1st Interview → 2nd Interview", rate: 16.7 }, { transition: "2nd Interview → Onsite", rate: 0.0 }, { transition: "Onsite → Offer", rate: 0.0 }], aging_candidates: [{ candidate_id: "Y2FuZGlkYXRlczoxNjczNTQyMzU=", client: "Giga", stage: "Recruiter Screen", recruiter: "Meghan Roper", days_in_stage: 10 }] },
+    { name: "Hex", total_active: 28, stage_counts: { "Recruiter Screen": 14, "HM Review": 14, "1st Interview": 0, "2nd Interview": 0, "Onsite": 0, "Offer": 0 }, conversion_rates: [{ transition: "Recruiter Screen → HM Review", rate: 50.0 }, { transition: "HM Review → 1st Interview", rate: 0.0 }, { transition: "1st Interview → 2nd Interview", rate: 0.0 }, { transition: "2nd Interview → Onsite", rate: 0.0 }, { transition: "Onsite → Offer", rate: 0.0 }], aging_candidates: [] },
+    { name: "Known Dating", total_active: 27, stage_counts: { "Recruiter Screen": 15, "HM Review": 5, "1st Interview": 3, "2nd Interview": 4, "Onsite": 0, "Offer": 0 }, conversion_rates: [{ transition: "Recruiter Screen → HM Review", rate: 44.4 }, { transition: "HM Review → 1st Interview", rate: 58.3 }, { transition: "1st Interview → 2nd Interview", rate: 57.1 }, { transition: "2nd Interview → Onsite", rate: 0.0 }, { transition: "Onsite → Offer", rate: 0.0 }], aging_candidates: [{ candidate_id: "Y2FuZGlkYXRlczoxNjcxMjAyODM=", client: "Known Dating", stage: "2nd Interview", recruiter: "Dan Stein", days_in_stage: 20 }, { candidate_id: "Y2FuZGlkYXRlczoxOTY0NjMxMjE=", client: "Known Dating", stage: "HM Review", recruiter: "Paul Sledd", days_in_stage: 13 }, { candidate_id: "Y2FuZGlkYXRlczoyMjIyMDk5MTg=", client: "Known Dating", stage: "HM Review", recruiter: "Paul Sledd", days_in_stage: 13 }, { candidate_id: "Y2FuZGlkYXRlczoxNzkyMTIyMzQ=", client: "Known Dating", stage: "Recruiter Screen", recruiter: "Dan Stein", days_in_stage: 12 }, { candidate_id: "Y2FuZGlkYXRlczoxNzMzNTUyMzc=", client: "Known Dating", stage: "Recruiter Screen", recruiter: "Shannae Brydon", days_in_stage: 12 }, { candidate_id: "Y2FuZGlkYXRlczoyMDQ1NDU2NzY=", client: "Known Dating", stage: "2nd Interview", recruiter: "Val VanderLinden", days_in_stage: 11 }, { candidate_id: "Y2FuZGlkYXRlczoxNjczNTExMTg=", client: "Known Dating", stage: "Recruiter Screen", recruiter: "Meghan Roper", days_in_stage: 11 }, { candidate_id: "Y2FuZGlkYXRlczoyMjQ5MDMxOTA=", client: "Known Dating", stage: "2nd Interview", recruiter: "Dan Stein", days_in_stage: 11 }, { candidate_id: "Y2FuZGlkYXRlczoxODAyNjMyNjA=", client: "Known Dating", stage: "Recruiter Screen", recruiter: "Meghan Roper", days_in_stage: 11 }, { candidate_id: "Y2FuZGlkYXRlczoxNjczNjMwNjY=", client: "Known Dating", stage: "HM Review", recruiter: "Krystin Warden", days_in_stage: 10 }, { candidate_id: "Y2FuZGlkYXRlczoxNjc0MDU3MTg=", client: "Known Dating", stage: "1st Interview", recruiter: "Nicole Starrantino", days_in_stage: 10 }, { candidate_id: "Y2FuZGlkYXRlczoyMjM1NzI1MTM=", client: "Known Dating", stage: "HM Review", recruiter: "Dan Stein", days_in_stage: 10 }, { candidate_id: "Y2FuZGlkYXRlczoyMDAwMDc5NTM=", client: "Known Dating", stage: "HM Review", recruiter: "Dan Stein", days_in_stage: 10 }, { candidate_id: "Y2FuZGlkYXRlczoxNjc0MTA1MTQ=", client: "Known Dating", stage: "Recruiter Screen", recruiter: "Krystin Warden", days_in_stage: 10 }] },
+    { name: "Eluve", total_active: 24, stage_counts: { "Recruiter Screen": 11, "HM Review": 9, "1st Interview": 3, "2nd Interview": 1, "Onsite": 0, "Offer": 0 }, conversion_rates: [{ transition: "Recruiter Screen → HM Review", rate: 54.2 }, { transition: "HM Review → 1st Interview", rate: 30.8 }, { transition: "1st Interview → 2nd Interview", rate: 25.0 }, { transition: "2nd Interview → Onsite", rate: 0.0 }, { transition: "Onsite → Offer", rate: 0.0 }], aging_candidates: [] },
+    { name: "Base Power", total_active: 20, stage_counts: { "Recruiter Screen": 4, "HM Review": 3, "1st Interview": 10, "2nd Interview": 2, "Onsite": 1, "Offer": 0 }, conversion_rates: [{ transition: "Recruiter Screen → HM Review", rate: 80.0 }, { transition: "HM Review → 1st Interview", rate: 81.2 }, { transition: "1st Interview → 2nd Interview", rate: 23.1 }, { transition: "2nd Interview → Onsite", rate: 33.3 }, { transition: "Onsite → Offer", rate: 0.0 }], aging_candidates: [{ candidate_id: "Y2FuZGlkYXRlczoyMDI3NzczNTk=", client: "Base Power", stage: "2nd Interview", recruiter: "Kyle Holin", days_in_stage: 81 }, { candidate_id: "Y2FuZGlkYXRlczoxNjczODY2MTE=", client: "Base Power", stage: "HM Review", recruiter: "Dan Stein", days_in_stage: 73 }] },
+    { name: "Afterquery", total_active: 20, stage_counts: { "Recruiter Screen": 10, "HM Review": 1, "1st Interview": 6, "2nd Interview": 3, "Onsite": 0, "Offer": 0 }, conversion_rates: [{ transition: "Recruiter Screen → HM Review", rate: 50.0 }, { transition: "HM Review → 1st Interview", rate: 90.0 }, { transition: "1st Interview → 2nd Interview", rate: 33.3 }, { transition: "2nd Interview → Onsite", rate: 0.0 }, { transition: "Onsite → Offer", rate: 0.0 }], aging_candidates: [] },
+    { name: "Additive", total_active: 18, stage_counts: { "Recruiter Screen": 8, "HM Review": 2, "1st Interview": 5, "2nd Interview": 3, "Onsite": 0, "Offer": 0 }, conversion_rates: [{ transition: "Recruiter Screen → HM Review", rate: 55.6 }, { transition: "HM Review → 1st Interview", rate: 80.0 }, { transition: "1st Interview → 2nd Interview", rate: 37.5 }, { transition: "2nd Interview → Onsite", rate: 0.0 }, { transition: "Onsite → Offer", rate: 0.0 }], aging_candidates: [] },
+    { name: "Fleet", total_active: 17, stage_counts: { "Recruiter Screen": 7, "HM Review": 2, "1st Interview": 7, "2nd Interview": 1, "Onsite": 0, "Offer": 0 }, conversion_rates: [{ transition: "Recruiter Screen → HM Review", rate: 58.8 }, { transition: "HM Review → 1st Interview", rate: 80.0 }, { transition: "1st Interview → 2nd Interview", rate: 12.5 }, { transition: "2nd Interview → Onsite", rate: 0.0 }, { transition: "Onsite → Offer", rate: 0.0 }], aging_candidates: [] },
+    { name: "Endeavor", total_active: 16, stage_counts: { "Recruiter Screen": 2, "HM Review": 2, "1st Interview": 7, "2nd Interview": 4, "Onsite": 0, "Offer": 1 }, conversion_rates: [{ transition: "Recruiter Screen → HM Review", rate: 87.5 }, { transition: "HM Review → 1st Interview", rate: 85.7 }, { transition: "1st Interview → 2nd Interview", rate: 41.7 }, { transition: "2nd Interview → Onsite", rate: 20.0 }, { transition: "Onsite → Offer", rate: 100.0 }], aging_candidates: [] },
+    { name: "Junior", total_active: 16, stage_counts: { "Recruiter Screen": 5, "HM Review": 0, "1st Interview": 10, "2nd Interview": 0, "Onsite": 1, "Offer": 0 }, conversion_rates: [{ transition: "Recruiter Screen → HM Review", rate: 68.8 }, { transition: "HM Review → 1st Interview", rate: 100.0 }, { transition: "1st Interview → 2nd Interview", rate: 9.1 }, { transition: "2nd Interview → Onsite", rate: 100.0 }, { transition: "Onsite → Offer", rate: 0.0 }], aging_candidates: [] },
+    { name: "Edison Scientific", total_active: 15, stage_counts: { "Recruiter Screen": 9, "HM Review": 3, "1st Interview": 3, "2nd Interview": 0, "Onsite": 0, "Offer": 0 }, conversion_rates: [{ transition: "Recruiter Screen → HM Review", rate: 40.0 }, { transition: "HM Review → 1st Interview", rate: 50.0 }, { transition: "1st Interview → 2nd Interview", rate: 0.0 }, { transition: "2nd Interview → Onsite", rate: 0.0 }, { transition: "Onsite → Offer", rate: 0.0 }], aging_candidates: [] },
+    { name: "Bond Studio", total_active: 12, stage_counts: { "Recruiter Screen": 3, "HM Review": 5, "1st Interview": 3, "2nd Interview": 1, "Onsite": 0, "Offer": 0 }, conversion_rates: [{ transition: "Recruiter Screen → HM Review", rate: 75.0 }, { transition: "HM Review → 1st Interview", rate: 44.4 }, { transition: "1st Interview → 2nd Interview", rate: 25.0 }, { transition: "2nd Interview → Onsite", rate: 0.0 }, { transition: "Onsite → Offer", rate: 0.0 }], aging_candidates: [] },
+    { name: "Greater", total_active: 11, stage_counts: { "Recruiter Screen": 5, "HM Review": 1, "1st Interview": 5, "2nd Interview":
