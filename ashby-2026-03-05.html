@@ -435,17 +435,17 @@
   </div>
   <div class="header-stats">
     <div class="stat">
-      <div class="stat-value" id="total-candidates">{{TOTAL_CANDIDATES}}</div>
+      <div class="stat-value" id="total-candidates">115</div>
       <div class="stat-label">Candidates</div>
     </div>
     <div class="stat-divider"></div>
     <div class="stat">
-      <div class="stat-value" id="total-clients">{{ACTIVE_CLIENTS}}</div>
+      <div class="stat-value" id="total-clients">10</div>
       <div class="stat-label">Active Clients</div>
     </div>
     <div class="stat-divider"></div>
     <div class="stat urgent-stat">
-      <div class="stat-value" id="total-flags">{{FLAGGED_COUNT}}</div>
+      <div class="stat-value" id="total-flags">32</div>
       <div class="stat-label">Flagged ⚠</div>
     </div>
   </div>
@@ -456,7 +456,16 @@
   <span class="filter-label">Filter</span>
   <select id="filter-client" onchange="applyFilters()">
     <option value="">All Clients</option>
-    {{CLIENT_OPTIONS}}
+    <option value="Additive AI">Additive AI</option>
+<option value="AfterQuery">AfterQuery</option>
+<option value="Base Power Company">Base Power Company</option>
+<option value="Giga">Giga</option>
+<option value="Junior AI">Junior AI</option>
+<option value="Known">Known</option>
+<option value="Mercor">Mercor</option>
+<option value="Owner.com">Owner.com</option>
+<option value="Phia">Phia</option>
+<option value="Wispr Flow">Wispr Flow</option>
   </select>
   <select id="filter-stage" onchange="applyFilters()">
     <option value="">All Stages</option>
@@ -477,15 +486,340 @@
 
 <!-- ALERTS BANNER -->
 <div class="alerts-banner" id="alerts-banner">
-  <div class="alerts-title">⚠ Needs Attention — {{FLAGGED_COUNT}} candidates</div>
+  <div class="alerts-title">⚠ Needs Attention — 32 candidates</div>
   <div id="alerts-list">
-    {{ALERTS_HTML}}
+    <span class="alert-pill" data-client="AfterQuery"><span class="alert-client">AfterQuery</span> Aigerim Askergali&nbsp;·&nbsp;1w ago</span>
+<span class="alert-pill" data-client="AfterQuery"><span class="alert-client">AfterQuery</span> Siddhant Satapathy&nbsp;·&nbsp;1w ago</span>
+<span class="alert-pill" data-client="AfterQuery"><span class="alert-client">AfterQuery</span> Anay Bhakat&nbsp;·&nbsp;3w ago</span>
+<span class="alert-pill" data-client="AfterQuery"><span class="alert-client">AfterQuery</span> Kaushik Pulgari&nbsp;·&nbsp;3w ago</span>
+<span class="alert-pill" data-client="AfterQuery"><span class="alert-client">AfterQuery</span> Siddhi Bansal&nbsp;·&nbsp;3w ago</span>
+<span class="alert-pill" data-client="AfterQuery"><span class="alert-client">AfterQuery</span> Twisha Sundararajan&nbsp;·&nbsp;3w ago</span>
+<span class="alert-pill" data-client="Giga"><span class="alert-client">Giga</span> Andy Qiu&nbsp;·&nbsp;NEEDS SCHEDULING</span>
+<span class="alert-pill" data-client="Giga"><span class="alert-client">Giga</span> Yi Liu&nbsp;·&nbsp;NEEDS SCHEDULING</span>
+<span class="alert-pill" data-client="Giga"><span class="alert-client">Giga</span> Zhihao Li&nbsp;·&nbsp;NEEDS SCHEDULING</span>
+<span class="alert-pill" data-client="Junior AI"><span class="alert-client">Junior AI</span> Eli Kugelsky&nbsp;·&nbsp;NEEDS SCHEDULING</span>
+<span class="alert-pill" data-client="Junior AI"><span class="alert-client">Junior AI</span> Kamil Kisielewicz&nbsp;·&nbsp;NEEDS SCHEDULING</span>
+<span class="alert-pill" data-client="Junior AI"><span class="alert-client">Junior AI</span> Stephen Moon&nbsp;·&nbsp;NEEDS SCHEDULING</span>
+<span class="alert-pill" data-client="Junior AI"><span class="alert-client">Junior AI</span> Chloe Chan&nbsp;·&nbsp;NEEDS SCHEDULING</span>
+<span class="alert-pill" data-client="Junior AI"><span class="alert-client">Junior AI</span> Natan Vidra&nbsp;·&nbsp;3w ago</span>
+<span class="alert-pill" data-client="Known"><span class="alert-client">Known</span> Richard Zhu&nbsp;·&nbsp;NEEDS SCHEDULING</span>
+<span class="alert-pill" data-client="Known"><span class="alert-client">Known</span> Yang Pan&nbsp;·&nbsp;1w ago</span>
+<span class="alert-pill" data-client="Known"><span class="alert-client">Known</span> Ansel Morris&nbsp;·&nbsp;2w ago</span>
+<span class="alert-pill" data-client="Known"><span class="alert-client">Known</span> Stephen Moon&nbsp;·&nbsp;2w ago</span>
+<span class="alert-pill" data-client="Known"><span class="alert-client">Known</span> Noah Leshan&nbsp;·&nbsp;5w ago</span>
+<span class="alert-pill" data-client="Mercor"><span class="alert-client">Mercor</span> Enming Luo&nbsp;·&nbsp;NEEDS SCHEDULING</span>
+<span class="alert-pill" data-client="Mercor"><span class="alert-client">Mercor</span> Kanika Dutta&nbsp;·&nbsp;NEEDS SCHEDULING</span>
+<span class="alert-pill" data-client="Mercor"><span class="alert-client">Mercor</span> Armaan Danewalia&nbsp;·&nbsp;NEEDS DECISION</span>
+<span class="alert-pill" data-client="Mercor"><span class="alert-client">Mercor</span> Samuel Cohen&nbsp;·&nbsp;NEEDS DECISION</span>
+<span class="alert-pill" data-client="Mercor"><span class="alert-client">Mercor</span> Vikram Agrawal&nbsp;·&nbsp;NEEDS DECISION</span>
+<span class="alert-pill" data-client="Mercor"><span class="alert-client">Mercor</span> Stephen Rice&nbsp;·&nbsp;NEEDS SCHEDULING</span>
+<span class="alert-pill" data-client="Owner.com"><span class="alert-client">Owner.com</span> Jay Devnani&nbsp;·&nbsp;NEEDS DECISION</span>
+<span class="alert-pill" data-client="Owner.com"><span class="alert-client">Owner.com</span> Carter Daniel Peyton&nbsp;·&nbsp;NEEDS DECISION</span>
+<span class="alert-pill" data-client="Owner.com"><span class="alert-client">Owner.com</span> David Mkrtchyan&nbsp;·&nbsp;NEEDS DECISION</span>
+<span class="alert-pill" data-client="Wispr Flow"><span class="alert-client">Wispr Flow</span> Benjamin Harvey&nbsp;·&nbsp;19w ago</span>
+<span class="alert-pill" data-client="Wispr Flow"><span class="alert-client">Wispr Flow</span> Zeyu Li&nbsp;·&nbsp;19w ago</span>
+<span class="alert-pill" data-client="Wispr Flow"><span class="alert-client">Wispr Flow</span> Ruoyu Li&nbsp;·&nbsp;23w ago</span>
+<span class="alert-pill" data-client="Wispr Flow"><span class="alert-client">Wispr Flow</span> Ronak Shah&nbsp;·&nbsp;22w ago</span>
   </div>
 </div>
 
 <!-- MAIN -->
 <div class="main" id="main-content">
-  {{CLIENTS_HTML}}
+  
+<div class="client-block" data-client="Additive AI">
+  <div class="client-header" onclick="toggleClient(this)">
+    <span class="client-avatar">AA</span>
+    <span class="client-name">Additive AI</span>
+    <span class="client-count">6 candidates</span>
+    
+    <span class="client-toggle">▾</span>
+  </div>
+  <div class="client-body">
+    <table class="cand-table">
+      <tr class="stage-header-row"><td colspan="3" class="stage-label">Initial Screen <span class="stage-count">5</span></td></tr>
+<tr class="cand-row ok" data-client="Additive AI" data-stage="Initial Screen" data-urgency="ok"><td class="cand-name-cell">Akansha Vashisth<span class="cand-employer">-</span></td><td class="cand-status ok">In Stage</td><td class="cand-urgency-cell"><span class="urgency-badge ok">ok</span></td></tr>
+<tr class="cand-row ok" data-client="Additive AI" data-stage="Initial Screen" data-urgency="ok"><td class="cand-name-cell">Bharath Ramaprasad<span class="cand-employer">DuoModal</span></td><td class="cand-status ok">In Stage</td><td class="cand-urgency-cell"><span class="urgency-badge ok">ok</span></td></tr>
+<tr class="cand-row ok" data-client="Additive AI" data-stage="Initial Screen" data-urgency="ok"><td class="cand-name-cell">Joshua Choi<span class="cand-employer">TikTok U S Data Security</span></td><td class="cand-status ok">In Stage</td><td class="cand-urgency-cell"><span class="urgency-badge ok">ok</span></td></tr>
+<tr class="cand-row ok" data-client="Additive AI" data-stage="Initial Screen" data-urgency="ok"><td class="cand-name-cell">Ron Abantao<span class="cand-employer">CamberCloud</span></td><td class="cand-status ok">In Stage</td><td class="cand-urgency-cell"><span class="urgency-badge ok">ok</span></td></tr>
+<tr class="cand-row ok" data-client="Additive AI" data-stage="Initial Screen" data-urgency="ok"><td class="cand-name-cell">Ryan Stout<span class="cand-employer">Chainlink Labs</span></td><td class="cand-status ok">In Stage</td><td class="cand-urgency-cell"><span class="urgency-badge ok">ok</span></td></tr>
+<tr class="stage-header-row"><td colspan="3" class="stage-label">First Technical Screen <span class="stage-count">1</span></td></tr>
+<tr class="cand-row ok" data-client="Additive AI" data-stage="First Technical Screen" data-urgency="ok"><td class="cand-name-cell">Saif Jilani<span class="cand-employer">Overjet</span></td><td class="cand-status ok">In Stage</td><td class="cand-urgency-cell"><span class="urgency-badge ok">ok</span></td></tr>
+
+    </table>
+  </div>
+</div>
+
+<div class="client-block" data-client="AfterQuery" data-flagged="6">
+  <div class="client-header" onclick="toggleClient(this)">
+    <span class="client-avatar">A</span>
+    <span class="client-name">AfterQuery</span>
+    <span class="client-count">11 candidates</span>
+    <span class="flag-badge" data-urgency="flagged">⚑ 6 flagged</span>
+    <span class="client-toggle">▾</span>
+  </div>
+  <div class="client-body">
+    <table class="cand-table">
+      <tr class="stage-header-row"><td colspan="3" class="stage-label">Initial Screen <span class="stage-count">5</span></td></tr>
+<tr class="cand-row urgent" data-client="AfterQuery" data-stage="Initial Screen" data-urgency="urgent"><td class="cand-name-cell">Aigerim Askergali<span class="cand-employer">Google</span></td><td class="cand-status urgent">In Stage Since · 1w ago</td><td class="cand-urgency-cell"><span class="urgency-badge urgent">urgent</span></td></tr>
+<tr class="cand-row ok" data-client="AfterQuery" data-stage="Initial Screen" data-urgency="ok"><td class="cand-name-cell">Anmol Kaur<span class="cand-employer">TikTok</span></td><td class="cand-status ok">In Stage Since · 6d ago</td><td class="cand-urgency-cell"><span class="urgency-badge ok">ok</span></td></tr>
+<tr class="cand-row ok" data-client="AfterQuery" data-stage="Initial Screen" data-urgency="ok"><td class="cand-name-cell">Hiro Ayettey<span class="cand-employer">FigJam</span></td><td class="cand-status ok">In Stage Since · 6d ago</td><td class="cand-urgency-cell"><span class="urgency-badge ok">ok</span></td></tr>
+<tr class="cand-row urgent" data-client="AfterQuery" data-stage="Initial Screen" data-urgency="urgent"><td class="cand-name-cell">Siddhant Satapathy<span class="cand-employer">AnswersAi.com</span></td><td class="cand-status urgent">In Stage Since · 1w ago</td><td class="cand-urgency-cell"><span class="urgency-badge urgent">urgent</span></td></tr>
+<tr class="cand-row ok" data-client="AfterQuery" data-stage="Initial Screen" data-urgency="ok"><td class="cand-name-cell">Taejin Hwang<span class="cand-employer">Fulcrum</span></td><td class="cand-status ok">In Stage Since · 6d ago</td><td class="cand-urgency-cell"><span class="urgency-badge ok">ok</span></td></tr>
+<tr class="stage-header-row"><td colspan="3" class="stage-label">First Round <span class="stage-count">6</span></td></tr>
+<tr class="cand-row stale" data-client="AfterQuery" data-stage="First Round" data-urgency="stale"><td class="cand-name-cell">Anay Bhakat<span class="cand-employer">Meta</span></td><td class="cand-status stale">In Stage Since · 3w ago</td><td class="cand-urgency-cell"><span class="urgency-badge stale">stale</span></td></tr>
+<tr class="cand-row ok" data-client="AfterQuery" data-stage="First Round" data-urgency="ok"><td class="cand-name-cell">Armaan Vakharia</td><td class="cand-status ok">In Stage</td><td class="cand-urgency-cell"><span class="urgency-badge ok">ok</span></td></tr>
+<tr class="cand-row stale" data-client="AfterQuery" data-stage="First Round" data-urgency="stale"><td class="cand-name-cell">Kaushik Pulgari<span class="cand-employer">Apple</span></td><td class="cand-status stale">In Stage Since · 3w ago</td><td class="cand-urgency-cell"><span class="urgency-badge stale">stale</span></td></tr>
+<tr class="cand-row ok" data-client="AfterQuery" data-stage="First Round" data-urgency="ok"><td class="cand-name-cell">Pooja Nagpal</td><td class="cand-status ok">In Stage</td><td class="cand-urgency-cell"><span class="urgency-badge ok">ok</span></td></tr>
+<tr class="cand-row stale" data-client="AfterQuery" data-stage="First Round" data-urgency="stale"><td class="cand-name-cell">Siddhi Bansal<span class="cand-employer">Stripe</span></td><td class="cand-status stale">In Stage Since · 3w ago</td><td class="cand-urgency-cell"><span class="urgency-badge stale">stale</span></td></tr>
+<tr class="cand-row stale" data-client="AfterQuery" data-stage="First Round" data-urgency="stale"><td class="cand-name-cell">Twisha Sundararajan<span class="cand-employer">Apple</span></td><td class="cand-status stale">In Stage Since · 3w ago</td><td class="cand-urgency-cell"><span class="urgency-badge stale">stale</span></td></tr>
+
+    </table>
+  </div>
+</div>
+
+<div class="client-block" data-client="Base Power Company">
+  <div class="client-header" onclick="toggleClient(this)">
+    <span class="client-avatar">BP</span>
+    <span class="client-name">Base Power Company</span>
+    <span class="client-count">6 candidates</span>
+    
+    <span class="client-toggle">▾</span>
+  </div>
+  <div class="client-body">
+    <table class="cand-table">
+      <tr class="stage-header-row"><td colspan="3" class="stage-label">Technical Interview <span class="stage-count">2</span></td></tr>
+<tr class="cand-row ok" data-client="Base Power Company" data-stage="Technical Interview" data-urgency="ok"><td class="cand-name-cell">Andy Cabezas<span class="cand-employer">Affirm</span></td><td class="cand-status ok">BOOKING LINK SENT</td><td class="cand-urgency-cell"><span class="urgency-badge ok">ok</span></td></tr>
+<tr class="cand-row ok" data-client="Base Power Company" data-stage="Technical Interview" data-urgency="ok"><td class="cand-name-cell">Vivek Gade<span class="cand-employer">Tesla</span></td><td class="cand-status ok">BOOKING LINK SENT</td><td class="cand-urgency-cell"><span class="urgency-badge ok">ok</span></td></tr>
+<tr class="stage-header-row"><td colspan="3" class="stage-label">On-Site Interview <span class="stage-count">1</span></td></tr>
+<tr class="cand-row ok" data-client="Base Power Company" data-stage="On-Site Interview" data-urgency="ok"><td class="cand-name-cell">Karthik Manamcheri<span class="cand-employer">CloudKitchens</span></td><td class="cand-status ok">In Stage</td><td class="cand-urgency-cell"><span class="urgency-badge ok">ok</span></td></tr>
+<tr class="stage-header-row"><td colspan="3" class="stage-label">Hiring Manager Interview <span class="stage-count">1</span></td></tr>
+<tr class="cand-row ok" data-client="Base Power Company" data-stage="Hiring Manager Interview" data-urgency="ok"><td class="cand-name-cell">Christopher Green<span class="cand-employer">Ribbiot</span></td><td class="cand-status ok">In Stage</td><td class="cand-urgency-cell"><span class="urgency-badge ok">ok</span></td></tr>
+<tr class="stage-header-row"><td colspan="3" class="stage-label">Recruiter Screen <span class="stage-count">2</span></td></tr>
+<tr class="cand-row ok" data-client="Base Power Company" data-stage="Recruiter Screen" data-urgency="ok"><td class="cand-name-cell">Jason Hobbs<span class="cand-employer">Indeed</span></td><td class="cand-status ok">BOOKING LINK SENT</td><td class="cand-urgency-cell"><span class="urgency-badge ok">ok</span></td></tr>
+<tr class="cand-row ok" data-client="Base Power Company" data-stage="Recruiter Screen" data-urgency="ok"><td class="cand-name-cell">Mrinalini Padmanabhan<span class="cand-employer">-</span></td><td class="cand-status ok">BOOKING LINK SENT</td><td class="cand-urgency-cell"><span class="urgency-badge ok">ok</span></td></tr>
+
+    </table>
+  </div>
+</div>
+
+<div class="client-block" data-client="Giga" data-flagged="3">
+  <div class="client-header" onclick="toggleClient(this)">
+    <span class="client-avatar">G</span>
+    <span class="client-name">Giga</span>
+    <span class="client-count">12 candidates</span>
+    <span class="flag-badge" data-urgency="flagged">⚑ 3 flagged</span>
+    <span class="client-toggle">▾</span>
+  </div>
+  <div class="client-body">
+    <table class="cand-table">
+      <tr class="stage-header-row"><td colspan="3" class="stage-label">Role Evaluation/Technical Interview <span class="stage-count">4</span></td></tr>
+<tr class="cand-row ok" data-client="Giga" data-stage="Role Evaluation/Technical Interview" data-urgency="ok"><td class="cand-name-cell">Jillian Knoll<span class="cand-employer">Data Platform and Tools Samsara</span></td><td class="cand-status ok">In Stage</td><td class="cand-urgency-cell"><span class="urgency-badge ok">ok</span></td></tr>
+<tr class="cand-row ok" data-client="Giga" data-stage="Role Evaluation/Technical Interview" data-urgency="ok"><td class="cand-name-cell">Mariel Aquino</td><td class="cand-status ok">In Stage</td><td class="cand-urgency-cell"><span class="urgency-badge ok">ok</span></td></tr>
+<tr class="cand-row ok" data-client="Giga" data-stage="Role Evaluation/Technical Interview" data-urgency="ok"><td class="cand-name-cell">Yi Mao</td><td class="cand-status ok">In Stage</td><td class="cand-urgency-cell"><span class="urgency-badge ok">ok</span></td></tr>
+<tr class="cand-row ok" data-client="Giga" data-stage="Role Evaluation/Technical Interview" data-urgency="ok"><td class="cand-name-cell">Naman Tyagi<span class="cand-employer">Google</span></td><td class="cand-status ok">BOOKING LINK SENT</td><td class="cand-urgency-cell"><span class="urgency-badge ok">ok</span></td></tr>
+<tr class="stage-header-row"><td colspan="3" class="stage-label">Intro Screen <span class="stage-count">8</span></td></tr>
+<tr class="cand-row ok" data-client="Giga" data-stage="Intro Screen" data-urgency="ok"><td class="cand-name-cell">Naveen Rajshekhar<span class="cand-employer">-</span></td><td class="cand-status ok">In Stage</td><td class="cand-urgency-cell"><span class="urgency-badge ok">ok</span></td></tr>
+<tr class="cand-row ok" data-client="Giga" data-stage="Intro Screen" data-urgency="ok"><td class="cand-name-cell">Dhruvika Sahni</td><td class="cand-status ok">In Stage</td><td class="cand-urgency-cell"><span class="urgency-badge ok">ok</span></td></tr>
+<tr class="cand-row ok" data-client="Giga" data-stage="Intro Screen" data-urgency="ok"><td class="cand-name-cell">Pranav Batra<span class="cand-employer">Syndicate</span></td><td class="cand-status ok">BOOKING LINK SENT</td><td class="cand-urgency-cell"><span class="urgency-badge ok">ok</span></td></tr>
+<tr class="cand-row urgent" data-client="Giga" data-stage="Intro Screen" data-urgency="urgent"><td class="cand-name-cell">Andy Qiu<span class="cand-employer">Met</span></td><td class="cand-status urgent">NEEDS SCHEDULING</td><td class="cand-urgency-cell"><span class="urgency-badge urgent">urgent</span></td></tr>
+<tr class="cand-row ok" data-client="Giga" data-stage="Intro Screen" data-urgency="ok"><td class="cand-name-cell">Siddharth Raja</td><td class="cand-status ok">In Stage</td><td class="cand-urgency-cell"><span class="urgency-badge ok">ok</span></td></tr>
+<tr class="cand-row urgent" data-client="Giga" data-stage="Intro Screen" data-urgency="urgent"><td class="cand-name-cell">Yi Liu<span class="cand-employer">LinkedIn</span></td><td class="cand-status urgent">NEEDS SCHEDULING</td><td class="cand-urgency-cell"><span class="urgency-badge urgent">urgent</span></td></tr>
+<tr class="cand-row urgent" data-client="Giga" data-stage="Intro Screen" data-urgency="urgent"><td class="cand-name-cell">Zhihao Li<span class="cand-employer">-</span></td><td class="cand-status urgent">NEEDS SCHEDULING</td><td class="cand-urgency-cell"><span class="urgency-badge urgent">urgent</span></td></tr>
+<tr class="cand-row ok" data-client="Giga" data-stage="Intro Screen" data-urgency="ok"><td class="cand-name-cell">Yang Pan<span class="cand-employer">Amazon</span></td><td class="cand-status ok">In Stage</td><td class="cand-urgency-cell"><span class="urgency-badge ok">ok</span></td></tr>
+
+    </table>
+  </div>
+</div>
+
+<div class="client-block" data-client="Junior AI" data-flagged="5">
+  <div class="client-header" onclick="toggleClient(this)">
+    <span class="client-avatar">JA</span>
+    <span class="client-name">Junior AI</span>
+    <span class="client-count">10 candidates</span>
+    <span class="flag-badge" data-urgency="flagged">⚑ 5 flagged</span>
+    <span class="client-toggle">▾</span>
+  </div>
+  <div class="client-body">
+    <table class="cand-table">
+      <tr class="stage-header-row"><td colspan="3" class="stage-label">(TS) Backend Tech Screener <span class="stage-count">1</span></td></tr>
+<tr class="cand-row urgent" data-client="Junior AI" data-stage="(TS) Backend Tech Screener" data-urgency="urgent"><td class="cand-name-cell">Eli Kugelsky<span class="cand-employer">Qualcomm</span></td><td class="cand-status urgent">NEEDS SCHEDULING</td><td class="cand-urgency-cell"><span class="urgency-badge urgent">urgent</span></td></tr>
+<tr class="stage-header-row"><td colspan="3" class="stage-label">Technical Screener (TypeScript) <span class="stage-count">5</span></td></tr>
+<tr class="cand-row urgent" data-client="Junior AI" data-stage="Technical Screener (TypeScript)" data-urgency="urgent"><td class="cand-name-cell">Kamil Kisielewicz<span class="cand-employer">Rippling</span></td><td class="cand-status urgent">NEEDS SCHEDULING</td><td class="cand-urgency-cell"><span class="urgency-badge urgent">urgent</span></td></tr>
+<tr class="cand-row urgent" data-client="Junior AI" data-stage="Technical Screener (TypeScript)" data-urgency="urgent"><td class="cand-name-cell">Stephen Moon<span class="cand-employer">Solo</span></td><td class="cand-status urgent">NEEDS SCHEDULING</td><td class="cand-urgency-cell"><span class="urgency-badge urgent">urgent</span></td></tr>
+<tr class="cand-row ok" data-client="Junior AI" data-stage="Technical Screener (TypeScript)" data-urgency="ok"><td class="cand-name-cell">Anthony Dike<span class="cand-employer">Fundwell</span></td><td class="cand-status ok">In Stage</td><td class="cand-urgency-cell"><span class="urgency-badge ok">ok</span></td></tr>
+<tr class="cand-row ok" data-client="Junior AI" data-stage="Technical Screener (TypeScript)" data-urgency="ok"><td class="cand-name-cell">Luke Halko<span class="cand-employer">LabWare</span></td><td class="cand-status ok">In Stage</td><td class="cand-urgency-cell"><span class="urgency-badge ok">ok</span></td></tr>
+<tr class="cand-row ok" data-client="Junior AI" data-stage="Technical Screener (TypeScript)" data-urgency="ok"><td class="cand-name-cell">Mariel Aquino</td><td class="cand-status ok">In Stage</td><td class="cand-urgency-cell"><span class="urgency-badge ok">ok</span></td></tr>
+<tr class="stage-header-row"><td colspan="3" class="stage-label">Technical Screener (React) <span class="stage-count">1</span></td></tr>
+<tr class="cand-row urgent" data-client="Junior AI" data-stage="Technical Screener (React)" data-urgency="urgent"><td class="cand-name-cell">Chloe Chan<span class="cand-employer">Bloomberg</span></td><td class="cand-status urgent">NEEDS SCHEDULING</td><td class="cand-urgency-cell"><span class="urgency-badge urgent">urgent</span></td></tr>
+<tr class="stage-header-row"><td colspan="3" class="stage-label">On hold <span class="stage-count">1</span></td></tr>
+<tr class="cand-row stale" data-client="Junior AI" data-stage="On hold" data-urgency="stale"><td class="cand-name-cell">Natan Vidra<span class="cand-employer">Fitch Ratings</span></td><td class="cand-status stale">In Stage Since · 3w ago</td><td class="cand-urgency-cell"><span class="urgency-badge stale">stale</span></td></tr>
+<tr class="stage-header-row"><td colspan="3" class="stage-label">Product Interview <span class="stage-count">1</span></td></tr>
+<tr class="cand-row ok" data-client="Junior AI" data-stage="Product Interview" data-urgency="ok"><td class="cand-name-cell">Kassen Qian<span class="cand-employer">Datadog</span></td><td class="cand-status ok">In Stage</td><td class="cand-urgency-cell"><span class="urgency-badge ok">ok</span></td></tr>
+<tr class="stage-header-row"><td colspan="3" class="stage-label">Onsite <span class="stage-count">1</span></td></tr>
+<tr class="cand-row ok" data-client="Junior AI" data-stage="Onsite" data-urgency="ok"><td class="cand-name-cell">Arjit Jaiswal</td><td class="cand-status ok">In Stage</td><td class="cand-urgency-cell"><span class="urgency-badge ok">ok</span></td></tr>
+
+    </table>
+  </div>
+</div>
+
+<div class="client-block" data-client="Known" data-flagged="5">
+  <div class="client-header" onclick="toggleClient(this)">
+    <span class="client-avatar">K</span>
+    <span class="client-name">Known</span>
+    <span class="client-count">12 candidates</span>
+    <span class="flag-badge" data-urgency="flagged">⚑ 5 flagged</span>
+    <span class="client-toggle">▾</span>
+  </div>
+  <div class="client-body">
+    <table class="cand-table">
+      <tr class="stage-header-row"><td colspan="3" class="stage-label">Unknown <span class="stage-count">3</span></td></tr>
+<tr class="cand-row ok" data-client="Known" data-stage="Unknown" data-urgency="ok"><td class="cand-name-cell">Intro Call</td><td class="cand-status ok">In Stage</td><td class="cand-urgency-cell"><span class="urgency-badge ok">ok</span></td></tr>
+<tr class="cand-row ok" data-client="Known" data-stage="Unknown" data-urgency="ok"><td class="cand-name-cell">Intro Call</td><td class="cand-status ok">In Stage</td><td class="cand-urgency-cell"><span class="urgency-badge ok">ok</span></td></tr>
+<tr class="cand-row ok" data-client="Known" data-stage="Unknown" data-urgency="ok"><td class="cand-name-cell">Intro Call</td><td class="cand-status ok">In Stage</td><td class="cand-urgency-cell"><span class="urgency-badge ok">ok</span></td></tr>
+<tr class="stage-header-row"><td colspan="3" class="stage-label">Intro Call <span class="stage-count">6</span></td></tr>
+<tr class="cand-row urgent" data-client="Known" data-stage="Intro Call" data-urgency="urgent"><td class="cand-name-cell">Richard Zhu<span class="cand-employer">TikTok</span></td><td class="cand-status urgent">NEEDS SCHEDULING</td><td class="cand-urgency-cell"><span class="urgency-badge urgent">urgent</span></td></tr>
+<tr class="cand-row ok" data-client="Known" data-stage="Intro Call" data-urgency="ok"><td class="cand-name-cell">Mariel Aquino</td><td class="cand-status ok">In Stage</td><td class="cand-urgency-cell"><span class="urgency-badge ok">ok</span></td></tr>
+<tr class="cand-row urgent" data-client="Known" data-stage="Intro Call" data-urgency="urgent"><td class="cand-name-cell">Yang Pan<span class="cand-employer">Amazon</span></td><td class="cand-status urgent">In Stage Since · 1w ago</td><td class="cand-urgency-cell"><span class="urgency-badge urgent">urgent</span></td></tr>
+<tr class="cand-row ok" data-client="Known" data-stage="Intro Call" data-urgency="ok"><td class="cand-name-cell">Cristian Monterroza<span class="cand-employer">YouTube iOS App</span></td><td class="cand-status ok">In Stage Since · 3d ago</td><td class="cand-urgency-cell"><span class="urgency-badge ok">ok</span></td></tr>
+<tr class="cand-row ok" data-client="Known" data-stage="Intro Call" data-urgency="ok"><td class="cand-name-cell">Jordan Porter</td><td class="cand-status ok">In Stage</td><td class="cand-urgency-cell"><span class="urgency-badge ok">ok</span></td></tr>
+<tr class="cand-row stale" data-client="Known" data-stage="Intro Call" data-urgency="stale"><td class="cand-name-cell">Noah Leshan<span class="cand-employer">Meta Superintelligence Labs</span></td><td class="cand-status stale">In Stage Since · 5w ago</td><td class="cand-urgency-cell"><span class="urgency-badge stale">stale</span></td></tr>
+<tr class="stage-header-row"><td colspan="3" class="stage-label">[AI/ML] Technical Round 1 <span class="stage-count">1</span></td></tr>
+<tr class="cand-row ok" data-client="Known" data-stage="[AI/ML] Technical Round 1" data-urgency="ok"><td class="cand-name-cell">Grace Lam</td><td class="cand-status ok">In Stage</td><td class="cand-urgency-cell"><span class="urgency-badge ok">ok</span></td></tr>
+<tr class="stage-header-row"><td colspan="3" class="stage-label">[Fullstack] Technical Round 1 <span class="stage-count">2</span></td></tr>
+<tr class="cand-row stale" data-client="Known" data-stage="[Fullstack] Technical Round 1" data-urgency="stale"><td class="cand-name-cell">Ansel Morris<span class="cand-employer">Uber</span></td><td class="cand-status stale">In Stage Since · 2w ago</td><td class="cand-urgency-cell"><span class="urgency-badge stale">stale</span></td></tr>
+<tr class="cand-row stale" data-client="Known" data-stage="[Fullstack] Technical Round 1" data-urgency="stale"><td class="cand-name-cell">Stephen Moon<span class="cand-employer">Solo</span></td><td class="cand-status stale">In Stage Since · 2w ago</td><td class="cand-urgency-cell"><span class="urgency-badge stale">stale</span></td></tr>
+
+    </table>
+  </div>
+</div>
+
+<div class="client-block" data-client="Mercor" data-flagged="6">
+  <div class="client-header" onclick="toggleClient(this)">
+    <span class="client-avatar">M</span>
+    <span class="client-name">Mercor</span>
+    <span class="client-count">45 candidates</span>
+    <span class="flag-badge" data-urgency="flagged">⚑ 6 flagged</span>
+    <span class="client-toggle">▾</span>
+  </div>
+  <div class="client-body">
+    <table class="cand-table">
+      <tr class="stage-header-row"><td colspan="3" class="stage-label">Initial Screen <span class="stage-count">8</span></td></tr>
+<tr class="cand-row ok" data-client="Mercor" data-stage="Initial Screen" data-urgency="ok"><td class="cand-name-cell">Karthik Halukurike<span class="cand-employer">Instacart</span></td><td class="cand-status ok">BOOKING LINK SENT</td><td class="cand-urgency-cell"><span class="urgency-badge ok">ok</span></td></tr>
+<tr class="cand-row ok" data-client="Mercor" data-stage="Initial Screen" data-urgency="ok"><td class="cand-name-cell">Parth Shah<span class="cand-employer">Zscaler</span></td><td class="cand-status ok">BOOKING LINK SENT</td><td class="cand-urgency-cell"><span class="urgency-badge ok">ok</span></td></tr>
+<tr class="cand-row ok" data-client="Mercor" data-stage="Initial Screen" data-urgency="ok"><td class="cand-name-cell">Zhihao Li<span class="cand-employer">-</span></td><td class="cand-status ok">BOOKING LINK SENT</td><td class="cand-urgency-cell"><span class="urgency-badge ok">ok</span></td></tr>
+<tr class="cand-row ok" data-client="Mercor" data-stage="Initial Screen" data-urgency="ok"><td class="cand-name-cell">Dong Wang<span class="cand-employer">Elevance Health</span></td><td class="cand-status ok">In Stage</td><td class="cand-urgency-cell"><span class="urgency-badge ok">ok</span></td></tr>
+<tr class="cand-row ok" data-client="Mercor" data-stage="Initial Screen" data-urgency="ok"><td class="cand-name-cell">Richard Zhu<span class="cand-employer">-</span></td><td class="cand-status ok">In Stage</td><td class="cand-urgency-cell"><span class="urgency-badge ok">ok</span></td></tr>
+<tr class="cand-row ok" data-client="Mercor" data-stage="Initial Screen" data-urgency="ok"><td class="cand-name-cell">Kathan Shah<span class="cand-employer">Graviton Research Capital</span></td><td class="cand-status ok">In Stage</td><td class="cand-urgency-cell"><span class="urgency-badge ok">ok</span></td></tr>
+<tr class="cand-row ok" data-client="Mercor" data-stage="Initial Screen" data-urgency="ok"><td class="cand-name-cell">Matthew Nguyen<span class="cand-employer">Y Combinator W25 Batch</span></td><td class="cand-status ok">In Stage</td><td class="cand-urgency-cell"><span class="urgency-badge ok">ok</span></td></tr>
+<tr class="cand-row ok" data-client="Mercor" data-stage="Initial Screen" data-urgency="ok"><td class="cand-name-cell">Kavya Shankar<span class="cand-employer">Amazon</span></td><td class="cand-status ok">In Stage</td><td class="cand-urgency-cell"><span class="urgency-badge ok">ok</span></td></tr>
+<tr class="stage-header-row"><td colspan="3" class="stage-label">Onsite <span class="stage-count">23</span></td></tr>
+<tr class="cand-row ok" data-client="Mercor" data-stage="Onsite" data-urgency="ok"><td class="cand-name-cell">Angel Hsu<span class="cand-employer">Harvard Alumni</span></td><td class="cand-status ok">WAITING ON AVAILABILITY</td><td class="cand-urgency-cell"><span class="urgency-badge ok">ok</span></td></tr>
+<tr class="cand-row ok" data-client="Mercor" data-stage="Onsite" data-urgency="ok"><td class="cand-name-cell">Anubhav Jain<span class="cand-employer">Benchling</span></td><td class="cand-status ok">In Stage</td><td class="cand-urgency-cell"><span class="urgency-badge ok">ok</span></td></tr>
+<tr class="cand-row ok" data-client="Mercor" data-stage="Onsite" data-urgency="ok"><td class="cand-name-cell">Adil Salhotra</td><td class="cand-status ok">In Stage</td><td class="cand-urgency-cell"><span class="urgency-badge ok">ok</span></td></tr>
+<tr class="cand-row ok" data-client="Mercor" data-stage="Onsite" data-urgency="ok"><td class="cand-name-cell">Yu Kai Chiu<span class="cand-employer">Apple</span></td><td class="cand-status ok">In Stage</td><td class="cand-urgency-cell"><span class="urgency-badge ok">ok</span></td></tr>
+<tr class="cand-row urgent" data-client="Mercor" data-stage="Onsite" data-urgency="urgent"><td class="cand-name-cell">Enming Luo<span class="cand-employer">Google</span></td><td class="cand-status urgent">NEEDS SCHEDULING</td><td class="cand-urgency-cell"><span class="urgency-badge urgent">urgent</span></td></tr>
+<tr class="cand-row ok" data-client="Mercor" data-stage="Onsite" data-urgency="ok"><td class="cand-name-cell">Wangyang Wu<span class="cand-employer">TikTok</span></td><td class="cand-status ok">WAITING ON AVAILABILITY</td><td class="cand-urgency-cell"><span class="urgency-badge ok">ok</span></td></tr>
+<tr class="cand-row ok" data-client="Mercor" data-stage="Onsite" data-urgency="ok"><td class="cand-name-cell">Udit Saxena</td><td class="cand-status ok">In Stage</td><td class="cand-urgency-cell"><span class="urgency-badge ok">ok</span></td></tr>
+<tr class="cand-row ok" data-client="Mercor" data-stage="Onsite" data-urgency="ok"><td class="cand-name-cell">William Han</td><td class="cand-status ok">In Stage</td><td class="cand-urgency-cell"><span class="urgency-badge ok">ok</span></td></tr>
+<tr class="cand-row urgent" data-client="Mercor" data-stage="Onsite" data-urgency="urgent"><td class="cand-name-cell">Kanika Dutta<span class="cand-employer">EvolutionIQ</span></td><td class="cand-status urgent">NEEDS SCHEDULING</td><td class="cand-urgency-cell"><span class="urgency-badge urgent">urgent</span></td></tr>
+<tr class="cand-row ok" data-client="Mercor" data-stage="Onsite" data-urgency="ok"><td class="cand-name-cell">Keya Varia<span class="cand-employer">Stripe</span></td><td class="cand-status ok">In Stage</td><td class="cand-urgency-cell"><span class="urgency-badge ok">ok</span></td></tr>
+<tr class="cand-row ok" data-client="Mercor" data-stage="Onsite" data-urgency="ok"><td class="cand-name-cell">Parth Shettiwar<span class="cand-employer">LinkedIn</span></td><td class="cand-status ok">WAITING ON AVAILABILITY</td><td class="cand-urgency-cell"><span class="urgency-badge ok">ok</span></td></tr>
+<tr class="cand-row ok" data-client="Mercor" data-stage="Onsite" data-urgency="ok"><td class="cand-name-cell">Gautham Rajesh<span class="cand-employer">Amazon</span></td><td class="cand-status ok">In Stage</td><td class="cand-urgency-cell"><span class="urgency-badge ok">ok</span></td></tr>
+<tr class="cand-row ok" data-client="Mercor" data-stage="Onsite" data-urgency="ok"><td class="cand-name-cell">Larry Xu<span class="cand-employer">Amazon</span></td><td class="cand-status ok">In Stage</td><td class="cand-urgency-cell"><span class="urgency-badge ok">ok</span></td></tr>
+<tr class="cand-row ok" data-client="Mercor" data-stage="Onsite" data-urgency="ok"><td class="cand-name-cell">Maksym Karunos<span class="cand-employer">DoorDash</span></td><td class="cand-status ok">In Stage</td><td class="cand-urgency-cell"><span class="urgency-badge ok">ok</span></td></tr>
+<tr class="cand-row ok" data-client="Mercor" data-stage="Onsite" data-urgency="ok"><td class="cand-name-cell">Nithin Venkatesh<span class="cand-employer">Amazon</span></td><td class="cand-status ok">In Stage</td><td class="cand-urgency-cell"><span class="urgency-badge ok">ok</span></td></tr>
+<tr class="cand-row ok" data-client="Mercor" data-stage="Onsite" data-urgency="ok"><td class="cand-name-cell">Ryan Stout<span class="cand-employer">Chainlink</span></td><td class="cand-status ok">In Stage</td><td class="cand-urgency-cell"><span class="urgency-badge ok">ok</span></td></tr>
+<tr class="cand-row ok" data-client="Mercor" data-stage="Onsite" data-urgency="ok"><td class="cand-name-cell">Siddharth Raja</td><td class="cand-status ok">In Stage</td><td class="cand-urgency-cell"><span class="urgency-badge ok">ok</span></td></tr>
+<tr class="cand-row ok" data-client="Mercor" data-stage="Onsite" data-urgency="ok"><td class="cand-name-cell">Myles Gamez<span class="cand-employer">-</span></td><td class="cand-status ok">WAITING ON AVAILABILITY</td><td class="cand-urgency-cell"><span class="urgency-badge ok">ok</span></td></tr>
+<tr class="cand-row ok" data-client="Mercor" data-stage="Onsite" data-urgency="ok"><td class="cand-name-cell">Surbhi Dang<span class="cand-employer">Google</span></td><td class="cand-status ok">In Stage</td><td class="cand-urgency-cell"><span class="urgency-badge ok">ok</span></td></tr>
+<tr class="cand-row urgent" data-client="Mercor" data-stage="Onsite" data-urgency="urgent"><td class="cand-name-cell">Samuel Cohen<span class="cand-employer">Twitch</span></td><td class="cand-status urgent">NEEDS DECISION</td><td class="cand-urgency-cell"><span class="urgency-badge urgent">urgent</span></td></tr>
+<tr class="cand-row ok" data-client="Mercor" data-stage="Onsite" data-urgency="ok"><td class="cand-name-cell">Johari Wiggins<span class="cand-employer">Copper</span></td><td class="cand-status ok">In Stage</td><td class="cand-urgency-cell"><span class="urgency-badge ok">ok</span></td></tr>
+<tr class="cand-row ok" data-client="Mercor" data-stage="Onsite" data-urgency="ok"><td class="cand-name-cell">Aman Dhesi</td><td class="cand-status ok">In Stage</td><td class="cand-urgency-cell"><span class="urgency-badge ok">ok</span></td></tr>
+<tr class="cand-row ok" data-client="Mercor" data-stage="Onsite" data-urgency="ok"><td class="cand-name-cell">Radhika Parthasarathy<span class="cand-employer">Airbnb</span></td><td class="cand-status ok">In Stage</td><td class="cand-urgency-cell"><span class="urgency-badge ok">ok</span></td></tr>
+<tr class="stage-header-row"><td colspan="3" class="stage-label">Post-Onsite <span class="stage-count">4</span></td></tr>
+<tr class="cand-row ok" data-client="Mercor" data-stage="Post-Onsite" data-urgency="ok"><td class="cand-name-cell">Shashank Srikanth<span class="cand-employer">Netflix</span></td><td class="cand-status ok">In Stage</td><td class="cand-urgency-cell"><span class="urgency-badge ok">ok</span></td></tr>
+<tr class="cand-row urgent" data-client="Mercor" data-stage="Post-Onsite" data-urgency="urgent"><td class="cand-name-cell">Vikram Agrawal<span class="cand-employer">Meta</span></td><td class="cand-status urgent">NEEDS DECISION</td><td class="cand-urgency-cell"><span class="urgency-badge urgent">urgent</span></td></tr>
+<tr class="cand-row ok" data-client="Mercor" data-stage="Post-Onsite" data-urgency="ok"><td class="cand-name-cell">Xinghai Hu<span class="cand-employer">TikTok</span></td><td class="cand-status ok">In Stage</td><td class="cand-urgency-cell"><span class="urgency-badge ok">ok</span></td></tr>
+<tr class="cand-row urgent" data-client="Mercor" data-stage="Post-Onsite" data-urgency="urgent"><td class="cand-name-cell">Stephen Rice<span class="cand-employer">Google</span></td><td class="cand-status urgent">NEEDS SCHEDULING</td><td class="cand-urgency-cell"><span class="urgency-badge urgent">urgent</span></td></tr>
+<tr class="stage-header-row"><td colspan="3" class="stage-label">Second Round <span class="stage-count">10</span></td></tr>
+<tr class="cand-row urgent" data-client="Mercor" data-stage="Second Round" data-urgency="urgent"><td class="cand-name-cell">Armaan Danewalia<span class="cand-employer">Google</span></td><td class="cand-status urgent">NEEDS DECISION</td><td class="cand-urgency-cell"><span class="urgency-badge urgent">urgent</span></td></tr>
+<tr class="cand-row ok" data-client="Mercor" data-stage="Second Round" data-urgency="ok"><td class="cand-name-cell">Anthony Mao<span class="cand-employer">Pomelo</span></td><td class="cand-status ok">BOOKING LINK SENT</td><td class="cand-urgency-cell"><span class="urgency-badge ok">ok</span></td></tr>
+<tr class="cand-row ok" data-client="Mercor" data-stage="Second Round" data-urgency="ok"><td class="cand-name-cell">Shubham Jha<span class="cand-employer">-</span></td><td class="cand-status ok">BOOKING LINK SENT</td><td class="cand-urgency-cell"><span class="urgency-badge ok">ok</span></td></tr>
+<tr class="cand-row ok" data-client="Mercor" data-stage="Second Round" data-urgency="ok"><td class="cand-name-cell">Tony Ma<span class="cand-employer">Google</span></td><td class="cand-status ok">BOOKING LINK SENT</td><td class="cand-urgency-cell"><span class="urgency-badge ok">ok</span></td></tr>
+<tr class="cand-row ok" data-client="Mercor" data-stage="Second Round" data-urgency="ok"><td class="cand-name-cell">Wendong Song</td><td class="cand-status ok">In Stage</td><td class="cand-urgency-cell"><span class="urgency-badge ok">ok</span></td></tr>
+<tr class="cand-row ok" data-client="Mercor" data-stage="Second Round" data-urgency="ok"><td class="cand-name-cell">Xianglong Hu</td><td class="cand-status ok">In Stage</td><td class="cand-urgency-cell"><span class="urgency-badge ok">ok</span></td></tr>
+<tr class="cand-row ok" data-client="Mercor" data-stage="Second Round" data-urgency="ok"><td class="cand-name-cell">Colin Ho<span class="cand-employer">Eventual</span></td><td class="cand-status ok">In Stage</td><td class="cand-urgency-cell"><span class="urgency-badge ok">ok</span></td></tr>
+<tr class="cand-row ok" data-client="Mercor" data-stage="Second Round" data-urgency="ok"><td class="cand-name-cell">Kanishk Dutta<span class="cand-employer">RANGR Data</span></td><td class="cand-status ok">In Stage</td><td class="cand-urgency-cell"><span class="urgency-badge ok">ok</span></td></tr>
+<tr class="cand-row ok" data-client="Mercor" data-stage="Second Round" data-urgency="ok"><td class="cand-name-cell">Max Scott<span class="cand-employer">MerQube</span></td><td class="cand-status ok">In Stage</td><td class="cand-urgency-cell"><span class="urgency-badge ok">ok</span></td></tr>
+<tr class="cand-row ok" data-client="Mercor" data-stage="Second Round" data-urgency="ok"><td class="cand-name-cell">Carnegie Universit<span class="cand-employer">Met</span></td><td class="cand-status ok">In Stage Since · 5h ago</td><td class="cand-urgency-cell"><span class="urgency-badge ok">ok</span></td></tr>
+
+    </table>
+  </div>
+</div>
+
+<div class="client-block" data-client="Owner.com" data-flagged="3">
+  <div class="client-header" onclick="toggleClient(this)">
+    <span class="client-avatar">O</span>
+    <span class="client-name">Owner.com</span>
+    <span class="client-count">7 candidates</span>
+    <span class="flag-badge" data-urgency="flagged">⚑ 3 flagged</span>
+    <span class="client-toggle">▾</span>
+  </div>
+  <div class="client-body">
+    <table class="cand-table">
+      <tr class="stage-header-row"><td colspan="3" class="stage-label">Hiring Manager Screen <span class="stage-count">5</span></td></tr>
+<tr class="cand-row ok" data-client="Owner.com" data-stage="Hiring Manager Screen" data-urgency="ok"><td class="cand-name-cell">Heramb Jadhav<span class="cand-employer">Uber</span></td><td class="cand-status ok">WAITING ON AVAILABILITY</td><td class="cand-urgency-cell"><span class="urgency-badge ok">ok</span></td></tr>
+<tr class="cand-row ok" data-client="Owner.com" data-stage="Hiring Manager Screen" data-urgency="ok"><td class="cand-name-cell">Jinesh Doshi</td><td class="cand-status ok">In Stage</td><td class="cand-urgency-cell"><span class="urgency-badge ok">ok</span></td></tr>
+<tr class="cand-row ok" data-client="Owner.com" data-stage="Hiring Manager Screen" data-urgency="ok"><td class="cand-name-cell">Andrew Trinh<span class="cand-employer">Drive New Bets</span></td><td class="cand-status ok">WAITING ON AVAILABILITY</td><td class="cand-urgency-cell"><span class="urgency-badge ok">ok</span></td></tr>
+<tr class="cand-row urgent" data-client="Owner.com" data-stage="Hiring Manager Screen" data-urgency="urgent"><td class="cand-name-cell">Carter Daniel Peyton<span class="cand-employer">MerQube</span></td><td class="cand-status urgent">NEEDS DECISION</td><td class="cand-urgency-cell"><span class="urgency-badge urgent">urgent</span></td></tr>
+<tr class="cand-row urgent" data-client="Owner.com" data-stage="Hiring Manager Screen" data-urgency="urgent"><td class="cand-name-cell">David Mkrtchyan<span class="cand-employer">Toast</span></td><td class="cand-status urgent">NEEDS DECISION</td><td class="cand-urgency-cell"><span class="urgency-badge urgent">urgent</span></td></tr>
+<tr class="stage-header-row"><td colspan="3" class="stage-label">Technical Screen <span class="stage-count">2</span></td></tr>
+<tr class="cand-row ok" data-client="Owner.com" data-stage="Technical Screen" data-urgency="ok"><td class="cand-name-cell">Mariel Aquino</td><td class="cand-status ok">In Stage</td><td class="cand-urgency-cell"><span class="urgency-badge ok">ok</span></td></tr>
+<tr class="cand-row urgent" data-client="Owner.com" data-stage="Technical Screen" data-urgency="urgent"><td class="cand-name-cell">Jay Devnani<span class="cand-employer">Dispatch Technologies Inc.</span></td><td class="cand-status urgent">NEEDS DECISION</td><td class="cand-urgency-cell"><span class="urgency-badge urgent">urgent</span></td></tr>
+
+    </table>
+  </div>
+</div>
+
+<div class="client-block" data-client="Phia">
+  <div class="client-header" onclick="toggleClient(this)">
+    <span class="client-avatar">P</span>
+    <span class="client-name">Phia</span>
+    <span class="client-count">1 candidates</span>
+    
+    <span class="client-toggle">▾</span>
+  </div>
+  <div class="client-body">
+    <table class="cand-table">
+      <tr class="stage-header-row"><td colspan="3" class="stage-label">Tech Screen <span class="stage-count">1</span></td></tr>
+<tr class="cand-row ok" data-client="Phia" data-stage="Tech Screen" data-urgency="ok"><td class="cand-name-cell">Mariel Aquino</td><td class="cand-status ok">In Stage</td><td class="cand-urgency-cell"><span class="urgency-badge ok">ok</span></td></tr>
+
+    </table>
+  </div>
+</div>
+
+<div class="client-block" data-client="Wispr Flow" data-flagged="4">
+  <div class="client-header" onclick="toggleClient(this)">
+    <span class="client-avatar">WF</span>
+    <span class="client-name">Wispr Flow</span>
+    <span class="client-count">5 candidates</span>
+    <span class="flag-badge" data-urgency="flagged">⚑ 4 flagged</span>
+    <span class="client-toggle">▾</span>
+  </div>
+  <div class="client-body">
+    <table class="cand-table">
+      <tr class="stage-header-row"><td colspan="3" class="stage-label">Prescreen Review <span class="stage-count">3</span></td></tr>
+<tr class="cand-row stale" data-client="Wispr Flow" data-stage="Prescreen Review" data-urgency="stale"><td class="cand-name-cell">Benjamin Harvey<span class="cand-employer">Meta Instagram</span></td><td class="cand-status stale">In Stage Since · 19w ago</td><td class="cand-urgency-cell"><span class="urgency-badge stale">stale</span></td></tr>
+<tr class="cand-row stale" data-client="Wispr Flow" data-stage="Prescreen Review" data-urgency="stale"><td class="cand-name-cell">Zeyu Li<span class="cand-employer">Robinhood Markets</span></td><td class="cand-status stale">In Stage Since · 19w ago</td><td class="cand-urgency-cell"><span class="urgency-badge stale">stale</span></td></tr>
+<tr class="cand-row stale" data-client="Wispr Flow" data-stage="Prescreen Review" data-urgency="stale"><td class="cand-name-cell">Ronak Shah<span class="cand-employer">Nextdoor</span></td><td class="cand-status stale">In Stage Since · 22w ago</td><td class="cand-urgency-cell"><span class="urgency-badge stale">stale</span></td></tr>
+<tr class="stage-header-row"><td colspan="3" class="stage-label">Initial Screen <span class="stage-count">1</span></td></tr>
+<tr class="cand-row ok" data-client="Wispr Flow" data-stage="Initial Screen" data-urgency="ok"><td class="cand-name-cell">Senzeyu Zhang</td><td class="cand-status ok">In Stage</td><td class="cand-urgency-cell"><span class="urgency-badge ok">ok</span></td></tr>
+<tr class="stage-header-row"><td colspan="3" class="stage-label">On-site interview <span class="stage-count">1</span></td></tr>
+<tr class="cand-row stale" data-client="Wispr Flow" data-stage="On-site interview" data-urgency="stale"><td class="cand-name-cell">Ruoyu Li<span class="cand-employer">Career Break</span></td><td class="cand-status stale">In Stage Since · 23w ago</td><td class="cand-urgency-cell"><span class="urgency-badge stale">stale</span></td></tr>
+
+    </table>
+  </div>
+</div>
   <div class="no-results" id="no-results">No candidates match the current filters.</div>
 </div>
 
@@ -562,736 +896,5 @@ document.querySelectorAll('.alert-pill').forEach(pill => {
   });
 });
 </script>
-
-<div class="summary-bar">
-  <div class="stat"><span class="stat-value">115</span><span class="stat-label">candidates</span></div>
-  <div class="stat"><span class="stat-value">10</span><span class="stat-label">clients</span></div>
-  <div class="stat urgent-stat"><span class="stat-value">32</span><span class="stat-label">flagged</span></div>
-  <div class="stat"><span class="stat-value">2026-03-05</span><span class="stat-label">report date</span></div>
-</div>
-
-<div class="client-block">
-  <div class="client-header">
-    <span class="client-name">Additive AI</span>
-    <span class="client-count">6 candidates</span>
-    
-  </div>
-  <table class="candidate-table">
-    <tr class="stage-row"><td colspan="3">Initial Screen <span class="count">5</span></td></tr>
-<tr class="candidate-row ok">
-  <td class="cand-name">Akansha Vashisth<span class="employer">-</span></td>
-  <td class="cand-status">In Stage</td>
-  <td class="cand-badge"><span class="badge ok">ok</span></td>
-</tr>
-<tr class="candidate-row ok">
-  <td class="cand-name">Bharath Ramaprasad<span class="employer">DuoModal</span></td>
-  <td class="cand-status">In Stage</td>
-  <td class="cand-badge"><span class="badge ok">ok</span></td>
-</tr>
-<tr class="candidate-row ok">
-  <td class="cand-name">Joshua Choi<span class="employer">TikTok U S Data Security</span></td>
-  <td class="cand-status">In Stage</td>
-  <td class="cand-badge"><span class="badge ok">ok</span></td>
-</tr>
-<tr class="candidate-row ok">
-  <td class="cand-name">Ron Abantao<span class="employer">CamberCloud</span></td>
-  <td class="cand-status">In Stage</td>
-  <td class="cand-badge"><span class="badge ok">ok</span></td>
-</tr>
-<tr class="candidate-row ok">
-  <td class="cand-name">Ryan Stout<span class="employer">Chainlink Labs</span></td>
-  <td class="cand-status">In Stage</td>
-  <td class="cand-badge"><span class="badge ok">ok</span></td>
-</tr>
-<tr class="stage-row"><td colspan="3">First Technical Screen <span class="count">1</span></td></tr>
-<tr class="candidate-row ok">
-  <td class="cand-name">Saif Jilani<span class="employer">Overjet</span></td>
-  <td class="cand-status">In Stage</td>
-  <td class="cand-badge"><span class="badge ok">ok</span></td>
-</tr>
-
-  </table>
-</div>
-
-
-<div class="client-block">
-  <div class="client-header">
-    <span class="client-name">AfterQuery</span>
-    <span class="client-count">11 candidates</span>
-    <span class="client-flagged">⚑ 6 flagged</span>
-  </div>
-  <table class="candidate-table">
-    <tr class="stage-row"><td colspan="3">Initial Screen <span class="count">5</span></td></tr>
-<tr class="candidate-row urgent">
-  <td class="cand-name">Aigerim Askergali<span class="employer">Google</span></td>
-  <td class="cand-status">In Stage Since · 1w ago</td>
-  <td class="cand-badge"><span class="badge urgent">urgent</span></td>
-</tr>
-<tr class="candidate-row ok">
-  <td class="cand-name">Anmol Kaur<span class="employer">TikTok</span></td>
-  <td class="cand-status">In Stage Since · 6d ago</td>
-  <td class="cand-badge"><span class="badge ok">ok</span></td>
-</tr>
-<tr class="candidate-row ok">
-  <td class="cand-name">Hiro Ayettey<span class="employer">FigJam</span></td>
-  <td class="cand-status">In Stage Since · 6d ago</td>
-  <td class="cand-badge"><span class="badge ok">ok</span></td>
-</tr>
-<tr class="candidate-row urgent">
-  <td class="cand-name">Siddhant Satapathy<span class="employer">AnswersAi.com</span></td>
-  <td class="cand-status">In Stage Since · 1w ago</td>
-  <td class="cand-badge"><span class="badge urgent">urgent</span></td>
-</tr>
-<tr class="candidate-row ok">
-  <td class="cand-name">Taejin Hwang<span class="employer">Fulcrum</span></td>
-  <td class="cand-status">In Stage Since · 6d ago</td>
-  <td class="cand-badge"><span class="badge ok">ok</span></td>
-</tr>
-<tr class="stage-row"><td colspan="3">First Round <span class="count">6</span></td></tr>
-<tr class="candidate-row stale">
-  <td class="cand-name">Anay Bhakat<span class="employer">Meta</span></td>
-  <td class="cand-status">In Stage Since · 3w ago</td>
-  <td class="cand-badge"><span class="badge stale">stale</span></td>
-</tr>
-<tr class="candidate-row ok">
-  <td class="cand-name">Armaan Vakharia<span class="employer"></span></td>
-  <td class="cand-status">In Stage</td>
-  <td class="cand-badge"><span class="badge ok">ok</span></td>
-</tr>
-<tr class="candidate-row stale">
-  <td class="cand-name">Kaushik Pulgari<span class="employer">Apple</span></td>
-  <td class="cand-status">In Stage Since · 3w ago</td>
-  <td class="cand-badge"><span class="badge stale">stale</span></td>
-</tr>
-<tr class="candidate-row ok">
-  <td class="cand-name">Pooja Nagpal<span class="employer"></span></td>
-  <td class="cand-status">In Stage</td>
-  <td class="cand-badge"><span class="badge ok">ok</span></td>
-</tr>
-<tr class="candidate-row stale">
-  <td class="cand-name">Siddhi Bansal<span class="employer">Stripe</span></td>
-  <td class="cand-status">In Stage Since · 3w ago</td>
-  <td class="cand-badge"><span class="badge stale">stale</span></td>
-</tr>
-<tr class="candidate-row stale">
-  <td class="cand-name">Twisha Sundararajan<span class="employer">Apple</span></td>
-  <td class="cand-status">In Stage Since · 3w ago</td>
-  <td class="cand-badge"><span class="badge stale">stale</span></td>
-</tr>
-
-  </table>
-</div>
-
-
-<div class="client-block">
-  <div class="client-header">
-    <span class="client-name">Base Power Company</span>
-    <span class="client-count">6 candidates</span>
-    
-  </div>
-  <table class="candidate-table">
-    <tr class="stage-row"><td colspan="3">Technical Interview <span class="count">2</span></td></tr>
-<tr class="candidate-row ok">
-  <td class="cand-name">Andy Cabezas<span class="employer">Affirm</span></td>
-  <td class="cand-status">BOOKING LINK SENT</td>
-  <td class="cand-badge"><span class="badge ok">ok</span></td>
-</tr>
-<tr class="candidate-row ok">
-  <td class="cand-name">Vivek Gade<span class="employer">Tesla</span></td>
-  <td class="cand-status">BOOKING LINK SENT</td>
-  <td class="cand-badge"><span class="badge ok">ok</span></td>
-</tr>
-<tr class="stage-row"><td colspan="3">On-Site Interview <span class="count">1</span></td></tr>
-<tr class="candidate-row ok">
-  <td class="cand-name">Karthik Manamcheri<span class="employer">CloudKitchens</span></td>
-  <td class="cand-status">In Stage</td>
-  <td class="cand-badge"><span class="badge ok">ok</span></td>
-</tr>
-<tr class="stage-row"><td colspan="3">Hiring Manager Interview <span class="count">1</span></td></tr>
-<tr class="candidate-row ok">
-  <td class="cand-name">Christopher Green<span class="employer">Ribbiot</span></td>
-  <td class="cand-status">In Stage</td>
-  <td class="cand-badge"><span class="badge ok">ok</span></td>
-</tr>
-<tr class="stage-row"><td colspan="3">Recruiter Screen <span class="count">2</span></td></tr>
-<tr class="candidate-row ok">
-  <td class="cand-name">Jason Hobbs<span class="employer">Indeed</span></td>
-  <td class="cand-status">BOOKING LINK SENT</td>
-  <td class="cand-badge"><span class="badge ok">ok</span></td>
-</tr>
-<tr class="candidate-row ok">
-  <td class="cand-name">Mrinalini Padmanabhan<span class="employer">-</span></td>
-  <td class="cand-status">BOOKING LINK SENT</td>
-  <td class="cand-badge"><span class="badge ok">ok</span></td>
-</tr>
-
-  </table>
-</div>
-
-
-<div class="client-block">
-  <div class="client-header">
-    <span class="client-name">Giga</span>
-    <span class="client-count">12 candidates</span>
-    <span class="client-flagged">⚑ 3 flagged</span>
-  </div>
-  <table class="candidate-table">
-    <tr class="stage-row"><td colspan="3">Role Evaluation/Technical Interview <span class="count">4</span></td></tr>
-<tr class="candidate-row ok">
-  <td class="cand-name">Jillian Knoll<span class="employer">Data Platform and Tools Samsara</span></td>
-  <td class="cand-status">In Stage</td>
-  <td class="cand-badge"><span class="badge ok">ok</span></td>
-</tr>
-<tr class="candidate-row ok">
-  <td class="cand-name">Mariel Aquino<span class="employer"></span></td>
-  <td class="cand-status">In Stage</td>
-  <td class="cand-badge"><span class="badge ok">ok</span></td>
-</tr>
-<tr class="candidate-row ok">
-  <td class="cand-name">Yi Mao<span class="employer"></span></td>
-  <td class="cand-status">In Stage</td>
-  <td class="cand-badge"><span class="badge ok">ok</span></td>
-</tr>
-<tr class="candidate-row ok">
-  <td class="cand-name">Naman Tyagi<span class="employer">Google</span></td>
-  <td class="cand-status">BOOKING LINK SENT</td>
-  <td class="cand-badge"><span class="badge ok">ok</span></td>
-</tr>
-<tr class="stage-row"><td colspan="3">Intro Screen <span class="count">8</span></td></tr>
-<tr class="candidate-row ok">
-  <td class="cand-name">Naveen Rajshekhar<span class="employer">-</span></td>
-  <td class="cand-status">In Stage</td>
-  <td class="cand-badge"><span class="badge ok">ok</span></td>
-</tr>
-<tr class="candidate-row ok">
-  <td class="cand-name">Dhruvika Sahni<span class="employer"></span></td>
-  <td class="cand-status">In Stage</td>
-  <td class="cand-badge"><span class="badge ok">ok</span></td>
-</tr>
-<tr class="candidate-row ok">
-  <td class="cand-name">Pranav Batra<span class="employer">Syndicate</span></td>
-  <td class="cand-status">BOOKING LINK SENT</td>
-  <td class="cand-badge"><span class="badge ok">ok</span></td>
-</tr>
-<tr class="candidate-row urgent">
-  <td class="cand-name">Andy Qiu<span class="employer">Met</span></td>
-  <td class="cand-status">NEEDS SCHEDULING</td>
-  <td class="cand-badge"><span class="badge urgent">urgent</span></td>
-</tr>
-<tr class="candidate-row ok">
-  <td class="cand-name">Siddharth Raja<span class="employer"></span></td>
-  <td class="cand-status">In Stage</td>
-  <td class="cand-badge"><span class="badge ok">ok</span></td>
-</tr>
-<tr class="candidate-row urgent">
-  <td class="cand-name">Yi Liu<span class="employer">LinkedIn</span></td>
-  <td class="cand-status">NEEDS SCHEDULING</td>
-  <td class="cand-badge"><span class="badge urgent">urgent</span></td>
-</tr>
-<tr class="candidate-row urgent">
-  <td class="cand-name">Zhihao Li<span class="employer">-</span></td>
-  <td class="cand-status">NEEDS SCHEDULING</td>
-  <td class="cand-badge"><span class="badge urgent">urgent</span></td>
-</tr>
-<tr class="candidate-row ok">
-  <td class="cand-name">Yang Pan<span class="employer">Amazon</span></td>
-  <td class="cand-status">In Stage</td>
-  <td class="cand-badge"><span class="badge ok">ok</span></td>
-</tr>
-
-  </table>
-</div>
-
-
-<div class="client-block">
-  <div class="client-header">
-    <span class="client-name">Junior AI</span>
-    <span class="client-count">10 candidates</span>
-    <span class="client-flagged">⚑ 5 flagged</span>
-  </div>
-  <table class="candidate-table">
-    <tr class="stage-row"><td colspan="3">(TS) Backend Tech Screener <span class="count">1</span></td></tr>
-<tr class="candidate-row urgent">
-  <td class="cand-name">Eli Kugelsky<span class="employer">Qualcomm</span></td>
-  <td class="cand-status">NEEDS SCHEDULING</td>
-  <td class="cand-badge"><span class="badge urgent">urgent</span></td>
-</tr>
-<tr class="stage-row"><td colspan="3">Technical Screener (TypeScript) <span class="count">5</span></td></tr>
-<tr class="candidate-row urgent">
-  <td class="cand-name">Kamil Kisielewicz<span class="employer">Rippling</span></td>
-  <td class="cand-status">NEEDS SCHEDULING</td>
-  <td class="cand-badge"><span class="badge urgent">urgent</span></td>
-</tr>
-<tr class="candidate-row urgent">
-  <td class="cand-name">Stephen Moon<span class="employer">Solo</span></td>
-  <td class="cand-status">NEEDS SCHEDULING</td>
-  <td class="cand-badge"><span class="badge urgent">urgent</span></td>
-</tr>
-<tr class="candidate-row ok">
-  <td class="cand-name">Anthony Dike<span class="employer">Fundwell</span></td>
-  <td class="cand-status">In Stage</td>
-  <td class="cand-badge"><span class="badge ok">ok</span></td>
-</tr>
-<tr class="candidate-row ok">
-  <td class="cand-name">Luke Halko<span class="employer">LabWare</span></td>
-  <td class="cand-status">In Stage</td>
-  <td class="cand-badge"><span class="badge ok">ok</span></td>
-</tr>
-<tr class="candidate-row ok">
-  <td class="cand-name">Mariel Aquino<span class="employer"></span></td>
-  <td class="cand-status">In Stage</td>
-  <td class="cand-badge"><span class="badge ok">ok</span></td>
-</tr>
-<tr class="stage-row"><td colspan="3">Technical Screener (React) <span class="count">1</span></td></tr>
-<tr class="candidate-row urgent">
-  <td class="cand-name">Chloe Chan<span class="employer">Bloomberg</span></td>
-  <td class="cand-status">NEEDS SCHEDULING</td>
-  <td class="cand-badge"><span class="badge urgent">urgent</span></td>
-</tr>
-<tr class="stage-row"><td colspan="3">On hold <span class="count">1</span></td></tr>
-<tr class="candidate-row stale">
-  <td class="cand-name">Natan Vidra<span class="employer">Fitch Ratings</span></td>
-  <td class="cand-status">In Stage Since · 3w ago</td>
-  <td class="cand-badge"><span class="badge stale">stale</span></td>
-</tr>
-<tr class="stage-row"><td colspan="3">Product Interview <span class="count">1</span></td></tr>
-<tr class="candidate-row ok">
-  <td class="cand-name">Kassen Qian<span class="employer">Datadog</span></td>
-  <td class="cand-status">In Stage</td>
-  <td class="cand-badge"><span class="badge ok">ok</span></td>
-</tr>
-<tr class="stage-row"><td colspan="3">Onsite <span class="count">1</span></td></tr>
-<tr class="candidate-row ok">
-  <td class="cand-name">Arjit Jaiswal<span class="employer"></span></td>
-  <td class="cand-status">In Stage</td>
-  <td class="cand-badge"><span class="badge ok">ok</span></td>
-</tr>
-
-  </table>
-</div>
-
-
-<div class="client-block">
-  <div class="client-header">
-    <span class="client-name">Known</span>
-    <span class="client-count">12 candidates</span>
-    <span class="client-flagged">⚑ 5 flagged</span>
-  </div>
-  <table class="candidate-table">
-    <tr class="stage-row"><td colspan="3">Unknown <span class="count">3</span></td></tr>
-<tr class="candidate-row ok">
-  <td class="cand-name">Intro Call<span class="employer"></span></td>
-  <td class="cand-status">In Stage</td>
-  <td class="cand-badge"><span class="badge ok">ok</span></td>
-</tr>
-<tr class="candidate-row ok">
-  <td class="cand-name">Intro Call<span class="employer"></span></td>
-  <td class="cand-status">In Stage</td>
-  <td class="cand-badge"><span class="badge ok">ok</span></td>
-</tr>
-<tr class="candidate-row ok">
-  <td class="cand-name">Intro Call<span class="employer"></span></td>
-  <td class="cand-status">In Stage</td>
-  <td class="cand-badge"><span class="badge ok">ok</span></td>
-</tr>
-<tr class="stage-row"><td colspan="3">Intro Call <span class="count">6</span></td></tr>
-<tr class="candidate-row urgent">
-  <td class="cand-name">Richard Zhu<span class="employer">TikTok</span></td>
-  <td class="cand-status">NEEDS SCHEDULING</td>
-  <td class="cand-badge"><span class="badge urgent">urgent</span></td>
-</tr>
-<tr class="candidate-row ok">
-  <td class="cand-name">Mariel Aquino<span class="employer"></span></td>
-  <td class="cand-status">In Stage</td>
-  <td class="cand-badge"><span class="badge ok">ok</span></td>
-</tr>
-<tr class="candidate-row urgent">
-  <td class="cand-name">Yang Pan<span class="employer">Amazon</span></td>
-  <td class="cand-status">In Stage Since · 1w ago</td>
-  <td class="cand-badge"><span class="badge urgent">urgent</span></td>
-</tr>
-<tr class="candidate-row ok">
-  <td class="cand-name">Cristian Monterroza<span class="employer">YouTube iOS App</span></td>
-  <td class="cand-status">In Stage Since · 3d ago</td>
-  <td class="cand-badge"><span class="badge ok">ok</span></td>
-</tr>
-<tr class="candidate-row ok">
-  <td class="cand-name">Jordan Porter<span class="employer"></span></td>
-  <td class="cand-status">In Stage</td>
-  <td class="cand-badge"><span class="badge ok">ok</span></td>
-</tr>
-<tr class="candidate-row stale">
-  <td class="cand-name">Noah Leshan<span class="employer">Meta Superintelligence Labs</span></td>
-  <td class="cand-status">In Stage Since · 5w ago</td>
-  <td class="cand-badge"><span class="badge stale">stale</span></td>
-</tr>
-<tr class="stage-row"><td colspan="3">[AI/ML] Technical Round 1 <span class="count">1</span></td></tr>
-<tr class="candidate-row ok">
-  <td class="cand-name">Grace Lam<span class="employer"></span></td>
-  <td class="cand-status">In Stage</td>
-  <td class="cand-badge"><span class="badge ok">ok</span></td>
-</tr>
-<tr class="stage-row"><td colspan="3">[Fullstack] Technical Round 1 <span class="count">2</span></td></tr>
-<tr class="candidate-row stale">
-  <td class="cand-name">Ansel Morris<span class="employer">Uber</span></td>
-  <td class="cand-status">In Stage Since · 2w ago</td>
-  <td class="cand-badge"><span class="badge stale">stale</span></td>
-</tr>
-<tr class="candidate-row stale">
-  <td class="cand-name">Stephen Moon<span class="employer">Solo</span></td>
-  <td class="cand-status">In Stage Since · 2w ago</td>
-  <td class="cand-badge"><span class="badge stale">stale</span></td>
-</tr>
-
-  </table>
-</div>
-
-
-<div class="client-block">
-  <div class="client-header">
-    <span class="client-name">Mercor</span>
-    <span class="client-count">45 candidates</span>
-    <span class="client-flagged">⚑ 6 flagged</span>
-  </div>
-  <table class="candidate-table">
-    <tr class="stage-row"><td colspan="3">Initial Screen <span class="count">8</span></td></tr>
-<tr class="candidate-row ok">
-  <td class="cand-name">Karthik Halukurike<span class="employer">Instacart</span></td>
-  <td class="cand-status">BOOKING LINK SENT</td>
-  <td class="cand-badge"><span class="badge ok">ok</span></td>
-</tr>
-<tr class="candidate-row ok">
-  <td class="cand-name">Parth Shah<span class="employer">Zscaler</span></td>
-  <td class="cand-status">BOOKING LINK SENT</td>
-  <td class="cand-badge"><span class="badge ok">ok</span></td>
-</tr>
-<tr class="candidate-row ok">
-  <td class="cand-name">Zhihao Li<span class="employer">-</span></td>
-  <td class="cand-status">BOOKING LINK SENT</td>
-  <td class="cand-badge"><span class="badge ok">ok</span></td>
-</tr>
-<tr class="candidate-row ok">
-  <td class="cand-name">Dong Wang<span class="employer">Elevance Health</span></td>
-  <td class="cand-status">In Stage</td>
-  <td class="cand-badge"><span class="badge ok">ok</span></td>
-</tr>
-<tr class="candidate-row ok">
-  <td class="cand-name">Richard Zhu<span class="employer">-</span></td>
-  <td class="cand-status">In Stage</td>
-  <td class="cand-badge"><span class="badge ok">ok</span></td>
-</tr>
-<tr class="candidate-row ok">
-  <td class="cand-name">Kathan Shah<span class="employer">Graviton Research Capital</span></td>
-  <td class="cand-status">In Stage</td>
-  <td class="cand-badge"><span class="badge ok">ok</span></td>
-</tr>
-<tr class="candidate-row ok">
-  <td class="cand-name">Matthew Nguyen<span class="employer">Y Combinator W25 Batch</span></td>
-  <td class="cand-status">In Stage</td>
-  <td class="cand-badge"><span class="badge ok">ok</span></td>
-</tr>
-<tr class="candidate-row ok">
-  <td class="cand-name">Kavya Shankar<span class="employer">Amazon</span></td>
-  <td class="cand-status">In Stage</td>
-  <td class="cand-badge"><span class="badge ok">ok</span></td>
-</tr>
-<tr class="stage-row"><td colspan="3">Onsite <span class="count">23</span></td></tr>
-<tr class="candidate-row ok">
-  <td class="cand-name">Angel Hsu<span class="employer">Harvard Alumni</span></td>
-  <td class="cand-status">WAITING ON AVAILABILITY</td>
-  <td class="cand-badge"><span class="badge ok">ok</span></td>
-</tr>
-<tr class="candidate-row ok">
-  <td class="cand-name">Anubhav Jain<span class="employer">Benchling</span></td>
-  <td class="cand-status">In Stage</td>
-  <td class="cand-badge"><span class="badge ok">ok</span></td>
-</tr>
-<tr class="candidate-row ok">
-  <td class="cand-name">Adil Salhotra<span class="employer"></span></td>
-  <td class="cand-status">In Stage</td>
-  <td class="cand-badge"><span class="badge ok">ok</span></td>
-</tr>
-<tr class="candidate-row ok">
-  <td class="cand-name">Yu Kai Chiu<span class="employer">Apple</span></td>
-  <td class="cand-status">In Stage</td>
-  <td class="cand-badge"><span class="badge ok">ok</span></td>
-</tr>
-<tr class="candidate-row urgent">
-  <td class="cand-name">Enming Luo<span class="employer">Google</span></td>
-  <td class="cand-status">NEEDS SCHEDULING</td>
-  <td class="cand-badge"><span class="badge urgent">urgent</span></td>
-</tr>
-<tr class="candidate-row ok">
-  <td class="cand-name">Wangyang Wu<span class="employer">TikTok</span></td>
-  <td class="cand-status">WAITING ON AVAILABILITY</td>
-  <td class="cand-badge"><span class="badge ok">ok</span></td>
-</tr>
-<tr class="candidate-row ok">
-  <td class="cand-name">Udit Saxena<span class="employer"></span></td>
-  <td class="cand-status">In Stage</td>
-  <td class="cand-badge"><span class="badge ok">ok</span></td>
-</tr>
-<tr class="candidate-row ok">
-  <td class="cand-name">William Han<span class="employer"></span></td>
-  <td class="cand-status">In Stage</td>
-  <td class="cand-badge"><span class="badge ok">ok</span></td>
-</tr>
-<tr class="candidate-row urgent">
-  <td class="cand-name">Kanika Dutta<span class="employer">EvolutionIQ</span></td>
-  <td class="cand-status">NEEDS SCHEDULING</td>
-  <td class="cand-badge"><span class="badge urgent">urgent</span></td>
-</tr>
-<tr class="candidate-row ok">
-  <td class="cand-name">Keya Varia<span class="employer">Stripe</span></td>
-  <td class="cand-status">In Stage</td>
-  <td class="cand-badge"><span class="badge ok">ok</span></td>
-</tr>
-<tr class="candidate-row ok">
-  <td class="cand-name">Parth Shettiwar<span class="employer">LinkedIn</span></td>
-  <td class="cand-status">WAITING ON AVAILABILITY</td>
-  <td class="cand-badge"><span class="badge ok">ok</span></td>
-</tr>
-<tr class="candidate-row ok">
-  <td class="cand-name">Gautham Rajesh<span class="employer">Amazon</span></td>
-  <td class="cand-status">In Stage</td>
-  <td class="cand-badge"><span class="badge ok">ok</span></td>
-</tr>
-<tr class="candidate-row ok">
-  <td class="cand-name">Larry Xu<span class="employer">Amazon</span></td>
-  <td class="cand-status">In Stage</td>
-  <td class="cand-badge"><span class="badge ok">ok</span></td>
-</tr>
-<tr class="candidate-row ok">
-  <td class="cand-name">Maksym Karunos<span class="employer">DoorDash</span></td>
-  <td class="cand-status">In Stage</td>
-  <td class="cand-badge"><span class="badge ok">ok</span></td>
-</tr>
-<tr class="candidate-row ok">
-  <td class="cand-name">Nithin Venkatesh<span class="employer">Amazon</span></td>
-  <td class="cand-status">In Stage</td>
-  <td class="cand-badge"><span class="badge ok">ok</span></td>
-</tr>
-<tr class="candidate-row ok">
-  <td class="cand-name">Ryan Stout<span class="employer">Chainlink</span></td>
-  <td class="cand-status">In Stage</td>
-  <td class="cand-badge"><span class="badge ok">ok</span></td>
-</tr>
-<tr class="candidate-row ok">
-  <td class="cand-name">Siddharth Raja<span class="employer"></span></td>
-  <td class="cand-status">In Stage</td>
-  <td class="cand-badge"><span class="badge ok">ok</span></td>
-</tr>
-<tr class="candidate-row ok">
-  <td class="cand-name">Myles Gamez<span class="employer">-</span></td>
-  <td class="cand-status">WAITING ON AVAILABILITY</td>
-  <td class="cand-badge"><span class="badge ok">ok</span></td>
-</tr>
-<tr class="candidate-row ok">
-  <td class="cand-name">Surbhi Dang<span class="employer">Google</span></td>
-  <td class="cand-status">In Stage</td>
-  <td class="cand-badge"><span class="badge ok">ok</span></td>
-</tr>
-<tr class="candidate-row urgent">
-  <td class="cand-name">Samuel Cohen<span class="employer">Twitch</span></td>
-  <td class="cand-status">NEEDS DECISION</td>
-  <td class="cand-badge"><span class="badge urgent">urgent</span></td>
-</tr>
-<tr class="candidate-row ok">
-  <td class="cand-name">Johari Wiggins<span class="employer">Copper</span></td>
-  <td class="cand-status">In Stage</td>
-  <td class="cand-badge"><span class="badge ok">ok</span></td>
-</tr>
-<tr class="candidate-row ok">
-  <td class="cand-name">Aman Dhesi<span class="employer"></span></td>
-  <td class="cand-status">In Stage</td>
-  <td class="cand-badge"><span class="badge ok">ok</span></td>
-</tr>
-<tr class="candidate-row ok">
-  <td class="cand-name">Radhika Parthasarathy<span class="employer">Airbnb</span></td>
-  <td class="cand-status">In Stage</td>
-  <td class="cand-badge"><span class="badge ok">ok</span></td>
-</tr>
-<tr class="stage-row"><td colspan="3">Post-Onsite <span class="count">4</span></td></tr>
-<tr class="candidate-row ok">
-  <td class="cand-name">Shashank Srikanth<span class="employer">Netflix</span></td>
-  <td class="cand-status">In Stage</td>
-  <td class="cand-badge"><span class="badge ok">ok</span></td>
-</tr>
-<tr class="candidate-row urgent">
-  <td class="cand-name">Vikram Agrawal<span class="employer">Meta</span></td>
-  <td class="cand-status">NEEDS DECISION</td>
-  <td class="cand-badge"><span class="badge urgent">urgent</span></td>
-</tr>
-<tr class="candidate-row ok">
-  <td class="cand-name">Xinghai Hu<span class="employer">TikTok</span></td>
-  <td class="cand-status">In Stage</td>
-  <td class="cand-badge"><span class="badge ok">ok</span></td>
-</tr>
-<tr class="candidate-row urgent">
-  <td class="cand-name">Stephen Rice<span class="employer">Google</span></td>
-  <td class="cand-status">NEEDS SCHEDULING</td>
-  <td class="cand-badge"><span class="badge urgent">urgent</span></td>
-</tr>
-<tr class="stage-row"><td colspan="3">Second Round <span class="count">10</span></td></tr>
-<tr class="candidate-row urgent">
-  <td class="cand-name">Armaan Danewalia<span class="employer">Google</span></td>
-  <td class="cand-status">NEEDS DECISION</td>
-  <td class="cand-badge"><span class="badge urgent">urgent</span></td>
-</tr>
-<tr class="candidate-row ok">
-  <td class="cand-name">Anthony Mao<span class="employer">Pomelo</span></td>
-  <td class="cand-status">BOOKING LINK SENT</td>
-  <td class="cand-badge"><span class="badge ok">ok</span></td>
-</tr>
-<tr class="candidate-row ok">
-  <td class="cand-name">Shubham Jha<span class="employer">-</span></td>
-  <td class="cand-status">BOOKING LINK SENT</td>
-  <td class="cand-badge"><span class="badge ok">ok</span></td>
-</tr>
-<tr class="candidate-row ok">
-  <td class="cand-name">Tony Ma<span class="employer">Google</span></td>
-  <td class="cand-status">BOOKING LINK SENT</td>
-  <td class="cand-badge"><span class="badge ok">ok</span></td>
-</tr>
-<tr class="candidate-row ok">
-  <td class="cand-name">Wendong Song<span class="employer"></span></td>
-  <td class="cand-status">In Stage</td>
-  <td class="cand-badge"><span class="badge ok">ok</span></td>
-</tr>
-<tr class="candidate-row ok">
-  <td class="cand-name">Xianglong Hu<span class="employer"></span></td>
-  <td class="cand-status">In Stage</td>
-  <td class="cand-badge"><span class="badge ok">ok</span></td>
-</tr>
-<tr class="candidate-row ok">
-  <td class="cand-name">Colin Ho<span class="employer">Eventual</span></td>
-  <td class="cand-status">In Stage</td>
-  <td class="cand-badge"><span class="badge ok">ok</span></td>
-</tr>
-<tr class="candidate-row ok">
-  <td class="cand-name">Kanishk Dutta<span class="employer">RANGR Data</span></td>
-  <td class="cand-status">In Stage</td>
-  <td class="cand-badge"><span class="badge ok">ok</span></td>
-</tr>
-<tr class="candidate-row ok">
-  <td class="cand-name">Max Scott<span class="employer">MerQube</span></td>
-  <td class="cand-status">In Stage</td>
-  <td class="cand-badge"><span class="badge ok">ok</span></td>
-</tr>
-<tr class="candidate-row ok">
-  <td class="cand-name">Carnegie Universit<span class="employer">Met</span></td>
-  <td class="cand-status">In Stage Since · 5h ago</td>
-  <td class="cand-badge"><span class="badge ok">ok</span></td>
-</tr>
-
-  </table>
-</div>
-
-
-<div class="client-block">
-  <div class="client-header">
-    <span class="client-name">Owner.com</span>
-    <span class="client-count">7 candidates</span>
-    <span class="client-flagged">⚑ 3 flagged</span>
-  </div>
-  <table class="candidate-table">
-    <tr class="stage-row"><td colspan="3">Hiring Manager Screen <span class="count">5</span></td></tr>
-<tr class="candidate-row ok">
-  <td class="cand-name">Heramb Jadhav<span class="employer">Uber</span></td>
-  <td class="cand-status">WAITING ON AVAILABILITY</td>
-  <td class="cand-badge"><span class="badge ok">ok</span></td>
-</tr>
-<tr class="candidate-row ok">
-  <td class="cand-name">Jinesh Doshi<span class="employer"></span></td>
-  <td class="cand-status">In Stage</td>
-  <td class="cand-badge"><span class="badge ok">ok</span></td>
-</tr>
-<tr class="candidate-row ok">
-  <td class="cand-name">Andrew Trinh<span class="employer">Drive New Bets</span></td>
-  <td class="cand-status">WAITING ON AVAILABILITY</td>
-  <td class="cand-badge"><span class="badge ok">ok</span></td>
-</tr>
-<tr class="candidate-row urgent">
-  <td class="cand-name">Carter Daniel Peyton<span class="employer">MerQube</span></td>
-  <td class="cand-status">NEEDS DECISION</td>
-  <td class="cand-badge"><span class="badge urgent">urgent</span></td>
-</tr>
-<tr class="candidate-row urgent">
-  <td class="cand-name">David Mkrtchyan<span class="employer">Toast</span></td>
-  <td class="cand-status">NEEDS DECISION</td>
-  <td class="cand-badge"><span class="badge urgent">urgent</span></td>
-</tr>
-<tr class="stage-row"><td colspan="3">Technical Screen <span class="count">2</span></td></tr>
-<tr class="candidate-row ok">
-  <td class="cand-name">Mariel Aquino<span class="employer"></span></td>
-  <td class="cand-status">In Stage</td>
-  <td class="cand-badge"><span class="badge ok">ok</span></td>
-</tr>
-<tr class="candidate-row urgent">
-  <td class="cand-name">Jay Devnani<span class="employer">Dispatch Technologies Inc.</span></td>
-  <td class="cand-status">NEEDS DECISION</td>
-  <td class="cand-badge"><span class="badge urgent">urgent</span></td>
-</tr>
-
-  </table>
-</div>
-
-
-<div class="client-block">
-  <div class="client-header">
-    <span class="client-name">Phia</span>
-    <span class="client-count">1 candidates</span>
-    
-  </div>
-  <table class="candidate-table">
-    <tr class="stage-row"><td colspan="3">Tech Screen <span class="count">1</span></td></tr>
-<tr class="candidate-row ok">
-  <td class="cand-name">Mariel Aquino<span class="employer"></span></td>
-  <td class="cand-status">In Stage</td>
-  <td class="cand-badge"><span class="badge ok">ok</span></td>
-</tr>
-
-  </table>
-</div>
-
-
-<div class="client-block">
-  <div class="client-header">
-    <span class="client-name">Wispr Flow</span>
-    <span class="client-count">5 candidates</span>
-    <span class="client-flagged">⚑ 4 flagged</span>
-  </div>
-  <table class="candidate-table">
-    <tr class="stage-row"><td colspan="3">Prescreen Review <span class="count">3</span></td></tr>
-<tr class="candidate-row stale">
-  <td class="cand-name">Benjamin Harvey<span class="employer">Meta Instagram</span></td>
-  <td class="cand-status">In Stage Since · 19w ago</td>
-  <td class="cand-badge"><span class="badge stale">stale</span></td>
-</tr>
-<tr class="candidate-row stale">
-  <td class="cand-name">Zeyu Li<span class="employer">Robinhood Markets</span></td>
-  <td class="cand-status">In Stage Since · 19w ago</td>
-  <td class="cand-badge"><span class="badge stale">stale</span></td>
-</tr>
-<tr class="candidate-row stale">
-  <td class="cand-name">Ronak Shah<span class="employer">Nextdoor</span></td>
-  <td class="cand-status">In Stage Since · 22w ago</td>
-  <td class="cand-badge"><span class="badge stale">stale</span></td>
-</tr>
-<tr class="stage-row"><td colspan="3">Initial Screen <span class="count">1</span></td></tr>
-<tr class="candidate-row ok">
-  <td class="cand-name">Senzeyu Zhang<span class="employer"></span></td>
-  <td class="cand-status">In Stage</td>
-  <td class="cand-badge"><span class="badge ok">ok</span></td>
-</tr>
-<tr class="stage-row"><td colspan="3">On-site interview <span class="count">1</span></td></tr>
-<tr class="candidate-row stale">
-  <td class="cand-name">Ruoyu Li<span class="employer">Career Break</span></td>
-  <td class="cand-status">In Stage Since · 23w ago</td>
-  <td class="cand-badge"><span class="badge stale">stale</span></td>
-</tr>
-
-  </table>
-</div>
 </body>
 </html>
