@@ -435,7 +435,7 @@
   </div>
   <div class="header-stats">
     <div class="stat">
-      <div class="stat-value" id="total-candidates">79</div>
+      <div class="stat-value" id="total-candidates">124</div>
       <div class="stat-label">Candidates</div>
     </div>
     <div class="stat-divider"></div>
@@ -445,7 +445,7 @@
     </div>
     <div class="stat-divider"></div>
     <div class="stat urgent-stat">
-      <div class="stat-value" id="total-flags">0</div>
+      <div class="stat-value" id="total-flags">7</div>
       <div class="stat-label">Flagged ⚠</div>
     </div>
   </div>
@@ -456,17 +456,17 @@
   <span class="filter-label">Filter</span>
   <select id="filter-client" onchange="applyFilters()">
     <option value="">All Clients</option>
-    <option value="ADDITIVE AI">ADDITIVE AI</option>
-<option value="AFTERQUERY">AFTERQUERY</option>
-<option value="ANTIMETAL">ANTIMETAL</option>
-<option value="BASE POWER COMPANY">BASE POWER COMPANY</option>
-<option value="GIGA">GIGA</option>
-<option value="JUNIOR AI">JUNIOR AI</option>
-<option value="KNOWN">KNOWN</option>
-<option value="MERCOR">MERCOR</option>
-<option value="OWNER.COM">OWNER.COM</option>
-<option value="PHIA">PHIA</option>
-<option value="WISPR FLOW">WISPR FLOW</option>
+    <option value="Additive AI">Additive AI</option>
+<option value="AfterQuery">AfterQuery</option>
+<option value="Antimetal">Antimetal</option>
+<option value="Base Power Company">Base Power Company</option>
+<option value="Giga">Giga</option>
+<option value="Junior AI">Junior AI</option>
+<option value="Known">Known</option>
+<option value="Mercor">Mercor</option>
+<option value="Owner.com">Owner.com</option>
+<option value="Phia">Phia</option>
+<option value="Wispr Flow">Wispr Flow</option>
   </select>
   <select id="filter-stage" onchange="applyFilters()">
     <option value="">All Stages</option>
@@ -487,486 +487,651 @@
 
 <!-- ALERTS BANNER -->
 <div class="alerts-banner" id="alerts-banner">
-  <div class="alerts-title">⚠ Needs Attention — 0 candidates</div>
+  <div class="alerts-title">⚠ Needs Attention — 7 candidates</div>
   <div id="alerts-list">
-    
+    <div class="alert-pill" data-client="Mercor"><span class="client-tag">Mercor</span><span class="name">Enming Luo</span><span class="status-tag">· Needs Scheduling · 2w ago</span></div>
+<div class="alert-pill" data-client="Mercor"><span class="client-tag">Mercor</span><span class="name">Parth Shettiwar</span><span class="status-tag">· Waiting on Availability · 1w ago</span></div>
+<div class="alert-pill" data-client="Mercor"><span class="client-tag">Mercor</span><span class="name">Taejin Hwang</span><span class="status-tag">· Needs Decision · 1d ago</span></div>
+<div class="alert-pill" data-client="Mercor"><span class="client-tag">Mercor</span><span class="name">Samuel Cohen</span><span class="status-tag">· Needs Decision · 4d ago</span></div>
+<div class="alert-pill" data-client="Mercor"><span class="client-tag">Mercor</span><span class="name">Vikram Agrawal</span><span class="status-tag">· Needs Decision · 14min ago</span></div>
+<div class="alert-pill" data-client="Mercor"><span class="client-tag">Mercor</span><span class="name">Aman Dhesi</span><span class="status-tag">· Waiting on Availability · 5w ago</span></div>
+<div class="alert-pill" data-client="Mercor"><span class="client-tag">Mercor</span><span class="name">Stephen Rice</span><span class="status-tag">· Needs Scheduling · 1w ago</span></div>
   </div>
 </div>
 
 <!-- MAIN -->
 <div class="main" id="main-content">
-  <div class="client-card" data-client="ADDITIVE AI">
-      <div class="client-header" onclick="toggleCard(this.closest('client-card'))">
-        <div class="client-name-wrap"><div class="client-avatar">A</div><div class="client-name">ADDITIVE AI</div></div>
-        <div class="client-meta"><span class="candidate-count">6 candidates</span><span class="collapse-icon">▾</span></div>
-      </div>
-      <div class="client-body"><div class="role-group"><div class="role-header"><span class="role-name">Member of Technical Staff</span><span class="role-count">6</span></div><div class="candidate-row ok" data-stage="Initial Recruiter Screen" data-urgency="ok">
+  <div class="client-card" data-client="Additive AI"><div class="client-header" onclick="toggleCard(this.closest('.client-card'))"><div class="client-name-wrap"><div class="client-avatar">A</div><div class="client-name">Additive AI</div></div><div class="client-meta"><span class="candidate-count">6 candidates</span><span class="collapse-icon">▾</span></div></div><div class="client-body"><div class="role-group"><div class="role-header"><span class="role-name">Member of Technical Staff</span><span class="role-count">6</span></div><div class="candidate-row ok" data-stage="Initial Recruiter Screen" data-urgency="ok">
               <div class="cand-name">Niki Aggarwal</div>
               <div class="cand-role">Member of Technical Staff</div>
               <div><span class="stage-badge">Initial Recruiter Screen</span></div>
-              <div class="cand-status ok-status"><span class="status-dot"></span>Initial Recruiter Screen</div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Status timing not captured in prior run</div>
             </div><div class="candidate-row ok" data-stage="Initial Recruiter Screen" data-urgency="ok">
               <div class="cand-name">Darian Perez</div>
               <div class="cand-role">Member of Technical Staff</div>
               <div><span class="stage-badge">Initial Recruiter Screen</span></div>
-              <div class="cand-status ok-status"><span class="status-dot"></span>Initial Recruiter Screen</div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Status timing not captured in prior run</div>
             </div><div class="candidate-row ok" data-stage="Role Fit Interview" data-urgency="ok">
               <div class="cand-name">Aryan Goyal</div>
               <div class="cand-role">Member of Technical Staff</div>
               <div><span class="stage-badge">Role Fit Interview</span></div>
-              <div class="cand-status ok-status"><span class="status-dot"></span>Role Fit Interview</div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Status timing not captured in prior run</div>
             </div><div class="candidate-row ok" data-stage="Role Fit Interview" data-urgency="ok">
               <div class="cand-name">Roy Lee</div>
               <div class="cand-role">Member of Technical Staff</div>
               <div><span class="stage-badge">Role Fit Interview</span></div>
-              <div class="cand-status ok-status"><span class="status-dot"></span>Role Fit Interview</div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Status timing not captured in prior run</div>
             </div><div class="candidate-row ok" data-stage="Role Fit Interview" data-urgency="ok">
               <div class="cand-name">Anshuman Kumar</div>
               <div class="cand-role">Member of Technical Staff</div>
               <div><span class="stage-badge">Role Fit Interview</span></div>
-              <div class="cand-status ok-status"><span class="status-dot"></span>Role Fit Interview</div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Status timing not captured in prior run</div>
             </div><div class="candidate-row ok" data-stage="Interview Panel + Founder" data-urgency="ok">
               <div class="cand-name">Afra Yang</div>
               <div class="cand-role">Member of Technical Staff</div>
               <div><span class="stage-badge">Interview Panel + Founder</span></div>
-              <div class="cand-status ok-status"><span class="status-dot"></span>Interview Panel + Founder</div>
-            </div></div></div>
-    </div>
-<div class="client-card" data-client="AFTERQUERY">
-      <div class="client-header" onclick="toggleCard(this.closest('client-card'))">
-        <div class="client-name-wrap"><div class="client-avatar">A</div><div class="client-name">AFTERQUERY</div></div>
-        <div class="client-meta"><span class="candidate-count">12 candidates</span><span class="collapse-icon">▾</span></div>
-      </div>
-      <div class="client-body"><div class="role-group"><div class="role-header"><span class="role-name">Senior Full-Stack Engineer</span><span class="role-count">3</span></div><div class="candidate-row ok" data-stage="Technical Assessment" data-urgency="ok">
+              <div class="cand-status ok-status"><span class="status-dot"></span>Status timing not captured in prior run</div>
+            </div></div></div></div>
+<div class="client-card" data-client="AfterQuery"><div class="client-header" onclick="toggleCard(this.closest('.client-card'))"><div class="client-name-wrap"><div class="client-avatar">A</div><div class="client-name">AfterQuery</div></div><div class="client-meta"><span class="candidate-count">12 candidates</span><span class="collapse-icon">▾</span></div></div><div class="client-body"><div class="role-group"><div class="role-header"><span class="role-name">Senior Full-Stack Engineer</span><span class="role-count">3</span></div><div class="candidate-row ok" data-stage="Technical Assessment" data-urgency="ok">
               <div class="cand-name">Zack Boren</div>
               <div class="cand-role">Senior Full-Stack Engineer</div>
               <div><span class="stage-badge">Technical Assessment</span></div>
-              <div class="cand-status ok-status"><span class="status-dot"></span>Technical Assessment</div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Status timing not captured in prior run</div>
             </div><div class="candidate-row ok" data-stage="Final Interview" data-urgency="ok">
               <div class="cand-name">Andrew Trinh</div>
               <div class="cand-role">Senior Full-Stack Engineer</div>
               <div><span class="stage-badge">Final Interview</span></div>
-              <div class="cand-status ok-status"><span class="status-dot"></span>Final Interview</div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Status timing not captured in prior run</div>
             </div><div class="candidate-row ok" data-stage="Offer call" data-urgency="ok">
               <div class="cand-name">Ruixiang (Ray) Jiang</div>
               <div class="cand-role">Senior Full-Stack Engineer</div>
               <div><span class="stage-badge">Offer call</span></div>
-              <div class="cand-status ok-status"><span class="status-dot"></span>Offer call</div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Status timing not captured in prior run</div>
             </div></div><div class="role-group"><div class="role-header"><span class="role-name">Software Engineer</span><span class="role-count">9</span></div><div class="candidate-row ok" data-stage="Technical Assessment" data-urgency="ok">
               <div class="cand-name">Joshi Sarvesh</div>
               <div class="cand-role">Software Engineer</div>
               <div><span class="stage-badge">Technical Assessment</span></div>
-              <div class="cand-status ok-status"><span class="status-dot"></span>Technical Assessment</div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Status timing not captured in prior run</div>
             </div><div class="candidate-row ok" data-stage="Technical Assessment" data-urgency="ok">
               <div class="cand-name">Henry Deng</div>
               <div class="cand-role">Software Engineer</div>
               <div><span class="stage-badge">Technical Assessment</span></div>
-              <div class="cand-status ok-status"><span class="status-dot"></span>Technical Assessment</div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Status timing not captured in prior run</div>
             </div><div class="candidate-row ok" data-stage="Final Interview" data-urgency="ok">
               <div class="cand-name">Roy Lee</div>
               <div class="cand-role">Software Engineer</div>
               <div><span class="stage-badge">Final Interview</span></div>
-              <div class="cand-status ok-status"><span class="status-dot"></span>Final Interview</div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Status timing not captured in prior run</div>
             </div><div class="candidate-row ok" data-stage="Final Interview" data-urgency="ok">
               <div class="cand-name">Santiago Coochoy</div>
               <div class="cand-role">Software Engineer</div>
               <div><span class="stage-badge">Final Interview</span></div>
-              <div class="cand-status ok-status"><span class="status-dot"></span>Final Interview</div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Status timing not captured in prior run</div>
             </div><div class="candidate-row ok" data-stage="Final Interview" data-urgency="ok">
               <div class="cand-name">Tao Li</div>
               <div class="cand-role">Software Engineer</div>
               <div><span class="stage-badge">Final Interview</span></div>
-              <div class="cand-status ok-status"><span class="status-dot"></span>Final Interview</div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Status timing not captured in prior run</div>
             </div><div class="candidate-row ok" data-stage="Final Interview" data-urgency="ok">
               <div class="cand-name">Yunkun Li</div>
               <div class="cand-role">Software Engineer</div>
               <div><span class="stage-badge">Final Interview</span></div>
-              <div class="cand-status ok-status"><span class="status-dot"></span>Final Interview</div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Status timing not captured in prior run</div>
             </div><div class="candidate-row ok" data-stage="Offer call" data-urgency="ok">
               <div class="cand-name">Jinbo Ji</div>
               <div class="cand-role">Software Engineer</div>
               <div><span class="stage-badge">Offer call</span></div>
-              <div class="cand-status ok-status"><span class="status-dot"></span>Offer call</div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Status timing not captured in prior run</div>
             </div><div class="candidate-row ok" data-stage="Offer call" data-urgency="ok">
               <div class="cand-name">Evan Karlesky</div>
               <div class="cand-role">Software Engineer</div>
               <div><span class="stage-badge">Offer call</span></div>
-              <div class="cand-status ok-status"><span class="status-dot"></span>Offer call</div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Status timing not captured in prior run</div>
             </div><div class="candidate-row ok" data-stage="Offer call" data-urgency="ok">
               <div class="cand-name">Alexei Zubov</div>
               <div class="cand-role">Software Engineer</div>
               <div><span class="stage-badge">Offer call</span></div>
-              <div class="cand-status ok-status"><span class="status-dot"></span>Offer call</div>
-            </div></div></div>
-    </div>
-<div class="client-card" data-client="ANTIMETAL">
-      <div class="client-header" onclick="toggleCard(this.closest('client-card'))">
-        <div class="client-name-wrap"><div class="client-avatar">A</div><div class="client-name">ANTIMETAL</div></div>
-        <div class="client-meta"><span class="candidate-count">1 candidates</span><span class="collapse-icon">▾</span></div>
-      </div>
-      <div class="client-body"><div class="role-group"><div class="role-header"><span class="role-name">Backend Engineer</span><span class="role-count">1</span></div><div class="candidate-row ok" data-stage="Founder Interview" data-urgency="ok">
+              <div class="cand-status ok-status"><span class="status-dot"></span>Status timing not captured in prior run</div>
+            </div></div></div></div>
+<div class="client-card" data-client="Antimetal"><div class="client-header" onclick="toggleCard(this.closest('.client-card'))"><div class="client-name-wrap"><div class="client-avatar">A</div><div class="client-name">Antimetal</div></div><div class="client-meta"><span class="candidate-count">1 candidates</span><span class="collapse-icon">▾</span></div></div><div class="client-body"><div class="role-group"><div class="role-header"><span class="role-name">Backend Engineer</span><span class="role-count">1</span></div><div class="candidate-row ok" data-stage="Founder Interview" data-urgency="ok">
               <div class="cand-name">Matteo Agius-D&#x27;Arrigo</div>
               <div class="cand-role">Backend Engineer</div>
               <div><span class="stage-badge">Founder Interview</span></div>
-              <div class="cand-status ok-status"><span class="status-dot"></span>Founder Interview</div>
-            </div></div></div>
-    </div>
-<div class="client-card" data-client="BASE POWER COMPANY">
-      <div class="client-header" onclick="toggleCard(this.closest('client-card'))">
-        <div class="client-name-wrap"><div class="client-avatar">B</div><div class="client-name">BASE POWER COMPANY</div></div>
-        <div class="client-meta"><span class="candidate-count">6 candidates</span><span class="collapse-icon">▾</span></div>
-      </div>
-      <div class="client-body"><div class="role-group"><div class="role-header"><span class="role-name">Senior Frontend Engineer</span><span class="role-count">1</span></div><div class="candidate-row ok" data-stage="Initial Interview" data-urgency="ok">
+              <div class="cand-status ok-status"><span class="status-dot"></span>Status timing not captured in prior run</div>
+            </div></div></div></div>
+<div class="client-card" data-client="Base Power Company"><div class="client-header" onclick="toggleCard(this.closest('.client-card'))"><div class="client-name-wrap"><div class="client-avatar">B</div><div class="client-name">Base Power Company</div></div><div class="client-meta"><span class="candidate-count">6 candidates</span><span class="collapse-icon">▾</span></div></div><div class="client-body"><div class="role-group"><div class="role-header"><span class="role-name">Senior Frontend Engineer</span><span class="role-count">1</span></div><div class="candidate-row ok" data-stage="Initial Interview" data-urgency="ok">
               <div class="cand-name">Niki Aggarwal</div>
               <div class="cand-role">Senior Frontend Engineer</div>
               <div><span class="stage-badge">Initial Interview</span></div>
-              <div class="cand-status ok-status"><span class="status-dot"></span>Initial Interview</div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Status timing not captured in prior run</div>
             </div></div><div class="role-group"><div class="role-header"><span class="role-name">Senior Fullstack Engineer</span><span class="role-count">2</span></div><div class="candidate-row ok" data-stage="Technical Interview" data-urgency="ok">
               <div class="cand-name">Nicole Fusca</div>
               <div class="cand-role">Senior Fullstack Engineer</div>
               <div><span class="stage-badge">Technical Interview</span></div>
-              <div class="cand-status ok-status"><span class="status-dot"></span>Technical Interview</div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Status timing not captured in prior run</div>
             </div><div class="candidate-row ok" data-stage="Onsite" data-urgency="ok">
               <div class="cand-name">Hosam Salahedine</div>
               <div class="cand-role">Senior Fullstack Engineer</div>
               <div><span class="stage-badge">Onsite</span></div>
-              <div class="cand-status ok-status"><span class="status-dot"></span>Onsite</div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Status timing not captured in prior run</div>
             </div></div><div class="role-group"><div class="role-header"><span class="role-name">Staff Backend Engineer</span><span class="role-count">1</span></div><div class="candidate-row ok" data-stage="Technical Interview" data-urgency="ok">
               <div class="cand-name">Qi Qi</div>
               <div class="cand-role">Staff Backend Engineer</div>
               <div><span class="stage-badge">Technical Interview</span></div>
-              <div class="cand-status ok-status"><span class="status-dot"></span>Technical Interview</div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Status timing not captured in prior run</div>
             </div></div><div class="role-group"><div class="role-header"><span class="role-name">Staff Fullstack Engineer</span><span class="role-count">2</span></div><div class="candidate-row ok" data-stage="Initial Interview" data-urgency="ok">
               <div class="cand-name">Juan Pablo Gomez</div>
               <div class="cand-role">Staff Fullstack Engineer</div>
               <div><span class="stage-badge">Initial Interview</span></div>
-              <div class="cand-status ok-status"><span class="status-dot"></span>Initial Interview</div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Status timing not captured in prior run</div>
             </div><div class="candidate-row ok" data-stage="Technical Interview" data-urgency="ok">
               <div class="cand-name">Justin Kim</div>
               <div class="cand-role">Staff Fullstack Engineer</div>
               <div><span class="stage-badge">Technical Interview</span></div>
-              <div class="cand-status ok-status"><span class="status-dot"></span>Technical Interview</div>
-            </div></div></div>
-    </div>
-<div class="client-card" data-client="GIGA">
-      <div class="client-header" onclick="toggleCard(this.closest('client-card'))">
-        <div class="client-name-wrap"><div class="client-avatar">G</div><div class="client-name">GIGA</div></div>
-        <div class="client-meta"><span class="candidate-count">12 candidates</span><span class="collapse-icon">▾</span></div>
-      </div>
-      <div class="client-body"><div class="role-group"><div class="role-header"><span class="role-name">Forward Deployed Engineer</span><span class="role-count">1</span></div><div class="candidate-row ok" data-stage="Role Evaluation/Technical Interview" data-urgency="ok">
+              <div class="cand-status ok-status"><span class="status-dot"></span>Status timing not captured in prior run</div>
+            </div></div></div></div>
+<div class="client-card" data-client="Giga"><div class="client-header" onclick="toggleCard(this.closest('.client-card'))"><div class="client-name-wrap"><div class="client-avatar">G</div><div class="client-name">Giga</div></div><div class="client-meta"><span class="candidate-count">12 candidates</span><span class="collapse-icon">▾</span></div></div><div class="client-body"><div class="role-group"><div class="role-header"><span class="role-name">Forward Deployed Engineer</span><span class="role-count">1</span></div><div class="candidate-row ok" data-stage="Role Evaluation/Technical Interview" data-urgency="ok">
               <div class="cand-name">Jillian Knoll</div>
               <div class="cand-role">Forward Deployed Engineer</div>
               <div><span class="stage-badge">Role Evaluation/Technical Interview</span></div>
-              <div class="cand-status ok-status"><span class="status-dot"></span>Role Evaluation/Technical Interview</div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Status timing not captured in prior run</div>
             </div></div><div class="role-group"><div class="role-header"><span class="role-name">Senior Backend Engineer (NY)</span><span class="role-count">1</span></div><div class="candidate-row ok" data-stage="Intro Screen" data-urgency="ok">
               <div class="cand-name">Naveen Rajshekhar</div>
               <div class="cand-role">Senior Backend Engineer (NY)</div>
               <div><span class="stage-badge">Intro Screen</span></div>
-              <div class="cand-status ok-status"><span class="status-dot"></span>Intro Screen</div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Status timing not captured in prior run</div>
             </div></div><div class="role-group"><div class="role-header"><span class="role-name">Senior Backend Engineer (SF)</span><span class="role-count">4</span></div><div class="candidate-row ok" data-stage="Intro Screen" data-urgency="ok">
               <div class="cand-name">Dhruvika Sahni</div>
               <div class="cand-role">Senior Backend Engineer (SF)</div>
               <div><span class="stage-badge">Intro Screen</span></div>
-              <div class="cand-status ok-status"><span class="status-dot"></span>Intro Screen</div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Status timing not captured in prior run</div>
             </div><div class="candidate-row ok" data-stage="Intro Screen" data-urgency="ok">
               <div class="cand-name">Pranav Batra</div>
               <div class="cand-role">Senior Backend Engineer (SF)</div>
               <div><span class="stage-badge">Intro Screen</span></div>
-              <div class="cand-status ok-status"><span class="status-dot"></span>Intro Screen</div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Status timing not captured in prior run</div>
             </div><div class="candidate-row ok" data-stage="Role Evaluation/Technical Interview" data-urgency="ok">
               <div class="cand-name">Mariel Aquino</div>
               <div class="cand-role">Senior Backend Engineer (SF)</div>
               <div><span class="stage-badge">Role Evaluation/Technical Interview</span></div>
-              <div class="cand-status ok-status"><span class="status-dot"></span>Role Evaluation/Technical Interview</div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Status timing not captured in prior run</div>
             </div><div class="candidate-row ok" data-stage="Role Evaluation/Technical Interview" data-urgency="ok">
               <div class="cand-name">Yi Mao</div>
               <div class="cand-role">Senior Backend Engineer (SF)</div>
               <div><span class="stage-badge">Role Evaluation/Technical Interview</span></div>
-              <div class="cand-status ok-status"><span class="status-dot"></span>Role Evaluation/Technical Interview</div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Status timing not captured in prior run</div>
             </div></div><div class="role-group"><div class="role-header"><span class="role-name">Senior Fullstack Engineer (SF)</span><span class="role-count">1</span></div><div class="candidate-row ok" data-stage="Intro Screen" data-urgency="ok">
               <div class="cand-name">Andy Qiu</div>
               <div class="cand-role">Senior Fullstack Engineer (SF)</div>
               <div><span class="stage-badge">Intro Screen</span></div>
-              <div class="cand-status ok-status"><span class="status-dot"></span>Intro Screen</div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Status timing not captured in prior run</div>
             </div></div><div class="role-group"><div class="role-header"><span class="role-name">Staff Backend Engineer (SF)</span><span class="role-count">5</span></div><div class="candidate-row ok" data-stage="Intro Screen" data-urgency="ok">
               <div class="cand-name">Siddharth Raja</div>
               <div class="cand-role">Staff Backend Engineer (SF)</div>
               <div><span class="stage-badge">Intro Screen</span></div>
-              <div class="cand-status ok-status"><span class="status-dot"></span>Intro Screen</div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Status timing not captured in prior run</div>
             </div><div class="candidate-row ok" data-stage="Intro Screen" data-urgency="ok">
               <div class="cand-name">Yi Liu</div>
               <div class="cand-role">Staff Backend Engineer (SF)</div>
               <div><span class="stage-badge">Intro Screen</span></div>
-              <div class="cand-status ok-status"><span class="status-dot"></span>Intro Screen</div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Status timing not captured in prior run</div>
             </div><div class="candidate-row ok" data-stage="Intro Screen" data-urgency="ok">
               <div class="cand-name">Zhihao Li</div>
               <div class="cand-role">Staff Backend Engineer (SF)</div>
               <div><span class="stage-badge">Intro Screen</span></div>
-              <div class="cand-status ok-status"><span class="status-dot"></span>Intro Screen</div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Status timing not captured in prior run</div>
             </div><div class="candidate-row ok" data-stage="Intro Screen" data-urgency="ok">
               <div class="cand-name">Yang Pan</div>
               <div class="cand-role">Staff Backend Engineer (SF)</div>
               <div><span class="stage-badge">Intro Screen</span></div>
-              <div class="cand-status ok-status"><span class="status-dot"></span>Intro Screen</div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Status timing not captured in prior run</div>
             </div><div class="candidate-row ok" data-stage="Role Evaluation/Technical Interview" data-urgency="ok">
               <div class="cand-name">Naman Tyagi</div>
               <div class="cand-role">Staff Backend Engineer (SF)</div>
               <div><span class="stage-badge">Role Evaluation/Technical Interview</span></div>
-              <div class="cand-status ok-status"><span class="status-dot"></span>Role Evaluation/Technical Interview</div>
-            </div></div></div>
-    </div>
-<div class="client-card" data-client="JUNIOR AI">
-      <div class="client-header" onclick="toggleCard(this.closest('client-card'))">
-        <div class="client-name-wrap"><div class="client-avatar">J</div><div class="client-name">JUNIOR AI</div></div>
-        <div class="client-meta"><span class="candidate-count">11 candidates</span><span class="collapse-icon">▾</span></div>
-      </div>
-      <div class="client-body"><div class="role-group"><div class="role-header"><span class="role-name">Growth &amp; Ops Associate</span><span class="role-count">1</span></div><div class="candidate-row ok" data-stage="Offer" data-urgency="ok">
+              <div class="cand-status ok-status"><span class="status-dot"></span>Status timing not captured in prior run</div>
+            </div></div></div></div>
+<div class="client-card" data-client="Junior AI"><div class="client-header" onclick="toggleCard(this.closest('.client-card'))"><div class="client-name-wrap"><div class="client-avatar">J</div><div class="client-name">Junior AI</div></div><div class="client-meta"><span class="candidate-count">11 candidates</span><span class="collapse-icon">▾</span></div></div><div class="client-body"><div class="role-group"><div class="role-header"><span class="role-name">Growth &amp; Ops Associate</span><span class="role-count">1</span></div><div class="candidate-row ok" data-stage="Offer" data-urgency="ok">
               <div class="cand-name">Omyar Aadam</div>
               <div class="cand-role">Growth &amp; Ops Associate</div>
               <div><span class="stage-badge">Offer</span></div>
-              <div class="cand-status ok-status"><span class="status-dot"></span>Offer</div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Status timing not captured in prior run</div>
             </div></div><div class="role-group"><div class="role-header"><span class="role-name">Senior Backend Engineer</span><span class="role-count">5</span></div><div class="candidate-row ok" data-stage="Intro" data-urgency="ok">
               <div class="cand-name">Pranav Batra</div>
               <div class="cand-role">Senior Backend Engineer</div>
               <div><span class="stage-badge">Intro</span></div>
-              <div class="cand-status ok-status"><span class="status-dot"></span>Intro</div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Status timing not captured in prior run</div>
             </div><div class="candidate-row ok" data-stage="Onsite" data-urgency="ok">
               <div class="cand-name">Sugam Akta</div>
               <div class="cand-role">Senior Backend Engineer</div>
               <div><span class="stage-badge">Onsite</span></div>
-              <div class="cand-status ok-status"><span class="status-dot"></span>Onsite</div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Status timing not captured in prior run</div>
             </div><div class="candidate-row ok" data-stage="Onsite" data-urgency="ok">
               <div class="cand-name">Mariel Aquino</div>
               <div class="cand-role">Senior Backend Engineer</div>
               <div><span class="stage-badge">Onsite</span></div>
-              <div class="cand-status ok-status"><span class="status-dot"></span>Onsite</div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Status timing not captured in prior run</div>
             </div><div class="candidate-row ok" data-stage="Onsite" data-urgency="ok">
               <div class="cand-name">Yutong Li</div>
               <div class="cand-role">Senior Backend Engineer</div>
               <div><span class="stage-badge">Onsite</span></div>
-              <div class="cand-status ok-status"><span class="status-dot"></span>Onsite</div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Status timing not captured in prior run</div>
             </div><div class="candidate-row ok" data-stage="Onsite" data-urgency="ok">
               <div class="cand-name">Khoa Tran</div>
               <div class="cand-role">Senior Backend Engineer</div>
               <div><span class="stage-badge">Onsite</span></div>
-              <div class="cand-status ok-status"><span class="status-dot"></span>Onsite</div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Status timing not captured in prior run</div>
             </div></div><div class="role-group"><div class="role-header"><span class="role-name">Senior Fullstack Engineer</span><span class="role-count">4</span></div><div class="candidate-row ok" data-stage="Intro" data-urgency="ok">
               <div class="cand-name">Niki Aggarwal</div>
               <div class="cand-role">Senior Fullstack Engineer</div>
               <div><span class="stage-badge">Intro</span></div>
-              <div class="cand-status ok-status"><span class="status-dot"></span>Intro</div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Status timing not captured in prior run</div>
             </div><div class="candidate-row ok" data-stage="Technical" data-urgency="ok">
               <div class="cand-name">Siddharth Raja</div>
               <div class="cand-role">Senior Fullstack Engineer</div>
               <div><span class="stage-badge">Technical</span></div>
-              <div class="cand-status ok-status"><span class="status-dot"></span>Technical</div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Status timing not captured in prior run</div>
             </div><div class="candidate-row ok" data-stage="Technical" data-urgency="ok">
               <div class="cand-name">Jacky Xia</div>
               <div class="cand-role">Senior Fullstack Engineer</div>
               <div><span class="stage-badge">Technical</span></div>
-              <div class="cand-status ok-status"><span class="status-dot"></span>Technical</div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Status timing not captured in prior run</div>
             </div><div class="candidate-row ok" data-stage="Onsite" data-urgency="ok">
               <div class="cand-name">Jagger Zhang</div>
               <div class="cand-role">Senior Fullstack Engineer</div>
               <div><span class="stage-badge">Onsite</span></div>
-              <div class="cand-status ok-status"><span class="status-dot"></span>Onsite</div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Status timing not captured in prior run</div>
             </div></div><div class="role-group"><div class="role-header"><span class="role-name">Staff Backend Engineer</span><span class="role-count">1</span></div><div class="candidate-row ok" data-stage="Technical" data-urgency="ok">
               <div class="cand-name">Yi Mao</div>
               <div class="cand-role">Staff Backend Engineer</div>
               <div><span class="stage-badge">Technical</span></div>
-              <div class="cand-status ok-status"><span class="status-dot"></span>Technical</div>
-            </div></div></div>
-    </div>
-<div class="client-card" data-client="KNOWN">
-      <div class="client-header" onclick="toggleCard(this.closest('client-card'))">
-        <div class="client-name-wrap"><div class="client-avatar">K</div><div class="client-name">KNOWN</div></div>
-        <div class="client-meta"><span class="candidate-count">9 candidates</span><span class="collapse-icon">▾</span></div>
-      </div>
-      <div class="client-body"><div class="role-group"><div class="role-header"><span class="role-name">AI / ML Engineer</span><span class="role-count">2</span></div><div class="candidate-row ok" data-stage="Intro Call" data-urgency="ok">
+              <div class="cand-status ok-status"><span class="status-dot"></span>Status timing not captured in prior run</div>
+            </div></div></div></div>
+<div class="client-card" data-client="Known"><div class="client-header" onclick="toggleCard(this.closest('.client-card'))"><div class="client-name-wrap"><div class="client-avatar">K</div><div class="client-name">Known</div></div><div class="client-meta"><span class="candidate-count">9 candidates</span><span class="collapse-icon">▾</span></div></div><div class="client-body"><div class="role-group"><div class="role-header"><span class="role-name">AI / ML Engineer</span><span class="role-count">2</span></div><div class="candidate-row ok" data-stage="Intro Call" data-urgency="ok">
               <div class="cand-name">Richard Zhu</div>
               <div class="cand-role">AI / ML Engineer</div>
               <div><span class="stage-badge">Intro Call</span></div>
-              <div class="cand-status ok-status"><span class="status-dot"></span>Intro Call</div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Status timing not captured in prior run</div>
             </div><div class="candidate-row ok" data-stage="Technical Round 1" data-urgency="ok">
               <div class="cand-name">Grace Lam</div>
               <div class="cand-role">AI / ML Engineer</div>
               <div><span class="stage-badge">Technical Round 1</span></div>
-              <div class="cand-status ok-status"><span class="status-dot"></span>Technical Round 1</div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Status timing not captured in prior run</div>
             </div></div><div class="role-group"><div class="role-header"><span class="role-name">Product Engineer, Mobile</span><span class="role-count">6</span></div><div class="candidate-row ok" data-stage="Intro Call" data-urgency="ok">
               <div class="cand-name">Mariel Aquino</div>
               <div class="cand-role">Product Engineer, Mobile</div>
               <div><span class="stage-badge">Intro Call</span></div>
-              <div class="cand-status ok-status"><span class="status-dot"></span>Intro Call</div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Status timing not captured in prior run</div>
             </div><div class="candidate-row ok" data-stage="Intro Call" data-urgency="ok">
               <div class="cand-name">Yang Pan</div>
               <div class="cand-role">Product Engineer, Mobile</div>
               <div><span class="stage-badge">Intro Call</span></div>
-              <div class="cand-status ok-status"><span class="status-dot"></span>Intro Call</div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Status timing not captured in prior run</div>
             </div><div class="candidate-row ok" data-stage="Intro Call" data-urgency="ok">
               <div class="cand-name">Cristian Monterroza</div>
               <div class="cand-role">Product Engineer, Mobile</div>
               <div><span class="stage-badge">Intro Call</span></div>
-              <div class="cand-status ok-status"><span class="status-dot"></span>Intro Call</div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Status timing not captured in prior run</div>
             </div><div class="candidate-row ok" data-stage="Intro Call" data-urgency="ok">
               <div class="cand-name">Jordan Porter</div>
               <div class="cand-role">Product Engineer, Mobile</div>
               <div><span class="stage-badge">Intro Call</span></div>
-              <div class="cand-status ok-status"><span class="status-dot"></span>Intro Call</div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Status timing not captured in prior run</div>
             </div><div class="candidate-row ok" data-stage="Technical Round 1" data-urgency="ok">
               <div class="cand-name">Ansel Morris</div>
               <div class="cand-role">Product Engineer, Mobile</div>
               <div><span class="stage-badge">Technical Round 1</span></div>
-              <div class="cand-status ok-status"><span class="status-dot"></span>Technical Round 1</div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Status timing not captured in prior run</div>
             </div><div class="candidate-row ok" data-stage="Technical Round 1" data-urgency="ok">
               <div class="cand-name">Stephen Moon</div>
               <div class="cand-role">Product Engineer, Mobile</div>
               <div><span class="stage-badge">Technical Round 1</span></div>
-              <div class="cand-status ok-status"><span class="status-dot"></span>Technical Round 1</div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Status timing not captured in prior run</div>
             </div></div><div class="role-group"><div class="role-header"><span class="role-name">Strategy and Operations Fellow</span><span class="role-count">1</span></div><div class="candidate-row ok" data-stage="Intro Call" data-urgency="ok">
               <div class="cand-name">Noah Leshan</div>
               <div class="cand-role">Strategy and Operations Fellow</div>
               <div><span class="stage-badge">Intro Call</span></div>
-              <div class="cand-status ok-status"><span class="status-dot"></span>Intro Call</div>
-            </div></div></div>
-    </div>
-<div class="client-card" data-client="MERCOR">
-      <div class="client-header" onclick="toggleCard(this.closest('client-card'))">
-        <div class="client-name-wrap"><div class="client-avatar">M</div><div class="client-name">MERCOR</div></div>
-        <div class="client-meta"><span class="candidate-count">8 candidates</span><span class="collapse-icon">▾</span></div>
-      </div>
-      <div class="client-body"><div class="role-group"><div class="role-header"><span class="role-name">53 active candidates across 7 roles (high-volume account):</span><span class="role-count">1</span></div><div class="candidate-row ok" data-stage="Summary" data-urgency="ok">
-              <div class="cand-name">(Pipeline Summary)</div>
-              <div class="cand-role">53 active candidates across 7 roles (high-volume account):</div>
-              <div><span class="stage-badge">Summary</span></div>
-              <div class="cand-status ok-status"><span class="status-dot"></span>53 active candidates across 7 roles (high-volume account):</div>
-            </div></div><div class="role-group"><div class="role-header"><span class="role-name">Eng Lead, Applied AI (Initial Screen / Onsite)</span><span class="role-count">1</span></div><div class="candidate-row ok" data-stage="Summary" data-urgency="ok">
-              <div class="cand-name">(Pipeline Summary)</div>
-              <div class="cand-role">Eng Lead, Applied AI (Initial Screen / Onsite)</div>
-              <div><span class="stage-badge">Summary</span></div>
-              <div class="cand-status ok-status"><span class="status-dot"></span>Eng Lead, Applied AI (Initial Screen / Onsite)</div>
-            </div></div><div class="role-group"><div class="role-header"><span class="role-name">Machine Learning Engineer (Initial Screen / Onsite / Post-Onsite)</span><span class="role-count">1</span></div><div class="candidate-row ok" data-stage="Summary" data-urgency="ok">
-              <div class="cand-name">(Pipeline Summary)</div>
-              <div class="cand-role">Machine Learning Engineer (Initial Screen / Onsite / Post-Onsite)</div>
-              <div><span class="stage-badge">Summary</span></div>
-              <div class="cand-status ok-status"><span class="status-dot"></span>Machine Learning Engineer (Initial Screen / Onsite / Post-Onsite)</div>
-            </div></div><div class="role-group"><div class="role-header"><span class="role-name">Product Manager (Onsite)</span><span class="role-count">1</span></div><div class="candidate-row ok" data-stage="Summary" data-urgency="ok">
-              <div class="cand-name">(Pipeline Summary)</div>
-              <div class="cand-role">Product Manager (Onsite)</div>
-              <div><span class="stage-badge">Summary</span></div>
-              <div class="cand-status ok-status"><span class="status-dot"></span>Product Manager (Onsite)</div>
-            </div></div><div class="role-group"><div class="role-header"><span class="role-name">Research Engineer (Initial Screen / Onsite)</span><span class="role-count">1</span></div><div class="candidate-row ok" data-stage="Summary" data-urgency="ok">
-              <div class="cand-name">(Pipeline Summary)</div>
-              <div class="cand-role">Research Engineer (Initial Screen / Onsite)</div>
-              <div><span class="stage-badge">Summary</span></div>
-              <div class="cand-status ok-status"><span class="status-dot"></span>Research Engineer (Initial Screen / Onsite)</div>
-            </div></div><div class="role-group"><div class="role-header"><span class="role-name">Software Engineer, Backend (Second Round / Onsite)</span><span class="role-count">1</span></div><div class="candidate-row ok" data-stage="Summary" data-urgency="ok">
-              <div class="cand-name">(Pipeline Summary)</div>
-              <div class="cand-role">Software Engineer, Backend (Second Round / Onsite)</div>
-              <div><span class="stage-badge">Summary</span></div>
-              <div class="cand-status ok-status"><span class="status-dot"></span>Software Engineer, Backend (Second Round / Onsite)</div>
-            </div></div><div class="role-group"><div class="role-header"><span class="role-name">Software Engineer, Fullstack (Onsite / Post-Onsite)</span><span class="role-count">1</span></div><div class="candidate-row ok" data-stage="Summary" data-urgency="ok">
-              <div class="cand-name">(Pipeline Summary)</div>
-              <div class="cand-role">Software Engineer, Fullstack (Onsite / Post-Onsite)</div>
-              <div><span class="stage-badge">Summary</span></div>
-              <div class="cand-status ok-status"><span class="status-dot"></span>Software Engineer, Fullstack (Onsite / Post-Onsite)</div>
-            </div></div><div class="role-group"><div class="role-header"><span class="role-name">Tech Lead Manager (Initial Screen / Onsite / Post-Onsite)</span><span class="role-count">1</span></div><div class="candidate-row ok" data-stage="Summary" data-urgency="ok">
-              <div class="cand-name">(Pipeline Summary)</div>
-              <div class="cand-role">Tech Lead Manager (Initial Screen / Onsite / Post-Onsite)</div>
-              <div><span class="stage-badge">Summary</span></div>
-              <div class="cand-status ok-status"><span class="status-dot"></span>Tech Lead Manager (Initial Screen / Onsite / Post-Onsite)</div>
-            </div></div></div>
-    </div>
-<div class="client-card" data-client="OWNER.COM">
-      <div class="client-header" onclick="toggleCard(this.closest('client-card'))">
-        <div class="client-name-wrap"><div class="client-avatar">O</div><div class="client-name">OWNER.COM</div></div>
-        <div class="client-meta"><span class="candidate-count">8 candidates</span><span class="collapse-icon">▾</span></div>
-      </div>
-      <div class="client-body"><div class="role-group"><div class="role-header"><span class="role-name">Senior Software Engineer, Backend</span><span class="role-count">3</span></div><div class="candidate-row ok" data-stage="Hiring Manager Screen" data-urgency="ok">
+              <div class="cand-status ok-status"><span class="status-dot"></span>Status timing not captured in prior run</div>
+            </div></div></div></div>
+<div class="client-card" data-client="Mercor"><div class="client-header" onclick="toggleCard(this.closest('.client-card'))"><div class="client-name-wrap"><div class="client-avatar">M</div><div class="client-name">Mercor</div></div><div class="client-meta"><span class="candidate-count">53 candidates</span><span class="flag-count">7 ⚠</span><span class="collapse-icon">▾</span></div></div><div class="client-body"><div class="role-group"><div class="role-header"><span class="role-name">Eng Lead, Applied AI</span><span class="role-count">3</span></div><div class="candidate-row ok" data-stage="Initial Screen" data-urgency="ok">
+              <div class="cand-name">Karthik Halukurike</div>
+              <div class="cand-role">Eng Lead, Applied AI</div>
+              <div><span class="stage-badge">Initial Screen</span></div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Needs Scheduling · 11h ago</div>
+            </div><div class="candidate-row ok" data-stage="Onsite" data-urgency="ok">
+              <div class="cand-name">Angel Hsu</div>
+              <div class="cand-role">Eng Lead, Applied AI</div>
+              <div><span class="stage-badge">Onsite</span></div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Waiting on Availability · 5d ago</div>
+            </div><div class="candidate-row ok" data-stage="Onsite" data-urgency="ok">
+              <div class="cand-name">Anubhav Jain</div>
+              <div class="cand-role">Eng Lead, Applied AI</div>
+              <div><span class="stage-badge">Onsite</span></div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Scheduled · in 6d</div>
+            </div></div><div class="role-group"><div class="role-header"><span class="role-name">Machine Learning Engineer</span><span class="role-count">11</span></div><div class="candidate-row ok" data-stage="Initial Screen" data-urgency="ok">
+              <div class="cand-name">Dong Wang</div>
+              <div class="cand-role">Machine Learning Engineer</div>
+              <div><span class="stage-badge">Initial Screen</span></div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Needs Scheduling · 11h ago</div>
+            </div><div class="candidate-row ok" data-stage="Initial Screen" data-urgency="ok">
+              <div class="cand-name">Parth Shah</div>
+              <div class="cand-role">Machine Learning Engineer</div>
+              <div><span class="stage-badge">Initial Screen</span></div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Needs Scheduling · 7h ago</div>
+            </div><div class="candidate-row ok" data-stage="Initial Screen" data-urgency="ok">
+              <div class="cand-name">Feng Li</div>
+              <div class="cand-role">Machine Learning Engineer</div>
+              <div><span class="stage-badge">Initial Screen</span></div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Booking Link Sent · 1w ago</div>
+            </div><div class="candidate-row ok" data-stage="Initial Screen" data-urgency="ok">
+              <div class="cand-name">Richard Zhu</div>
+              <div class="cand-role">Machine Learning Engineer</div>
+              <div><span class="stage-badge">Initial Screen</span></div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Booking Link Sent · 1d ago</div>
+            </div><div class="candidate-row ok" data-stage="Initial Screen" data-urgency="ok">
+              <div class="cand-name">Zhihao Li</div>
+              <div class="cand-role">Machine Learning Engineer</div>
+              <div><span class="stage-badge">Initial Screen</span></div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Booking Link Sent · 12h ago</div>
+            </div><div class="candidate-row ok" data-stage="Onsite" data-urgency="ok">
+              <div class="cand-name">Adil Salhotra</div>
+              <div class="cand-role">Machine Learning Engineer</div>
+              <div><span class="stage-badge">Onsite</span></div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Availability Submitted · 1d ago</div>
+            </div><div class="candidate-row ok" data-stage="Onsite" data-urgency="ok">
+              <div class="cand-name">Udit Saxena</div>
+              <div class="cand-role">Machine Learning Engineer</div>
+              <div><span class="stage-badge">Onsite</span></div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Availability Submitted · 3w ago</div>
+            </div><div class="candidate-row ok" data-stage="Onsite" data-urgency="ok">
+              <div class="cand-name">Yu Kai Chiu</div>
+              <div class="cand-role">Machine Learning Engineer</div>
+              <div><span class="stage-badge">Onsite</span></div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Availability Submitted · 1w ago</div>
+            </div><div class="candidate-row urgent" data-stage="Onsite" data-urgency="urgent">
+              <div class="cand-name">Enming Luo</div>
+              <div class="cand-role">Machine Learning Engineer</div>
+              <div><span class="stage-badge">Onsite</span></div>
+              <div class="cand-status urgent-status"><span class="status-dot"></span>Needs Scheduling · 2w ago</div>
+            </div><div class="candidate-row ok" data-stage="Onsite" data-urgency="ok">
+              <div class="cand-name">Wangyang Wu</div>
+              <div class="cand-role">Machine Learning Engineer</div>
+              <div><span class="stage-badge">Onsite</span></div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Waiting on Availability · 6d ago</div>
+            </div><div class="candidate-row ok" data-stage="Post-Onsite" data-urgency="ok">
+              <div class="cand-name">Shashank Srikanth</div>
+              <div class="cand-role">Machine Learning Engineer</div>
+              <div><span class="stage-badge">Post-Onsite</span></div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Waiting on Feedback · 5h ago</div>
+            </div></div><div class="role-group"><div class="role-header"><span class="role-name">Product Manager</span><span class="role-count">3</span></div><div class="candidate-row ok" data-stage="Onsite" data-urgency="ok">
+              <div class="cand-name">William Han</div>
+              <div class="cand-role">Product Manager</div>
+              <div><span class="stage-badge">Onsite</span></div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Availability Submitted · 1w ago</div>
+            </div><div class="candidate-row ok" data-stage="Onsite" data-urgency="ok">
+              <div class="cand-name">Kanika Dutta</div>
+              <div class="cand-role">Product Manager</div>
+              <div><span class="stage-badge">Onsite</span></div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Needs Scheduling · 15h ago</div>
+            </div><div class="candidate-row ok" data-stage="Onsite" data-urgency="ok">
+              <div class="cand-name">Keya Varia</div>
+              <div class="cand-role">Product Manager</div>
+              <div><span class="stage-badge">Onsite</span></div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Scheduled · in 11h</div>
+            </div></div><div class="role-group"><div class="role-header"><span class="role-name">Research Engineer</span><span class="role-count">4</span></div><div class="candidate-row ok" data-stage="Initial Screen" data-urgency="ok">
+              <div class="cand-name">Kathan Shah</div>
+              <div class="cand-role">Research Engineer</div>
+              <div><span class="stage-badge">Initial Screen</span></div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Scheduled · in 3w</div>
+            </div><div class="candidate-row ok" data-stage="Initial Screen" data-urgency="ok">
+              <div class="cand-name">Matthew Nguyen</div>
+              <div class="cand-role">Research Engineer</div>
+              <div><span class="stage-badge">Initial Screen</span></div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Scheduled · in 16h</div>
+            </div><div class="candidate-row ok" data-stage="Onsite" data-urgency="ok">
+              <div class="cand-name">Lingxiao Wang</div>
+              <div class="cand-role">Research Engineer</div>
+              <div><span class="stage-badge">Onsite</span></div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Waiting on Feedback · 5h ago</div>
+            </div><div class="candidate-row stale" data-stage="Onsite" data-urgency="stale">
+              <div class="cand-name">Parth Shettiwar</div>
+              <div class="cand-role">Research Engineer</div>
+              <div><span class="stage-badge">Onsite</span></div>
+              <div class="cand-status stale-status"><span class="status-dot"></span>Waiting on Availability · 1w ago</div>
+            </div></div><div class="role-group"><div class="role-header"><span class="role-name">Software Engineer, Backend</span><span class="role-count">23</span></div><div class="candidate-row urgent" data-stage="Second Round" data-urgency="urgent">
+              <div class="cand-name">Taejin Hwang</div>
+              <div class="cand-role">Software Engineer, Backend</div>
+              <div><span class="stage-badge">Second Round</span></div>
+              <div class="cand-status urgent-status"><span class="status-dot"></span>Needs Decision · 1d ago</div>
+            </div><div class="candidate-row ok" data-stage="Second Round" data-urgency="ok">
+              <div class="cand-name">Shubham Jha</div>
+              <div class="cand-role">Software Engineer, Backend</div>
+              <div><span class="stage-badge">Second Round</span></div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Booking Link Sent · 1d ago</div>
+            </div><div class="candidate-row ok" data-stage="Second Round" data-urgency="ok">
+              <div class="cand-name">Swarali Paygude</div>
+              <div class="cand-role">Software Engineer, Backend</div>
+              <div><span class="stage-badge">Second Round</span></div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Booking Link Sent · 2d ago</div>
+            </div><div class="candidate-row ok" data-stage="Second Round" data-urgency="ok">
+              <div class="cand-name">Wendong Song</div>
+              <div class="cand-role">Software Engineer, Backend</div>
+              <div><span class="stage-badge">Second Round</span></div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Booking Link Sent · 1d ago</div>
+            </div><div class="candidate-row ok" data-stage="Second Round" data-urgency="ok">
+              <div class="cand-name">Xianglong Hu</div>
+              <div class="cand-role">Software Engineer, Backend</div>
+              <div><span class="stage-badge">Second Round</span></div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Booking Link Sent · 1w ago</div>
+            </div><div class="candidate-row ok" data-stage="Second Round" data-urgency="ok">
+              <div class="cand-name">Armaan Danewalia</div>
+              <div class="cand-role">Software Engineer, Backend</div>
+              <div><span class="stage-badge">Second Round</span></div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Scheduled · in 15h</div>
+            </div><div class="candidate-row ok" data-stage="Second Round" data-urgency="ok">
+              <div class="cand-name">Colin Ho</div>
+              <div class="cand-role">Software Engineer, Backend</div>
+              <div><span class="stage-badge">Second Round</span></div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Scheduled · in 1w</div>
+            </div><div class="candidate-row ok" data-stage="Second Round" data-urgency="ok">
+              <div class="cand-name">Dennis W</div>
+              <div class="cand-role">Software Engineer, Backend</div>
+              <div><span class="stage-badge">Second Round</span></div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Scheduled · in 1w</div>
+            </div><div class="candidate-row ok" data-stage="Second Round" data-urgency="ok">
+              <div class="cand-name">Kanishk Dutta</div>
+              <div class="cand-role">Software Engineer, Backend</div>
+              <div><span class="stage-badge">Second Round</span></div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Scheduled · in 5d</div>
+            </div><div class="candidate-row ok" data-stage="Second Round" data-urgency="ok">
+              <div class="cand-name">Matteo Agius-D&#x27;Arrigo</div>
+              <div class="cand-role">Software Engineer, Backend</div>
+              <div><span class="stage-badge">Second Round</span></div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Scheduled · in 1w</div>
+            </div><div class="candidate-row ok" data-stage="Second Round" data-urgency="ok">
+              <div class="cand-name">Max Scott</div>
+              <div class="cand-role">Software Engineer, Backend</div>
+              <div><span class="stage-badge">Second Round</span></div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Scheduled · in 16h</div>
+            </div><div class="candidate-row ok" data-stage="Second Round" data-urgency="ok">
+              <div class="cand-name">Rithu Eswaramoorthy</div>
+              <div class="cand-role">Software Engineer, Backend</div>
+              <div><span class="stage-badge">Second Round</span></div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Scheduled · in 6d</div>
+            </div><div class="candidate-row ok" data-stage="Second Round" data-urgency="ok">
+              <div class="cand-name">Tushar Mhalsekar</div>
+              <div class="cand-role">Software Engineer, Backend</div>
+              <div><span class="stage-badge">Second Round</span></div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Scheduled · in 1w</div>
+            </div><div class="candidate-row ok" data-stage="Second Round" data-urgency="ok">
+              <div class="cand-name">Xiaoxiao Li</div>
+              <div class="cand-role">Software Engineer, Backend</div>
+              <div><span class="stage-badge">Second Round</span></div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Scheduled · in 4d</div>
+            </div><div class="candidate-row ok" data-stage="Second Round" data-urgency="ok">
+              <div class="cand-name">Zhaohan Hu</div>
+              <div class="cand-role">Software Engineer, Backend</div>
+              <div><span class="stage-badge">Second Round</span></div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Scheduled · in 2w</div>
+            </div><div class="candidate-row ok" data-stage="Onsite" data-urgency="ok">
+              <div class="cand-name">Gautham Rajesh</div>
+              <div class="cand-role">Software Engineer, Backend</div>
+              <div><span class="stage-badge">Onsite</span></div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Availability Submitted · 1w ago</div>
+            </div><div class="candidate-row ok" data-stage="Onsite" data-urgency="ok">
+              <div class="cand-name">Larry Xu</div>
+              <div class="cand-role">Software Engineer, Backend</div>
+              <div><span class="stage-badge">Onsite</span></div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Availability Submitted · 39min ago</div>
+            </div><div class="candidate-row ok" data-stage="Onsite" data-urgency="ok">
+              <div class="cand-name">Maksym Karunos</div>
+              <div class="cand-role">Software Engineer, Backend</div>
+              <div><span class="stage-badge">Onsite</span></div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Availability Submitted · 2w ago</div>
+            </div><div class="candidate-row ok" data-stage="Onsite" data-urgency="ok">
+              <div class="cand-name">Nithin Venkatesh</div>
+              <div class="cand-role">Software Engineer, Backend</div>
+              <div><span class="stage-badge">Onsite</span></div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Availability Submitted · 3d ago</div>
+            </div><div class="candidate-row ok" data-stage="Onsite" data-urgency="ok">
+              <div class="cand-name">Ryan Stout</div>
+              <div class="cand-role">Software Engineer, Backend</div>
+              <div><span class="stage-badge">Onsite</span></div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Availability Submitted · 6d ago</div>
+            </div><div class="candidate-row ok" data-stage="Onsite" data-urgency="ok">
+              <div class="cand-name">Siddharth Raja</div>
+              <div class="cand-role">Software Engineer, Backend</div>
+              <div><span class="stage-badge">Onsite</span></div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Availability Submitted · 3d ago</div>
+            </div><div class="candidate-row ok" data-stage="Onsite" data-urgency="ok">
+              <div class="cand-name">Myles Gamez</div>
+              <div class="cand-role">Software Engineer, Backend</div>
+              <div><span class="stage-badge">Onsite</span></div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Waiting on Availability · 6d ago</div>
+            </div><div class="candidate-row ok" data-stage="Onsite" data-urgency="ok">
+              <div class="cand-name">Surbhi Dang</div>
+              <div class="cand-role">Software Engineer, Backend</div>
+              <div><span class="stage-badge">Onsite</span></div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Scheduled · in 11h</div>
+            </div></div><div class="role-group"><div class="role-header"><span class="role-name">Software Engineer, Fullstack</span><span class="role-count">3</span></div><div class="candidate-row urgent" data-stage="Onsite" data-urgency="urgent">
+              <div class="cand-name">Samuel Cohen</div>
+              <div class="cand-role">Software Engineer, Fullstack</div>
+              <div><span class="stage-badge">Onsite</span></div>
+              <div class="cand-status urgent-status"><span class="status-dot"></span>Needs Decision · 4d ago</div>
+            </div><div class="candidate-row ok" data-stage="Onsite" data-urgency="ok">
+              <div class="cand-name">Johari Wiggins</div>
+              <div class="cand-role">Software Engineer, Fullstack</div>
+              <div><span class="stage-badge">Onsite</span></div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Scheduled · in 6d</div>
+            </div><div class="candidate-row urgent" data-stage="Post-Onsite" data-urgency="urgent">
+              <div class="cand-name">Vikram Agrawal</div>
+              <div class="cand-role">Software Engineer, Fullstack</div>
+              <div><span class="stage-badge">Post-Onsite</span></div>
+              <div class="cand-status urgent-status"><span class="status-dot"></span>Needs Decision · 14min ago</div>
+            </div></div><div class="role-group"><div class="role-header"><span class="role-name">Tech Lead Manager</span><span class="role-count">6</span></div><div class="candidate-row ok" data-stage="Initial Screen" data-urgency="ok">
+              <div class="cand-name">Kavya Shankar</div>
+              <div class="cand-role">Tech Lead Manager</div>
+              <div><span class="stage-badge">Initial Screen</span></div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Scheduled · in 16h</div>
+            </div><div class="candidate-row stale" data-stage="Onsite" data-urgency="stale">
+              <div class="cand-name">Aman Dhesi</div>
+              <div class="cand-role">Tech Lead Manager</div>
+              <div><span class="stage-badge">Onsite</span></div>
+              <div class="cand-status stale-status"><span class="status-dot"></span>Waiting on Availability · 5w ago</div>
+            </div><div class="candidate-row ok" data-stage="Onsite" data-urgency="ok">
+              <div class="cand-name">Luoshu Wang</div>
+              <div class="cand-role">Tech Lead Manager</div>
+              <div><span class="stage-badge">Onsite</span></div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Booking Link Sent · 1w ago</div>
+            </div><div class="candidate-row ok" data-stage="Onsite" data-urgency="ok">
+              <div class="cand-name">Radhika Parthasarathy</div>
+              <div class="cand-role">Tech Lead Manager</div>
+              <div><span class="stage-badge">Onsite</span></div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Scheduled · in 1d</div>
+            </div><div class="candidate-row ok" data-stage="Post-Onsite" data-urgency="ok">
+              <div class="cand-name">Xinghai Hu</div>
+              <div class="cand-role">Tech Lead Manager</div>
+              <div><span class="stage-badge">Post-Onsite</span></div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Waiting on Feedback · 2w ago</div>
+            </div><div class="candidate-row urgent" data-stage="Post-Onsite" data-urgency="urgent">
+              <div class="cand-name">Stephen Rice</div>
+              <div class="cand-role">Tech Lead Manager</div>
+              <div><span class="stage-badge">Post-Onsite</span></div>
+              <div class="cand-status urgent-status"><span class="status-dot"></span>Needs Scheduling · 1w ago</div>
+            </div></div></div></div>
+<div class="client-card" data-client="Owner.com"><div class="client-header" onclick="toggleCard(this.closest('.client-card'))"><div class="client-name-wrap"><div class="client-avatar">O</div><div class="client-name">Owner.com</div></div><div class="client-meta"><span class="candidate-count">8 candidates</span><span class="collapse-icon">▾</span></div></div><div class="client-body"><div class="role-group"><div class="role-header"><span class="role-name">Senior Software Engineer, Backend</span><span class="role-count">3</span></div><div class="candidate-row ok" data-stage="Hiring Manager Screen" data-urgency="ok">
               <div class="cand-name">Heramb Jadhav</div>
               <div class="cand-role">Senior Software Engineer, Backend</div>
               <div><span class="stage-badge">Hiring Manager Screen</span></div>
-              <div class="cand-status ok-status"><span class="status-dot"></span>Hiring Manager Screen</div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Status timing not captured in prior run</div>
             </div><div class="candidate-row ok" data-stage="Hiring Manager Screen" data-urgency="ok">
               <div class="cand-name">Jinesh Doshi</div>
               <div class="cand-role">Senior Software Engineer, Backend</div>
               <div><span class="stage-badge">Hiring Manager Screen</span></div>
-              <div class="cand-status ok-status"><span class="status-dot"></span>Hiring Manager Screen</div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Status timing not captured in prior run</div>
             </div><div class="candidate-row ok" data-stage="Technical Screen" data-urgency="ok">
               <div class="cand-name">Mariel Aquino</div>
               <div class="cand-role">Senior Software Engineer, Backend</div>
               <div><span class="stage-badge">Technical Screen</span></div>
-              <div class="cand-status ok-status"><span class="status-dot"></span>Technical Screen</div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Status timing not captured in prior run</div>
             </div></div><div class="role-group"><div class="role-header"><span class="role-name">Senior Software Engineer, Full-Stack</span><span class="role-count">2</span></div><div class="candidate-row ok" data-stage="Hiring Manager Screen" data-urgency="ok">
               <div class="cand-name">Andrew Trinh</div>
               <div class="cand-role">Senior Software Engineer, Full-Stack</div>
               <div><span class="stage-badge">Hiring Manager Screen</span></div>
-              <div class="cand-status ok-status"><span class="status-dot"></span>Hiring Manager Screen</div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Status timing not captured in prior run</div>
             </div><div class="candidate-row ok" data-stage="Technical Screen" data-urgency="ok">
               <div class="cand-name">Jay Devnani</div>
               <div class="cand-role">Senior Software Engineer, Full-Stack</div>
               <div><span class="stage-badge">Technical Screen</span></div>
-              <div class="cand-status ok-status"><span class="status-dot"></span>Technical Screen</div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Status timing not captured in prior run</div>
             </div></div><div class="role-group"><div class="role-header"><span class="role-name">Software Engineer, Backend</span><span class="role-count">1</span></div><div class="candidate-row ok" data-stage="Hiring Manager Screen" data-urgency="ok">
               <div class="cand-name">Carter Daniel Peyton</div>
               <div class="cand-role">Software Engineer, Backend</div>
               <div><span class="stage-badge">Hiring Manager Screen</span></div>
-              <div class="cand-status ok-status"><span class="status-dot"></span>Hiring Manager Screen</div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Status timing not captured in prior run</div>
             </div></div><div class="role-group"><div class="role-header"><span class="role-name">Software Engineer, Full-Stack</span><span class="role-count">1</span></div><div class="candidate-row ok" data-stage="Final Round Interview" data-urgency="ok">
               <div class="cand-name">Austin Sun</div>
               <div class="cand-role">Software Engineer, Full-Stack</div>
               <div><span class="stage-badge">Final Round Interview</span></div>
-              <div class="cand-status ok-status"><span class="status-dot"></span>Final Round Interview</div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Status timing not captured in prior run</div>
             </div></div><div class="role-group"><div class="role-header"><span class="role-name">Staff Software Engineer, Full-Stack</span><span class="role-count">1</span></div><div class="candidate-row ok" data-stage="Hiring Manager Screen" data-urgency="ok">
               <div class="cand-name">David Mkrtchyan</div>
               <div class="cand-role">Staff Software Engineer, Full-Stack</div>
               <div><span class="stage-badge">Hiring Manager Screen</span></div>
-              <div class="cand-status ok-status"><span class="status-dot"></span>Hiring Manager Screen</div>
-            </div></div></div>
-    </div>
-<div class="client-card" data-client="PHIA">
-      <div class="client-header" onclick="toggleCard(this.closest('client-card'))">
-        <div class="client-name-wrap"><div class="client-avatar">P</div><div class="client-name">PHIA</div></div>
-        <div class="client-meta"><span class="candidate-count">1 candidates</span><span class="collapse-icon">▾</span></div>
-      </div>
-      <div class="client-body"><div class="role-group"><div class="role-header"><span class="role-name">Full Stack Engineer</span><span class="role-count">1</span></div><div class="candidate-row ok" data-stage="Tech Screen" data-urgency="ok">
+              <div class="cand-status ok-status"><span class="status-dot"></span>Status timing not captured in prior run</div>
+            </div></div></div></div>
+<div class="client-card" data-client="Phia"><div class="client-header" onclick="toggleCard(this.closest('.client-card'))"><div class="client-name-wrap"><div class="client-avatar">P</div><div class="client-name">Phia</div></div><div class="client-meta"><span class="candidate-count">1 candidates</span><span class="collapse-icon">▾</span></div></div><div class="client-body"><div class="role-group"><div class="role-header"><span class="role-name">Full Stack Engineer</span><span class="role-count">1</span></div><div class="candidate-row ok" data-stage="Tech Screen" data-urgency="ok">
               <div class="cand-name">Mariel Aquino</div>
               <div class="cand-role">Full Stack Engineer</div>
               <div><span class="stage-badge">Tech Screen</span></div>
-              <div class="cand-status ok-status"><span class="status-dot"></span>Tech Screen</div>
-            </div></div></div>
-    </div>
-<div class="client-card" data-client="WISPR FLOW">
-      <div class="client-header" onclick="toggleCard(this.closest('client-card'))">
-        <div class="client-name-wrap"><div class="client-avatar">W</div><div class="client-name">WISPR FLOW</div></div>
-        <div class="client-meta"><span class="candidate-count">5 candidates</span><span class="collapse-icon">▾</span></div>
-      </div>
-      <div class="client-body"><div class="role-group"><div class="role-header"><span class="role-name">Android Engineer</span><span class="role-count">1</span></div><div class="candidate-row ok" data-stage="Prescreen Review" data-urgency="ok">
+              <div class="cand-status ok-status"><span class="status-dot"></span>Status timing not captured in prior run</div>
+            </div></div></div></div>
+<div class="client-card" data-client="Wispr Flow"><div class="client-header" onclick="toggleCard(this.closest('.client-card'))"><div class="client-name-wrap"><div class="client-avatar">W</div><div class="client-name">Wispr Flow</div></div><div class="client-meta"><span class="candidate-count">5 candidates</span><span class="collapse-icon">▾</span></div></div><div class="client-body"><div class="role-group"><div class="role-header"><span class="role-name">Android Engineer</span><span class="role-count">1</span></div><div class="candidate-row ok" data-stage="Prescreen Review" data-urgency="ok">
               <div class="cand-name">Benjamin Harvey</div>
               <div class="cand-role">Android Engineer</div>
               <div><span class="stage-badge">Prescreen Review</span></div>
-              <div class="cand-status ok-status"><span class="status-dot"></span>Prescreen Review</div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Status timing not captured in prior run</div>
             </div></div><div class="role-group"><div class="role-header"><span class="role-name">ML Engineer</span><span class="role-count">1</span></div><div class="candidate-row ok" data-stage="Prescreen Review" data-urgency="ok">
               <div class="cand-name">Zeyu Li</div>
               <div class="cand-role">ML Engineer</div>
               <div><span class="stage-badge">Prescreen Review</span></div>
-              <div class="cand-status ok-status"><span class="status-dot"></span>Prescreen Review</div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Status timing not captured in prior run</div>
             </div></div><div class="role-group"><div class="role-header"><span class="role-name">ML Scientist</span><span class="role-count">1</span></div><div class="candidate-row ok" data-stage="Initial Screen" data-urgency="ok">
               <div class="cand-name">Senzeyu Zhang</div>
               <div class="cand-role">ML Scientist</div>
               <div><span class="stage-badge">Initial Screen</span></div>
-              <div class="cand-status ok-status"><span class="status-dot"></span>Initial Screen</div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Status timing not captured in prior run</div>
             </div></div><div class="role-group"><div class="role-header"><span class="role-name">Mobile Engineering Manager</span><span class="role-count">1</span></div><div class="candidate-row ok" data-stage="On-site Interview" data-urgency="ok">
               <div class="cand-name">Ruoyu Li</div>
               <div class="cand-role">Mobile Engineering Manager</div>
               <div><span class="stage-badge">On-site Interview</span></div>
-              <div class="cand-status ok-status"><span class="status-dot"></span>On-site Interview</div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Status timing not captured in prior run</div>
             </div></div><div class="role-group"><div class="role-header"><span class="role-name">Senior Software Engineer</span><span class="role-count">1</span></div><div class="candidate-row ok" data-stage="Prescreen Review" data-urgency="ok">
               <div class="cand-name">Ronak Shah</div>
               <div class="cand-role">Senior Software Engineer</div>
               <div><span class="stage-badge">Prescreen Review</span></div>
-              <div class="cand-status ok-status"><span class="status-dot"></span>Prescreen Review</div>
-            </div></div></div>
-    </div>
+              <div class="cand-status ok-status"><span class="status-dot"></span>Status timing not captured in prior run</div>
+            </div></div></div></div>
   <div class="no-results" id="no-results">No candidates match the current filters.</div>
 </div>
 
