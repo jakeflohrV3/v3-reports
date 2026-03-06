@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>V3 Weekly Pipeline Report — 2026-03-02</title>
+<title>V3 Weekly Pipeline Report — 2026-03-06</title>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -11,89 +11,84 @@
   a { color: #58a6ff; text-decoration: none; }
   a:hover { text-decoration: underline; }
   .container { max-width: 1400px; margin: 0 auto; padding: 24px 20px; }
-  .header { margin-bottom: 28px; border-bottom: 1px solid #30363d; padding-bottom: 20px; }
-  .header h1 { font-size: 22px; font-weight: 700; color: #e6edf3; margin-bottom: 4px; }
-  .header .meta { color: #8b949e; font-size: 12px; }
+  .header { margin-bottom: 24px; border-bottom: 1px solid #30363d; padding-bottom: 20px; }
+  .header h1 { font-size: 22px; font-weight: 600; color: #e6edf3; margin-bottom: 4px; }
+  .header .subtitle { color: #8b949e; font-size: 13px; }
   .tabs { display: flex; gap: 4px; margin-bottom: 24px; border-bottom: 1px solid #30363d; }
-  .tab-btn { background: none; border: none; color: #8b949e; padding: 10px 18px; cursor: pointer; font-size: 14px; border-bottom: 2px solid transparent; margin-bottom: -1px; transition: color 0.15s, border-color 0.15s; }
+  .tab-btn { background: none; border: none; padding: 10px 18px; cursor: pointer; color: #8b949e; font-size: 14px; font-family: inherit; border-bottom: 2px solid transparent; margin-bottom: -1px; transition: color 0.15s, border-color 0.15s; }
   .tab-btn:hover { color: #e6edf3; }
   .tab-btn.active { color: #e6edf3; border-bottom-color: #238636; }
   .tab-content { display: none; }
   .tab-content.active { display: block; }
-  .chips-row { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 28px; }
-  .chip { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 14px 18px; min-width: 140px; flex: 1; }
-  .chip .label { color: #8b949e; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
-  .chip .value { font-size: 24px; font-weight: 700; color: #e6edf3; }
-  .chip .sub { font-size: 11px; margin-top: 2px; }
-  .chip.green .value { color: #3fb950; }
-  .chip.red .value { color: #f85149; }
-  .chip.red-accent { border-color: #f85149; }
-  .chip.green-accent { border-color: #238636; }
-  .section { background: #161b22; border: 1px solid #30363d; border-radius: 8px; margin-bottom: 20px; overflow: hidden; }
-  .section-header { padding: 16px 20px; border-bottom: 1px solid #30363d; display: flex; align-items: center; justify-content: space-between; }
-  .section-header h2 { font-size: 15px; font-weight: 600; color: #e6edf3; }
-  .section-body { padding: 20px; }
-  table { width: 100%; border-collapse: collapse; }
-  th { color: #8b949e; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; padding: 8px 12px; text-align: left; border-bottom: 1px solid #30363d; cursor: pointer; user-select: none; white-space: nowrap; }
-  th:hover { color: #e6edf3; }
-  th .sort-icon { margin-left: 4px; opacity: 0.5; }
-  td { padding: 9px 12px; border-bottom: 1px solid #21262d; color: #e6edf3; }
-  tr:last-child td { border-bottom: none; }
-  tr:hover td { background: #1c2128; }
+  .section { margin-bottom: 32px; }
+  .section-title { font-size: 16px; font-weight: 600; margin-bottom: 14px; color: #e6edf3; display: flex; align-items: center; gap: 8px; }
+  .section-title::before { content: ''; display: block; width: 3px; height: 16px; background: #238636; border-radius: 2px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 24px; }
+  .chip { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 12px 18px; min-width: 140px; }
+  .chip-label { font-size: 11px; color: #8b949e; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px; }
+  .chip-value { font-size: 22px; font-weight: 700; color: #e6edf3; }
+  .chip-value.green { color: #3fb950; }
+  .chip-value.red { color: #f85149; }
+  .chip-value.orange { color: #d29922; }
+  .card { background: #161b22; border: 1px solid #30363d; border-radius: 10px; padding: 20px; margin-bottom: 20px; }
+  .card-title { font-size: 14px; font-weight: 600; margin-bottom: 16px; color: #e6edf3; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  thead th { background: #0d1117; color: #8b949e; text-align: left; padding: 8px 12px; font-weight: 500; font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; border-bottom: 1px solid #30363d; cursor: pointer; user-select: none; white-space: nowrap; }
+  thead th:hover { color: #e6edf3; }
+  thead th .sort-icon { margin-left: 4px; opacity: 0.4; }
+  thead th.sort-asc .sort-icon, thead th.sort-desc .sort-icon { opacity: 1; }
+  tbody tr { border-bottom: 1px solid #21262d; transition: background 0.1s; }
+  tbody tr:hover { background: #1c2128; }
+  tbody tr:last-child { border-bottom: none; }
+  tbody td { padding: 8px 12px; color: #e6edf3; vertical-align: middle; }
   .badge { display: inline-block; padding: 2px 8px; border-radius: 12px; font-size: 11px; font-weight: 600; }
-  .badge-green { background: #0d4429; color: #3fb950; }
-  .badge-red { background: #3d1a1a; color: #f85149; }
-  .badge-orange { background: #3d2a0a; color: #e3b341; }
-  .badge-blue { background: #0d2444; color: #58a6ff; }
-  .badge-purple { background: #2d1f5e; color: #a371f7; }
-  .badge-gray { background: #21262d; color: #8b949e; }
-  .row-red td { background: rgba(248,81,73,0.06); }
-  .row-orange td { background: rgba(227,179,65,0.06); }
-  .row-red:hover td { background: rgba(248,81,73,0.1); }
-  .row-orange:hover td { background: rgba(227,179,65,0.1); }
-  .chart-wrap { position: relative; height: 280px; }
-  .conversion-table td:nth-child(2) { font-weight: 700; }
-  .mini-bar-wrap { display: flex; gap: 3px; align-items: center; }
-  .mini-bar-segment { height: 8px; border-radius: 2px; min-width: 2px; }
-  .stage-badges { display: flex; gap: 3px; flex-wrap: wrap; }
-  .stage-badge { padding: 2px 6px; border-radius: 4px; font-size: 10px; font-weight: 600; }
-  .sb-rs { background: #1c2a3a; color: #58a6ff; }
-  .sb-hmr { background: #2a1f3a; color: #a371f7; }
-  .sb-1st { background: #0d3a1c; color: #3fb950; }
-  .sb-2nd { background: #3a2a0a; color: #e3b341; }
-  .sb-on { background: #3a1a0a; color: #f0883e; }
-  .sb-off { background: #3d1a1a; color: #f85149; }
-  .recruiter-card { background: #0d1117; border: 1px solid #30363d; border-radius: 8px; padding: 18px; margin-bottom: 16px; }
-  .recruiter-card-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
-  .recruiter-name { font-size: 16px; font-weight: 700; color: #e6edf3; }
-  .recruiter-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 16px; }
-  .stat-row { display: flex; gap: 16px; margin-bottom: 12px; flex-wrap: wrap; }
-  .stat-item { }
-  .stat-label { font-size: 10px; color: #8b949e; text-transform: uppercase; letter-spacing: 0.5px; }
-  .stat-value { font-size: 18px; font-weight: 700; color: #e6edf3; }
-  .mini-pipeline { display: flex; gap: 4px; margin-bottom: 10px; flex-wrap: wrap; }
-  .top-clients { font-size: 12px; color: #8b949e; }
-  .top-clients span { color: #e6edf3; font-weight: 500; }
-  .neo-read { background: #0d1117; border-left: 3px solid #238636; padding: 18px 20px; border-radius: 0 6px 6px 0; }
-  .neo-read p { margin-bottom: 14px; color: #c9d1d9; line-height: 1.7; }
-  .neo-read p:last-child { margin-bottom: 0; }
-  .neo-read strong { color: #e6edf3; }
-  .sparkline-wrap { width: 80px; height: 32px; display: inline-block; }
-  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-  @media (max-width: 900px) { .two-col { grid-template-columns: 1fr; } }
-  .recruiter-aging-group { margin-bottom: 24px; }
-  .recruiter-aging-group h3 { font-size: 13px; font-weight: 600; color: #8b949e; margin-bottom: 8px; padding-bottom: 6px; border-bottom: 1px solid #21262d; text-transform: uppercase; letter-spacing: 0.5px; }
-  .delta-badge { display: inline-flex; align-items: center; padding: 2px 8px; border-radius: 12px; font-size: 11px; font-weight: 600; }
-  .wow-null { color: #8b949e; font-size: 12px; }
-  .section-body.no-pad { padding: 0; }
-  .overflow-x { overflow-x: auto; }
+  .badge-green { background: rgba(35,134,54,0.2); color: #3fb950; border: 1px solid rgba(35,134,54,0.3); }
+  .badge-red { background: rgba(248,81,73,0.15); color: #f85149; border: 1px solid rgba(248,81,73,0.3); }
+  .badge-orange { background: rgba(210,153,34,0.15); color: #d29922; border: 1px solid rgba(210,153,34,0.3); }
+  .badge-gray { background: rgba(139,148,158,0.15); color: #8b949e; border: 1px solid rgba(139,148,158,0.2); }
+  .badge-blue { background: rgba(88,166,255,0.15); color: #58a6ff; border: 1px solid rgba(88,166,255,0.3); }
+  .row-red td { color: #f85149 !important; }
+  .row-orange td { color: #d29922 !important; }
+  .chart-container { position: relative; height: 280px; }
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  @media (max-width: 900px) { .grid-2, .grid-3 { grid-template-columns: 1fr; } }
+  .rate-low { color: #f85149; font-weight: 600; }
+  .mini-bar-container { display: flex; align-items: center; gap: 4px; width: 100%; }
+  .mini-bar-track { flex: 1; height: 6px; background: #21262d; border-radius: 3px; overflow: hidden; }
+  .mini-bar-fill { height: 100%; border-radius: 3px; background: #238636; transition: width 0.3s; }
+  .stage-pills { display: flex; flex-wrap: wrap; gap: 4px; }
+  .stage-pill { font-size: 11px; padding: 2px 7px; border-radius: 10px; background: #21262d; color: #8b949e; border: 1px solid #30363d; }
+  .stage-pill.has-value { background: rgba(35,134,54,0.12); color: #3fb950; border-color: rgba(35,134,54,0.25); }
+  .recruiter-card { background: #161b22; border: 1px solid #30363d; border-radius: 10px; padding: 18px; }
+  .recruiter-card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; }
+  .recruiter-name { font-size: 15px; font-weight: 600; color: #e6edf3; }
+  .recruiter-meta { font-size: 12px; color: #8b949e; margin-top: 2px; }
+  .recruiter-stats { display: flex; gap: 16px; margin-bottom: 14px; }
+  .recruiter-stat { text-align: center; }
+  .recruiter-stat-val { font-size: 20px; font-weight: 700; color: #e6edf3; }
+  .recruiter-stat-label { font-size: 11px; color: #8b949e; }
+  .sparkline-container { height: 50px; position: relative; }
+  .neos-read { background: linear-gradient(135deg, #161b22 0%, #0d1117 100%); border: 1px solid #30363d; border-radius: 10px; padding: 24px; }
+  .neos-read p { color: #c9d1d9; line-height: 1.75; margin-bottom: 14px; font-size: 14px; }
+  .neos-read p:last-child { margin-bottom: 0; }
+  .neos-read strong { color: #e6edf3; }
+  .neos-label { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
+  .neos-label .icon { width: 32px; height: 32px; border-radius: 50%; background: linear-gradient(135deg, #238636, #1a7f37); display: flex; align-items: center; justify-content: center; font-size: 16px; }
+  .neos-label .name { font-size: 15px; font-weight: 600; color: #3fb950; }
+  .neos-label .role { font-size: 12px; color: #8b949e; }
+  .scroll-table { overflow-x: auto; }
+  .aging-group { margin-bottom: 24px; }
+  .aging-group-header { font-size: 13px; font-weight: 600; color: #8b949e; text-transform: uppercase; letter-spacing: 0.05em; padding: 8px 0 6px; border-bottom: 1px solid #21262d; margin-bottom: 4px; }
+  .top-clients { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 8px; }
+  .client-tag { font-size: 11px; padding: 2px 7px; background: #21262d; border: 1px solid #30363d; border-radius: 4px; color: #8b949e; }
 </style>
 </head>
 <body>
 <div class="container">
   <div class="header">
-    <h1>V3 Weekly Pipeline Report — Week of 2026-03-02</h1>
-    <div class="meta">Generated: 2026-03-03 21:17 UTC &nbsp;·&nbsp; 35 active clients &nbsp;·&nbsp; 524 active candidates</div>
+    <h1>V3 Weekly Pipeline Report — Week of 2026-03-06</h1>
+    <div class="subtitle">Generated: 2026-03-06 15:03 UTC &nbsp;·&nbsp; 38 Active Clients &nbsp;·&nbsp; 509 Active Candidates</div>
   </div>
 
   <div class="tabs">
@@ -104,59 +99,57 @@
   <!-- CLIENT REPORT TAB -->
   <div id="tab-client" class="tab-content active">
 
-    <!-- Summary Chips -->
-    <div class="chips-row">
-      <div class="chip green-accent">
-        <div class="label">Active Candidates</div>
-        <div class="value">524</div>
-        <div class="sub" style="color:#8b949e">Across all stages</div>
-      </div>
-      <div class="chip">
-        <div class="label">Active Clients</div>
-        <div class="value">35</div>
-        <div class="sub" style="color:#8b949e">Portfolio accounts</div>
-      </div>
-      <div class="chip green-accent">
-        <div class="label">Submissions This Week</div>
-        <div class="value green">311</div>
-        <div class="sub" style="color:#8b949e">1st Interviews entered</div>
-      </div>
-      <div class="chip">
-        <div class="label">WoW Delta</div>
-        <div class="value" style="color:#8b949e">—</div>
-        <div class="sub wow-null">No prior week data</div>
-      </div>
-      <div class="chip red-accent">
-        <div class="label">Aging 14+ Days</div>
-        <div class="value red">182</div>
-        <div class="sub" style="color:#f85149">Requires attention</div>
-      </div>
-      <div class="chip">
-        <div class="label">Offers Outstanding</div>
-        <div class="value">2</div>
-        <div class="sub" style="color:#8b949e">GPTZero + Endeavor</div>
+    <!-- Portfolio Summary Chips -->
+    <div class="section">
+      <div class="section-title">Portfolio Summary</div>
+      <div class="chips">
+        <div class="chip">
+          <div class="chip-label">Total Active Candidates</div>
+          <div class="chip-value">509</div>
+        </div>
+        <div class="chip">
+          <div class="chip-label">Active Clients</div>
+          <div class="chip-value">38</div>
+        </div>
+        <div class="chip">
+          <div class="chip-label">Submissions This Week</div>
+          <div class="chip-value">183</div>
+        </div>
+        <div class="chip">
+          <div class="chip-label">WoW Delta</div>
+          <div class="chip-value red">-103</div>
+        </div>
+        <div class="chip">
+          <div class="chip-label">Aging 14+ Days</div>
+          <div class="chip-value red">163</div>
+        </div>
+        <div class="chip">
+          <div class="chip-label">Offers Outstanding</div>
+          <div class="chip-value green">1</div>
+        </div>
+        <div class="chip">
+          <div class="chip-label">Screen → HM Rate</div>
+          <div class="chip-value">46.7%</div>
+        </div>
       </div>
     </div>
 
-    <!-- Active Pipeline by Client -->
+    <!-- Active Pipeline by Client Table -->
     <div class="section">
-      <div class="section-header">
-        <h2>Active Pipeline by Client</h2>
-        <span style="color:#8b949e;font-size:12px">Click headers to sort</span>
-      </div>
-      <div class="section-body no-pad">
-        <div class="overflow-x">
+      <div class="section-title">Active Pipeline by Client</div>
+      <div class="card" style="padding:0;">
+        <div class="scroll-table">
           <table id="client-table">
             <thead>
               <tr>
-                <th data-col="name" data-dir="asc">Client <span class="sort-icon">↕</span></th>
-                <th data-col="total" data-dir="asc">Total <span class="sort-icon">↕</span></th>
-                <th data-col="rs" data-dir="asc">RS <span class="sort-icon">↕</span></th>
-                <th data-col="hmr" data-dir="asc">HMR <span class="sort-icon">↕</span></th>
-                <th data-col="first" data-dir="asc">1st <span class="sort-icon">↕</span></th>
-                <th data-col="second" data-dir="asc">2nd <span class="sort-icon">↕</span></th>
-                <th data-col="onsite" data-dir="asc">Onsite <span class="sort-icon">↕</span></th>
-                <th data-col="offer" data-dir="asc">Offer <span class="sort-icon">↕</span></th>
+                <th data-col="name">Client <span class="sort-icon">↕</span></th>
+                <th data-col="total">Total <span class="sort-icon">↕</span></th>
+                <th data-col="rs">RS <span class="sort-icon">↕</span></th>
+                <th data-col="hmr">HMR <span class="sort-icon">↕</span></th>
+                <th data-col="first">1st <span class="sort-icon">↕</span></th>
+                <th data-col="second">2nd <span class="sort-icon">↕</span></th>
+                <th data-col="onsite">Onsite <span class="sort-icon">↕</span></th>
+                <th data-col="offer">Offer <span class="sort-icon">↕</span></th>
               </tr>
             </thead>
             <tbody id="client-tbody"></tbody>
@@ -167,20 +160,20 @@
 
     <!-- Stage Funnel Chart -->
     <div class="section">
-      <div class="section-header"><h2>Stage Funnel — Global Totals</h2></div>
-      <div class="section-body">
-        <div class="chart-wrap">
+      <div class="section-title">Global Stage Funnel</div>
+      <div class="card">
+        <div class="chart-container">
           <canvas id="funnelChart"></canvas>
         </div>
       </div>
     </div>
 
-    <!-- Global Conversion Rates -->
+    <!-- Conversion Rate Table -->
     <div class="section">
-      <div class="section-header"><h2>Global Conversion Rates</h2></div>
-      <div class="section-body no-pad">
-        <div class="overflow-x">
-          <table class="conversion-table" id="conv-table">
+      <div class="section-title">Global Conversion Rates</div>
+      <div class="card" style="padding:0;">
+        <div class="scroll-table">
+          <table>
             <thead>
               <tr>
                 <th>Stage Transition</th>
@@ -195,15 +188,12 @@
       </div>
     </div>
 
-    <!-- Aging Pipeline -->
+    <!-- Aging Pipeline Table -->
     <div class="section">
-      <div class="section-header">
-        <h2>Aging Pipeline (10+ Days)</h2>
-        <span style="color:#8b949e;font-size:12px"><span style="color:#f85149">■</span> 14+ days &nbsp; <span style="color:#e3b341">■</span> 10–13 days</span>
-      </div>
-      <div class="section-body no-pad">
-        <div class="overflow-x">
-          <table id="aging-table">
+      <div class="section-title">Aging Pipeline (10+ Days)</div>
+      <div class="card" style="padding:0;">
+        <div class="scroll-table">
+          <table>
             <thead>
               <tr>
                 <th>Candidate</th>
@@ -221,13 +211,18 @@
 
     <!-- Neo's Read -->
     <div class="section">
-      <div class="section-header"><h2>🤖 Neo's Read — Week of 2026-03-02</h2></div>
-      <div class="section-body">
-        <div class="neo-read">
-          <p>This week's pipeline is large and active — <strong>524 candidates across 35 clients</strong> with 311 submissions, which signals strong top-of-funnel throughput. The global RS→HMR conversion at <strong>59.4%</strong> and HMR→1st at <strong>70.7%</strong> are healthy, but the funnel collapses at the offer stage: only <strong>2 offers outstanding</strong> against 49 Onsites (a 3.9% Onsite→Offer rate) is a glaring gap. Mercor dominates with 102 actives and 32 Onsites yet zero offers — that pipeline needs urgency around close strategy. Endeavor stands out as the lone bright spot with a <strong>100% Onsite→Offer conversion</strong> and an outstanding offer in play, suggesting a tighter, more curated process. GPTZero also shows excellent funnel efficiency with a 50% close rate from Onsite.</p>
-          <p><strong>Nicole Starrantino</strong> leads the team in submissions this week (47) and carries 16 Onsites — the highest onsite load of any recruiter — with a 34% submitted-to-onsite rate that far outpaces the field. <strong>Paul Sledd</strong> (44 submissions, 7 Onsites, 1 offer) and <strong>Meghan Roper</strong> (41 submissions, 10 Onsites) round out a strong top tier. Meanwhile, <strong>Kyle Holin</strong> has 22 submissions but his pipeline is critically bottlenecked at HMR (17 of 35 active candidates), with only 1 Onsite — the Eluve account is congested with 9 candidates sitting in HM Review for 18–33 days. That's a hiring manager responsiveness issue that needs escalation. <strong>Krystin Warden</strong> shows 0 Onsites and 0 Offers for the cycle, and with a Mercor candidate at 82 days in Recruiter Screen, there's stale inventory that should be triaged or closed out.</p>
-          <p>The <strong>182 aging candidates (14+ days)</strong> is the defining risk this week — nearly 35% of the entire active pipeline is stagnant. The Owner account is particularly alarming: <strong>Dan Stein</strong> carries candidates at 286, 272, 234, 229, 219, and 213 days in stage — some dating back to May 2025. This is pipeline graveyard territory and raises serious questions about whether these roles are still live or if cleanup is overdue. Similarly, the Greater account has 7 candidates ranging from 180 to 531 days in stage — Kavya Ganesh's entire book at Greater appears frozen since mid-2024 and needs an immediate audit. The call to action is clear: close stale candidates, escalate Eluve and Mercor HM responsiveness, and drive the 49 Onsites toward decisions before the number balloons further.</p>
+      <div class="section-title">Neo's Read</div>
+      <div class="neos-read">
+        <div class="neos-label">
+          <div class="icon">🤖</div>
+          <div>
+            <div class="name">Neo's Read</div>
+            <div class="role">AI Pipeline Analyst</div>
+          </div>
         </div>
+        <p>This week's numbers tell a clear story: <strong>volume compression</strong>. At 183 submissions versus 286 last week, the team posted a <strong>-103 WoW delta (–36%)</strong> — the steepest single-week drop visible in this snapshot. With 509 active candidates spread across 38 clients, the portfolio is wide but the new-intake pipeline is tightening. The Onsite → Offer conversion sits at just <strong>10.0% for Mercor</strong> and <strong>13.8% for Owner</strong> — both well below the global benchmark of 32.7% — meaning the team is grinding through interviews without closing. The lone offer outstanding (GPTZero) is a bright spot, but one offer across a 509-person active pipeline is a conversion bottleneck that needs urgent attention.</p>
+        <p>The aging problem is severe. <strong>163 candidates have been sitting 14+ days</strong> — that's nearly 32% of the entire active pool. <strong>Dan Stein's Owner roster has candidates aged 217–290 days</strong> in Recruiter Screen, representing stale pipeline that should be either advanced or archived immediately. <strong>Kavya Ganesh's Greater roster</strong> is the most alarming: multiple candidates at 450–535 days, with one at 535 days in RS — this is effectively abandoned pipeline masquerading as active. <strong>Ryan Grudnitski's FutureHouse</strong> candidates at 112 days in HM Review also flag a client responsiveness issue. On the bright side, <strong>Nicole Starrantino leads the team in Onsite volume (14) and the highest submitted-to-onsite rate at 34.1%</strong>, demonstrating elite pipeline quality. <strong>Paul Sledd</strong> holds the only active offer and boasts a 26.7% submitted-to-onsite rate — these two are setting the quality standard for the team.</p>
+        <p>The funnel reveals a structural concern at the <strong>Hex client</strong>: a 12.5% 1st→2nd Interview conversion and 0% 2nd→Onsite signals either a candidate-quality mismatch or a freezing hiring process — with 49 active candidates queued, this client needs a direct HM conversation. <strong>Charta Health</strong> is healthier with 50 active and a 24.4% Onsite→Offer rate. The recommendation for next week: (1) archive all stale Greater/Owner/FutureHouse records to clean the active count, (2) have Nicole and Paul coach the broader team on screening quality, and (3) resolve the Mercor Onsite backlog — 28 candidates at Onsite with a 10% close rate means conversions are overdue.</p>
       </div>
     </div>
 
@@ -238,21 +233,19 @@
 
     <!-- Recruiter Scorecards -->
     <div class="section">
-      <div class="section-header"><h2>Recruiter Scorecards</h2></div>
-      <div class="section-body">
-        <div class="recruiter-grid" id="recruiter-cards"></div>
-      </div>
+      <div class="section-title">Recruiter Scorecards</div>
+      <div class="grid-3" id="recruiter-cards"></div>
     </div>
 
     <!-- Submissions Leaderboard -->
     <div class="section">
-      <div class="section-header"><h2>Submissions Leaderboard</h2></div>
-      <div class="section-body no-pad">
-        <div class="overflow-x">
-          <table id="leaderboard-table">
+      <div class="section-title">Submissions Leaderboard</div>
+      <div class="card" style="padding:0;">
+        <div class="scroll-table">
+          <table>
             <thead>
               <tr>
-                <th>Rank</th>
+                <th>#</th>
                 <th>Recruiter</th>
                 <th>This Week</th>
                 <th>Last Week</th>
@@ -269,100 +262,15 @@
 
     <!-- Aging Pipeline by Recruiter -->
     <div class="section">
-      <div class="section-header">
-        <h2>Aging Pipeline by Recruiter</h2>
-        <span style="color:#8b949e;font-size:12px"><span style="color:#f85149">■</span> 14+ days &nbsp; <span style="color:#e3b341">■</span> 10–13 days</span>
-      </div>
-      <div class="section-body">
-        <div id="recruiter-aging-container"></div>
-      </div>
+      <div class="section-title">Aging Pipeline by Recruiter</div>
+      <div id="recruiter-aging-section"></div>
     </div>
 
   </div>
 </div>
 
-<canvas id="sparkline-template" style="display:none"></canvas>
-
 <script>
-const data = {
-  "week": "2026-03-02",
-  "generated_at": "2026-03-03 21:17 UTC",
-  "global_stage_totals": {
-    "Recruiter Screen": 213,
-    "HM Review": 91,
-    "1st Interview": 132,
-    "2nd Interview": 37,
-    "Onsite": 49,
-    "Offer": 2
-  },
-  "portfolio_summary": {
-    "submissions_this_week": 311,
-    "submissions_last_week": null,
-    "active_candidates": 524,
-    "active_client_count": 35,
-    "screen_to_hm_rate": 59.4,
-    "offers_outstanding": 2,
-    "aging_14_plus_count": 182,
-    "wow_delta": null
-  },
-  "clients": [
-    {"name":"Mercor","total_active":102,"stage_counts":{"Recruiter Screen":37,"HM Review":12,"1st Interview":20,"2nd Interview":1,"Onsite":32,"Offer":0},"conversion_rates":[{"transition":"Recruiter Screen → HM Review","rate":63.7,"numerator":65,"denominator":102},{"transition":"HM Review → 1st Interview","rate":81.5,"numerator":53,"denominator":65},{"transition":"1st Interview → 2nd Interview","rate":62.3,"numerator":33,"denominator":53},{"transition":"2nd Interview → Onsite","rate":97.0,"numerator":32,"denominator":33},{"transition":"Onsite → Offer","rate":0.0,"numerator":0,"denominator":32}],"aging_candidates":[{"full_name":"Enming Luo","linkedin_url":"https://linkedin.com/in/enming-luo-a1018614","stage":"Onsite","recruiter":"Shannae Brydon","days_in_stage":122},{"full_name":"Navaneet Kadaba","linkedin_url":"https://linkedin.com/in/navaneetkadaba","stage":"Recruiter Screen","recruiter":"Krystin Warden","days_in_stage":82},{"full_name":"Radhika Parthasarathy","linkedin_url":"https://linkedin.com/in/radhikapartha","stage":"Onsite","recruiter":"Paul Sledd","days_in_stage":77},{"full_name":"Kamil Kisielewicz","linkedin_url":"https://linkedin.com/in/kamiljkisielewicz","stage":"Recruiter Screen","recruiter":"Unknown","days_in_stage":77},{"full_name":"Xinghai Hu","linkedin_url":"https://linkedin.com/in/xinghai-h-80316360","stage":"Onsite","recruiter":"Ryan Grudnitski","days_in_stage":47},{"full_name":"Vikram Agrawal","linkedin_url":"https://linkedin.com/in/vikram-agrawal","stage":"Onsite","recruiter":"Ryan Grudnitski","days_in_stage":39},{"full_name":"Vijay A","linkedin_url":"https://linkedin.com/in/vijayalexander","stage":"Onsite","recruiter":"Shannae Brydon","days_in_stage":38},{"full_name":"Lingxiao Wang","linkedin_url":"https://linkedin.com/in/lingxiao-wang-7b481092","stage":"Onsite","recruiter":"Nicole Starrantino","days_in_stage":33},{"full_name":"Udit Saxena","linkedin_url":"https://linkedin.com/in/udit-saxena-29862918","stage":"Onsite","recruiter":"Paul Sledd","days_in_stage":32},{"full_name":"Aman Dhesi","linkedin_url":"https://linkedin.com/in/amandhesi","stage":"Onsite","recruiter":"Meghan Roper","days_in_stage":32},{"full_name":"Shashank Srikanth","linkedin_url":"https://linkedin.com/in/shashanksrikanth","stage":"Onsite","recruiter":"Meghan Roper","days_in_stage":32},{"full_name":"Siddhi Bansal","linkedin_url":"https://linkedin.com/in/siddhibansal","stage":"Onsite","recruiter":"Paul Sledd","days_in_stage":32},{"full_name":"Kanishk Dutta","linkedin_url":"https://linkedin.com/in/duttakanishk","stage":"1st Interview","recruiter":"Nicole Starrantino","days_in_stage":32},{"full_name":"Wangyang Wu","linkedin_url":"https://linkedin.com/in/wangyangwu","stage":"Onsite","recruiter":"Meghan Roper","days_in_stage":31},{"full_name":"Nile J","linkedin_url":"https://linkedin.com/in/nilenjones","stage":"HM Review","recruiter":"Dan Stein","days_in_stage":27},{"full_name":"Johari Wiggins","linkedin_url":"https://linkedin.com/in/johari-wiggins-2833b332","stage":"Onsite","recruiter":"Shannae Brydon","days_in_stage":25},{"full_name":"Luoshu Wang","linkedin_url":"https://linkedin.com/in/luoshuwang","stage":"Onsite","recruiter":"Shannae Brydon","days_in_stage":23},{"full_name":"Kanika Dutta","linkedin_url":"https://linkedin.com/in/kanikadutta","stage":"Onsite","recruiter":"Nicole Starrantino","days_in_stage":23},{"full_name":"Samuel Cohen","linkedin_url":"https://linkedin.com/in/samuel-cohen-a82434251","stage":"Onsite","recruiter":"Val VanderLinden","days_in_stage":20},{"full_name":"Surbhi Dang","linkedin_url":"https://linkedin.com/in/surbhi-dang","stage":"Onsite","recruiter":"Nicole Starrantino","days_in_stage":20},{"full_name":"Taoyuan Wang","linkedin_url":"https://linkedin.com/in/taoyuanwang","stage":"HM Review","recruiter":"Shannae Brydon","days_in_stage":20},{"full_name":"Kathan Shah","linkedin_url":"https://linkedin.com/in/kathans","stage":"1st Interview","recruiter":"Ryan Grudnitski","days_in_stage":19},{"full_name":"Tianqi (Nick) Zhao","linkedin_url":"https://linkedin.com/in/tianqi-nick-zhao-24595523","stage":"Recruiter Screen","recruiter":"Kyle Holin","days_in_stage":19},{"full_name":"Xiangyu Ji","linkedin_url":"https://linkedin.com/in/xiangyu-ji-b10a22109","stage":"Recruiter Screen","recruiter":"Meghan Roper","days_in_stage":19},{"full_name":"Yi Liu","linkedin_url":"https://linkedin.com/in/yl2526","stage":"Onsite","recruiter":"Meghan Roper","days_in_stage":18},{"full_name":"Satyam Nikhra","linkedin_url":"https://linkedin.com/in/satyam-nikhra","stage":"Recruiter Screen","recruiter":"Val VanderLinden","days_in_stage":18},{"full_name":"Prashant Sridhar","linkedin_url":"https://linkedin.com/in/prashant-sridhar-20a0012a","stage":"Recruiter Screen","recruiter":"Shannae Brydon","days_in_stage":17},{"full_name":"Lance Lin","linkedin_url":"https://linkedin.com/in/lancelin","stage":"Recruiter Screen","recruiter":"Dan Stein","days_in_stage":17},{"full_name":"Ryan Lee","linkedin_url":"https://linkedin.com/in/ryazlee","stage":"Recruiter Screen","recruiter":"Shannae Brydon","days_in_stage":17},{"full_name":"Naman Tyagi","linkedin_url":"https://linkedin.com/in/namantyagi","stage":"Recruiter Screen","recruiter":"Unknown","days_in_stage":17},{"full_name":"Keya Varia","linkedin_url":"https://linkedin.com/in/keya-varia-79418a127","stage":"Onsite","recruiter":"Nicole Starrantino","days_in_stage":16},{"full_name":"Harsh Chobisa","linkedin_url":"https://linkedin.com/in/harshchobisa","stage":"Recruiter Screen","recruiter":"Nicole Starrantino","days_in_stage":16},{"full_name":"Ethan Wu","linkedin_url":"https://linkedin.com/in/ethanhwu","stage":"1st Interview","recruiter":"Nicole Starrantino","days_in_stage":12},{"full_name":"Anagha Srivatsav","linkedin_url":"https://linkedin.com/in/anagha-srivatsav-034285209","stage":"HM Review","recruiter":"Nicole Starrantino","days_in_stage":12},{"full_name":"Matthew Nguyen","linkedin_url":"https://linkedin.com/in/matt-ngyn","stage":"1st Interview","recruiter":"Ryan Grudnitski","days_in_stage":12},{"full_name":"John Huang","linkedin_url":"","stage":"1st Interview","recruiter":"Nicole Starrantino","days_in_stage":12},{"full_name":"Adheesh Chatterjee","linkedin_url":"https://linkedin.com/in/adheeshc","stage":"Onsite","recruiter":"Nicole Starrantino","days_in_stage":11},{"full_name":"Tejas Pradeep","linkedin_url":"https://linkedin.com/in/tejas-pradeep","stage":"Onsite","recruiter":"Ryan Grudnitski","days_in_stage":11},{"full_name":"Matteo Agius-D'Arrigo","linkedin_url":"https://linkedin.com/in/magiusdarrigo","stage":"1st Interview","recruiter":"Shannae Brydon","days_in_stage":11},{"full_name":"Parth Shah","linkedin_url":"https://linkedin.com/in/p-arth-shah","stage":"1st Interview","recruiter":"Paul Sledd","days_in_stage":11},{"full_name":"Derek W.","linkedin_url":"https://linkedin.com/in/derekderuiwang","stage":"HM Review","recruiter":"Dan Stein","days_in_stage":11},{"full_name":"Swad Kukunooru","linkedin_url":"https://linkedin.com/in/svadrut","stage":"HM Review","recruiter":"Meghan Roper","days_in_stage":11},{"full_name":"Tushar Mhalsekar","linkedin_url":"https://linkedin.com/in/tusharmhalsekar","stage":"1st Interview","recruiter":"Krystin Warden","days_in_stage":10},{"full_name":"Stephen Rice","linkedin_url":"https://linkedin.com/in/srice2","stage":"Onsite","recruiter":"Val VanderLinden","days_in_stage":10}]},
-    {"name":"Charta Health","total_active":49,"stage_counts":{"Recruiter Screen":15,"HM Review":5,"1st Interview":18,"2nd Interview":4,"Onsite":7,"Offer":0},"conversion_rates":[{"transition":"Recruiter Screen → HM Review","rate":69.4,"numerator":34,"denominator":49},{"transition":"HM Review → 1st Interview","rate":85.3,"numerator":29,"denominator":34},{"transition":"1st Interview → 2nd Interview","rate":37.9,"numerator":11,"denominator":29},{"transition":"2nd Interview → Onsite","rate":63.6,"numerator":7,"denominator":11},{"transition":"Onsite → Offer","rate":0.0,"numerator":0,"denominator":7}],"aging_candidates":[{"full_name":"Anmol Kaur","linkedin_url":"https://linkedin.com/in/anmolpreet-kaur-b247101a4","stage":"1st Interview","recruiter":"Dan Stein","days_in_stage":51},{"full_name":"Aditya Pillai","linkedin_url":"https://linkedin.com/in/aditya-v-pillai","stage":"Recruiter Screen","recruiter":"Val VanderLinden","days_in_stage":45},{"full_name":"Taras Kinash","linkedin_url":"https://linkedin.com/in/taras-kinash-96776134","stage":"Recruiter Screen","recruiter":"Val VanderLinden","days_in_stage":37},{"full_name":"Prathamesh Sonawane","linkedin_url":"https://linkedin.com/in/pratt3000","stage":"Recruiter Screen","recruiter":"Val VanderLinden","days_in_stage":26},{"full_name":"Suyeon Cha","linkedin_url":"https://linkedin.com/in/suyeoncha","stage":"Recruiter Screen","recruiter":"Val VanderLinden","days_in_stage":26},{"full_name":"Zheyong Z","linkedin_url":"https://linkedin.com/in/jerryzhuzy","stage":"2nd Interview","recruiter":"Meghan Roper","days_in_stage":23},{"full_name":"Ivan Rivera","linkedin_url":"https://linkedin.com/in/ivaneduardorivera","stage":"1st Interview","recruiter":"Val VanderLinden","days_in_stage":23},{"full_name":"Kimberly Collins","linkedin_url":"https://linkedin.com/in/kimberlygcollins","stage":"Onsite","recruiter":"Nicole Starrantino","days_in_stage":19},{"full_name":"Zach Peter","linkedin_url":"https://linkedin.com/in/zachpeter8","stage":"1st Interview","recruiter":"Val VanderLinden","days_in_stage":18},{"full_name":"Sharhad Bashar","linkedin_url":"https://linkedin.com/in/sharhad-bashar","stage":"1st Interview","recruiter":"Dan Stein","days_in_stage":18},{"full_name":"William Han","linkedin_url":"https://linkedin.com/in/williamhan7244","stage":"Onsite","recruiter":"Nicole Starrantino","days_in_stage":16},{"full_name":"Nten Nyiam","linkedin_url":"https://linkedin.com/in/ntenyiam","stage":"Onsite","recruiter":"Nicole Starrantino","days_in_stage":16},{"full_name":"Aneesh Pendyala","linkedin_url":"https://linkedin.com/in/aneeshpendyala","stage":"HM Review","recruiter":"Val VanderLinden","days_in_stage":15},{"full_name":"Bal Krishna Oli","linkedin_url":"https://linkedin.com/in/bal-krishna-oli","stage":"HM Review","recruiter":"Val VanderLinden","days_in_stage":12},{"full_name":"Keya Varia","linkedin_url":"https://linkedin.com/in/keya-varia-79418a127","stage":"Onsite","recruiter":"Nicole Starrantino","days_in_stage":11},{"full_name":"Jaidev Mirchandani","linkedin_url":"https://linkedin.com/in/jvmirchandani","stage":"1st Interview","recruiter":"Nicole Starrantino","days_in_stage":11},{"full_name":"Jason Nguyen","linkedin_url":"https://linkedin.com/in/jason-nguyen373737","stage":"1st Interview","recruiter":"Nicole Starrantino","days_in_stage":11},{"full_name":"Mariel Aquino","linkedin_url":"https://linkedin.com/in/marielaquino","stage":"1st Interview","recruiter":"Nicole Starrantino","days_in_stage":11},{"full_name":"Aryan Chaudhary","linkedin_url":"https://linkedin.com/in/achaudhary39","stage":"1st Interview","recruiter":"Nicole Starrantino","days_in_stage":10},{"full_name":"Aneesh Bhansali","linkedin_url":"https://linkedin.com/in/aneeshbhansali","stage":"Recruiter Screen","recruiter":"TJ Lee","days_in_stage":10},{"full_name":"Emily Ziyi Xiao","linkedin_url":"https://linkedin.com/in/z-emily-xiao","stage":"HM Review","recruiter":"Paul Sledd","days_in_stage":10}]},
-    {"name":"Owner","total_active":48,"stage_counts":{"Recruiter Screen":25,"HM Review":6,"1st Interview":8,"2nd Interview":4,"Onsite":5,"Offer":0},"conversion_rates":[{"transition":"Recruiter Screen → HM Review","rate":47.9,"numerator":23,"denominator":48},{"transition":"HM Review → 1st Interview","rate":73.9,"numerator":17,"denominator":23},{"transition":"1st Interview → 2nd Interview","rate":52.9,"numerator":9,"denominator":17},{"transition":"2nd Interview → Onsite","rate":55.6,"numerator":5,"denominator":9},{"transition":"Onsite → Offer","rate":0.0,"numerator":0,"denominator":5}],"aging_candidates":[{"full_name":"Pei-yi Lin","linkedin_url":"https://linkedin.com/in/pei-yi-lin-957024134","stage":"1st Interview","recruiter":"Dan Stein","days_in_stage":286},{"full_name":"Michael Yu","linkedin_url":"https://linkedin.com/in/mi-yu","stage":"Recruiter Screen","recruiter":"Dan Stein","days_in_stage":272},{"full_name":"Navya Sowjanya","linkedin_url":"","stage":"Recruiter Screen","recruiter":"Dan Stein","days_in_stage":234},{"full_name":"Dan Hepworth","linkedin_url":"https://linkedin.com/in/danhep","stage":"Recruiter Screen","recruiter":"Dan Stein","days_in_stage":229},{"full_name":"Justin Chen","linkedin_url":"https://linkedin.com/in/justin-t-chen","stage":"Recruiter Screen","recruiter":"Dan Stein","days_in_stage":219},{"full_name":"Han Yin","linkedin_url":"https://linkedin.com/in/nacosiren","stage":"Recruiter Screen","recruiter":"Dan Stein","days_in_stage":213},{"full_name":"Sandesh Chandrashekar","linkedin_url":"https://linkedin.com/in/sandesh-chandrashekar","stage":"Recruiter Screen","recruiter":"Dan Stein","days_in_stage":151},{"full_name":"Jacob Streckfus","linkedin_url":"https://linkedin.com/in/jacob-streckfus","stage":"Recruiter Screen","recruiter":"Dan Stein","days_in_stage":151},{"full_name":"Kyle Huang","linkedin_url":"https://linkedin.com/in/kyle--huang","stage":"Recruiter Screen","recruiter":"Dan Stein","days_in_stage":139},{"full_name":"Benjamin Madueme","linkedin_url":"https://linkedin.com/in/benmadueme","stage":"Recruiter Screen","recruiter":"Dan Stein","days_in_stage":97},{"full_name":"Qi Chen","linkedin_url":"https://linkedin.com/in/qichen18","stage":"Recruiter Screen","recruiter":"Dan Stein","days_in_stage":95},{"full_name":"Patrick Hall Wurst","linkedin_url":"https://linkedin.com/in/patrick-hall-wurst","stage":"HM Review","recruiter":"Dan Stein","days_in_stage":95},{"full_name":"David Mason","linkedin_url":"https://linkedin.com/in/dave-j-mason","stage":"Recruiter Screen","recruiter":"Dan Stein","days_in_stage":81},{"full_name":"Lotanna O","linkedin_url":"https://linkedin.com/in/lotanna-okoli","stage":"Onsite","recruiter":"Meghan Roper","days_in_stage":52},{"full_name":"Andrew Stokes","linkedin_url":"https://linkedin.com/in/andrew-stokes-software-engineer","stage":"1st Interview","recruiter":"Dan Stein","days_in_stage":47},{"full_name":"Lance Huang","linkedin_url":"https://linkedin.com/in/lancetheprogrammer","stage":"HM Review","recruiter":"Dan Stein","days_in_stage":44},{"full_name":"Evan Brunt","linkedin_url":"https://linkedin.com/in/evanbrunt","stage":"1st Interview","recruiter":"Krystin Warden","days_in_stage":25},{"full_name":"Kevin Tian","linkedin_url":"https://linkedin.com/in/kevin-tian-59554b98","stage":"Recruiter Screen","recruiter":"Krystin Warden","days_in_stage":25},{"full_name":"Yash Tyagi","linkedin_url":"https://linkedin.com/in/yashtyagi","stage":"HM Review","recruiter":"Paul Sledd","days_in_stage":21},{"full_name":"Akash Puri","linkedin_url":"https://linkedin.com/in/akashkpuri","stage":"Onsite","recruiter":"Dan Stein","days_in_stage":20},{"full_name":"Roman Kogan","linkedin_url":"https://linkedin.com/in/roman-kogan-9990b6102","stage":"HM Review","recruiter":"Kyle Holin","days_in_stage":18},{"full_name":"Charlotte Resnick","linkedin_url":"https://linkedin.com/in/charlotteresnick","stage":"Recruiter Screen","recruiter":"Kyle Holin","days_in_stage":17},{"full_name":"Nathan Heard","linkedin_url":"https://linkedin.com/in/nathan-heard-b692627b","stage":"Recruiter Screen","recruiter":"Kyle Holin","days_in_stage":17},{"full_name":"Kayne Khoury","linkedin_url":"https://linkedin.com/in/kaynekhoury","stage":"HM Review","recruiter":"Kyle Holin","days_in_stage":17},{"full_name":"Leah McKelvey","linkedin_url":"https://linkedin.com/in/leah-mckelvey-87494221","stage":"Recruiter Screen","recruiter":"Dan Stein","days_in_stage":13},{"full_name":"Maksym Karunos","linkedin_url":"https://linkedin.com/in/maksymkarunos","stage":"Onsite","recruiter":"Shannae Brydon","days_in_stage":11},{"full_name":"Dong Xu","linkedin_url":"https://linkedin.com/in/sheldonx","stage":"Recruiter Screen","recruiter":"Meghan Roper","days_in_stage":11},{"full_name":"Aadhya Puttur","linkedin_url":"","stage":"Recruiter Screen","recruiter":"Dan Stein","days_in_stage":11},{"full_name":"Stephen Moon","linkedin_url":"https://linkedin.com/in/stephen-moon-86647b1b2","stage":"2nd Interview","recruiter":"Val VanderLinden","days_in_stage":10},{"full_name":"Andrew Trinh","linkedin_url":"","stage":"HM Review","recruiter":"Dan Stein","days_in_stage":10}]},
-    {"name":"Giga","total_active":31,"stage_counts":{"Recruiter Screen":17,"HM Review":8,"1st Interview":5,"2nd Interview":1,"Onsite":0,"Offer":0},"conversion_rates":[{"transition":"Recruiter Screen → HM Review","rate":45.2},{"transition":"HM Review → 1st Interview","rate":42.9},{"transition":"1st Interview → 2nd Interview","rate":16.7},{"transition":"2nd Interview → Onsite","rate":0.0},{"transition":"Onsite → Offer","rate":0.0}],"aging_candidates":[{"full_name":"John W Choi","linkedin_url":"https://linkedin.com/in/johnwschoi","stage":"Recruiter Screen","recruiter":"Meghan Roper","days_in_stage":10}]},
-    {"name":"Hex","total_active":28,"stage_counts":{"Recruiter Screen":14,"HM Review":14,"1st Interview":0,"2nd Interview":0,"Onsite":0,"Offer":0},"conversion_rates":[{"transition":"Recruiter Screen → HM Review","rate":50.0},{"transition":"HM Review → 1st Interview","rate":0.0},{"transition":"1st Interview → 2nd Interview","rate":0.0},{"transition":"2nd Interview → Onsite","rate":0.0},{"transition":"Onsite → Offer","rate":0.0}],"aging_candidates":[]},
-    {"name":"Known Dating","total_active":27,"stage_counts":{"Recruiter Screen":15,"HM Review":5,"1st Interview":3,"2nd Interview":4,"Onsite":0,"Offer":0},"conversion_rates":[{"transition":"Recruiter Screen → HM Review","rate":44.4},{"transition":"HM Review → 1st Interview","rate":58.3},{"transition":"1st Interview → 2nd Interview","rate":57.1},{"transition":"2nd Interview → Onsite","rate":0.0},{"transition":"Onsite → Offer","rate":0.0}],"aging_candidates":[{"full_name":"Noah Appel","linkedin_url":"https://linkedin.com/in/noahappel","stage":"2nd Interview","recruiter":"Dan Stein","days_in_stage":20},{"full_name":"Riti Agarwal","linkedin_url":"https://linkedin.com/in/riti-agarwal-0310051a9","stage":"HM Review","recruiter":"Paul Sledd","days_in_stage":13},{"full_name":"Vaishnavi Sagar","linkedin_url":"https://linkedin.com/in/vaishnavi-sagar-576113170","stage":"HM Review","recruiter":"Paul Sledd","days_in_stage":13},{"full_name":"Dongbin Alistaire Suh","linkedin_url":"https://linkedin.com/in/dongbinsuh","stage":"Recruiter Screen","recruiter":"Dan Stein","days_in_stage":12},{"full_name":"Derek C.","linkedin_url":"https://linkedin.com/in/nai-chia-cheng","stage":"Recruiter Screen","recruiter":"Shannae Brydon","days_in_stage":12},{"full_name":"Stephen Moon","linkedin_url":"https://linkedin.com/in/stephen-moon-86647b1b2","stage":"2nd Interview","recruiter":"Val VanderLinden","days_in_stage":11},{"full_name":"Pranav Rao","linkedin_url":"https://linkedin.com/in/pranavrao1","stage":"Recruiter Screen","recruiter":"Meghan Roper","days_in_stage":11},{"full_name":"Juzheng Li","linkedin_url":"","stage":"2nd Interview","recruiter":"Dan Stein","days_in_stage":11},{"full_name":"Aditya Bhat","linkedin_url":"https://linkedin.com/in/aditya-s-bhat","stage":"Recruiter Screen","recruiter":"Meghan Roper","days_in_stage":11},{"full_name":"Adil S","linkedin_url":"https://linkedin.com/in/adil-salhotra","stage":"HM Review","recruiter":"Krystin Warden","days_in_stage":10},{"full_name":"Mariel Aquino","linkedin_url":"https://linkedin.com/in/marielaquino","stage":"1st Interview","recruiter":"Nicole Starrantino","days_in_stage":10},{"full_name":"David Campbell","linkedin_url":"https://linkedin.com/in/david-campbell-a5a403a1","stage":"HM Review","recruiter":"Dan Stein","days_in_stage":10},{"full_name":"Siddhant Dubey","linkedin_url":"https://linkedin.com/in/siddhantdubey","stage":"HM Review","recruiter":"Dan Stein","days_in_stage":10},{"full_name":"Carter Peyton","linkedin_url":"https://linkedin.com/in/carter-peyton-019983169","stage":"Recruiter Screen","recruiter":"Krystin Warden","days_in_stage":10}]},
-    {"name":"Eluve","total_active":24,"stage_counts":{"Recruiter Screen":11,"HM Review":9,"1st Interview":3,"2nd Interview":1,"Onsite":0,"Offer":0},"conversion_rates":[{"transition":"Recruiter Screen → HM Review","rate":54.2},{"transition":"HM Review → 1st Interview","rate":30.8},{"transition":"1st Interview → 2nd Interview","rate":25.0},{"transition":"2nd Interview → Onsite","rate":0.0},{"transition":"Onsite → Offer","rate":0.0}],"aging_candidates":[{"full_name":"Kimiko Mitchell","linkedin_url":"https://linkedin.com/in/kimikom","stage":"HM Review","recruiter":"Kyle Holin","days_in_stage":33},{"full_name":"Aimee Stephenson","linkedin_url":"https://linkedin.com/in/aimee-stephenson-408b58130","stage":"HM Review","recruiter":"Kyle Holin","days_in_stage":32},{"full_name":"Sriram Natarajan","linkedin_url":"https://linkedin.com/in/sriram-natarajan-580b16132","stage":"Recruiter Screen","recruiter":"Shannae Brydon","days_in_stage":31},{"full_name":"Fan Gui","linkedin_url":"https://linkedin.com/in/fangui","stage":"HM Review","recruiter":"Kyle Holin","days_in_stage":27},{"full_name":"Libby (Eyre) Mattimore","linkedin_url":"https://linkedin.com/in/libby-eyre-mattimore-294bb17b","stage":"HM Review","recruiter":"Kyle Holin","days_in_stage":27},{"full_name":"Nathan Zanzig","linkedin_url":"https://linkedin.com/in/nathan-zanzig","stage":"HM Review","recruiter":"Kyle Holin","days_in_stage":27},{"full_name":"Benjamin Evans","linkedin_url":"https://linkedin.com/in/benjamin-michael-evans","stage":"Recruiter Screen","recruiter":"Val VanderLinden","days_in_stage":25},{"full_name":"Emily Fuller","linkedin_url":"https://linkedin.com/in/emilyfuller","stage":"HM Review","recruiter":"Kyle Holin","days_in_stage":24},{"full_name":"Zach Blank","linkedin_url":"https://linkedin.com/in/zachary-blank","stage":"HM Review","recruiter":"Kyle Holin","days_in_stage":24},{"full_name":"Xiaoyan Wang","linkedin_url":"https://linkedin.com/in/sylviaxiaoyanwang","stage":"Recruiter Screen","recruiter":"Kyle Holin","days_in_stage":19},{"full_name":"Reilly Brown","linkedin_url":"https://linkedin.com/in/reillybrown","stage":"Recruiter Screen","recruiter":"Kyle Holin","days_in_stage":19},{"full_name":"Lucca Cary","linkedin_url":"https://linkedin.com/in/lucca-cary-6194811a2","stage":"Recruiter Screen","recruiter":"Kyle Holin","days_in_stage":19},{"full_name":"Sarah Crotty","linkedin_url":"https://linkedin.com/in/sarahrosecrotty","stage":"Recruiter Screen","recruiter":"Kyle Holin","days_in_stage":19},{"full_name":"Sophia Son","linkedin_url":"https://linkedin.com/in/sophia-son","stage":"HM Review","recruiter":"Kyle Holin","days_in_stage":18},{"full_name":"Rosie (Neibel) Crowley","linkedin_url":"https://linkedin.com/in/rosiepcrowley","stage":"Recruiter Screen","recruiter":"Kyle Holin","days_in_stage":17},{"full_name":"Caden Garrett","linkedin_url":"https://linkedin.com/in/cadenmg","stage":"1st Interview","recruiter":"Kyle Holin","days_in_stage":12},{"full_name":"Danielle Magrogan","linkedin_url":"https://linkedin.com/in/daniellemagrogan","stage":"Recruiter Screen","recruiter":"Shannae Brydon","days_in_stage":12},{"full_name":"Roger Rodriguez","linkedin_url":"https://linkedin.com/in/rogerjamesrodriguez","stage":"HM Review","recruiter":"Shannae Brydon","days_in_stage":11},{"full_name":"Ryan Dushane","linkedin_url":"https://linkedin.com/in/ryndshn","stage":"2nd Interview","recruiter":"Ryan Grudnitski","days_in_stage":10},{"full_name":"Tracy Sassaman","linkedin_url":"https://linkedin.com/in/tracy-sassaman-19708249","stage":"Recruiter Screen","recruiter":"Val VanderLinden","days_in_stage":10}]},
-    {"name":"Base Power","total_active":20,"stage_counts":{"Recruiter Screen":4,"HM Review":3,"1st Interview":10,"2nd Interview":2,"Onsite":1,"Offer":0},"conversion_rates":[{"transition":"Recruiter Screen → HM Review","rate":80.0},{"transition":"HM Review → 1st Interview","rate":81.2},{"transition":"1st Interview → 2nd Interview","rate":23.1},{"transition":"2nd Interview → Onsite","rate":33.3},{"transition":"Onsite → Offer","rate":0.0}],"aging_candidates":[{"full_name":"Ian P","linkedin_url":"https://linkedin.com/in/ianfp","stage":"2nd Interview","recruiter":"Kyle Holin","days_in_stage":81},{"full_name":"Vikas Sirwal","linkedin_url":"https://linkedin.com/in/vikassirwal","stage":"HM Review","recruiter":"Dan Stein","days_in_stage":73},{"full_name":"Brennan Rouhana","linkedin_url":"https://linkedin.com/in/brouhana","stage":"HM Review","recruiter":"Kyle Holin","days_in_stage":31},{"full_name":"KERRY CALLAHAN","linkedin_url":"","stage":"1st Interview","recruiter":"Dan Stein","days_in_stage":30},{"full_name":"Sam Weinberger","linkedin_url":"https://linkedin.com/in/samweinberger93","stage":"1st Interview","recruiter":"Dan Stein","days_in_stage":27},{"full_name":"Evan A Roney","linkedin_url":"https://linkedin.com/in/evan-roney","stage":"1st Interview","recruiter":"Dan Stein","days_in_stage":27},{"full_name":"Samuel Zaduk","linkedin_url":"https://linkedin.com/in/samzaduk","stage":"1st Interview","recruiter":"Dan Stein","days_in_stage":27},{"full_name":"MICHELLE BALLESTEROS","linkedin_url":"https://linkedin.com/in/mballest","stage":"Recruiter Screen","recruiter":"Dan Stein","days_in_stage":26},{"full_name":"Taylor Wilson","linkedin_url":"","stage":"Recruiter Screen","recruiter":"Dan Stein","days_in_stage":26},{"full_name":"Albert Morlan","linkedin_url":"https://linkedin.com/in/albert-morlan-902a318b","stage":"Recruiter Screen","recruiter":"Dan Stein","days_in_stage":26},{"full_name":"Viren Velacheri","linkedin_url":"https://linkedin.com/in/virenvelacheri","stage":"1st Interview","recruiter":"Dan Stein","days_in_stage":18},{"full_name":"Vladimir Kovac","linkedin_url":"https://linkedin.com/in/vladimir-kovac-68601980","stage":"Recruiter Screen","recruiter":"Dan Stein","days_in_stage":17},{"full_name":"Jason Hobbs","linkedin_url":"https://linkedin.com/in/jasonhobbs","stage":"HM Review","recruiter":"Kyle Holin","days_in_stage":17},{"full_name":"Vivek Gade","linkedin_url":"https://linkedin.com/in/vivek-gade","stage":"1st Interview","recruiter":"Dan Stein","days_in_stage":17}]},
-    {"name":"Afterquery","total_active":20,"stage_counts":{"Recruiter Screen":10,"HM Review":1,"1st Interview":6,"2nd Interview":3,"Onsite":0,"Offer":0},"conversion_rates":[{"transition":"Recruiter Screen → HM Review","rate":50.0},{"transition":"HM Review → 1st Interview","rate":90.0},{"transition":"1st Interview → 2nd Interview","rate":33.3},{"transition":"2nd Interview → Onsite","rate":0.0},{"transition":"Onsite → Offer","rate":0.0}],"aging_candidates":[{"full_name":"Inchara Srinivasa","linkedin_url":"https://linkedin.com/in/incharasrinivasa","stage":"Recruiter Screen","recruiter":"Kyle Holin","days_in_stage":44},{"full_name":"Karnan Rajendran","linkedin_url":"https://linkedin.com/in/karnan-rajendran","stage":"Recruiter Screen","recruiter":"Kyle Holin","days_in_stage":44},{"full_name":"Siddhi Bansal","linkedin_url":"https://linkedin.com/in/siddhibansal","stage":"1st Interview","recruiter":"Paul Sledd","days_in_stage":43},{"full_name":"Haijing ZHANG","linkedin_url":"https://linkedin.com/in/haijing-zhang","stage":"Recruiter Screen","recruiter":"Val VanderLinden","days_in_stage":32},{"full_name":"Shreya Vinjamuri","linkedin_url":"https://linkedin.com/in/shreya-vinjamuri","stage":"Recruiter Screen","recruiter":"Val VanderLinden","days_in_stage":30},{"full_name":"Vendy Prum","linkedin_url":"https://linkedin.com/in/vendy-prum","stage":"Recruiter Screen","recruiter":"Val VanderLinden","days_in_stage":30},{"full_name":"Aneesh Pendyala","linkedin_url":"https://linkedin.com/in/aneeshpendyala","stage":"HM Review","recruiter":"Val VanderLinden","days_in_stage":27},{"full_name":"Siddhant Satapathy","linkedin_url":"https://linkedin.com/in/siddhant-satapathy","stage":"1st Interview","recruiter":"Ryan Grudnitski","days_in_stage":26},{"full_name":"AIGERIM (AJ) ASKERGALI","linkedin_url":"https://linkedin.com/in/aigerim-askergali-b9a9bb207","stage":"1st Interview","recruiter":"Shannae Brydon","days_in_stage":24},{"full_name":"Anay Bhakat","linkedin_url":"https://linkedin.com/in/anay-bhakat","stage":"2nd Interview","recruiter":"Paul Sledd","days_in_stage":21},{"full_name":"Samuel Cohen","linkedin_url":"https://linkedin.com/in/samuel-cohen-a82434251","stage":"2nd Interview","recruiter":"Val VanderLinden","days_in_stage":20},{"full_name":"Kaushik Pulgari","linkedin_url":"https://linkedin.com/in/kpulgari","stage":"2nd Interview","recruiter":"Paul Sledd","days_in_stage":17}]},
-    {"name":"Additive","total_active":18,"stage_counts":{"Recruiter Screen":8,"HM Review":2,"1st Interview":5,"2nd Interview":3,"Onsite":0,"Offer":0},"conversion_rates":[{"transition":"Recruiter Screen → HM Review","rate":55.6},{"transition":"HM Review → 1st Interview","rate":80.0},{"transition":"1st Interview → 2nd Interview","rate":37.5},{"transition":"2nd Interview → Onsite","rate":0.0},{"transition":"Onsite → Offer","rate":0.0}],"aging_candidates":[{"full_name":"Jashwanth Madem","linkedin_url":"https://linkedin.com/in/jashwanth","stage":"Recruiter Screen","recruiter":"Sarah Keller","days_in_stage":340},{"full_name":"Guangyu Yang","linkedin_url":"https://linkedin.com/in/guangyu-yang-0b3a7845","stage":"1st Interview","recruiter":"Nicole Starrantino","days_in_stage":74},{"full_name":"Chinyet Lin","linkedin_url":"https://linkedin.com/in/chinyet","stage":"Recruiter Screen","recruiter":"Shannae Brydon","days_in_stage":45},{"full_name":"Chong Li","linkedin_url":"https://linkedin.com/in/chongli123123123123","stage":"2nd Interview","recruiter":"Paul Sledd","days_in_stage":37},{"full_name":"Prashant Gadagi","linkedin_url":"https://linkedin.com/in/prashantgadagi","stage":"Recruiter Screen","recruiter":"Shannae Brydon","days_in_stage":20},{"full_name":"Gabriel Underwood","linkedin_url":"https://linkedin.com/in/gabriel-underwood","stage":"Recruiter Screen","recruiter":"Ryan Grudnitski","days_in_stage":19},{"full_name":"Dhruvika Sahni","linkedin_url":"https://linkedin.com/in/dhruvika-sahni-8ab796112","stage":"2nd Interview","recruiter":"Paul Sledd","days_in_stage":18},{"full_name":"John Nguyen","linkedin_url":"https://linkedin.com/in/jvnguyen","stage":"Recruiter Screen","recruiter":"Kyle Holin","days_in_stage":17},{"full_name":"Bharath Ramaprasad","linkedin_url":"https://linkedin.com/in/bharathramap","stage":"1st Interview","recruiter":"Meghan Roper","days_in_stage":16},{"full_name":"Animesh Kumar Singh Bhadouria","linkedin_url":"https://linkedin.com/in/animesh-bhadouria","stage":"Recruiter Screen","recruiter":"Shannae Brydon","days_in_stage":12},{"full_name":"John Patrick Lewis","linkedin_url":"https://linkedin.com/in/patrick-lewis","stage":"Recruiter Screen","recruiter":"Kyle Holin","days_in_stage":11},{"full_name":"Xiaoxiao Li","linkedin_url":"https://linkedin.com/in/xiaoxiao-li-01762298","stage":"1st Interview","recruiter":"Paul Sledd","days_in_stage":10}]},
-    {"name":"Fleet","total_active":17,"stage_counts":{"Recruiter Screen":7,"HM Review":2,"1st Interview":7,"2nd Interview":1,"Onsite":0,"Offer":0},"conversion_rates":[{"transition":"Recruiter Screen → HM Review","rate":58.8},{"transition":"HM Review → 1st Interview","rate":80.0},{"transition":"1st Interview → 2nd Interview","rate":12.5},{"transition":"2nd Interview → Onsite","rate":0.0},{"transition":"Onsite → Offer","rate":0.0}],"aging_candidates":[{"full_name":"Mariel Aquino","linkedin_url":"https://linkedin.com/in/marielaquino","stage":"1st Interview","recruiter":"Nicole Starrantino","days_in_stage":10},{"full_name":"Elshad Mustafayev","linkedin_url":"https://linkedin.com/in/elshadimo","stage":"Recruiter Screen","recruiter":"Ryan Grudnitski","days_in_stage":10}]},
-    {"name":"Endeavor","total_active":16,"stage_counts":{"Recruiter Screen":2,"HM Review":2,"1st Interview":7,"2nd Interview":4,"Onsite":0,"Offer":1},"conversion_rates":[{"transition":"Recruiter Screen → HM Review","rate":87.5},{"transition":"HM Review → 1st Interview","rate":85.7},{"transition":"1st Interview → 2nd Interview","rate":41.7},{"transition":"2nd Interview → Onsite","rate":20.0},{"transition":"Onsite → Offer","rate":100.0}],"aging_candidates":[{"full_name":"Julian Perez","linkedin_url":"https://linkedin.com/in/julianevperez","stage":"Recruiter Screen","recruiter":"Dan Stein","days_in_stage":40},{"full_name":"Tianchen Wang","linkedin_url":"https://linkedin.com/in/tianchen-wang-a01316193","stage":"1st Interview","recruiter":"Shannae Brydon","days_in_stage":32},{"full_name":"You Z.","linkedin_url":"https://linkedin.com/in/you-z-08a77940","stage":"1st Interview","recruiter":"Dan Stein","days_in_stage":26},{"full_name":"Nicholas Lin","linkedin_url":"https://linkedin.com/in/nicholas-lin-28b23172","stage":"Recruiter Screen","recruiter":"Dan Stein","days_in_stage":26},{"full_name":"Stephen Moon","linkedin_url":"https://linkedin.com/in/stephen-moon-86647b1b2","stage":"1st Interview","recruiter":"Val VanderLinden","days_in_stage":18},{"full_name":"Vaishnavi Sagar","linkedin_url":"https://linkedin.com/in/vaishnavi-sagar-576113170","stage":"HM Review","recruiter":"Paul Sledd","days_in_stage":10}]},
-    {"name":"Junior","total_active":16,"stage_counts":{"Recruiter Screen":5,"HM Review":0,"1st Interview":10,"2nd Interview":0,"Onsite":1,"Offer":0},"conversion_rates":[{"transition":"Recruiter Screen → HM Review","rate":68.8},{"transition":"HM Review → 1st Interview","rate":100.0},{"transition":"1st Interview → 2nd Interview","rate":9.1},{"transition":"2nd Interview → Onsite","rate":100.0},{"transition":"Onsite → Offer","rate":0.0}],"aging_candidates":[{"full_name":"Eli Kugelsky","linkedin_url":"https://linkedin.com/in/eli-kugelsky","stage":"1st Interview","recruiter":"Val VanderLinden","days_in_stage":27},{"full_name":"Benjamin Xu","linkedin_url":"https://linkedin.com/in/benjxu","stage":"Recruiter Screen","recruiter":"Val VanderLinden","days_in_stage":20},{"full_name":"Alice Liang","linkedin_url":"https://linkedin.com/in/alicexliang","stage":"Recruiter Screen","recruiter":"Nicole Starrantino","days_in_stage":19},{"full_name":"Luke Halko","linkedin_url":"https://linkedin.com/in/luke-halko-2b4b7a1a4","stage":"1st Interview","recruiter":"Val VanderLinden","days_in_stage":18},{"full_name":"Leo Lien","linkedin_url":"https://linkedin.com/in/leolien","stage":"1st Interview","recruiter":"Val VanderLinden","days_in_stage":17},{"full_name":"Matteo Agius-D'Arrigo","linkedin_url":"https://linkedin.com/in/magiusdarrigo","stage":"1st Interview","recruiter":"Shannae Brydon","days_in_stage":11},{"full_name":"Anthony Diké","linkedin_url":"https://linkedin.com/in/antdke","stage":"1st Interview","recruiter":"Nicole Starrantino","days_in_stage":11},{"full_name":"Mariel Aquino","linkedin_url":"https://linkedin.com/in/marielaquino","stage":"1st Interview","recruiter":"Nicole Starrantino","days_in_stage":11}]},
-    {"name":"Edison Scientific","total_active":15,"stage_counts":{"Recruiter Screen":9,"HM Review":3,"1st Interview":3,"2nd Interview":0,"Onsite":0,"Offer":0},"conversion_rates":[{"transition":"Recruiter Screen → HM Review","rate":40.0},{"transition":"HM Review → 1st Interview","rate":50.0},{"transition":"1st Interview → 2nd Interview","rate":0.0},{"transition":"2nd Interview → Onsite","rate":0.0},{"transition":"Onsite → Offer","rate":0.0}],"aging_candidates":[{"full_name":"Siddhant Satapathy","linkedin_url":"https://linkedin.com/in/siddhant-satapathy","stage":"1st Interview","recruiter":"Ryan Grudnitski","days_in_stage":26},{"full_name":"Joshua Jansen-Montoya","linkedin_url":"https://linkedin.com/in/joshuajansenmontoya","stage":"Recruiter Screen","recruiter":"Krystin Warden","days_in_stage":19},{"full_name":"Nitish Natarajan","linkedin_url":"https://linkedin.com/in/nitish-natarajan","stage":"1st Interview","recruiter":"Ryan Grudnitski","days_in_stage":19},{"full_name":"Monica Bellare","linkedin_url":"https://linkedin.com/in/monicabellare","stage":"Recruiter Screen","recruiter":"Ryan Grudnitski","days_in_stage":17},{"full_name":"Sherwin Soroushian","linkedin_url":"https://linkedin.com/in/soroush3","stage":"Recruiter Screen","recruiter":"Krystin Warden","days_in_stage":16},{"full_name":"William W.","linkedin_url":"https://linkedin.com/in/wwuhoo","stage":"Recruiter Screen","recruiter":"Krystin Warden","days_in_stage":16},{"full_name":"Anmol Kaur","linkedin_url":"https://linkedin.com/in/anmolpreet-kaur-b247101a4","stage":"1st Interview","recruiter":"Ryan Grudnitski","days_in_stage":13},{"full_name":"Alissa Vuillier","linkedin_url":"https://linkedin.com/in/alissa-v","stage":"Recruiter Screen","recruiter":"Krystin Warden","days_in_stage":13},{"full_name":"Konstantin Rud","linkedin_url":"https://linkedin.com/in/konstantin-rud","stage":"Recruiter Screen","recruiter":"Ryan Grudnitski","days_in_stage":13},{"full_name":"Max Dykhuizen","linkedin_url":"https://linkedin.com/in/kmdyk","stage":"HM Review","recruiter":"Ryan Grudnitski","days_in_stage":12},{"full_name":"Neelay Das","linkedin_url":"https://linkedin.com/in/neelaydas","stage":"HM Review","recruiter":"Krystin Warden","days_in_stage":10}]},
-    {"name":"Bond Studio","total_active":12,"stage_counts":{"Recruiter Screen":3,"HM Review":5,"1st Interview":3,"2nd Interview":1,"Onsite":0,"Offer":0},"conversion_rates":[{"transition":"Recruiter Screen → HM Review","rate":75.0},{"transition":"HM Review → 1st Interview","rate":44.4},{"transition":"1st Interview → 2nd Interview","rate":25.0},{"transition":"2nd Interview → Onsite","rate":0.0},{"transition":"Onsite → Offer","rate":0.0}],"aging_candidates":[{"full_name":"Tong Gao","linkedin_url":"https://linkedin.com/in/tong-g-bab9653a","stage":"HM Review","recruiter":"Paul Sledd","days_in_stage":45},{"full_name":"Bharath Ramaprasad","linkedin_url":"https://linkedin.com/in/bharathramap","stage":"1st Interview","recruiter":"Meghan Roper","days_in_stage":44},{"full_name":"Yu Hu","linkedin_url":"https://linkedin.com/in/yu-hu-3ba1353","stage":"1st Interview","recruiter":"Paul Sledd","days_in_stage":42},{"full_name":"Jobanjot Sidhu","linkedin_url":"https://linkedin.com/in/jobanjotsidhu","stage":"1st Interview","recruiter":"Paul Sledd","days_in_stage":37},{"full_name":"Kangning Hu","linkedin_url":"https://linkedin.com/in/kangning-h-74a92110b","stage":"2nd Interview","recruiter":"Meghan Roper","days_in_stage":33},{"full_name":"Maksym Karunos","linkedin_url":"https://linkedin.com/in/maksymkarunos","stage":"HM Review","recruiter":"Shannae Brydon","days_in_stage":26},{"full_name":"Dachao Li","linkedin_url":"https://linkedin.com/in/dachao-li-05711237","stage":"HM Review","recruiter":"Shannae Brydon","days_in_stage":11}]},
-    {"name":"Greater","total_active":11,"stage_counts":{"Recruiter Screen":5,"HM Review":1,"1st Interview":5,"2nd Interview":0,"Onsite":0,"Offer":0},"conversion_rates":[{"transition":"Recruiter Screen → HM Review","rate":54.5},{"transition":"HM Review → 1st Interview","rate":83.3},{"transition":"1st Interview → 2nd Interview","rate":0.0},{"transition":"2nd Interview → Onsite","rate":0.0},{"transition":"Onsite → Offer","rate":0.0}],"aging_candidates":[{"full_name":"Sumanth Neerumalla","linkedin_url":"https://linkedin.com/in/sumanthneerumalla","stage":"Recruiter Screen","recruiter":"Kavya Ganesh","days_in_stage":531},{"full_name":"Nikita Chepik","linkedin_url":"https://linkedin.com/in/nikita-chepik","stage":"1st Interview","recruiter":"Dan Stein","days_in_stage":510},{"full_name":"Alex Chaparro","linkedin_url":"https://linkedin.com/in/alex-chaparro-566b581a","stage":"Recruiter Screen","recruiter":"Kavya Ganesh","days_in_stage":501},{"full_name":"Anand N","linkedin_url":"https://linkedin.com/in/anandnk13","stage":"1st Interview","recruiter":"Kavya Ganesh","days_in_stage":479},{"full_name":"Paul Ricks","linkedin_url":"https://linkedin.com/in/paul-ricks-24322613a","stage":"Recruiter Screen","recruiter":"Kavya Ganesh","days_in_stage":474},{"full_name":"Ryan Chan","linkedin_url":"https://linkedin.com/in/ryan-chan-447781142","stage":"1st Interview","recruiter":"Kavya Ganesh","days_in_stage":466},{"full_name":"Josh Dimarsky","linkedin_url":"https://linkedin.com/in/joshdimarsky","stage":"Recruiter Screen","recruiter":"Kavya Ganesh","days_in_stage":465},{"full_name":"Yannis Tzemos","linkedin_url":"https://linkedin.com/in/yannistzemos","stage":"Recruiter Screen","recruiter":"Kavya Ganesh","days_in_stage":446},{"full_name":"Anthony D'Alessandro","linkedin_url":"https://linkedin.com/in/anthonyjdalessandro","stage":"1st Interview","recruiter":"Dan Stein","days_in_stage":230},{"full_name":"Daniel K.","linkedin_url":"https://linkedin.com/in/daniel-koo","stage":"HM Review","recruiter":"Dan Stein","days_in_stage":180}]},
-    {"name":"DealOps","total_active":11,"stage_counts":{"Recruiter Screen":7,"HM Review":2,"1st Interview":1,"2nd Interview":1,"Onsite":0,"Offer":0},"conversion_rates":[{"transition":"Recruiter Screen → HM Review","rate":36.4},{"transition":"HM Review → 1st Interview","rate":50.0},{"transition":"1st Interview → 2nd Interview","rate":50.0},{"transition":"2nd Interview → Onsite","rate":0.0},{"transition":"Onsite → Offer","rate":0.0}],"aging_candidates":[{"full_name":"Joanie Hollberg","linkedin_url":"https://linkedin.com/in/joanie-hollberg","stage":"2nd Interview","recruiter":"Sarah Keller","days_in_stage":317},{"full_name":"Sukh Sangha","linkedin_url":"https://linkedin.com/in/sanghas26","stage":"Recruiter Screen","recruiter":"Meghan Roper","days_in_stage":11},{"full_name":"Benjamin Zou","linkedin_url":"https://linkedin.com/in/benjaminzou","stage":"HM Review","recruiter":"Meghan Roper","days_in_stage":11}]},
-    {"name":"FeelsMusic","total_active":7,"stage_counts":{"Recruiter Screen":2,"HM Review":1,"1st Interview":2,"2nd Interview":2,"Onsite":0,"Offer":0},"conversion_rates":[{"transition":"Recruiter Screen → HM Review","rate":71.4},{"transition":"HM Review → 1st Interview","rate":80.0},{"transition":"1st Interview → 2nd Interview","rate":50.0},{"transition":"2nd Interview → Onsite","rate":0.0},{"transition":"Onsite → Offer","rate":0.0}],"aging_candidates":[{"full_name":"Pranav Jain","linkedin_url":"https://linkedin.com/in/pranavjain97","stage":"2nd Interview","recruiter":"Paul Sledd","days_in_stage":12},{"full_name":"Ryan Dushane","linkedin_url":"https://linkedin.com/in/ryndshn","stage":"2nd Interview","recruiter":"Ryan Grudnitski","days_in_stage":10}]},
-    {"name":"Paraform","total_active":6,"stage_counts":{"Recruiter Screen":2,"HM Review":2,"1st Interview":1,"2nd Interview":1,"Onsite":0,"Offer":0},"conversion_rates":[{"transition":"Recruiter Screen → HM Review","rate":66.7},{"transition":"HM Review → 1st Interview","rate":50.0},{"transition":"1st Interview → 2nd Interview","rate":50.0},{"transition":"2nd Interview → Onsite","rate":0.0},{"transition":"Onsite → Offer","rate":0.0}],"aging_candidates":[{"full_name":"Prateek Mehrotra","linkedin_url":"https://linkedin.com/in/prateekm","stage":"HM Review","recruiter":"Kyle Holin","days_in_stage":24},{"full_name":"Julia Y.","linkedin_url":"https://linkedin.com/in/juliayan1995","stage":"Recruiter Screen","recruiter":"Krystin Warden","days_in_stage":19},{"full_name":"William Chang","linkedin_url":"https://linkedin.com/in/williamchang86","stage":"Recruiter Screen","recruiter":"Shannae Brydon","days_in_stage":17},{"full_name":"Myles Gámez","linkedin_url":"https://linkedin.com/in/mylesgamez","stage":"HM Review","recruiter":"TJ Lee","days_in_stage":10}]},
-    {"name":"Concourse","total_active":6,"stage_counts":{"Recruiter Screen":1,"HM Review":0,"1st Interview":5,"2nd Interview":0,"Onsite":0,"Offer":0},"conversion_rates":[{"transition":"Recruiter Screen → HM Review","rate":83.3},{"transition":"HM Review → 1st Interview","rate":100.0},{"transition":"1st Interview → 2nd Interview","rate":0.0},{"transition":"2nd Interview → Onsite","rate":0.0},{"transition":"Onsite → Offer","rate":0.0}],"aging_candidates":[{"full_name":"Maksym Karunos","linkedin_url":"https://linkedin.com/in/maksymkarunos","stage":"1st Interview","recruiter":"Shannae Brydon","days_in_stage":20},{"full_name":"Arystan Tatishev","linkedin_url":"https://linkedin.com/in/arystan-tatishev","stage":"Recruiter Screen","recruiter":"Val VanderLinden","days_in_stage":20},{"full_name":"Eli Kugelsky","linkedin_url":"https://linkedin.com/in/eli-kugelsky","stage":"1st Interview","recruiter":"Val VanderLinden","days_in_stage":17},{"full_name":"Stephen Moon","linkedin_url":"https://linkedin.com/in/stephen-moon-86647b1b2","stage":"1st Interview","recruiter":"Val VanderLinden","days_in_stage":17},{"full_name":"Aadesh Bajaj","linkedin_url":"https://linkedin.com/in/aadesh-bajaj","stage":"1st Interview","recruiter":"Val VanderLinden","days_in_stage":13}]},
-    {"name":"BuildOps","total_active":5,"stage_counts":{"Recruiter Screen":3,"HM Review":1,"1st Interview":1,"2nd Interview":0,"Onsite":0,"Offer":0},"conversion_rates":[],"aging_candidates":[]},
-    {"name":"Airtop","total_active":4,"stage_counts":{"Recruiter Screen":1,"HM Review":1,"1st Interview":2,"2nd Interview":0,"Onsite":0,"Offer":0},"conversion_rates":[],"aging_candidates":[{"full_name":"Neha Mehrotra","linkedin_url":"https://linkedin.com/in/nehamehrotra","stage":"1st Interview","recruiter":"Krystin Warden","days_in_stage":25},{"full_name":"Carmen DeCouto","linkedin_url":"https://linkedin.com/in/carmenmdecouto","stage":"1st Interview","recruiter":"Krystin Warden","days_in_stage":25},{"full_name":"Nicole Sun, CMRP","linkedin_url":"https://linkedin.com/in/nicole-sun","stage":"HM Review","recruiter":"Krystin Warden","days_in_stage":20},{"full_name":"Shilpi Srivastava","linkedin_url":"https://linkedin.com/in/shilpisrivastava1","stage":"Recruiter Screen","recruiter":"TJ Lee","days_in_stage":18}]},
-    {"name":"GPTZero","total_active":4,"stage_counts":{"Recruiter Screen":1,"HM Review":1,"1st Interview":0,"2nd Interview":0,"Onsite":1,"Offer":1},"conversion_rates":[],"aging_candidates":[{"full_name":"Jeevan Mokkala","linkedin_url":"https://linkedin.com/in/jeevan-mokkala-a25319154","stage":"Recruiter Screen","recruiter":"Val VanderLinden","days_in_stage":37},{"full_name":"Albert Ho","linkedin_url":"https://linkedin.com/in/albert-ho-298439ba","stage":"HM Review","recruiter":"Val VanderLinden","days_in_stage":23}]},
-    {"name":"Phia","total_active":4,"stage_counts":{"Recruiter Screen":1,"HM Review":0,"1st Interview":3,"2nd Interview":0,"Onsite":0,"Offer":0},"conversion_rates":[],"aging_candidates":[{"full_name":"Albert Ho","linkedin_url":"https://linkedin.com/in/albert-ho-298439ba","stage":"Recruiter Screen","recruiter":"Val VanderLinden","days_in_stage":23},{"full_name":"Stephen Moon","linkedin_url":"https://linkedin.com/in/stephen-moon-86647b1b2","stage":"1st Interview","recruiter":"Val VanderLinden","days_in_stage":16}]},
-    {"name":"Antimetal","total_active":3,"stage_counts":{"Recruiter Screen":1,"HM Review":0,"1st Interview":1,"2nd Interview":0,"Onsite":1,"Offer":0},"conversion_rates":[],"aging_candidates":[{"full_name":"Nook Harquail","linkedin_url":"https://linkedin.com/in/harquail","stage":"Recruiter Screen","recruiter":"Dan Stein","days_in_stage":17},{"full_name":"Matteo Agius-D'Arrigo","linkedin_url":"https://linkedin.com/in/magiusdarrigo","stage":"1st Interview","recruiter":"Shannae Brydon","days_in_stage":11}]},
-    {"name":"Twingate","total_active":3,"stage_counts":{"Recruiter Screen":0,"HM Review":0,"1st Interview":0,"2nd Interview":2,"Onsite":1,"Offer":0},"conversion_rates":[],"aging_candidates":[{"full_name":"Puja Wheeldon","linkedin_url":"","stage":"2nd Interview","recruiter":"Dan Stein","days_in_stage":26},{"full_name":"David L.","linkedin_url":"https://linkedin.com/in/david-l-4760766","stage":"2nd Interview","recruiter":"Dan Stein","days_in_stage":25}]},
-    {"name":"FutureHouse","total_active":2,"stage_counts":{"Recruiter Screen":1,"HM Review":1,"1st Interview":0,"2nd Interview":0,"Onsite":0,"Offer":0},"conversion_rates":[],"aging_candidates":[{"full_name":"Benjamin K Chang","linkedin_url":"https://linkedin.com/in/benjaminkchang","stage":"HM Review","recruiter":"Ryan Grudnitski","days_in_stage":107},{"full_name":"Jason Liu","linkedin_url":"https://linkedin.com/in/jasonliu0704","stage":"Recruiter Screen","recruiter":"Ryan Grudnitski","days_in_stage":107}]},
-    {"name":"Frec","total_active":2,"stage_counts":{"Recruiter Screen":0,"HM Review":1,"1st Interview":0,"2nd Interview":1,"Onsite":0,"Offer":0},"conversion_rates":[],"aging_candidates":[{"full_name":"Bharath Ramaprasad","linkedin_url":"https://linkedin.com/in/bharathramap","stage":"2nd Interview","recruiter":"Meghan Roper","days_in_stage":25},{"full_name":"Maksym Karunos","linkedin_url":"https://linkedin.com/in/maksymkarunos","stage":"HM Review","recruiter":"Shannae Brydon","days_in_stage":23}]},
-    {"name":"Moonlake Labs","total_active":2,"stage_counts":{"Recruiter Screen":0,"HM Review":2,"1st Interview":0,"2nd Interview":0,"Onsite":0,"Offer":0},"conversion_rates":[],"aging_candidates":[{"full_name":"Wangyang Wu","linkedin_url":"https://linkedin.com/in/wangyangwu","stage":"HM Review","recruiter":"Meghan Roper","days_in_stage":38},{"full_name":"Om Saran","linkedin_url":"https://linkedin.com/in/omsarankre","stage":"HM Review","recruiter":"Shannae Brydon","days_in_stage":38}]},
-    {"name":"ChatBCC","total_active":1,"stage_counts":{"Recruiter Screen":1,"HM Review":0,"1st Interview":0,"2nd Interview":0,"Onsite":0,"Offer":0},"conversion_rates":[],"aging_candidates":[]},
-    {"name":"Weave Bio","total_active":1,"stage_counts":{"Recruiter Screen":0,"HM Review":0,"1st Interview":0,"2nd Interview":1,"Onsite":0,"Offer":0},"conversion_rates":[],"aging_candidates":[{"full_name":"Liren Zhu","linkedin_url":"https://linkedin.com/in/liren-zhu-92b00247","stage":"2nd Interview","recruiter":"Nicole Starrantino","days_in_stage":10}]},
-    {"name":"Basis","total_active":1,"stage_counts":{"Recruiter Screen":0,"HM Review":0,"1st Interview":1,"2nd Interview":0,"Onsite":0,"Offer":0},"conversion_rates":[],"aging_candidates":[]},
-    {"name":"Weave","total_active":1,"stage_counts":{"Recruiter Screen":0,"HM Review":1,"1st Interview":0,"2nd Interview":0,"Onsite":0,"Offer":0},"conversion_rates":[],"aging_candidates":[]},
-    {"name":"Modus","total_active":1,"stage_counts":{"Recruiter Screen":0,"HM Review":0,"1st Interview":1,"2nd Interview":0,"Onsite":0,"Offer":0},"conversion_rates":[],"aging_candidates":[]},
-    {"name":"unitQ","total_active":1,"stage_counts":{"Recruiter Screen":0,"HM Review":0,"1st Interview":1,"2nd Interview":0,"Onsite":0,"Offer":0},"conversion_rates":[],"aging_candidates":[]}
-  ],
-  "recruiters": [
-    {"name":"Meghan Roper","submissions_this_week":41,"submissions_last_week":null,"weekly_submissions_history":[],"total_active":75,"stage_counts":{"Recruiter Screen":34,"HM Review":9,"1st Interview":14,"2nd Interview":8,"Onsite":10,"Offer":0},"fy_onsites":10,"fy_offers":0,"win_rates":{"submitted_to_onsite":24.4,"submitted_to_offer":0.0},"submissions_by_client":[{"client":"Giga","count":16},{"client":"Mercor","count":14},{"client":"Known Dating","count":9},{"client":"Bond Studio","count":5},{"client":"Charta Health","count":5}],"aging_candidates":[{"full_name":"Lotanna O","linkedin_url":"https://linkedin.com/in/lotanna-okoli","client":"Owner","stage":"Onsite","days_in_stage":52},{"full_name":"Bharath Ramaprasad","linkedin_url":"https://linkedin.com/in/bharathramap","client":"Bond Studio","stage":"1st Interview","days_in_stage":44},{"full_name":"Wangyang Wu","linkedin_url":"https://linkedin.com/in/wangyangwu","client":"Moonlake Labs","stage":"HM Review","days_in_stage":38},{"full_name":"Kangning Hu","linkedin_url":"https://linkedin.com/in/kangning-h-74a92110b","client":"Bond Studio","stage":"2nd Interview","days_in_stage":33},{"full_name":"Aman Dhesi","linkedin_url":"https://linkedin.com/in/amandhesi","client":"Mercor","stage":"Onsite","days_in_stage":32},{"full_name":"Shashank Srikanth","linkedin_url":"https://linkedin.com/in/shashanksrikanth","client":"Mercor","stage":"Onsite","days_in_stage":32},{"full_name":"Wangyang Wu","linkedin_url":"https://linkedin.com/in/wangyangwu","client":"Mercor","stage":"Onsite","days_in_stage":31},{"full_name":"Bharath Ramaprasad","linkedin_url":"https://linkedin.com/in/bharathramap","client":"Frec","stage":"2nd Interview","days_in_stage":25},{"full_name":"Zheyong Z","linkedin_url":"https://linkedin.com/in/jerryzhuzy","client":"Charta Health","stage":"2nd Interview","days_in_stage":23},{"full_name":"Xiangyu Ji","linkedin_url":"https://linkedin.com/in/xiangyu-ji-b10a22109","client":"Mercor","stage":"Recruiter Screen","days_in_stage":19},{"full_name":"Yi Liu","linkedin_url":"https://linkedin.com/in/yl2526","client":"Mercor","stage":"Onsite","days_in_stage":18},{"full_name":"Bharath Ramaprasad","linkedin_url":"https://linkedin.com/in/bharathramap","client":"Additive","stage":"1st Interview","days_in_stage":16},{"full_name":"Dong Xu","linkedin_url":"https://linkedin.com/in/sheldonx","client":"Owner","stage":"Recruiter Screen","days_in_stage":11},{"full_name":"Pranav Rao","linkedin_url":"https://linkedin.com/in/pranavrao1","client":"Known Dating","stage":"Recruiter Screen","days_in_stage":11},{"full_name":"Sukh Sangha","linkedin_url":"https://linkedin.com/in/sanghas26","client":"DealOps","stage":"Recruiter Screen","days_in_stage":11},{"full_name":"Benjamin Zou","linkedin_url":"https://linkedin.com/in/benjaminzou","client":"DealOps","stage":"HM Review","days_in_stage":11},{"full_name":"Aditya Bhat","linkedin_url":"https://linkedin.com/in/aditya-s-bhat","client":"Known Dating","stage":"Recruiter Screen","days_in_stage":11},{"full_name":"Swad Kukunooru","linkedin_url":"https://linkedin.com/in/svadrut","client":"Mercor","stage":"HM Review","days_in_stage":11},{"full_name":"John W Choi","linkedin_url":"https://linkedin.com/in/johnwschoi","client":"Giga","stage":"Recruiter Screen","days_in_stage":10}]},
-    {"name":"Dan Stein","submissions_this_week":39,"submissions_last_week":null,"weekly_submissions_history":[],"total_active":71,"stage_counts":{"Recruiter Screen":32,"HM Review":11,"1st Interview":20,"2nd Interview":5,"Onsite":2,"Offer":1},"fy_onsites":2,"fy_offers":1,"win_rates":{"submitted_to_onsite":7.7,"submitted_to_offer":2.6},"submissions_by_client":[{"client":"Owner","count":19},{"client":"Base Power","count":14},{"client":"Known Dating","count":8},{"client":"DealOps","count":5},{"client":"Greater","count":4}],"aging_candidates":[{"full_name":"Nikita Chepik","linkedin_url":"https://linkedin.com/in/nikita-chepik","client":"Greater","stage":"1st Interview","days_in_stage":510},{"full_name":"Pei-yi Lin","linkedin_url":"https://linkedin.com/in/pei-yi-lin-957024134","client":"Owner","stage":"1st Interview","days_in_stage":286},{"full_name":"Michael Yu","linkedin_url":"https://linkedin.com/in/mi-yu","client":"Owner","stage":"Recruiter Screen","days_in_stage":272},{"full_name":"Navya Sowjanya","linkedin_url":"","client":"Owner","stage":"Recruiter Screen","days_in_stage":234},{"full_name":"Anthony D'Alessandro","linkedin_url":"https://linkedin.com/in/anthonyjdalessandro","client":"Greater","stage":"1st Interview","days_in_stage":230},{"full_name":"Dan Hepworth","linkedin_url":"https://linkedin.com/in/danhep","client":"Owner","stage":"Recruiter Screen","days_in_stage":229},{"full_name":"Justin Chen","linkedin_url":"https://linkedin.com/in/justin-t-chen","client":"Owner","stage":"Recruiter Screen","days_in_stage":219},{"full_name":"Han Yin","linkedin_url":"https://linkedin.com/in/nacosiren","client":"Owner","stage":"Recruiter Screen","days_in_stage":213},{"full_name":"Daniel K.","linkedin_url":"https://linkedin.com/in/daniel-koo","client":"Greater","stage":"HM Review","days_in_stage":180},{"full_name":"Sandesh Chandrashekar","linkedin_url":"https://linkedin.com/in/sandesh-chandrashekar","client":"Owner","stage":"Recruiter Screen","days_in_stage":151},{"full_name":"Jacob Streckfus","linkedin_url":"https://linkedin.com/in/jacob-streckfus","client":"Owner","stage":"Recruiter Screen","days_in_stage":151},{"full_name":"Kyle Huang","linkedin_url":"https://linkedin.com/in/kyle--huang","client":"Owner","stage":"Recruiter Screen","days_in_stage":139},{"full_name":"Benjamin Madueme","linkedin_url":"https://linkedin.com/in/benmadueme","client":"Owner","stage":"Recruiter Screen","days_in_stage":97},{"full_name":"Qi Chen","linkedin_url":"https://linkedin.com/in/qichen18","client":"Owner","stage":"Recruiter Screen","days_in_stage":95},{"full_name":"Patrick Hall Wurst","linkedin_url":"https://linkedin.com/in/patrick-hall-wurst","client":"Owner","stage":"HM Review","days_in_stage":95},{"full_name":"David Mason","linkedin_url":"https://linkedin.com/in/dave-j-mason","client":"Owner","stage":"Recruiter Screen","days_in_stage":81},{"full_name":"Vikas Sirwal","linkedin_url":"https://linkedin.com/in/vikassirwal","client":"Base Power","stage":"HM Review","days_in_stage":73},{"full_name":"Anmol Kaur","linkedin_url":"https://linkedin.com/in/anmolpreet-kaur-b247101a4","client":"Charta Health","stage":"1st Interview","days_in_stage":51},{"full_name":"Andrew Stokes","linkedin_url":"https://linkedin.com/in/andrew-stokes-software-engineer","client":"Owner","stage":"1st Interview","days_in_stage":47},{"full_name":"Lance Huang","linkedin_url":"https://linkedin.com/in/lancetheprogrammer","client":"Owner","stage":"HM Review","days_in_stage":44},{"full_name":"Julian Perez","linkedin_url":"https://linkedin.com/in/julianevperez","client":"Endeavor","stage":"Recruiter Screen","days_in_stage":40},{"full_name":"KERRY CALLAHAN","linkedin_url":"","client":"Base Power","stage":"1st Interview","days_in_stage":30},{"full_name":"Sam Weinberger","linkedin_url":"https://linkedin.com/in/samweinberger93","client":"Base Power","stage":"1st Interview","days_in_stage":27},{"full_name":"Evan A Roney","linkedin_url":"https://linkedin.com/in/evan-roney","client":"Base Power","stage":"1st Interview","days_in_stage":27},{"full_name":"Samuel Zaduk","linkedin_url":"https://linkedin.com/in/samzaduk","client":"Base Power","stage":"1st Interview","days_in_stage":27},{"full_name":"Nile J","linkedin_url":"https://linkedin.com/in/nilenjones","client":"Mercor","stage":"HM Review","days_in_stage":27},{"full_name":"Puja Wheeldon","linkedin_url":"","client":"Twingate","stage":"2nd Interview","days_in_stage":26},{"full_name":"You Z.","linkedin_url":"https://linkedin.com/in/you-z-08a77940","client":"Endeavor","stage":"1st Interview","days_in_stage":26},{"full_name":"Nicholas Lin","linkedin_url":"https://linkedin.com/in/nicholas-lin-28b23172","client":"Endeavor","stage":"Recruiter Screen","days_in_stage":26},{"full_name":"MICHELLE BALLESTEROS","linkedin_url":"https://linkedin.com/in/mballest","client":"Base Power","stage":"Recruiter Screen","days_in_stage":26},{"full_name":"Taylor Wilson","linkedin_url":"","client":"Base Power","stage":"Recruiter Screen","days_in_stage":26},{"full_name":"Albert Morlan","linkedin_url":"https://linkedin.com/in/albert-morlan-902a318b","client":"Base Power","stage":"Recruiter Screen","days_in_stage":26},{"full_name":"David L.","linkedin_url":"https://linkedin.com/in/david-l-4760766","client":"Twingate","stage":"2nd Interview","days_in_stage":25},{"full_name":"Noah Appel","linkedin_url":"https://linkedin.com/in/noahappel","client":"Known Dating","stage":"2nd Interview","days_in_stage":20},{"full_name":"Akash Puri","linkedin_url":"https://linkedin.com/in/akashkpuri","client":"Owner","stage":"Onsite","days_in_stage":20},{"full_name":"Viren Velacheri","linkedin_url":"https://linkedin.com/in/virenvelacheri","client":"Base Power","stage":"1st Interview","days_in_stage":18},{"full_name":"Sharhad Bashar","linkedin_url":"https://linkedin.com/in/sharhad-bashar","client":"Charta Health","stage":"1st Interview","days_in_stage":18},{"full_name":"Lance Lin","linkedin_url":"https://linkedin.com/in/lancelin","client":"Mercor","stage":"Recruiter Screen","days_in_stage":17},{"full_name":"Nook Harquail","linkedin_url":"https://linkedin.com/in/harquail","client":"Antimetal","stage":"Recruiter Screen","days_in_stage":17},{"full_name":"Vladimir Kovac","linkedin_url":"https://linkedin.com/in/vladimir-kovac-68601980","client":"Base Power","stage":"Recruiter Screen","days_in_stage":17},{"full_name":"Vivek Gade","linkedin_url":"https://linkedin.com/in/vivek-gade","client":"Base Power","stage":"1st Interview","days_in_stage":17},{"full_name":"Leah McKelvey","linkedin_url":"https://linkedin.com/in/leah-mckelvey-87494221","client":"Owner","stage":"Recruiter Screen","days_in_stage":13},{"full_name":"Dongbin Alistaire Suh","linkedin_url":"https://linkedin.com/in/dongbinsuh","client":"Known Dating","stage":"Recruiter Screen","days_in_stage":12},{"full_name":"Juzheng Li","linkedin_url":"","client":"Known Dating","stage":"2nd Interview","days_in_stage":11},{"full_name":"Derek W.","linkedin_url":"https://linkedin.com/in/derekderuiwang","client":"Mercor","stage":"HM Review","days_in_stage":11},{"full_name":"Aadhya Puttur","linkedin_url":"","client":"Owner","stage":"Recruiter Screen","days_in_stage":11},{"full_name":"David Campbell","linkedin_url":"https://linkedin.com/in/david-campbell-a5a403a1","client":"Known Dating","stage":"HM Review","days_in_stage":10},{"full_name":"Siddhant Dubey","linkedin_url":"https://linkedin.com/in/siddhantdubey","client":"Known Dating","stage":"HM Review","days_in_stage":10},{"full_name":"Andrew Trinh","linkedin_url":"","client":"Owner","stage":"HM Review","days_in_stage":10}]},
-    {"name":"Krystin Warden","submissions_this_week":27,"submissions_last_week":null,"weekly_submissions_history":[],"total_active":66,"stage_counts":{"Recruiter Screen":39,"HM Review":10,"1st Interview":14,"2nd Interview":3,"Onsite":0,"Offer":0},"fy_onsites":0,"fy_offers":0,"win_rates":{"submitted_to_onsite":0.0,"submitted_to_offer":0.0},"submissions_by_client":[{"client":"Mercor","count":14},{"client":"Hex","count":14},{"client":"Owner","count":9},{"client":"Edison Scientific","count":7},{"client":"Fleet","count":5}],"aging_candidates":[{"full_name":"Navaneet Kadaba","linkedin_url":"https://linkedin.com/in/navaneetkadaba","client":"Mercor","stage":"Recruiter Screen","days_in_stage":82},{"full_name":"Neha Mehrotra","linkedin_url":"https://linkedin.com/in/nehamehrotra","client":"Airtop","stage":"1st Interview","days_in_stage":25},{"full_name":"Evan Brunt","linkedin_url":"https://linkedin.com/in/evanbrunt","client":"Owner","stage":"1st Interview","days_in_stage":25},{"full_name":"Carmen DeCouto","linkedin_url":"https://linkedin.com/in/carmenmdecouto","client":"Airtop","stage":"1st Interview","days_in_stage":25},{"full_name":"Kevin Tian","linkedin_url":"https://linkedin.com/in/kevin-tian-59554b98","client":"Owner","stage":"Recruiter Screen","days_in_stage":25},{"full_name":"Nicole Sun, CMRP","linkedin_url":"https://linkedin.com/in/nicole-sun","client":"Airtop","stage":"HM Review","days_in_stage":20},{"full_name":"Joshua Jansen-Montoya","linkedin_url":"https://linkedin.com/in/joshuajansenmontoya","client":"Edison Scientific","stage":"Recruiter Screen","days_in_stage":19},{"full_name":"Julia Y.","linkedin_url":"https://linkedin.com/in/juliayan1995","client":"Paraform","stage":"Recruiter Screen","days_in_stage":19},{"full_name":"Sherwin Soroushian","linkedin_url":"https://linkedin.com/in/soroush3","client":"Edison Scientific","stage":"Recruiter Screen","days_in_stage":16},{"full_name":"William W.","linkedin_url":"https://linkedin.com/in/wwuhoo","client":"Edison Scientific","stage":"Recruiter Screen","days_in_stage":16},{"full_name":"Alissa Vuillier","linkedin_url":"https://linkedin.com/in/alissa-v","client":"Edison Scientific","stage":"Recruiter Screen","days_in_stage":13},{"full_name":"Tushar Mhalsekar","linkedin_url":"https://linkedin.com/in/tusharmhalsekar","client":"Mercor","stage":"1st Interview","days_in_stage":10},{"full_name":"Neelay Das","linkedin_url":"https://linkedin.com/in/neelaydas","client":"Edison Scientific","stage":"HM Review","days_in_stage":10},{"full_name":"Adil S","linkedin_url":"https://linkedin.com/in/adil-salhotra","client":"Known Dating","stage":"HM Review","days_in_stage":10},{"full_name":"Carter Peyton","linkedin_url":"https://linkedin.com/in/carter-peyton-019983169","client":"Known Dating","stage":"Recruiter Screen","days_in_stage":10}]},
-    {"name":"Val VanderLinden","submissions_this_week":32,"submissions_last_week":null,"weekly_submissions_history":[],"total_active":61,"stage_counts":{"Recruiter Screen":29,"HM Review":7,"1st Interview":17,"2nd Interview":5,"Onsite":3,"Offer":0},"fy_onsites":3,"fy_offers":0,"win_rates":{"submitted_to_onsite":9.4,"submitted_to_offer":0.0},"submissions_by_client":[{"client":"Charta Health","count":11},{"client":"Mercor","count":10},{"client":"Junior","count":8},{"client":"Afterquery","count":6},{"client":"Owner","count":5}],"aging_candidates":[{"full_name":"Aditya Pillai","linkedin_url":"https://linkedin.com/in/aditya-v-pillai","client":"Charta Health","stage":"Recruiter Screen","days_in_stage":45},{"full_name":"Jeevan Mokkala","linkedin_url":"https://linkedin.com/in/jeevan-mokkala-a25319154","client":"GPTZero","stage":"Recruiter Screen","days_in_stage":37},{"full_name":"Taras Kinash","linkedin_url":"https://linkedin.com/in/taras-kinash-96776134","client":"Charta Health","stage":"Recruiter Screen","days_in_stage":37},{"full_name":"Haijing ZHANG","linkedin_url":"https://linkedin.com/in/haijing-zhang","client":"Afterquery","stage":"Recruiter Screen","days_in_stage":32},{"full_name":"Shreya Vinjamuri","linkedin_url":"https://linkedin.com/in/shreya-vinjamuri","client":"Afterquery","stage":"Recruiter Screen","days_in_stage":30},{"full_name":"Vendy Prum","linkedin_url":"https://linkedin.com/in/vendy-prum","client":"Afterquery","stage":"Recruiter Screen","days_in_stage":30},{"full_name":"Eli Kugelsky","linkedin_url":"https://linkedin.com/in/eli-kugelsky","client":"Junior","stage":"1st Interview","days_in_stage":27},{"full_name":"Aneesh Pendyala","linkedin_url":"https://linkedin.com/in/aneeshpendyala","client":"Afterquery","stage":"HM Review","days_in_stage":27},{"full_name":"Prathamesh Sonawane","linkedin_url":"https://linkedin.com/in/pratt3000","client":"Charta Health","stage":"Recruiter Screen","days_in_stage":26},{"full_name":"Suyeon Cha","linkedin_url":"https://linkedin.com/in/suyeoncha","client":"Charta Health","stage":"Recruiter Screen","days_in_stage":26},{"full_name":"Benjamin Evans","linkedin_url":"https://linkedin.com/in/benjamin-michael-evans","client":"Eluve","stage":"Recruiter Screen","days_in_stage":25},{"full_name":"Ivan Rivera","linkedin_url":"https://linkedin.com/in/ivaneduardorivera","client":"Charta Health","stage":"1st Interview","days_in_stage":23},{"full_name":"Albert Ho","linkedin_url":"https://linkedin.com/in/albert-ho-298439ba","client":"GPTZero","stage":"HM Review","days_in_stage":23},{"full_name":"Albert Ho","linkedin_url":"https://linkedin.com/in/albert-ho-298439ba","client":"Phia","stage":"Recruiter Screen","days_in_stage":23},{"full_name":"Samuel Cohen","linkedin_url":"https://linkedin.com/in/samuel-cohen-a82434251","client":"Mercor","stage":"Onsite","days_in_stage":20},{"full_name":"Samuel Cohen","linkedin_url":"https://linkedin.com/in/samuel-cohen-a82434251","client":"Afterquery","stage":"2nd Interview","days_in_stage":20},{"full_name":"Benjamin Xu","linkedin_url":"https://linkedin.com/in/benjxu","client":"Junior","stage":"Recruiter Screen","days_in_stage":20},{"full_name":"Arystan Tatishev","linkedin_url":"https://linkedin.com/in/arystan-tatishev","client":"Concourse","stage":"Recruiter Screen","days_in_stage":20},{"full_name":"Zach Peter","linkedin_url":"https://linkedin.com/in/zachpeter8","client":"Charta Health","stage":"1st Interview","days_in_stage":18},{"full_name":"Stephen Moon","linkedin_url":"https://linkedin.com/in/stephen-moon-86647b1b2","client":"Endeavor","stage":"1st Interview","days_in_stage":18},{"full_name":"Luke Halko","linkedin_url":"https://linkedin.com/in/luke-halko-2b4b7a1a4","client":"Junior","stage":"1st Interview","days_in_stage":18},{"full_name":"Satyam Nikhra","linkedin_url":"https://linkedin.com/in/satyam-nikhra","client":"Mercor","stage":"Recruiter Screen","days_in_stage":18},{"full_name":"Eli Kugelsky","linkedin_url":"https://linkedin.com/in/eli-kugelsky","client":"Concourse","stage":"1st Interview","days_in_stage":17},{"full_name":"Leo Lien","linkedin_url":"https://linkedin.com/in/leolien","client":"Junior","stage":"1st Interview","days_in_stage":17},{"full_name":"Stephen Moon","linkedin_url":"https://linkedin.com/in/stephen-moon-86647b1b2","client":"Concourse","stage":"1st Interview","days_in_stage":17},{"full_name":"Stephen Moon","linkedin_url":"https://linkedin.com/in/stephen-moon-86647b1b2","client":"Phia","stage":"1st Interview","days_in_stage":16},{"full_name":"Aneesh Pendyala","linkedin_url":"https://linkedin.com/in/aneeshpendyala","client":"Charta Health","stage":"HM Review","days_in_stage":15},{"full_name":"Aadesh Bajaj","linkedin_url":"https://linkedin.com/in/aadesh-bajaj","client":"Concourse","stage":"1st Interview","days_in_stage":13},{"full_name":"Bal Krishna Oli","linkedin_url":"https://linkedin.com/in/bal-krishna-oli","client":"Charta Health","stage":"HM Review","days_in_stage":12},{"full_name":"Stephen Moon","linkedin_url":"https://linkedin.com/in/stephen-moon-86647b1b2","client":"Known Dating","stage":"2nd Interview","days_in_stage":11},{"full_name":"Stephen Rice","linkedin_url":"https://linkedin.com/in/srice2","client":"Mercor","stage":"Onsite","days_in_stage":10},{"full_name":"Stephen Moon","linkedin_url":"https://linkedin.com/in/stephen-moon-86647b1b2","client":"Owner","stage":"2nd Interview","days_in_stage":10},{"full_name":"Tracy Sassaman","linkedin_url":"https://linkedin.com/in/tracy-sassaman-19708249","client":"Eluve","stage":"Recruiter Screen","days_in_stage":10}]},
-    {"name":"Nicole Starrantino","submissions_this_week":47,"submissions_last_week":null,"weekly_submissions_history":[],"total_active":58,"stage_counts":{"Recruiter Screen":11,"HM Review":2,"1st Interview":25,"2nd Interview":4,"Onsite":16,"Offer":0},"fy_onsites":16,"fy_offers":0,"win_rates":{"submitted_to_onsite":34.0,"submitted_to_offer":0.0},"submissions_by_client":[{"client":"Mercor","count":19},{"client":"Charta Health","count":13},{"client":"Junior","count":6},{"client":"Known Dating","count":2},{"client":"Fleet","count":2}],"aging_candidates":[{"full_name":"Guangyu Yang","linkedin_url":"https://linkedin.com/in/guangyu-yang-0b3a7845","client":"Additive","stage":"1st Interview","days_in_stage":74},{"full_name":"Lingxiao Wang","linkedin_url":"https://linkedin.com/in/lingxiao-wang-7b481092","client":"Mercor","stage":"Onsite","days_in_stage":33},{"full_name":"Kanishk Dutta","linkedin_url":"https://linkedin.com/in/duttakanishk","client":"Mercor","stage":"1st Interview","days_in_stage":32},{"full_name":"Kanika Dutta","linkedin_url":"https://linkedin.com/in/kanikadutta","client":"Mercor","stage":"Onsite","days_in_stage":23},{"full_name":"Surbhi Dang","linkedin_url":"https://linkedin.com/in/surbhi-dang","client":"Mercor","stage":"Onsite","days_in_stage":20},{"full_name":"Kimberly Collins","linkedin_url":"https://linkedin.com/in/kimberlygcollins","client":"Charta Health","stage":"Onsite","days_in_stage":19},{"full_name":"Alice Liang","linkedin_url":"https://linkedin.com/in/alicexliang","client":"Junior","stage":"Recruiter Screen","days_in_stage":19},{"full_name":"William Han","linkedin_url":"https://linkedin.com/in/williamhan7244","client":"Charta Health","stage":"Onsite","days_in_stage":16},{"full_name":"Keya Varia","linkedin_url":"https://linkedin.com/in/keya-varia-79418a127","client":"Mercor","stage":"Onsite","days_in_stage":16},{"full_name":"Nten Nyiam","linkedin_url":"https://linkedin.com/in/ntenyiam","client":"Charta Health","stage":"Onsite","days_in_stage":16},{"full_name":"Harsh Chobisa","linkedin_url":"https://linkedin.com/in/harshchobisa","client":"Mercor","stage":"Recruiter Screen","days_in_stage":16},{"full_name":"Ethan Wu","linkedin_url":"https://linkedin.com/in/ethanhwu","client":"Mercor","stage":"1st Interview","days_in_stage":12},{"full_name":"Anagha Srivatsav","linkedin_url":"https://linkedin.com/in/anagha-srivatsav-034285209","client":"Mercor","stage":"HM Review","days_in_stage":12},{"full_name":"John Huang","linkedin_url":"","client":"Mercor","stage":"1st Interview","days_in_stage":12},{"full_name":"Adheesh Chatterjee","linkedin_url":"https://linkedin.com/in/adheeshc","client":"Mercor","stage":"Onsite","days_in_stage":11},{"full_name":"Keya Varia","linkedin_url":"https://linkedin.com/in/keya-varia-79418a127","client":"Charta Health","stage":"Onsite","days_in_stage":11},{"full_name":"Jaidev Mirchandani","linkedin_url":"https://linkedin.com/in/jvmirchandani","client":"Charta Health","stage":"1st Interview","days_in_stage":11},{"full_name":"Jason Nguyen","linkedin_url":"https://linkedin.com/in/jason-nguyen373737","client":"Charta Health","stage":"1st Interview","days_in_stage":11},{"full_name":"Anthony Diké","linkedin_url":"https://linkedin.com/in/antdke","client":"Junior","stage":"1st Interview","days_in_stage":11},{"full_name":"Mariel Aquino","linkedin_url":"https://linkedin.com/in/marielaquino","client":"Junior","stage":"1st Interview","days_in_stage":11},{"full_name":"Mariel Aquino","linkedin_url":"https://linkedin.com/in/marielaquino","client":"Charta Health","stage":"1st Interview","days_in_stage":11},{"full_name":"Liren Zhu","linkedin_url":"https://linkedin.com/in/liren-zhu-92b00247","client":"Weave Bio","stage":"2nd Interview","days_in_stage":10},{"full_name":"Aryan Chaudhary","linkedin_url":"https://linkedin.com/in/achaudhary39","client":"Charta Health","stage":"1st Interview","days_in_stage":10},{"full_name":"Mariel Aquino","linkedin_url":"https://linkedin.com/in/marielaquino","client":"Known Dating","stage":"1st Interview","days_in_stage":10},{"full_name":"Mariel Aquino","linkedin_url":"https://linkedin.com/in/marielaquino","client":"Fleet","stage":"1st Interview","days_in_stage":10}]},
-    {"name":"Paul Sledd","submissions_this_week":44,"submissions_last_week":null,"weekly_submissions_history":[],"total_active":46,"stage_counts":{"Recruiter Screen":2,"HM Review":17,"1st Interview":14,"2nd Interview":5,"Onsite":7,"Offer":1},"fy_onsites":7,"fy_offers":1,"win_rates":{"submitted_to_onsite":18.2,"submitted_to_offer":2.3},"submissions_by_client":[{"client":"Mercor","count":12},{"client":"Hex","count":8},{"client":"Additive","count":5},{"client":"Afterquery","count":3},{"client":"Bond Studio","count":3}],"aging_candidates":[{"full_name":"Radhika Parthasarathy","linkedin_url":"https://linkedin.com/in/radhikapartha","client":"Mercor","stage":"Onsite","days_in_stage":77},{"full_name":"Tong Gao","linkedin_url":"https://linkedin.com/in/tong-g-bab9653a","client":"Bond Studio","stage":"HM Review","days_in_stage":45},{"full_name":"Siddhi Bansal","linkedin_url":"https://linkedin.com/in/siddhibansal","client":"Afterquery","stage":"1st Interview","days_in_stage":43},{"full_name":"Yu Hu","linkedin_url":"https://linkedin.com/in/yu-hu-3ba1353","client":"Bond Studio","stage":"1st Interview","days_in_stage":42},{"full_name":"Chong Li","linkedin_url":"https://linkedin.com/in/chongli123123123123","client":"Additive","stage":"2nd Interview","days_in_stage":37},{"full_name":"Jobanjot Sidhu","linkedin_url":"https://linkedin.com/in/jobanjotsidhu","client":"Bond Studio","stage":"1st Interview","days_in_stage":37},{"full_name":"Udit Saxena","linkedin_url":"https://linkedin.com/in/udit-saxena-29862918","client":"Mercor","stage":"Onsite","days_in_stage":32},{"full_name":"Siddhi Bansal","linkedin_url":"https://linkedin.com/in/siddhibansal","client":"Mercor","stage":"Onsite","days_in_stage":32},{"full_name":"Anay Bhakat","linkedin_url":"https://linkedin.com/in/anay-bhakat","client":"Afterquery","stage":"2nd Interview","days_in_stage":21},{"full_name":"Yash Tyagi","linkedin_url":"https://linkedin.com/in/yashtyagi","client":"Owner","stage":"HM Review","days_in_stage":21},{"full_name":"Dhruvika Sahni","linkedin_url":"https://linkedin.com/in/dhruvika-sahni-8ab796112","client":"Additive","stage":"2nd Interview","days_in_stage":18},{"full_name":"Kaushik Pulgari","linkedin_url":"https://linkedin.com/in/kpulgari","client":"Afterquery","stage":"2nd Interview","days_in_stage":17},{"full_name":"Riti Agarwal","linkedin_url":"https://linkedin.com/in/riti-agarwal-0310051a9","client":"Known Dating","stage":"HM Review","days_in_stage":13},{"full_name":"Vaishnavi Sagar","linkedin_url":"https://linkedin.com/in/vaishnavi-sagar-576113170","client":"Known Dating","stage":"HM Review","days_in_stage":13},{"full_name":"Pranav Jain","linkedin_url":"https://linkedin.com/in/pranavjain97","client":"FeelsMusic","stage":"2nd Interview","days_in_stage":12},{"full_name":"Parth Shah","linkedin_url":"https://linkedin.com/in/p-arth-shah","client":"Mercor","stage":"1st Interview","days_in_stage":11},{"full_name":"Xiaoxiao Li","linkedin_url":"https://linkedin.com/in/xiaoxiao-li-01762298","client":"Additive","stage":"1st Interview","days_in_stage":10},{"full_name":"Emily Ziyi Xiao","linkedin_url":"https://linkedin.com/in/z-emily-xiao","client":"Charta Health","stage":"HM Review","days_in_stage":10},{"full_name":"Vaishnavi Sagar","linkedin_url":"https://linkedin.com/in/vaishnavi-sagar-576113170","client":"Endeavor","stage":"HM Review","days_in_stage":10}]},
-    {"name":"Shannae Brydon","submissions_this_week":25,"submissions_last_week":null,"weekly_submissions_history":[],"total_active":38,"stage_counts":{"Recruiter Screen":13,"HM Review":8,"1st Interview":10,"2nd Interview":1,"Onsite":6,"Offer":0},"fy_onsites":6,"fy_offers":0,"win_rates":{"submitted_to_onsite":24.0,"submitted_to_offer":0.0},"submissions_by_client":[{"client":"Mercor","count":11},{"client":"Owner","count":4},{"client":"Additive","count":3},{"client":"Eluve","count":3},{"client":"Afterquery","count":2}],"aging_candidates":[{"full_name":"Enming Luo","linkedin_url":"https://linkedin.com/in/enming-luo-a1018614","client":"Mercor","stage":"Onsite","days_in_stage":122},{"full_name":"Chinyet Lin","linkedin_url":"https://linkedin.com/in/chinyet","client":"Additive","stage":"Recruiter Screen","days_in_stage":45},{"full_name":"Vijay A","linkedin_url":"https://linkedin.com/in/vijayalexander","client":"Mercor","stage":"Onsite","days_in_stage":38},{"full_name":"Om Saran","linkedin_url":"https://linkedin.com/in/omsarankre","client":"Moonlake Labs","stage":"HM Review","days_in_stage":38},{"full_name":"Tianchen Wang","linkedin_url":"https://linkedin.com/in/tianchen-wang-a01316193","client":"Endeavor","stage":"1st Interview","days_in_stage":32},{"full_name":"Sriram Natarajan","linkedin_url":"https://linkedin.com/in/sriram-natarajan-580b16132","client":"Eluve","stage":"Recruiter Screen","days_in_stage":31},{"full_name":"Maksym Karunos","linkedin_url":"https://linkedin.com/in/maksymkarunos","client":"Bond Studio","stage":"HM Review","days_in_stage":26},{"full_name":"Johari Wiggins","linkedin_url":"https://linkedin.com/in/johari-wiggins-2833b332","client":"Mercor","stage":"Onsite","days_in_stage":25},{"full_name":"AIGERIM (AJ) ASKERGALI","linkedin_url":"https://linkedin.com/in/aigerim-askergali-b9a9bb207","client":"Afterquery","stage":"1st Interview","days_in_stage":24},{"full_name":"Luoshu Wang","linkedin_url":"https://linkedin.com/in/luoshuwang","client":"Mercor","stage":"Onsite","days_in_stage":23},{"full_name":"Maksym Karunos","linkedin_url":"https://linkedin.com/in/maksymkarunos","client":"Frec","stage":"HM Review","days_in_stage":23},{"full_name":"Prashant Gadagi","linkedin_url":"https://linkedin.com/in/prashantgadagi","client":"Additive","stage":"Recruiter Screen","days_in_stage":20},{"full_name":"Maksym Karunos","linkedin_url":"https://linkedin.com/in/maksymkarunos","client":"Concourse","stage":"1st Interview","days_in_stage":20},{"full_name":"Taoyuan Wang","linkedin_url":"https://linkedin.com/in/taoyuanwang","client":"Mercor","stage":"HM Review","days_in_stage":20},{"full_name":"Prashant Sridhar","linkedin_url":"https://linkedin.com/in/prashant-sridhar-20a0012a","client":"Mercor","stage":"Recruiter Screen","days_in_stage":17},{"full_name":"William Chang","linkedin_url":"https://linkedin.com/in/williamchang86","client":"Paraform","stage":"Recruiter Screen","days_in_stage":17},{"full_name":"Ryan Lee","linkedin_url":"https://linkedin.com/in/ryazlee","client":"Mercor","stage":"Recruiter Screen","days_in_stage":17},{"full_name":"Danielle Magrogan","linkedin_url":"https://linkedin.com/in/daniellemagrogan","client":"Eluve","stage":"Recruiter Screen","days_in_stage":12},{"full_name":"Derek C.","linkedin_url":"https://linkedin.com/in/nai-chia-cheng","client":"Known Dating","stage":"Recruiter Screen","days_in_stage":12},{"full_name":"Animesh Kumar Singh Bhadouria","linkedin_url":"https://linkedin.com/in/animesh-bhadouria","client":"Additive","stage":"Recruiter Screen","days_in_stage":12},{"full_name":"Maksym Karunos","linkedin_url":"https://linkedin.com/in/maksymkarunos","client":"Owner","stage":"Onsite","days_in_stage":11},{"full_name":"Matteo Agius-D'Arrigo","linkedin_url":"https://linkedin.com/in/magiusdarrigo","client":"Mercor","stage":"1st Interview","days_in_stage":11},{"full_name":"Dachao Li","linkedin_url":"https://linkedin.com/in/dachao-li-05711237","client":"Bond Studio","stage":"HM Review","days_in_stage":11},{"full_name":"Matteo Agius-D'Arrigo","linkedin_url":"https://linkedin.com/in/magiusdarrigo","client":"Antimetal","stage":"1st Interview","days_in_stage":11},{"full_name":"Matteo Agius-D'Arrigo","linkedin_url":"https://linkedin.com/in/magiusdarrigo","client":"Junior","stage":"1st Interview","days_in_stage":11},{"full_name":"Roger Rodriguez","linkedin_url":"https://linkedin.com/in/rogerjamesrodriguez","client":"Eluve","stage":"HM Review","days_in_stage":11}]},
-    {"name":"Kyle Holin","submissions_this_week":22,"submissions_last_week":null,"weekly_submissions_history":[],"total_active":35,"stage_counts":{"Recruiter Screen":13,"HM Review":17,"1st Interview":2,"2nd Interview":2,"Onsite":1,"Offer":0},"fy_onsites":1,"fy_offers":0,"win_rates":{"submitted_to_onsite":4.5,"submitted_to_offer":0.0},"submissions_by_client":[{"client":"Eluve","count":15},{"client":"Owner","count":4},{"client":"Base Power","count":4},{"client":"Afterquery","count":2},{"client":"Additive","count":2}],"aging_candidates":[{"full_name":"Ian P","linkedin_url":"https://linkedin.com/in/ianfp","client":"Base Power","stage":"2nd Interview","days_in_stage":81},{"full_name":"Inchara Srinivasa","linkedin_url":"https://linkedin.com/in/incharasrinivasa","client":"Afterquery","stage":"Recruiter Screen","days_in_stage":44},{"full_name":"Karnan Rajendran","linkedin_url":"https://linkedin.com/in/karnan-rajendran","client":"Afterquery","stage":"Recruiter Screen","days_in_stage":44},{"full_name":"Kimiko Mitchell","linkedin_url":"https://linkedin.com/in/kimikom","client":"Eluve","stage":"HM Review","days_in_stage":33},{"full_name":"Aimee Stephenson","linkedin_url":"https://linkedin.com/in/aimee-stephenson-408b58130","client":"Eluve","stage":"HM Review","days_in_stage":32},{"full_name":"Brennan Rouhana","linkedin_url":"https://linkedin.com/in/brouhana","client":"Base Power","stage":"HM Review","days_in_stage":31},{"full_name":"Fan Gui","linkedin_url":"https://linkedin.com/in/fangui","client":"Eluve","stage":"HM Review","days_in_stage":27},{"full_name":"Libby (Eyre) Mattimore","linkedin_url":"https://linkedin.com/in/libby-eyre-mattimore-294bb17b","client":"Eluve","stage":"HM Review","days_in_stage":27},{"full_name":"Nathan Zanzig","linkedin_url":"https://linkedin.com/in/nathan-zanzig","client":"Eluve","stage":"HM Review","days_in_stage":27},{"full_name":"Emily Fuller","linkedin_url":"https://linkedin.com/in/emilyfuller","client":"Eluve","stage":"HM Review","days_in_stage":24},{"full_name":"Zach Blank","linkedin_url":"https://linkedin.com/in/zachary-blank","client":"Eluve","stage":"HM Review","days_in_stage":24},{"full_name":"Prateek Mehrotra","linkedin_url":"https://linkedin.com/in/prateekm","client":"Paraform","stage":"HM Review","days_in_stage":24},{"full_name":"Xiaoyan Wang","linkedin_url":"https://linkedin.com/in/sylviaxiaoyanwang","client":"Eluve","stage":"Recruiter Screen","days_in_stage":19},{"full_name":"Reilly Brown","linkedin_url":"https://linkedin.com/in/reillybrown","client":"Eluve","stage":"Recruiter Screen","days_in_stage":19},{"full_name":"Lucca Cary","linkedin_url":"https://linkedin.com/in/lucca-cary-6194811a2","client":"Eluve","stage":"Recruiter Screen","days_in_stage":19},{"full_name":"Sarah Crotty","linkedin_url":"https://linkedin.com/in/sarahrosecrotty","client":"Eluve","stage":"Recruiter Screen","days_in_stage":19},{"full_name":"Tianqi (Nick) Zhao","linkedin_url":"https://linkedin.com/in/tianqi-nick-zhao-24595523","client":"Mercor","stage":"Recruiter Screen","days_in_stage":19},{"full_name":"Roman Kogan","linkedin_url":"https://linkedin.com/in/roman-kogan-9990b6102","client":"Owner","stage":"HM Review","days_in_stage":18},{"full_name":"Sophia Son","linkedin_url":"https://linkedin.com/in/sophia-son","client":"Eluve","stage":"HM Review","days_in_stage":18},{"full_name":"Charlotte Resnick","linkedin_url":"https://linkedin.com/in/charlotteresnick","client":"Owner","stage":"Recruiter Screen","days_in_stage":17},{"full_name":"Nathan Heard","linkedin_url":"https://linkedin.com/in/nathan-heard-b692627b","client":"Owner","stage":"Recruiter Screen","days_in_stage":17},{"full_name":"Kayne Khoury","linkedin_url":"https://linkedin.com/in/kaynekhoury","client":"Owner","stage":"HM Review","days_in_stage":17},{"full_name":"John Nguyen","linkedin_url":"https://linkedin.com/in/jvnguyen","client":"Additive","stage":"Recruiter Screen","days_in_stage":17},{"full_name":"Jason Hobbs","linkedin_url":"https://linkedin.com/in/jasonhobbs","client":"Base Power","stage":"HM Review","days_in_stage":17},{"full_name":"Rosie (Neibel) Crowley","linkedin_url":"https://linkedin.com/in/rosiepcrowley","client":"Eluve","stage":"Recruiter Screen","days_in_stage":17},{"full_name":"Caden Garrett","linkedin_url":"https://linkedin.com/in/cadenmg","client":"Eluve","stage":"1st Interview","days_in_stage":12},{"full_name":"John Patrick Lewis","linkedin_url":"https://linkedin.com/in/patrick-lewis","client":"Additive","stage":"Recruiter Screen","days_in_stage":11}]},
-    {"name":"Ryan Grudnitski","submissions_this_week":17,"submissions_last_week":null,"weekly_submissions_history":[],"total_active":27,"stage_counts":{"Recruiter Screen":10,"HM Review":3,"1st Interview":9,"2nd Interview":2,"Onsite":3,"Offer":0},"fy_onsites":3,"fy_offers":0,"win_rates":{"submitted_to_onsite":17.6,"submitted_to_offer":0.0},"submissions_by_client":[{"client":"Edison Scientific","count":8},{"client":"Mercor","count":7},{"client":"Fleet","count":4},{"client":"FutureHouse","count":2},{"client":"Afterquery","count":1}],"aging_candidates":[{"full_name":"Benjamin K Chang","linkedin_url":"https://linkedin.com/in/benjaminkchang","client":"FutureHouse","stage":"HM Review","days_in_stage":107},{"full_name":"Jason Liu","linkedin_url":"https://linkedin.com/in/jasonliu0704","client":"FutureHouse","stage":"Recruiter Screen","days_in_stage":107},{"full_name":"Xinghai Hu","linkedin_url":"https://linkedin.com/in/xinghai-h-80316360","client":"Mercor","stage":"Onsite","days_in_stage":47},{"full_name":"Vikram Agrawal","linkedin_url":"https://linkedin.com/in/vikram-agrawal","client":"Mercor","stage":"Onsite","days_in_stage":39},{"full_name":"Siddhant Satapathy","linkedin_url":"https://linkedin.com/in/siddhant-satapathy","client":"Afterquery","stage":"1st Interview","days_in_stage":26},{"full_name":"Siddhant Satapathy","linkedin_url":"https://linkedin.com/in/siddhant-satapathy","client":"Edison Scientific","stage":"1st Interview","days_in_stage":26},{"full_name":"Kathan Shah","linkedin_url":"https://linkedin.com/in/kathans","client":"Mercor","stage":"1st Interview","days_in_stage":19},{"full_name":"Gabriel Underwood","linkedin_url":"https://linkedin.com/in/gabriel-underwood","client":"Additive","stage":"Recruiter Screen","days_in_stage":19},{"full_name":"Nitish Natarajan","linkedin_url":"https://linkedin.com/in/nitish-natarajan","client":"Edison Scientific","stage":"1st Interview","days_in_stage":19},{"full_name":"Monica Bellare","linkedin_url":"https://linkedin.com/in/monicabellare","client":"Edison Scientific","stage":"Recruiter Screen","days_in_stage":17},{"full_name":"Anmol Kaur","linkedin_url":"https://linkedin.com/in/anmolpreet-kaur-b247101a4","client":"Edison Scientific","stage":"1st Interview","days_in_stage":13},{"full_name":"Konstantin Rud","linkedin_url":"https://linkedin.com/in/konstantin-rud","client":"Edison Scientific","stage":"Recruiter Screen","days_in_stage":13},{"full_name":"Matthew Nguyen","linkedin_url":"https://linkedin.com/in/matt-ngyn","client":"Mercor","stage":"1st Interview","days_in_stage":12},{"full_name":"Max Dykhuizen","linkedin_url":"https://linkedin.com/in/kmdyk","client":"Edison Scientific","stage":"HM Review","days_in_stage":12},{"full_name":"Tejas Pradeep","linkedin_url":"https://linkedin.com/in/tejas-pradeep","client":"Mercor","stage":"Onsite","days_in_stage":11},{"full_name":"Ryan Dushane","linkedin_url":"https://linkedin.com/in/ryndshn","client":"Eluve","stage":"2nd Interview","days_in_stage":10},{"full_name":"Ryan Dushane","linkedin_url":"https://linkedin.com/in/ryndshn","client":"FeelsMusic","stage":"2nd Interview","days_in_stage":10},{"full_name":"Elshad Mustafayev","linkedin_url":"https://linkedin.com/in/elshadimo","client":"Fleet","stage":"Recruiter Screen","days_in_stage":10}]},
-    {"name":"TJ Lee","submissions_this_week":13,"submissions_last_week":null,"weekly_submissions_history":[],"total_active":25,"stage_counts":{"Recruiter Screen":12,"HM Review":7,"1st Interview":5,"2nd Interview":0,"Onsite":1,"Offer":0},"fy_onsites":1,"fy_offers":0,"win_rates":{"submitted_to_onsite":7.7,"submitted_to_offer":0.0},"submissions_by_client":[{"client":"Charta Health","count":12},{"client":"Mercor","count":5},{"client":"Additive","count":2},{"client":"Airtop","count":1},{"client":"Paraform","count":1}],"aging_candidates":[{"full_name":"Shilpi Srivastava","linkedin_url":"https://linkedin.com/in/shilpisrivastava1","client":"Airtop","stage":"Recruiter Screen","days_in_stage":18},{"full_name":"Aneesh Bhansali","linkedin_url":"https://linkedin.com/in/aneeshbhansali","client":"Charta Health","stage":"Recruiter Screen","days_in_stage":10},{"full_name":"Myles Gámez","linkedin_url":"https://linkedin.com/in/mylesgamez","client":"Paraform","stage":"HM Review","days_in_stage":10}]},
-    {"name":"Kavya Ganesh","submissions_this_week":2,"submissions_last_week":null,"weekly_submissions_history":[],"total_active":7,"stage_counts":{"Recruiter Screen":5,"HM Review":0,"1st Interview":2,"2nd Interview":0,"Onsite":0,"Offer":0},"fy_onsites":0,"fy_offers":0,"win_rates":{"submitted_to_onsite":0.0,"submitted_to_offer":0.0},"submissions_by_client":[{"client":"Greater","count":7}],"aging_candidates":[{"full_name":"Sumanth Neerumalla","linkedin_url":"https://linkedin.com/in/sumanthneerumalla","client":"Greater","stage":"Recruiter Screen","days_in_stage":531},{"full_name":"Alex Chaparro","linkedin_url":"https://linkedin.com/in/alex-chaparro-566b581a","client":"Greater","stage":"Recruiter Screen","days_in_stage":501},{"full_name":"Anand N","linkedin_url":"https://linkedin.com/in/anandnk13","client":"Greater","stage":"1st Interview","days_in_stage":479},{"full_name":"Paul Ricks","linkedin_url":"https://linkedin.com/in/paul-ricks-24322613a","client":"Greater","stage":"Recruiter Screen","days_in_stage":474},{"full_name":"Ryan Chan","linkedin_url":"https://linkedin.com/in/ryan-chan-447781142","client":"Greater","stage":"1st Interview","days_in_stage":466},{"full_name":"Josh Dimarsky","linkedin_url":"https://linkedin.com/in/joshdimarsky","client":"Greater","stage":"Recruiter Screen","days_in_stage":465},{"full_name":"Yannis Tzemos","linkedin_url":"https://linkedin.com/in/yannistzemos","client":"Greater","stage":"Recruiter Screen","days_in_stage":446}]}
-  ],
-  "global_conversion_rates": {
-    "Recruiter Screen → HM Review": {"rate":59.4,"numerator":311,"denominator":524},
-    "HM Review → 1st Interview": {"rate":70.7,"numerator":220,"denominator":311},
-    "1st Interview → 2nd Interview": {"rate":40.0,"numerator":88,"denominator":220},
-    "2nd Interview → Onsite": {"rate":58.0,"numerator":51,"denominator":88},
-    "Onsite → Offer": {"rate":3.9,"numerator":2,"denominator":51}
-  }
-};
+const data = {"week":"2026-03-06","generated_at":"2026-03-06 15:03 UTC","global_stage_totals":{"Recruiter Screen":218,"HM Review":80,"1st Interview":125,"2nd Interview":40,"Onsite":45,"Offer":1},"portfolio_summary":{"submissions_this_week":183,"submissions_last_week":286,"active_candidates":509,"active_client_count":38,"screen_to_hm_rate":46.7,"offers_outstanding":1,"aging_14_plus_count":163,"wow_delta":-103},"clients":[{"name":"Mercor","open_role_count":null,"total_active":106,"stage_counts":{"Recruiter Screen":38,"HM Review":15,"1st Interview":23,"2nd Interview":2,"Onsite":28,"Offer":0},"conversion_rates":[{"transition":"Recruiter Screen \u2192 HM Review","rate":44.9,"numerator":483,"denominator":1076},{"transition":"HM Review \u2192 1st Interview","rate":81.0,"numerator":391,"denominator":483},{"transition":"1st Interview \u2192 2nd Interview","rate":54.2,"numerator":212,"denominator":391},{"transition":"2nd Interview \u2192 Onsite","rate":89.6,"numerator":190,"denominator":212},{"transition":"Onsite \u2192 Offer","rate":10.0,"numerator":19,"denominator":190}],"aging_candidates":[{"full_name":"Enming Luo","linkedin_url":"https://linkedin.com/in/enming-luo-a1018614","candidate_id":"Y2FuZGlkYXRlczoyMDY5NzA0OTM=","stage":"Onsite","recruiter":"Shannae Brydon","days_in_stage":126,"last_activity":"2025-10-30T15:55:59.544Z"},{"full_name":"Radhika Parthasarathy","linkedin_url":"https://linkedin.com/in/radhikapartha","candidate_id":"Y2FuZGlkYXRlczoxNjc0Mzg0NDU=","stage":"Onsite","recruiter":"Paul Sledd","days_in_stage":81,"last_activity":"2025-12-14T19:29:55.923Z"},{"full_name":"Kamil Kisielewicz","linkedin_url":"https://linkedin.com/in/kamiljkisielewicz","candidate_id":"Y2FuZGlkYXRlczoxNzEzMDI5MzY=","stage":"Recruiter Screen","recruiter":"Unknown","days_in_stage":81,"last_activity":"2025-12-15T05:39:30.232Z"},{"full_name":"Xinghai Hu","linkedin_url":"https://linkedin.com/in/xinghai-h-80316360","candidate_id":"Y2FuZGlkYXRlczoxOTczMTA5NTk=","stage":"Onsite","recruiter":"Ryan Grudnitski","days_in_stage":51,"last_activity":"2026-01-13T17:10:15.002Z"},{"full_name":"Vikram Agrawal","linkedin_url":"https://linkedin.com/in/vikram-agrawal","candidate_id":"Y2FuZGlkYXRlczoyMTgwNjE0ODM=","stage":"Onsite","recruiter":"Ryan Grudnitski","days_in_stage":43,"last_activity":"2026-01-22T01:24:15.670Z"},{"full_name":"Vijay A","linkedin_url":"https://linkedin.com/in/vijayalexander","candidate_id":"Y2FuZGlkYXRlczoxNjc0MTc3MTU=","stage":"Onsite","recruiter":"Shannae Brydon","days_in_stage":42,"last_activity":"2026-01-23T03:07:36.483Z"},{"full_name":"Udit Saxena","linkedin_url":"https://linkedin.com/in/udit-saxena-29862918","candidate_id":"Y2FuZGlkYXRlczoxNjczMzcyMTE=","stage":"Onsite","recruiter":"Paul Sledd","days_in_stage":36,"last_activity":"2026-01-29T03:17:26.001Z"},{"full_name":"Aman Dhesi","linkedin_url":"https://linkedin.com/in/amandhesi","candidate_id":"Y2FuZGlkYXRlczoyMDQwNDIxOTE=","stage":"Onsite","recruiter":"Meghan Roper","days_in_stage":36,"last_activity":"2026-01-28T22:42:10.585Z"},{"full_name":"Shashank Srikanth","linkedin_url":"https://linkedin.com/in/shashanksrikanth","candidate_id":"Y2FuZGlkYXRlczoxODE1Mjk3NDQ=","stage":"Onsite","recruiter":"Meghan Roper","days_in_stage":36,"last_activity":"2026-01-28T22:44:10.054Z"},{"full_name":"Kanishk Dutta","linkedin_url":"https://linkedin.com/in/duttakanishk","candidate_id":"Y2FuZGlkYXRlczoyMjEyNTAzMzY=","stage":"1st Interview","recruiter":"Nicole Starrantino","days_in_stage":36,"last_activity":"2026-01-28T19:08:19.375Z"},{"full_name":"Wangyang Wu","linkedin_url":"https://linkedin.com/in/wangyangwu","candidate_id":"Y2FuZGlkYXRlczoxODk3MDMzMTM=","stage":"Onsite","recruiter":"Meghan Roper","days_in_stage":35,"last_activity":"2026-01-29T17:27:03.899Z"},{"full_name":"Y2FuZGlkYXRlczoxOTIzMDg4NzI=","linkedin_url":"","candidate_id":"Y2FuZGlkYXRlczoxOTIzMDg4NzI=","stage":"HM Review","recruiter":"Dan Stein","days_in_stage":31,"last_activity":"2026-02-02T20:46:02.946Z"},{"full_name":"Johari Wiggins","linkedin_url":"https://linkedin.com/in/johari-wiggins-2833b332","candidate_id":"Y2FuZGlkYXRlczoxNjczNTk0Njc=","stage":"Onsite","recruiter":"Shannae Brydon","days_in_stage":30,"last_activity":"2026-02-04T08:12:35.428Z"},{"full_name":"Kanika Dutta","linkedin_url":"https://linkedin.com/in/kanikadutta","candidate_id":"Y2FuZGlkYXRlczoxODE1NzY4MTI=","stage":"Onsite","recruiter":"Nicole Starrantino","days_in_stage":27,"last_activity":"2026-02-06T18:08:18.243Z"},{"full_name":"Samuel Cohen","linkedin_url":"https://linkedin.com/in/samuel-cohen-a82434251","candidate_id":"Y2FuZGlkYXRlczoyMjA3Nzc0MzM=","stage":"Onsite","recruiter":"Val VanderLinden","days_in_stage":24,"last_activity":"2026-02-09T23:00:53.599Z"},{"full_name":"Surbhi Dang","linkedin_url":"https://linkedin.com/in/surbhi-dang","candidate_id":"Y2FuZGlkYXRlczoxODIxOTE3Nzk=","stage":"Onsite","recruiter":"Nicole Starrantino","days_in_stage":24,"last_activity":"2026-02-09T16:23:36.221Z"},{"full_name":"Kathan Shah","linkedin_url":"https://linkedin.com/in/kathans","candidate_id":"Y2FuZGlkYXRlczoxODE5MjAwODI=","stage":"1st Interview","recruiter":"Ryan Grudnitski","days_in_stage":23,"last_activity":"2026-02-10T17:11:05.051Z"},{"full_name":"Y2FuZGlkYXRlczoyMTc0MjAxMjE=","linkedin_url":"","candidate_id":"Y2FuZGlkYXRlczoyMTc0MjAxMjE=","stage":"Recruiter Screen","recruiter":"Kyle Holin","days_in_stage":23,"last_activity":"2026-02-10T21:37:52.968Z"},{"full_name":"Y2FuZGlkYXRlczoxNjczNDM5ODA=","linkedin_url":"","candidate_id":"Y2FuZGlkYXRlczoxNjczNDM5ODA=","stage":"Recruiter Screen","recruiter":"Meghan Roper","days_in_stage":23,"last_activity":"2026-02-11T02:26:35.819Z"},{"full_name":"Y2FuZGlkYXRlczoxNjc0MDU2MDU=","linkedin_url":"","candidate_id":"Y2FuZGlkYXRlczoxNjc0MDU2MDU=","stage":"Recruiter Screen","recruiter":"Dan Stein","days_in_stage":22,"last_activity":"2026-02-12T09:32:37.914Z"},{"full_name":"Y2FuZGlkYXRlczoxNjczNjMyNzg=","linkedin_url":"","candidate_id":"Y2FuZGlkYXRlczoxNjczNjMyNzg=","stage":"Recruiter Screen","recruiter":"Val VanderLinden","days_in_stage":22,"last_activity":"2026-02-11T20:12:34.879Z"},{"full_name":"Naman Tyagi","linkedin_url":"https://linkedin.com/in/namantyagi","candidate_id":"Y2FuZGlkYXRlczoyMjUwMTg5NDY=","stage":"Recruiter Screen","recruiter":"Unknown","days_in_stage":21,"last_activity":"2026-02-13T05:13:30.227Z"},{"full_name":"Keya Varia","linkedin_url":"https://linkedin.com/in/keya-varia-79418a127","candidate_id":"Y2FuZGlkYXRlczoxOTYzNzM1NjE=","stage":"Onsite","recruiter":"Nicole Starrantino","days_in_stage":20,"last_activity":"2026-02-13T17:12:36.255Z"},{"full_name":"Y2FuZGlkYXRlczoxOTE4MzkwMTc=","linkedin_url":"","candidate_id":"Y2FuZGlkYXRlczoxOTE4MzkwMTc=","stage":"Recruiter Screen","recruiter":"Nicole Starrantino","days_in_stage":20,"last_activity":"2026-02-13T17:25:01.729Z"},{"full_name":"Y2FuZGlkYXRlczoyMDEzMjEyNTg=","linkedin_url":"","candidate_id":"Y2FuZGlkYXRlczoyMDEzMjEyNTg=","stage":"HM Review","recruiter":"Nicole Starrantino","days_in_stage":16,"last_activity":"2026-02-17T18:51:44.195Z"},{"full_name":"Matthew Nguyen","linkedin_url":"https://linkedin.com/in/matt-ngyn","candidate_id":"Y2FuZGlkYXRlczoyMjYwMjY1MzM=","stage":"1st Interview","recruiter":"Ryan Grudnitski","days_in_stage":16,"last_activity":"2026-02-17T22:38:57.748Z"},{"full_name":"John Huang","linkedin_url":"","candidate_id":"Y2FuZGlkYXRlczoyMjYxODQ0OTc=","stage":"1st Interview","recruiter":"Nicole Starrantino","days_in_stage":16,"last_activity":"2026-02-17T21:48:43.133Z"},{"full_name":"Y2FuZGlkYXRlczoyMDg4NTg4MDE=","linkedin_url":"","candidate_id":"Y2FuZGlkYXRlczoyMDg4NTg4MDE=","stage":"HM Review","recruiter":"Dan Stein","days_in_stage":15,"last_activity":"2026-02-18T16:10:17.544Z"},{"full_name":"Tushar Mhalsekar","linkedin_url":"https://linkedin.com/in/tusharmhalsekar","candidate_id":"Y2FuZGlkYXRlczoxOTExNjgyNTg=","stage":"1st Interview","recruiter":"Krystin Warden","days_in_stage":14,"last_activity":"2026-02-19T22:16:42.983Z"},{"full_name":"Stephen Rice","linkedin_url":"https://linkedin.com/in/srice2","candidate_id":"Y2FuZGlkYXRlczoyMDA2MDU2NDU=","stage":"Onsite","recruiter":"Val VanderLinden","days_in_stage":14,"last_activity":"2026-02-19T18:17:52.468Z"},{"full_name":"Maksym Karunos","linkedin_url":"https://linkedin.com/in/maksymkarunos","candidate_id":"Y2FuZGlkYXRlczoyMDcxNjA2Njg=","stage":"Onsite","recruiter":"Shannae Brydon","days_in_stage":13,"last_activity":"2026-02-21T00:33:50.154Z"},{"full_name":"Kevin Yu-Kai C.","linkedin_url":"https://linkedin.com/in/kevin-yu-kai-c-5732a4110","candidate_id":"Y2FuZGlkYXRlczoxNzM0ODUyODc=","stage":"Onsite","recruiter":"Nicole Starrantino","days_in_stage":13,"last_activity":"2026-02-20T22:51:34.868Z"},{"full_name":"Y2FuZGlkYXRlczoyMjU1NTczNzM=","linkedin_url":"","candidate_id":"Y2FuZGlkYXRlczoyMjU1NTczNzM=","stage":"Recruiter Screen","recruiter":"Unknown","days_in_stage":13,"last_activity":"2026-02-20T17:33:30.242Z"},{"full_name":"Myles G\u00e1mez","linkedin_url":"https://linkedin.com/in/mylesgamez","candidate_id":"Y2FuZGlkYXRlczoxNjc0ODM2NjY=","stage":"1st Interview","recruiter":"TJ Lee","days_in_stage":13,"last_activity":"2026-02-21T00:32:06.308Z"},{"full_name":"Armaan Danewalia","linkedin_url":"https://linkedin.com/in/armaandanewalia","candidate_id":"Y2FuZGlkYXRlczoyMDE3MTU0Njk=","stage":"1st Interview","recruiter":"Krystin Warden","days_in_stage":11,"last_activity":"2026-02-23T01:11:14.054Z"},{"full_name":"William Han","linkedin_url":"https://linkedin.com/in/williamhan7244","candidate_id":"Y2FuZGlkYXRlczoxNzc4Mzk3NTE=","stage":"Onsite","recruiter":"Nicole Starrantino","days_in_stage":10,"last_activity":"2026-02-23T23:07:46.738Z"},{"full_name":"Parth Shettiwar","linkedin_url":"https://linkedin.com/in/parth-shettiwar-75a4a0167","candidate_id":"Y2FuZGlkYXRlczoxNzkwODI4MjY=","stage":"Onsite","recruiter":"Meghan Roper","days_in_stage":10,"last_activity":"2026-02-23T22:28:30.603Z"},{"full_name":"Gautham Rajesh","linkedin_url":"https://linkedin.com/in/gautham-rajesh","candidate_id":"Y2FuZGlkYXRlczoyMTQyMzM5MTU=","stage":"Onsite","recruiter":"Meghan Roper","days_in_stage":10,"last_activity":"2026-02-23T22:29:07.040Z"},{"full_name":"Xiaoxiao Li","linkedin_url":"https://linkedin.com/in/xiaoxiao-li-01762298","candidate_id":"Y2FuZGlkYXRlczoxODI2MDQxNzc=","stage":"1st Interview","recruiter":"Paul Sledd","days_in_stage":10,"last_activity":"2026-02-24T05:22:05.964Z"},{"full_name":"Y2FuZGlkYXRlczoxNzIwODY0MDU=","linkedin_url":"","candidate_id":"Y2FuZGlkYXRlczoxNzIwODY0MDU=","stage":"Recruiter Screen","recruiter":"Nicole Starrantino","days_in_stage":10,"last_activity":"2026-02-23T16:43:23.775Z"},{"full_name":"Y2FuZGlkYXRlczoyMjU1NTcxNjU=","linkedin_url":"","candidate_id":"Y2FuZGlkYXRlczoyMjU1NTcxNjU=","stage":"Recruiter Screen","recruiter":"Unknown","days_in_stage":10,"last_activity":"2026-02-23T16:56:31.304Z"},{"full_name":"Y2FuZGlkYXRlczoyMTgwNjQ4NzA=","linkedin_url":"","candidate_id":"Y2FuZGlkYXRlczoyMTgwNjQ4NzA=","stage":"Recruiter Screen","recruiter":"Val VanderLinden","days_in_stage":10,"last_activity":"2026-02-23T18:54:01.746Z"},{"full_name":"Y2FuZGlkYXRlczoxNzIzMzM1NDY=","linkedin_url":"","candidate_id":"Y2FuZGlkYXRlczoxNzIzMzM1NDY=","stage":"Recruiter Screen","recruiter":"Val VanderLinden","days_in_stage":10,"last_activity":"2026-02-23T21:07:51.746Z"},{"full_name":"Priyanka Dhaka","linkedin_url":"https://linkedin.com/in/priyanka-dhaka-91b76b2b","candidate_id":"Y2FuZGlkYXRlczoyMjY5NDIxOTg=","stage":"HM Review","recruiter":"TJ Lee","days_in_stage":10,"last_activity":"2026-02-24T05:31:57.360Z"}],"time_to_stage_days":{}},{"name":"Charta Health","open_role_count":null,"total_active":50,"stage_counts":{"Recruiter Screen":18,"HM Review":6,"1st Interview":12,"2nd Interview":6,"Onsite":8,"Offer":0},"conversion_rates":[{"transition":"Recruiter Screen \u2192 HM Review","rate":49.6,"numerator":202,"denominator":407},{"transition":"HM Review \u2192 1st Interview","rate":81.2,"numerator":164,"denominator":202},{"transition":"1st Interview \u2192 2nd Interview","rate":46.3,"numerator":76,"denominator":164},{"transition":"2nd Interview \u2192 Onsite","rate":53.9,"numerator":41,"denominator":76},{"transition":"Onsite \u2192 Offer","rate":24.4,"numerator":10,"denominator":41}],"aging_candidates":[{"full_name":"Anmol Kaur","linkedin_url":"https://linkedin.com/in/anmolpreet-kaur-b247101a4","candidate_id":"Y2FuZGlkYXRlczoyMDg5ODY0MDI=","stage":"1st Interview","recruiter":"Dan Stein","days_in_stage":55},{"full_name":"Y2FuZGlkYXRlczoyMDA1MTgzMDE=","linkedin_url":"","candidate_id":"Y2FuZGlkYXRlczoyMDA1MTgzMDE=","stage":"Recruiter Screen","recruiter":"Val VanderLinden","days_in_stage":49},{"full_name":"Y2FuZGlkYXRlczoxNjc0OTE2MzE=","linkedin_url":"","candidate_id":"Y2FuZGlkYXRlczoxNjc0OTE2MzE=","stage":"Recruiter Screen","recruiter":"Val VanderLinden","days_in_stage":41},{"full_name":"Y2FuZGlkYXRlczoxODI3MzkwNTU=","linkedin_url":"","candidate_id":"Y2FuZGlkYXRlczoxODI3MzkwNTU=","stage":"Recruiter Screen","recruiter":"Val VanderLinden","days_in_stage":31},{"full_name":"Y2FuZGlkYXRlczoyMjM4NjEyMDY=","linkedin_url":"","candidate_id":"Y2FuZGlkYXRlczoyMjM4NjEyMDY=","stage":"Recruiter Screen","recruiter":"Val VanderLinden","days_in_stage":30},{"full_name":"Zheyong Z","linkedin_url":"https://linkedin.com/in/jerryzhuzy","candidate_id":"Y2FuZGlkYXRlczoyMTQwMTQ3NjA=","stage":"2nd Interview","recruiter":"Meghan Roper","days_in_stage":27},{"full_name":"Ivan Rivera","linkedin_url":"https://linkedin.com/in/ivaneduardorivera","candidate_id":"Y2FuZGlkYXRlczoyMTAyNjQzMjg=","stage":"1st Interview","recruiter":"Val VanderLinden","days_in_stage":27},{"full_name":"Kimberly Collins","linkedin_url":"https://linkedin.com/in/kimberlygcollins","candidate_id":"Y2FuZGlkYXRlczoyMTkyMDQwMDM=","stage":"Onsite","recruiter":"Nicole Starrantino","days_in_stage":23},{"full_name":"Sharhad Bashar","linkedin_url":"https://linkedin.com/in/sharhad-bashar","candidate_id":"Y2FuZGlkYXRlczoxOTA1OTAxNTU=","stage":"1st Interview","recruiter":"Dan Stein","days_in_stage":22},{"full_name":"William Han","linkedin_url":"https://linkedin.com/in/williamhan7244","candidate_id":"Y2FuZGlkYXRlczoxNzc4Mzk3NTE=","stage":"Onsite","recruiter":"Nicole Starrantino","days_in_stage":20},{"full_name":"Nten Nyiam","linkedin_url":"https://linkedin.com/in/ntenyiam","candidate_id":"Y2FuZGlkYXRlczoxODY3Mjg3NTI=","stage":"Onsite","recruiter":"Nicole Starrantino","days_in_stage":20},{"full_name":"Y2FuZGlkYXRlczoyMjExOTM2NjY=","linkedin_url":"","candidate_id":"Y2FuZGlkYXRlczoyMjExOTM2NjY=","stage":"HM Review","recruiter":"Val VanderLinden","days_in_stage":19},{"full_name":"Bal Krishna Oli","linkedin_url":"https://linkedin.com/in/bal-krishna-oli","candidate_id":"Y2FuZGlkYXRlczoxODcyMzgyMzQ=","stage":"HM Review","recruiter":"Val VanderLinden","days_in_stage":16},{"full_name":"Keya Varia","linkedin_url":"https://linkedin.com/in/keya-varia-79418a127","candidate_id":"Y2FuZGlkYXRlczoxOTYzNzM1NjE=","stage":"Onsite","recruiter":"Nicole Starrantino","days_in_stage":15},{"full_name":"Y2FuZGlkYXRlczoxNjczOTMyMjE=","linkedin_url":"","candidate_id":"Y2FuZGlkYXRlczoxNjczOTMyMjE=","stage":"Recruiter Screen","recruiter":"TJ Lee","days_in_stage":14},{"full_name":"Y2FuZGlkYXRlczoyMjExOTM2MTc=","linkedin_url":"","candidate_id":"Y2FuZGlkYXRlczoyMjExOTM2MTc=","stage":"Recruiter Screen","recruiter":"Val VanderLinden","days_in_stage":13},{"full_name":"Xiaoxiao Li","linkedin_url":"https://linkedin.com/in/xiaoxiao-li-01762298","candidate_id":"Y2FuZGlkYXRlczoxODI2MDQxNzc=","stage":"1st Interview","recruiter":"Paul Sledd","days_in_stage":13},{"full_name":"Jinesh Doshi","linkedin_url":"https://linkedin.com/in/jineshdoshi2610","candidate_id":"Y2FuZGlkYXRlczoxNjczNTk4NzI=","stage":"2nd Interview","recruiter":"Meghan Roper","days_in_stage":10},{"full_name":"Y2FuZGlkYXRlczoyMTAxNDg2Njc=","linkedin_url":"","candidate_id":"Y2FuZGlkYXRlczoyMTAxNDg2Njc=","stage":"Recruiter Screen","recruiter":"Meghan Roper","days_in_stage":10},{"full_name":"Sangjun Yum","linkedin_url":"https://linkedin.com/in/sjyum","candidate_id":"Y2FuZGlkYXRlczoxNzU5ODU4NzY=","stage":"1st Interview","recruiter":"TJ Lee","days_in_stage":10},{"full_name":"Y2FuZGlkYXRlczoyMjY5NDI2MDE=","linkedin_url":"","candidate_id":"Y2FuZGlkYXRlczoyMjY5NDI2MDE=","stage":"Recruiter Screen","recruiter":"TJ Lee","days_in_stage":10}],"time_to_stage_days":{}},{"name":"Hex","open_role_count":null,"total_active":49,"stage_counts":{"Recruiter Screen":26,"HM Review":15,"1st Interview":7,"2nd Interview":1,"Onsite":0,"Offer":0},"conversion_rates":[{"transition":"Recruiter Screen \u2192 HM Review","rate":42.9,"numerator":24,"denominator":56},{"transition":"HM Review \u2192 1st Interview","rate":33.3,"numerator":8,"denominator":24},{"transition":"1st Interview \u2192 2nd Interview","rate":12.5,"numerator":1,"denominator":8},{"transition":"2nd Interview \u2192 Onsite","rate":0.0,"numerator":0,"denominator":1},{"transition":"Onsite \u2192 Offer","rate":0.0,"numerator":0,"denominator":0}],"aging_candidates":[{"full_name":"Y2FuZGlkYXRlczoxOTMwODgzOTM=","linkedin_url":"","candidate_id":"Y2FuZGlkYXRlczoxOTMwODgzOTM=","stage":"Recruiter Screen","recruiter":"Krystin Warden","days_in_stage":10},{"full_name":"Y2FuZGlkYXRlczoxNzQwMzg3MTk=","linkedin_url":"","candidate_id":"Y2FuZGlkYXRlczoxNzQwMzg3MTk=","stage":"Recruiter Screen","recruiter":"Krystin Warden","days_in_stage":10}],"time_to_stage_days":{}},{"name":"Owner","open_role_count":null,"total_active":42,"stage_counts":{"Recruiter Screen":26,"HM Review":4,"1st Interview":5,"2nd Interview":4,"Onsite":3,"Offer":0},"conversion_rates":[{"transition":"Recruiter Screen \u2192 HM Review","rate":50.4,"numerator":277,"denominator":550},{"transition":"HM Review \u2192 1st Interview","rate":80.5,"numerator":223,"denominator":277},{"transition":"1st Interview \u2192 2nd Interview","rate":40.8,"numerator":91,"denominator":223},{"transition":"2nd Interview \u2192 Onsite","rate":63.7,"numerator":58,"denominator":91},{"transition":"Onsite \u2192 Offer","rate":13.8,"numerator":8,"denominator":58}],"aging_candidates":[],"time_to_stage_days":{}},{"name":"Giga","open_role_count":null,"total_active":30,"stage_counts":{"Recruiter Screen":13,"HM Review":8,"1st Interview":8,"2nd Interview":1,"Onsite":0,"Offer":0},"conversion_rates":[{"transition":"Recruiter Screen \u2192 HM Review","rate":55.8,"numerator":24,"denominator":43},{"transition":"HM Review \u2192 1st Interview","rate":50.0,"numerator":12,"denominator":24},{"transition":"1st Interview \u2192 2nd Interview","rate":16.7,"numerator":2,"denominator":12},{"transition":"2nd Interview \u2192 Onsite","rate":0.0,"numerator":0,"denominator":2},{"transition":"Onsite \u2192 Offer","rate":0.0,"numerator":0,"denominator":0}],"aging_candidates":[],"time_to_stage_days":{}},{"name":"Junior","open_role_count":null,"total_active":19,"stage_counts":{"Recruiter Screen":8,"HM Review":3,"1st Interview":8,"2nd Interview":0,"Onsite":0,"Offer":0},"conversion_rates":[],"aging_candidates":[],"time_to_stage_days":{}},{"name":"Known Dating","open_role_count":null,"total_active":19,"stage_counts":{"Recruiter Screen":8,"HM Review":2,"1st Interview":4,"2nd Interview":4,"Onsite":1,"Offer":0},"conversion_rates":[],"aging_candidates":[],"time_to_stage_days":{}},{"name":"Endeavor","open_role_count":null,"total_active":18,"stage_counts":{"Recruiter Screen":4,"HM Review":1,"1st Interview":7,"2nd Interview":6,"Onsite":0,"Offer":0},"conversion_rates":[],"aging_candidates":[],"time_to_stage_days":{}},{"name":"Base Power","open_role_count":null,"total_active":17,"stage_counts":{"Recruiter Screen":5,"HM Review":1,"1st Interview":10,"2nd Interview":0,"Onsite":1,"Offer":0},"conversion_rates":[],"aging_candidates":[],"time_to_stage_days":{}},{"name":"Eluve","open_role_count":null,"total_active":17,"stage_counts":{"Recruiter Screen":12,"HM Review":1,"1st Interview":2,"2nd Interview":2,"Onsite":0,"Offer":0},"conversion_rates":[],"aging_candidates":[],"time_to_stage_days":{}},{"name":"Additive","open_role_count":null,"total_active":15,"stage_counts":{"Recruiter Screen":6,"HM Review":2,"1st Interview":6,"2nd Interview":1,"Onsite":0,"Offer":0},"conversion_rates":[],"aging_candidates":[],"time_to_stage_days":{}},{"name":"Afterquery","open_role_count":null,"total_active":15,"stage_counts":{"Recruiter Screen":10,"HM Review":1,"1st Interview":2,"2nd Interview":2,"Onsite":0,"Offer":0},"conversion_rates":[],"aging_candidates":[],"time_to_stage_days":{}},{"name":"Fleet","open_role_count":null,"total_active":15,"stage_counts":{"Recruiter Screen":5,"HM Review":2,"1st Interview":6,"2nd Interview":1,"Onsite":1,"Offer":0},"conversion_rates":[],"aging_candidates":[],"time_to_stage_days":{}},{"name":"Greater","open_role_count":null,"total_active":14,"stage_counts":{"Recruiter Screen":6,"HM Review":1,"1st Interview":7,"2nd Interview":0,"Onsite":0,"Offer":0},"conversion_rates":[],"aging_candidates":[],"time_to_stage_days":{}},{"name":"Edison Scientific","open_role_count":null,"total_active":13,"stage_counts":{"Recruiter Screen":9,"HM Review":2,"1st Interview":2,"2nd Interview":0,"Onsite":0,"Offer":0},"conversion_rates":[],"aging_candidates":[],"time_to_stage_days":{}},{"name":"DealOps","open_role_count":null,"total_active":11,"stage_counts":{"Recruiter Screen":5,"HM Review":3,"1st Interview":2,"2nd Interview":1,"Onsite":0,"Offer":0},"conversion_rates":[],"aging_candidates":[],"time_to_stage_days":{}},{"name":"Paraform","open_role_count":null,"total_active":10,"stage_counts":{"Recruiter Screen":3,"HM Review":4,"1st Interview":1,"2nd Interview":2,"Onsite":0,"Offer":0},"conversion_rates":[],"aging_candidates":[],"time_to_stage_days":{}},{"name":"Concourse","open_role_count":null,"total_active":6,"stage_counts":{"Recruiter Screen":1,"HM Review":1,"1st Interview":4,"2nd Interview":0,"Onsite":0,"Offer":0},"conversion_rates":[],"aging_candidates":[],"time_to_stage_days":{}},{"name":"BuildOps","open_role_count":null,"total_active":6,"stage_counts":{"Recruiter Screen":4,"HM Review":0,"1st Interview":2,"2nd Interview":0,"Onsite":0,"Offer":0},"conversion_rates":[],"aging_candidates":[],"time_to_stage_days":{}},{"name":"Bond Studio","open_role_count":null,"total_active":5,"stage_counts":{"Recruiter Screen":1,"HM Review":2,"1st Interview":1,"2nd Interview":1,"Onsite":0,"Offer":0},"conversion_rates":[],"aging_candidates":[],"time_to_stage_days":{}},{"name":"Antimetal","open_role_count":null,"total_active":3,"stage_counts":{"Recruiter Screen":1,"HM Review":0,"1st Interview":1,"2nd Interview":0,"Onsite":1,"Offer":0},"conversion_rates":[],"aging_candidates":[],"time_to_stage_days":{}},{"name":"Twingate","open_role_count":null,"total_active":3,"stage_counts":{"Recruiter Screen":0,"HM Review":0,"1st Interview":0,"2nd Interview":2,"Onsite":1,"Offer":0},"conversion_rates":[],"aging_candidates":[],"time_to_stage_days":{}},{"name":"GPTZero","open_role_count":null,"total_active":3,"stage_counts":{"Recruiter Screen":1,"HM Review":1,"1st Interview":0,"2nd Interview":0,"Onsite":0,"Offer":1},"conversion_rates":[],"aging_candidates":[],"time_to_stage_days":{}},{"name":"Phia","open_role_count":null,"total_active":3,"stage_counts":{"Recruiter Screen":1,"HM Review":0,"1st Interview":2,"2nd Interview":0,"Onsite":0,"Offer":0},"conversion_rates":[],"aging_candidates":[],"time_to_stage_days":{}},{"name":"FutureHouse","open_role_count":null,"total_active":2,"stage_counts":{"Recruiter Screen":1,"HM Review":1,"1st Interview":0,"2nd Interview":0,"Onsite":0,"Offer":0},"conversion_rates":[],"aging_candidates":[],"time_to_stage_days":{}},{"name":"ChatBCC","open_role_count":null,"total_active":1,"stage_counts":{"Recruiter Screen":1,"HM Review":0,"1st Interview":0,"2nd Interview":0,"Onsite":0,"Offer":0},"conversion_rates":[],"aging_candidates":[],"time_to_stage_days":{}},{"name":"Frec","open_role_count":null,"total_active":1,"stage_counts":{"Recruiter Screen":0,"HM Review":0,"1st Interview":0,"2nd Interview":1,"Onsite":0,"Offer":0},"conversion_rates":[],"aging_candidates":[],"time_to_stage_days":{}},{"name":"Moonlake Labs","open_role_count":null,"total_active":1,"stage_counts":{"Recruiter Screen":0,"HM Review":1,"1st Interview":0,"2nd Interview":0,"Onsite":0,"Offer":0},"conversion_rates":[],"aging_candidates":[],"time_to_stage_days":{}},{"name":"Weave Bio","open_role_count":null,"total_active":1,"stage_counts":{"Recruiter Screen":0,"HM Review":0,"1st Interview":0,"2nd Interview":1,"Onsite":0,"Offer":0},"conversion_rates":[],"aging_candidates":[],"time_to_stage_days":{}},{"name":"FeelsMusic","open_role_count":null,"total_active":1,"stage_counts":{"Recruiter Screen":0,"HM Review":0,"1st Interview":0,"2nd Interview":1,"Onsite":0,"Offer":0},"conversion_rates":[],"aging_candidates":[],"time_to_stage_days":{}},{"name":"Weave","open_role_count":null,"total_active":1,"stage_counts":{"Recruiter Screen":0,"HM Review":1,"1st Interview":0,"2nd Interview":0,"Onsite":0,"Offer":0},"conversion_rates":[],"aging_candidates":[],"time_to_stage_days":{}},{"name":"Modus","open_role_count":null,"total_active":1,"stage_counts":{"Recruiter Screen":0,"HM Review":0,"1st Interview":0,"2nd Interview":1,"Onsite":0,"Offer":0},"conversion_rates":[],"aging_candidates":[],"time_to_stage_days":{}},{"name":"unitQ","open_role_count":null,"total_active":1,"stage_counts":{"Recruiter Screen":0,"HM Review":0,"1st Interview":1,"2nd Interview":0,"Onsite":0,"Offer":0},"conversion_rates":[],"aging_candidates":[],"time_to_stage_days":{}},{"name":"Indent","open_role_count":null,"total_active":1,"stage_counts":{"Recruiter Screen":0,"HM Review":0,"1st Interview":0,"2nd Interview":0,"Onsite":1,"Offer":0},"conversion_rates":[],"aging_candidates":[],"time_to_stage_days":{}},{"name":"Pay-i","open_role_count":null,"total_active":1,"stage_counts":{"Recruiter Screen":0,"HM Review":1,"1st Interview":0,"2nd Interview":0,"Onsite":0,"Offer":0},"conversion_rates":[],"aging_candidates":[],"time_to_stage_days":{}},{"name":"Decagon","open_role_count":null,"total_active":1,"stage_counts":{"Recruiter Screen":0,"HM Review":0,"1st Interview":1,"2nd Interview":0,"Onsite":0,"Offer":0},"conversion_rates":[],"aging_candidates":[],"time_to_stage_days":{}},{"name":"Axiom","open_role_count":null,"total_active":1,"stage_counts":{"Recruiter Screen":0,"HM Review":0,"1st Interview":1,"2nd Interview":0,"Onsite":0,"Offer":0},"conversion_rates":[],"aging_candidates":[],"time_to_stage_days":{}},{"name":"Tanagram","open_role_count":null,"total_active":1,"stage_counts":{"Recruiter Screen":0,"HM Review":1,"1st Interview":0,"2nd Interview":0,"Onsite":0,"Offer":0},"conversion_rates":[],"aging_candidates":[],"time_to_stage_days":{}}],"recruiters":[{"name":"Dan Stein","title":"","submissions_this_week":32,"submissions_last_week":44,"total_active":82,"stage_counts":{"Recruiter Screen":38,"HM Review":12,"1st Interview":26,"2nd Interview":5,"Onsite":1,"Offer":0},"fy_onsites":1,"fy_offers":0,"win_rates":{"submitted_to_onsite":2.3,"submitted_to_offer":0.0},"submissions_by_client":[{"client":"Owner","count":17},{"client":"Base Power","count":14},{"client":"Known Dating","count":10},{"client":"Mercor","count":8},{"client":"Greater","count":7}],"aging_candidates":[{"full_name":"Nikita Chepik","linkedin_url":"https://linkedin.com/in/nikita-chepik","candidate_id":"Y2FuZGlkYXRlczoxNjczOTk4ODA=","client":"Greater","stage":"1st Interview","days_in_stage":515},{"full_name":"Pei-yi Lin","linkedin_url":"https://linkedin.com/in/pei-yi-lin-957024134","candidate_id":"Y2FuZGlkYXRlczoxNjczNjIxNDE=","client":"Owner","stage":"1st Interview","days_in_stage":290},{"full_name":"Anthony D'Alessandro","linkedin_url":"https://linkedin.com/in/anthonyjdalessandro","candidate_id":"Y2FuZGlkYXRlczoxNjczNDEyOTg=","client":"Greater","stage":"1st Interview","days_in_stage":234},{"full_name":"Anmol Kaur","linkedin_url":"https://linkedin.com/in/anmolpreet-kaur-b247101a4","candidate_id":"Y2FuZGlkYXRlczoyMDg5ODY0MDI=","client":"Charta Health","stage":"1st Interview","days_in_stage":55},{"full_name":"Andrew Stokes","linkedin_url":"https://linkedin.com/in/andrew-stokes-software-engineer","candidate_id":"Y2FuZGlkYXRlczoyMDI4ODk2MDM=","client":"Owner","stage":"1st Interview","days_in_stage":51},{"full_name":"KERRY CALLAHAN","linkedin_url":"","candidate_id":"Y2FuZGlkYXRlczoyMjI5MDg5MDk=","client":"Base Power","stage":"1st Interview","days_in_stage":35},{"full_name":"Sam Weinberger","linkedin_url":"https://linkedin.com/in/samweinberger93","candidate_id":"Y2FuZGlkYXRlczoxNjc0MTk0NTk=","client":"Base Power","stage":"1st Interview","days_in_stage":31},{"full_name":"Evan A Roney","linkedin_url":"https://linkedin.com/in/evan-roney","candidate_id":"Y2FuZGlkYXRlczoyMjI0MjcwNjg=","client":"Base Power","stage":"1st Interview","days_in_stage":31},{"full_name":"Samuel Zaduk","linkedin_url":"https://linkedin.com/in/samzaduk","candidate_id":"Y2FuZGlkYXRlczoyMjIyMTUwOTA=","client":"Base Power","stage":"1st Interview","days_in_stage":31},{"full_name":"You Z.","linkedin_url":"https://linkedin.com/in/you-z-08a77940","candidate_id":"Y2FuZGlkYXRlczoxNjczNTIzOTc=","client":"Endeavor","stage":"1st Interview","days_in_stage":31},{"full_name":"Noah Appel","linkedin_url":"https://linkedin.com/in/noahappel","candidate_id":"Y2FuZGlkYXRlczoxNjcxMjAyODM=","client":"Known Dating","stage":"2nd Interview","days_in_stage":25},{"full_name":"Viren Velacheri","linkedin_url":"https://linkedin.com/in/virenvelacheri","candidate_id":"Y2FuZGlkYXRlczoxOTAyMDY5ODU=","client":"Base Power","stage":"1st Interview","days_in_stage":22},{"full_name":"Sharhad Bashar","linkedin_url":"https://linkedin.com/in/sharhad-bashar","candidate_id":"Y2FuZGlkYXRlczoxOTA1OTAxNTU=","client":"Charta Health","stage":"1st Interview","days_in_stage":22},{"full_name":"Vivek Gade","linkedin_url":"https://linkedin.com/in/vivek-gade","candidate_id":"Y2FuZGlkYXRlczoyMDU3Nzk2MzY=","client":"Base Power","stage":"1st Interview","days_in_stage":21},{"full_name":"Juzheng Li","linkedin_url":"","candidate_id":"Y2FuZGlkYXRlczoyMjQ5MDMxOTA=","client":"Known Dating","stage":"2nd Interview","days_in_stage":15},{"full_name":"Sumukh Ramprasad","linkedin_url":"https://linkedin.com/in/sumukh-ramprasad","candidate_id":"Y2FuZGlkYXRlczoyMjYwNzU5NDU=","client":"Base Power","stage":"1st Interview","days_in_stage":13},{"full_name":"Bez Reyhan","linkedin_url":"https://linkedin.com/in/bez-reyhan-a08aa210","candidate_id":"Y2FuZGlkYXRlczoxNjczOTI4MzA=","client":"BuildOps","stage":"1st Interview","days_in_stage":10}]},{"name":"Val VanderLinden","title":"","submissions_this_week":17,"submissions_last_week":29,"total_active":72,"stage_counts":{"Recruiter Screen":41,"HM Review":9,"1st Interview":17,"2nd Interview":3,"Onsite":2,"Offer":0},"fy_onsites":2,"fy_offers":0,"win_rates":{"submitted_to_onsite":6.5,"submitted_to_offer":0.0},"submissions_by_client":[{"client":"Charta Health","count":12},{"client":"Mercor","count":12},{"client":"Junior","count":12},{"client":"Afterquery","count":6},{"client":"Owner","count":4}],"aging_candidates":[{"full_name":"Eli Kugelsky","linkedin_url":"https://linkedin.com/in/eli-kugelsky","candidate_id":"Y2FuZGlkYXRlczoyMTQ3NzAxMzg=","client":"Junior","stage":"1st Interview","days_in_stage":31},{"full_name":"Ivan Rivera","linkedin_url":"https://linkedin.com/in/ivaneduardorivera","candidate_id":"Y2FuZGlkYXRlczoyMTAyNjQzMjg=","client":"Charta Health","stage":"1st Interview","days_in_stage":27},{"full_name":"Samuel Cohen","linkedin_url":"https://linkedin.com/in/samuel-cohen-a82434251","candidate_id":"Y2FuZGlkYXRlczoyMjA3Nzc0MzM=","client":"Mercor","stage":"Onsite","days_in_stage":24},{"full_name":"Samuel Cohen","linkedin_url":"https://linkedin.com/in/samuel-cohen-a82434251","candidate_id":"Y2FuZGlkYXRlczoyMjA3Nzc0MzM=","client":"Afterquery","stage":"2nd Interview","days_in_stage":24},{"full_name":"Stephen Moon","linkedin_url":"https://linkedin.com/in/stephen-moon-86647b1b2","candidate_id":"Y2FuZGlkYXRlczoyMDQ1NDU2NzY=","client":"Endeavor","stage":"1st Interview","days_in_stage":22},{"full_name":"Luke Halko","linkedin_url":"https://linkedin.com/in/luke-halko-2b4b7a1a4","candidate_id":"Y2FuZGlkYXRlczoyMjI2MjkwOTg=","client":"Junior","stage":"1st Interview","days_in_stage":22},{"full_name":"Eli Kugelsky","linkedin_url":"https://linkedin.com/in/eli-kugelsky","candidate_id":"Y2FuZGlkYXRlczoyMTQ3NzAxMzg=","client":"Concourse","stage":"1st Interview","days_in_stage":21},{"full_name":"Stephen Moon","linkedin_url":"https://linkedin.com/in/stephen-moon-86647b1b2","candidate_id":"Y2FuZGlkYXRlczoyMDQ1NDU2NzY=","client":"Concourse","stage":"1st Interview","days_in_stage":21},{"full_name":"Stephen Moon","linkedin_url":"https://linkedin.com/in/stephen-moon-86647b1b2","candidate_id":"Y2FuZGlkYXRlczoyMDQ1NDU2NzY=","client":"Phia","stage":"1st Interview","days_in_stage":20},{"full_name":"Aadesh Bajaj","linkedin_url":"https://linkedin.com/in/aadesh-bajaj","candidate_id":"Y2FuZGlkYXRlczoyMDMwMTAwNjc=","client":"Concourse","stage":"1st Interview","days_in_stage":17},{"full_name":"Bal Krishna Oli","linkedin_url":"https://linkedin.com/in/bal-krishna-oli","candidate_id":"Y2FuZGlkYXRlczoxODcyMzgyMzQ=","client":"Charta Health","stage":"HM Review","days_in_stage":16},{"full_name":"Stephen Moon","linkedin_url":"https://linkedin.com/in/stephen-moon-86647b1b2","candidate_id":"Y2FuZGlkYXRlczoyMDQ1NDU2NzY=","client":"Known Dating","stage":"2nd Interview","days_in_stage":15},{"full_name":"Stephen Rice","linkedin_url":"https://linkedin.com/in/srice2","candidate_id":"Y2FuZGlkYXRlczoyMDA2MDU2NDU=","client":"Mercor","stage":"Onsite","days_in_stage":14},{"full_name":"Jay Devnani","linkedin_url":"https://linkedin.com/in/jay-devnani","candidate_id":"Y2FuZGlkYXRlczoyMDUxODUxMTM=","client":"Owner","stage":"2nd Interview","days_in_stage":10}]},{"name":"Meghan Roper","title":"","submissions_this_week":25,"submissions_last_week":48,"total_active":70,"stage_counts":{"Recruiter Screen":21,"HM Review":12,"1st Interview":17,"2nd Interview":10,"Onsite":10,"Offer":0},"fy_onsites":10,"fy_offers":0,"win_rates":{"submitted_to_onsite":20.4,"submitted_to_offer":0.0},"submissions_by_client":[{"client":"Mercor","count":12},{"client":"Giga","count":12},{"client":"Endeavor","count":5},{"client":"Known Dating","count":5},{"client":"Owner","count":4}],"aging_candidates":[{"full_name":"Lotanna O","linkedin_url":"https://linkedin.com/in/lotanna-okoli","candidate_id":"Y2FuZGlkYXRlczoyMDg5NzQwMjY=","client":"Owner","stage":"Onsite","days_in_stage":56},{"full_name":"Bharath Ramaprasad","linkedin_url":"https://linkedin.com/in/bharathramap","candidate_id":"Y2FuZGlkYXRlczoxNjczODI0NzI=","client":"Bond Studio","stage":"1st Interview","days_in_stage":48},{"full_name":"Wangyang Wu","linkedin_url":"https://linkedin.com/in/wangyangwu","candidate_id":"Y2FuZGlkYXRlczoxODk3MDMzMTM=","client":"Moonlake Labs","stage":"HM Review","days_in_stage":43},{"full_name":"Aman Dhesi","linkedin_url":"https://linkedin.com/in/amandhesi","candidate_id":"Y2FuZGlkYXRlczoyMDQwNDIxOTE=","client":"Mercor","stage":"Onsite","days_in_stage":36},{"full_name":"Shashank Srikanth","linkedin_url":"https://linkedin.com/in/shashanksrikanth","candidate_id":"Y2FuZGlkYXRlczoxODE1Mjk3NDQ=","client":"Mercor","stage":"Onsite","days_in_stage":36},{"full_name":"Wangyang Wu","linkedin_url":"https://linkedin.com/in/wangyangwu","candidate_id":"Y2FuZGlkYXRlczoxODk3MDMzMTM=","client":"Mercor","stage":"Onsite","days_in_stage":35},{"full_name":"Bharath Ramaprasad","linkedin_url":"https://linkedin.com/in/bharathramap","candidate_id":"Y2FuZGlkYXRlczoxNjczODI0NzI=","client":"Frec","stage":"2nd Interview","days_in_stage":29},{"full_name":"Zheyong Z","linkedin_url":"https://linkedin.com/in/jerryzhuzy","candidate_id":"Y2FuZGlkYXRlczoyMTQwMTQ3NjA=","client":"Charta Health","stage":"2nd Interview","days_in_stage":27},{"full_name":"Bharath Ramaprasad","linkedin_url":"https://linkedin.com/in/bharathramap","candidate_id":"Y2FuZGlkYXRlczoxNjczODI0NzI=","client":"Additive","stage":"1st Interview","days_in_stage":20},{"full_name":"Swad Kukunooru","linkedin_url":"https://linkedin.com/in/svadrut","candidate_id":"Y2FuZGlkYXRlczoyMjU2OTIwNjk=","client":"Endeavor","stage":"2nd Interview","days_in_stage":13},{"full_name":"Saif Jilani","linkedin_url":"https://linkedin.com/in/saif-jilani-b72b1076","candidate_id":"Y2FuZGlkYXRlczoxNjczMzM1NzM=","client":"Additive","stage":"2nd Interview","days_in_stage":10},{"full_name":"Parth Shettiwar","linkedin_url":"https://linkedin.com/in/parth-shettiwar-75a4a0167","candidate_id":"Y2FuZGlkYXRlczoxNzkwODI4MjY=","client":"Mercor","stage":"Onsite","days_in_stage":10},{"full_name":"Abhishek Dhakla","linkedin_url":"https://linkedin.com/in/abhishek-dhakla","candidate_id":"Y2FuZGlkYXRlczoyMDAxMzc5NDU=","client":"Owner","stage":"Onsite","days_in_stage":10},{"full_name":"Gautham Rajesh","linkedin_url":"https://linkedin.com/in/gautham-rajesh","candidate_id":"Y2FuZGlkYXRlczoyMTQyMzM5MTU=","client":"Mercor","stage":"Onsite","days_in_stage":10},{"full_name":"Jinesh Doshi","linkedin_url":"https://linkedin.com/in/jineshdoshi2610","candidate_id":"Y2FuZGlkYXRlczoxNjczNTk4NzI=","client":"Owner","stage":"1st Interview","days_in_stage":10},{"full_name":"Jinesh Doshi","linkedin_url":"https://linkedin.com/in/jineshdoshi2610","candidate_id":"Y2FuZGlkYXRlczoxNjczNTk4NzI=","client":"Charta Health","stage":"2nd Interview","days_in_stage":10},{"full_name":"Larry Xu","linkedin_url":"https://linkedin.com/in/larryx266","candidate_id":"Y2FuZGlkYXRlczoyMjI4MzM1OTU=","client":"Endeavor","stage":"2nd Interview","days_in_stage":10}]},{"name":"Krystin Warden","title":"","submissions_this_week":16,"submissions_last_week":20,"total_active":59,"stage_counts":{"Recruiter Screen":39,"HM Review":4,"1st Interview":11,"2nd Interview":3,"Onsite":2,"Offer":0},"fy_onsites":2,"fy_offers":0,"win_rates":{"submitted_to_onsite":10.0,"submitted_to_offer":0.0},"submissions_by_client":[{"client":"Hex","count":17},{"client":"Mercor","count":11},{"client":"Edison Scientific","count":7},{"client":"Giga","count":7},{"client":"Owner","count":6}],"aging_candidates":[{"full_name":"Tushar Mhalsekar","linkedin_url":"https://linkedin.com/in/tusharmhalsekar","candidate_id":"Y2FuZGlkYXRlczoxOTExNjgyNTg=","client":"Mercor","stage":"1st Interview","days_in_stage":14},{"full_name":"Armaan Danewalia","linkedin_url":"https://linkedin.com/in/armaandanewalia","candidate_id":"Y2FuZGlkYXRlczoyMDE3MTU0Njk=","client":"Mercor","stage":"1st Interview","days_in_stage":11}]},{"name":"Nicole Starrantino","title":"","submissions_this_week":25,"submissions_last_week":41,"total_active":52,"stage_counts":{"Recruiter Screen":11,"HM Review":3,"1st Interview":17,"2nd Interview":7,"Onsite":14,"Offer":0},"fy_onsites":14,"fy_offers":0,"win_rates":{"submitted_to_onsite":34.1,"submitted_to_offer":0.0},"submissions_by_client":[{"client":"Mercor","count":16},{"client":"Charta Health","count":13},{"client":"Junior","count":3},{"client":"Fleet","count":3},{"client":"Giga","count":2}],"aging_candidates":[{"full_name":"Guangyu Yang","linkedin_url":"https://linkedin.com/in/guangyu-yang-0b3a7845","candidate_id":"Y2FuZGlkYXRlczoxODc3NjA0ODg=","client":"Additive","stage":"1st Interview","days_in_stage":79},{"full_name":"Kanishk Dutta","linkedin_url":"https://linkedin.com/in/duttakanishk","candidate_id":"Y2FuZGlkYXRlczoyMjEyNTAzMzY=","client":"Mercor","stage":"1st Interview","days_in_stage":36},{"full_name":"Kanika Dutta","linkedin_url":"https://linkedin.com/in/kanikadutta","candidate_id":"Y2FuZGlkYXRlczoxODE1NzY4MTI=","client":"Mercor","stage":"Onsite","days_in_stage":27},{"full_name":"Surbhi Dang","linkedin_url":"https://linkedin.com/in/surbhi-dang","candidate_id":"Y2FuZGlkYXRlczoxODIxOTE3Nzk=","client":"Mercor","stage":"Onsite","days_in_stage":24},{"full_name":"Kimberly Collins","linkedin_url":"https://linkedin.com/in/kimberlygcollins","candidate_id":"Y2FuZGlkYXRlczoyMTkyMDQwMDM=","client":"Charta Health","stage":"Onsite","days_in_stage":23},{"full_name":"William Han","linkedin_url":"https://linkedin.com/in/williamhan7244","candidate_id":"Y2FuZGlkYXRlczoxNzc4Mzk3NTE=","client":"Charta Health","stage":"Onsite","days_in_stage":20},{"full_name":"Keya Varia","linkedin_url":"https://linkedin.com/in/keya-varia-79418a127","candidate_id":"Y2FuZGlkYXRlczoxOTYzNzM1NjE=","client":"Mercor","stage":"Onsite","days_in_stage":20},{"full_name":"Nten Nyiam","linkedin_url":"https://linkedin.com/in/ntenyiam","candidate_id":"Y2FuZGlkYXRlczoxODY3Mjg3NTI=","client":"Charta Health","stage":"Onsite","days_in_stage":20},{"full_name":"Anthony Diké","linkedin_url":"https://linkedin.com/in/antdke","candidate_id":"Y2FuZGlkYXRlczoxOTQ5MTY5NTM=","client":"Junior","stage":"1st Interview","days_in_stage":15},{"full_name":"Mariel Aquino","linkedin_url":"https://linkedin.com/in/marielaquino","candidate_id":"Y2FuZGlkYXRlczoxNjc0MDU3MTg=","client":"Junior","stage":"1st Interview","days_in_stage":15},{"full_name":"Liren Zhu","linkedin_url":"https://linkedin.com/in/liren-zhu-92b00247","candidate_id":"Y2FuZGlkYXRlczoxOTg3NDQ2Mjk=","client":"Weave Bio","stage":"2nd Interview","days_in_stage":14},{"full_name":"Mariel Aquino","linkedin_url":"https://linkedin.com/in/marielaquino","candidate_id":"Y2FuZGlkYXRlczoxNjc0MDU3MTg=","client":"Fleet","stage":"1st Interview","days_in_stage":14},{"full_name":"Kevin Yu-Kai C.","linkedin_url":"https://linkedin.com/in/kevin-yu-kai-c-5732a4110","candidate_id":"Y2FuZGlkYXRlczoxNzM0ODUyODc=","client":"Mercor","stage":"Onsite","days_in_stage":13},{"full_name":"William Han","linkedin_url":"https://linkedin.com/in/williamhan7244","candidate_id":"Y2FuZGlkYXRlczoxNzc4Mzk3NTE=","client":"Mercor","stage":"Onsite","days_in_stage":10},{"full_name":"Mariel Aquino","linkedin_url":"https://linkedin.com/in/marielaquino","candidate_id":"Y2FuZGlkYXRlczoxNjc0MDU3MTg=","client":"Giga","stage":"1st Interview","days_in_stage":10}]},{"name":"TJ Lee","title":"","submissions_this_week":6,"submissions_last_week":17,"total_active":38,"stage_counts":{"Recruiter Screen":21,"HM Review":10,"1st Interview":5,"2nd Interview":1,"Onsite":1,"Offer":0},"fy_onsites":1,"fy_offers":0,"win_rates":{"submitted_to_onsite":5.9,"submitted_to_offer":0.0},"submissions_by_client":[{"client":"Charta Health","count":14},{"client":"Mercor","count":10},{"client":"Hex","count":3},{"client":"Endeavor","count":2},{"client":"Additive","count":2}],"aging_candidates":[{"full_name":"Myles Gámez","linkedin_url":"https://linkedin.com/in/mylesgamez","candidate_id":"Y2FuZGlkYXRlczoxNjc0ODM2NjY=","client":"Paraform","stage":"HM Review","days_in_stage":14},{"full_name":"Myles Gámez","linkedin_url":"https://linkedin.com/in/mylesgamez","candidate_id":"Y2FuZGlkYXRlczoxNjc0ODM2NjY=","client":"Endeavor","stage":"1st Interview","days_in_stage":13},{"full_name":"Myles Gámez","linkedin_url":"https://linkedin.com/in/mylesgamez","candidate_id":"Y2FuZGlkYXRlczoxNjc0ODM2NjY=","client":"Mercor","stage":"1st Interview","days_in_stage":13},{"full_name":"Sangjun Yum","linkedin_url":"https://linkedin.com/in/sjyum","candidate_id":"Y2FuZGlkYXRlczoxNzU5ODU4NzY=","client":"Charta Health","stage":"1st Interview","days_in_stage":10},{"full_name":"Priyanka Dhaka","linkedin_url":"https://linkedin.com/in/priyanka-dhaka-91b76b2b","candidate_id":"Y2FuZGlkYXRlczoyMjY5NDIxOTg=","client":"Mercor","stage":"HM Review","days_in_stage":10}]},{"name":"Shannae Brydon","title":"","submissions_this_week":13,"submissions_last_week":22,"total_active":31,"stage_counts":{"Recruiter Screen":8,"HM Review":6,"1st Interview":7,"2nd Interview":5,"Onsite":5,"Offer":0},"fy_onsites":5,"fy_offers":0,"win_rates":{"submitted_to_onsite":21.7,"submitted_to_offer":0.0},"submissions_by_client":[{"client":"Mercor","count":9},{"client":"Owner","count":4},{"client":"Paraform","count":2},{"client":"Additive","count":2},{"client":"Eluve","count":2}],"aging_candidates":[{"full_name":"Enming Luo","linkedin_url":"https://linkedin.com/in/enming-luo-a1018614","candidate_id":"Y2FuZGlkYXRlczoyMDY5NzA0OTM=","client":"Mercor","stage":"Onsite","days_in_stage":126},{"full_name":"Vijay A","linkedin_url":"https://linkedin.com/in/vijayalexander","candidate_id":"Y2FuZGlkYXRlczoxNjc0MTc3MTU=","client":"Mercor","stage":"Onsite","days_in_stage":42},{"full_name":"Johari Wiggins","linkedin_url":"https://linkedin.com/in/johari-wiggins-2833b332","candidate_id":"Y2FuZGlkYXRlczoxNjczNTk0Njc=","client":"Mercor","stage":"Onsite","days_in_stage":30},{"full_name":"Matteo Agius-D'Arrigo","linkedin_url":"https://linkedin.com/in/magiusdarrigo","candidate_id":"Y2FuZGlkYXRlczoxNzYxMTM5NjQ=","client":"Antimetal","stage":"1st Interview","days_in_stage":16},{"full_name":"Matteo Agius-D'Arrigo","linkedin_url":"https://linkedin.com/in/magiusdarrigo","candidate_id":"Y2FuZGlkYXRlczoxNzYxMTM5NjQ=","client":"Junior","stage":"1st Interview","days_in_stage":15},{"full_name":"Maksym Karunos","linkedin_url":"https://linkedin.com/in/maksymkarunos","candidate_id":"Y2FuZGlkYXRlczoyMDcxNjA2Njg=","client":"Owner","stage":"Onsite","days_in_stage":15},{"full_name":"Maksym Karunos","linkedin_url":"https://linkedin.com/in/maksymkarunos","candidate_id":"Y2FuZGlkYXRlczoyMDcxNjA2Njg=","client":"Mercor","stage":"Onsite","days_in_stage":13}]},{"name":"Paul Sledd","title":"","submissions_this_week":28,"submissions_last_week":30,"total_active":30,"stage_counts":{"Recruiter Screen":0,"HM Review":10,"1st Interview":10,"2nd Interview":2,"Onsite":7,"Offer":1},"fy_onsites":7,"fy_offers":1,"win_rates":{"submitted_to_onsite":26.7,"submitted_to_offer":3.3},"submissions_by_client":[{"client":"Mercor","count":12},{"client":"Hex","count":9},{"client":"Additive","count":4},{"client":"GPTZero","count":1},{"client":"Base Power","count":1}],"aging_candidates":[{"full_name":"Radhika Parthasarathy","linkedin_url":"https://linkedin.com/in/radhikapartha","candidate_id":"Y2FuZGlkYXRlczoxNjc0Mzg0NDU=","client":"Mercor","stage":"Onsite","days_in_stage":81},{"full_name":"Udit Saxena","linkedin_url":"https://linkedin.com/in/udit-saxena-29862918","candidate_id":"Y2FuZGlkYXRlczoxNjczMzcyMTE=","client":"Mercor","stage":"Onsite","days_in_stage":36},{"full_name":"Xiaoxiao Li","linkedin_url":"https://linkedin.com/in/xiaoxiao-li-01762298","candidate_id":"Y2FuZGlkYXRlczoxODI2MDQxNzc=","client":"Charta Health","stage":"1st Interview","days_in_stage":13},{"full_name":"Karthik Manamcheri","linkedin_url":"https://linkedin.com/in/kmanamcheri","candidate_id":"Y2FuZGlkYXRlczoxNjc0OTI1OTE=","client":"Base Power","stage":"Onsite","days_in_stage":10},{"full_name":"Xiaoxiao Li","linkedin_url":"https://linkedin.com/in/xiaoxiao-li-01762298","candidate_id":"Y2FuZGlkYXRlczoxODI2MDQxNzc=","client":"Mercor","stage":"1st Interview","days_in_stage":10}]},{"name":"Ryan Grudnitski","title":"","submissions_this_week":13,"submissions_last_week":22,"total_active":29,"stage_counts":{"Recruiter Screen":7,"HM Review":9,"1st Interview":10,"2nd Interview":1,"Onsite":2,"Offer":0},"fy_onsites":2,"fy_offers":0,"win_rates":{"submitted_to_onsite":9.1,"submitted_to_offer":0.0},"submissions_by_client":[{"client":"Mercor","count":10},{"client":"Hex","count":6},{"client":"Edison Scientific","count":3},{"client":"Fleet","count":3},{"client":"FutureHouse","count":2}],"aging_candidates":[{"full_name":"Xinghai Hu","linkedin_url":"https://linkedin.com/in/xinghai-h-80316360","candidate_id":"Y2FuZGlkYXRlczoxOTczMTA5NTk=","client":"Mercor","stage":"Onsite","days_in_stage":51},{"full_name":"Vikram Agrawal","linkedin_url":"https://linkedin.com/in/vikram-agrawal","candidate_id":"Y2FuZGlkYXRlczoyMTgwNjE0ODM=","client":"Mercor","stage":"Onsite","days_in_stage":43},{"full_name":"Kathan Shah","linkedin_url":"https://linkedin.com/in/kathans","candidate_id":"Y2FuZGlkYXRlczoxODE5MjAwODI=","client":"Mercor","stage":"1st Interview","days_in_stage":23},{"full_name":"Nitish Natarajan","linkedin_url":"https://linkedin.com/in/nitish-natarajan","candidate_id":"Y2FuZGlkYXRlczoxODgwNjkwNzM=","client":"Edison Scientific","stage":"1st Interview","days_in_stage":23},{"full_name":"Matthew Nguyen","linkedin_url":"https://linkedin.com/in/matt-ngyn","candidate_id":"Y2FuZGlkYXRlczoyMjYwMjY1MzM=","client":"Mercor","stage":"1st Interview","days_in_stage":16},{"full_name":"Ryan Dushane","linkedin_url":"https://linkedin.com/in/ryndshn","candidate_id":"Y2FuZGlkYXRlczoxODg4MTEzMDc=","client":"Eluve","stage":"2nd Interview","days_in_stage":14}]},{"name":"Kyle Holin","title":"","submissions_this_week":5,"submissions_last_week":9,"total_active":25,"stage_counts":{"Recruiter Screen":15,"HM Review":5,"1st Interview":3,"2nd Interview":1,"Onsite":1,"Offer":0},"fy_onsites":1,"fy_offers":0,"win_rates":{"submitted_to_onsite":10.0,"submitted_to_offer":0.0},"submissions_by_client":[{"client":"Eluve","count":9},{"client":"Owner","count":3},{"client":"Afterquery","count":2},{"client":"Additive","count":2},{"client":"Hex","count":2}],"aging_candidates":[{"full_name":"Conner Frey","linkedin_url":"https://linkedin.com/in/connerfrey","candidate_id":"Y2FuZGlkYXRlczoxNjc0NjU3OTQ=","client":"BuildOps","stage":"Recruiter Screen","days_in_stage":13},{"full_name":"Lucy Yu","linkedin_url":"https://linkedin.com/in/lucyyu2","candidate_id":"Y2FuZGlkYXRlczoyMjAyMjg2ODg=","client":"Antimetal","stage":"Onsite","days_in_stage":10},{"full_name":"Jack Sanders","linkedin_url":"https://linkedin.com/in/jack-sanders-ba8661155","candidate_id":"Y2FuZGlkYXRlczoyMjQwNTIyODI=","client":"Eluve","stage":"1st Interview","days_in_stage":10}]},{"name":"Kavya Ganesh","title":"","submissions_this_week":2,"submissions_last_week":2,"total_active":7,"stage_counts":{"Recruiter Screen":5,"HM Review":0,"1st Interview":2,"2nd Interview":0,"Onsite":0,"Offer":0},"fy_onsites":0,"fy_offers":0,"win_rates":{"submitted_to_onsite":0.0,"submitted_to_offer":0.0},"submissions_by_client":[{"client":"Greater","count":7}],"aging_candidates":[{"full_name":"Anand N","linkedin_url":"https://linkedin.com/in/anandnk13","candidate_id":"Y2FuZGlkYXRlczoxNjczMzA0NzQ=","client":"Greater","stage":"1st Interview","days_in_stage":484},{"full_name":"Ryan Chan","linkedin_url":"https://linkedin.com/in/ryan-chan-447781142","candidate_id":"Y2FuZGlkYXRlczoxNjczNzM1NzY=","client":"Greater","stage":"1st Interview","days_in_stage":470}]}],"global_conversion_rates":{"Recruiter Screen \u2192 HM Review":{"rate":46.7,"numerator":12854,"denominator":27552},"HM Review \u2192 1st Interview":{"rate":70.2,"numerator":9028,"denominator":12854},"1st Interview \u2192 2nd Interview":{"rate":48.4,"numerator":4366,"denominator":9028},"2nd Interview \u2192 Onsite":{"rate":60.8,"numerator":2654,"denominator":4366},"Onsite \u2192 Offer":{"rate":32.7,"numerator":869,"denominator":2654}}};
 
 document.addEventListener('DOMContentLoaded', function() {
   // Tab switching
@@ -381,285 +289,279 @@ document.addEventListener('DOMContentLoaded', function() {
   buildAgingTable();
   buildRecruiterCards();
   buildLeaderboardTable();
-  buildRecruiterAgingGroups();
+  buildRecruiterAgingSection();
   initCharts();
 });
 
-function nameLink(full_name, linkedin_url) {
-  var display = full_name || 'Unknown';
-  if (linkedin_url && linkedin_url.trim() !== '') {
-    return '<a href="' + linkedin_url + '" target="_blank">' + display + '</a>';
+function candidateNameHtml(full_name, linkedin_url, candidate_id) {
+  var display = (full_name && full_name !== candidate_id && !full_name.startsWith('Y2Fh') && full_name.length < 60 && !full_name.match(/^[A-Za-z0-9+/]{20,}={0,2}$/)) ? full_name : (candidate_id ? candidate_id.slice(0,12)+'…' : 'Unknown');
+  // Check if the full_name looks like a base64 id
+  if (full_name && full_name === candidate_id) {
+    display = candidate_id ? candidate_id.slice(0,12)+'…' : 'Unknown';
   }
-  return display;
+  if (linkedin_url && linkedin_url.trim() !== '') {
+    return '<a href="' + linkedin_url + '" target="_blank">' + escHtml(display) + '</a>';
+  }
+  return escHtml(display);
 }
 
-function stageBadge(stage) {
-  var cls = 'sb-rs';
-  if (stage === 'HM Review') cls = 'sb-hmr';
-  else if (stage === '1st Interview') cls = 'sb-1st';
-  else if (stage === '2nd Interview') cls = 'sb-2nd';
-  else if (stage === 'Onsite') cls = 'sb-on';
-  else if (stage === 'Offer') cls = 'sb-off';
-  return '<span class="stage-badge ' + cls + '">' + stage + '</span>';
+function escHtml(str) {
+  return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
 
-function daysBadge(days) {
-  if (days >= 14) return '<span class="badge badge-red">' + days + 'd</span>';
-  if (days >= 10) return '<span class="badge badge-orange">' + days + 'd</span>';
-  return '<span class="badge badge-gray">' + days + 'd</span>';
+function isBase64Id(str) {
+  return str && /^[A-Za-z0-9+/]{20,}={0,2}$/.test(str);
 }
 
-// ===================== CLIENT TABLE =====================
-var clientSortCol = 'total';
-var clientSortDir = -1;
+function getDisplayName(full_name, candidate_id) {
+  if (!full_name || full_name === candidate_id || isBase64Id(full_name)) {
+    return candidate_id ? candidate_id.slice(0,14)+'…' : 'Unknown';
+  }
+  return full_name;
+}
 
 function buildClientTable() {
   var tbody = document.getElementById('client-tbody');
-  tbody.innerHTML = '';
-  var rows = data.clients.map(function(c) {
-    return {
-      name: c.name,
-      total: c.total_active,
-      rs: c.stage_counts['Recruiter Screen'] || 0,
-      hmr: c.stage_counts['HM Review'] || 0,
-      first: c.stage_counts['1st Interview'] || 0,
-      second: c.stage_counts['2nd Interview'] || 0,
-      onsite: c.stage_counts['Onsite'] || 0,
-      offer: c.stage_counts['Offer'] || 0
-    };
-  });
+  var clients = data.clients.slice();
+  var sortCol = 'total';
+  var sortDir = -1;
 
-  rows.sort(function(a,b) {
-    var av = a[clientSortCol], bv = b[clientSortCol];
-    if (typeof av === 'string') return clientSortDir * av.localeCompare(bv);
-    return clientSortDir * (bv - av);
-  });
+  function renderRows() {
+    tbody.innerHTML = '';
+    clients.sort(function(a,b) {
+      var av, bv;
+      if (sortCol === 'name') { av = a.name; bv = b.name; return sortDir * av.localeCompare(bv); }
+      if (sortCol === 'total') { av = a.total_active; bv = b.total_active; }
+      else if (sortCol === 'rs') { av = a.stage_counts['Recruiter Screen']||0; bv = b.stage_counts['Recruiter Screen']||0; }
+      else if (sortCol === 'hmr') { av = a.stage_counts['HM Review']||0; bv = b.stage_counts['HM Review']||0; }
+      else if (sortCol === 'first') { av = a.stage_counts['1st Interview']||0; bv = b.stage_counts['1st Interview']||0; }
+      else if (sortCol === 'second') { av = a.stage_counts['2nd Interview']||0; bv = b.stage_counts['2nd Interview']||0; }
+      else if (sortCol === 'onsite') { av = a.stage_counts['Onsite']||0; bv = b.stage_counts['Onsite']||0; }
+      else if (sortCol === 'offer') { av = a.stage_counts['Offer']||0; bv = b.stage_counts['Offer']||0; }
+      else { av = 0; bv = 0; }
+      return sortDir * (av - bv);
+    });
+    clients.forEach(function(c) {
+      var tr = document.createElement('tr');
+      var offer = c.stage_counts['Offer']||0;
+      tr.innerHTML = '<td style="font-weight:500;">' + escHtml(c.name) + '</td>' +
+        '<td><strong>' + c.total_active + '</strong></td>' +
+        '<td>' + (c.stage_counts['Recruiter Screen']||0) + '</td>' +
+        '<td>' + (c.stage_counts['HM Review']||0) + '</td>' +
+        '<td>' + (c.stage_counts['1st Interview']||0) + '</td>' +
+        '<td>' + (c.stage_counts['2nd Interview']||0) + '</td>' +
+        '<td>' + (c.stage_counts['Onsite']||0) + '</td>' +
+        '<td>' + (offer > 0 ? '<span class="badge badge-green">'+offer+'</span>' : '0') + '</td>';
+      tbody.appendChild(tr);
+    });
+  }
 
-  rows.forEach(function(r) {
-    var tr = document.createElement('tr');
-    tr.innerHTML = '<td style="font-weight:600">' + r.name + '</td>' +
-      '<td><strong>' + r.total + '</strong></td>' +
-      '<td>' + (r.rs > 0 ? '<span class="badge badge-blue">' + r.rs + '</span>' : '<span style="color:#8b949e">—</span>') + '</td>' +
-      '<td>' + (r.hmr > 0 ? '<span class="badge badge-purple">' + r.hmr + '</span>' : '<span style="color:#8b949e">—</span>') + '</td>' +
-      '<td>' + (r.first > 0 ? '<span class="badge badge-green">' + r.first + '</span>' : '<span style="color:#8b949e">—</span>') + '</td>' +
-      '<td>' + (r.second > 0 ? '<span class="badge badge-orange">' + r.second + '</span>' : '<span style="color:#8b949e">—</span>') + '</td>' +
-      '<td>' + (r.onsite > 0 ? '<span class="badge" style="background:#3a1a0a;color:#f0883e">' + r.onsite + '</span>' : '<span style="color:#8b949e">—</span>') + '</td>' +
-      '<td>' + (r.offer > 0 ? '<span class="badge badge-red">' + r.offer + '</span>' : '<span style="color:#8b949e">—</span>') + '</td>';
-    tbody.appendChild(tr);
-  });
+  renderRows();
 
-  // Sortable headers
-  document.querySelectorAll('#client-table th').forEach(function(th) {
+  document.querySelectorAll('#client-table thead th').forEach(function(th) {
     th.addEventListener('click', function() {
       var col = this.dataset.col;
-      if (clientSortCol === col) { clientSortDir *= -1; }
-      else { clientSortCol = col; clientSortDir = -1; }
-      buildClientTable();
+      if (sortCol === col) { sortDir *= -1; }
+      else { sortCol = col; sortDir = -1; }
+      document.querySelectorAll('#client-table thead th').forEach(function(t) {
+        t.classList.remove('sort-asc','sort-desc');
+        t.querySelector('.sort-icon').textContent = '↕';
+      });
+      this.classList.add(sortDir === 1 ? 'sort-asc' : 'sort-desc');
+      this.querySelector('.sort-icon').textContent = sortDir === 1 ? '↑' : '↓';
+      renderRows();
     });
   });
 }
 
-// ===================== CONVERSION TABLE =====================
 function buildConversionTable() {
   var tbody = document.getElementById('conv-tbody');
-  var gcr = data.global_conversion_rates;
-  Object.keys(gcr).forEach(function(key) {
-    var cr = gcr[key];
-    var isLow = cr.rate < 20;
+  var rates = data.global_conversion_rates;
+  var order = ['Recruiter Screen \u2192 HM Review','HM Review \u2192 1st Interview','1st Interview \u2192 2nd Interview','2nd Interview \u2192 Onsite','Onsite \u2192 Offer'];
+  order.forEach(function(key) {
+    var r = rates[key];
+    if (!r) return;
     var tr = document.createElement('tr');
-    tr.innerHTML = '<td>' + key + '</td>' +
-      '<td style="color:' + (isLow ? '#f85149' : (cr.rate >= 70 ? '#3fb950' : '#e3b341')) + ';font-weight:700">' + cr.rate.toFixed(1) + '%</td>' +
-      '<td>' + cr.numerator + '</td>' +
-      '<td>' + cr.denominator + '</td>';
+    var rateClass = r.rate < 20 ? 'rate-low' : '';
+    tr.innerHTML = '<td>' + escHtml(key) + '</td>' +
+      '<td class="' + rateClass + '">' + r.rate.toFixed(1) + '%' + (r.rate < 20 ? ' ⚠️' : '') + '</td>' +
+      '<td>' + r.numerator.toLocaleString() + '</td>' +
+      '<td>' + r.denominator.toLocaleString() + '</td>';
     tbody.appendChild(tr);
   });
 }
 
-// ===================== AGING TABLE =====================
 function buildAgingTable() {
   var tbody = document.getElementById('aging-tbody');
   var allAging = [];
   data.clients.forEach(function(c) {
     (c.aging_candidates || []).forEach(function(a) {
-      allAging.push({
-        full_name: a.full_name,
-        linkedin_url: a.linkedin_url || '',
-        client: c.name,
-        stage: a.stage,
-        recruiter: a.recruiter || '—',
-        days: a.days_in_stage
-      });
+      allAging.push({ client: c.name, candidate: a });
     });
   });
-  allAging.sort(function(a,b) { return b.days - a.days; });
-
-  allAging.forEach(function(a) {
+  allAging.sort(function(a,b) { return b.candidate.days_in_stage - a.candidate.days_in_stage; });
+  allAging.forEach(function(item) {
+    var a = item.candidate;
     var tr = document.createElement('tr');
-    if (a.days >= 14) tr.classList.add('row-red');
-    else if (a.days >= 10) tr.classList.add('row-orange');
-    tr.innerHTML = '<td>' + nameLink(a.full_name, a.linkedin_url) + '</td>' +
-      '<td>' + a.client + '</td>' +
-      '<td>' + stageBadge(a.stage) + '</td>' +
-      '<td style="color:#8b949e">' + a.recruiter + '</td>' +
-      '<td>' + daysBadge(a.days) + '</td>';
+    if (a.days_in_stage >= 14) tr.classList.add('row-red');
+    else if (a.days_in_stage >= 10) tr.classList.add('row-orange');
+    var nameHtml = candidateNameHtml(a.full_name, a.linkedin_url, a.candidate_id);
+    var daysBadge = a.days_in_stage >= 14 
+      ? '<span class="badge badge-red">' + a.days_in_stage + 'd</span>'
+      : '<span class="badge badge-orange">' + a.days_in_stage + 'd</span>';
+    tr.innerHTML = '<td>' + nameHtml + '</td>' +
+      '<td>' + escHtml(item.client) + '</td>' +
+      '<td><span class="badge badge-gray">' + escHtml(a.stage) + '</span></td>' +
+      '<td>' + escHtml(a.recruiter || '—') + '</td>' +
+      '<td>' + daysBadge + '</td>';
     tbody.appendChild(tr);
   });
 }
-
-// ===================== RECRUITER CARDS =====================
-var SKIP_RECRUITERS = ['Unknown', 'Jake Flohr', 'Sarah Keller'];
 
 function buildRecruiterCards() {
+  var skipList = ['Unknown','Jake Flohr','Sarah Keller'];
   var container = document.getElementById('recruiter-cards');
-  var activeRecruiters = data.recruiters.filter(function(r) {
-    return SKIP_RECRUITERS.indexOf(r.name) === -1;
-  });
+  var recruiters = data.recruiters.filter(function(r) { return skipList.indexOf(r.name) === -1; });
+  recruiters.sort(function(a,b) { return b.submissions_this_week - a.submissions_this_week; });
 
-  activeRecruiters.forEach(function(r) {
-    var sc = r.stage_counts || {};
-    var total = r.total_active || 0;
-    var stages = [
-      {key:'Recruiter Screen', cls:'sb-rs', label:'RS'},
-      {key:'HM Review', cls:'sb-hmr', label:'HMR'},
-      {key:'1st Interview', cls:'sb-1st', label:'1st'},
-      {key:'2nd Interview', cls:'sb-2nd', label:'2nd'},
-      {key:'Onsite', cls:'sb-on', label:'On'},
-      {key:'Offer', cls:'sb-off', label:'Off'}
-    ];
+  var stages = ['Recruiter Screen','HM Review','1st Interview','2nd Interview','Onsite','Offer'];
+  var stageShort = ['RS','HMR','1st','2nd','On','Ofr'];
 
-    var pipelineHtml = stages.map(function(s) {
-      var count = sc[s.key] || 0;
-      if (count === 0) return '';
-      return '<span class="stage-badge ' + s.cls + '">' + s.label + ':' + count + '</span>';
-    }).join(' ');
+  recruiters.forEach(function(r) {
+    var div = document.createElement('div');
+    div.className = 'recruiter-card';
 
-    var top3 = (r.submissions_by_client || []).slice(0,3).map(function(x) {
-      return '<span>' + x.client + ' <strong>(' + x.count + ')</strong></span>';
-    }).join(', ');
+    var delta = r.submissions_this_week - r.submissions_last_week;
+    var deltaHtml = delta >= 0
+      ? '<span class="badge badge-green">+' + delta + '</span>'
+      : '<span class="badge badge-red">' + delta + '</span>';
 
-    var card = document.createElement('div');
-    card.className = 'recruiter-card';
-    card.innerHTML = '<div class="recruiter-card-header">' +
-      '<div class="recruiter-name">' + r.name + '</div>' +
-      '<span class="badge badge-green">Active</span>' +
-    '</div>' +
-    '<div class="stat-row">' +
-      '<div class="stat-item"><div class="stat-label">This Week</div><div class="stat-value" style="color:#3fb950">' + (r.submissions_this_week || 0) + '</div></div>' +
-      '<div class="stat-item"><div class="stat-label">Last Week</div><div class="stat-value" style="color:#8b949e">' + (r.submissions_last_week !== null && r.submissions_last_week !== undefined ? r.submissions_last_week : '—') + '</div></div>' +
-      '<div class="stat-item"><div class="stat-label">Total Active</div><div class="stat-value">' + total + '</div></div>' +
-      '<div class="stat-item"><div class="stat-label">Onsites</div><div class="stat-value" style="color:#f0883e">' + (r.fy_onsites || 0) + '</div></div>' +
-      '<div class="stat-item"><div class="stat-label">Offers</div><div class="stat-value" style="color:#f85149">' + (r.fy_offers || 0) + '</div></div>' +
-    '</div>' +
-    '<div class="mini-pipeline" style="margin-bottom:10px">' + pipelineHtml + '</div>' +
-    '<div class="top-clients">Top clients: ' + top3 + '</div>';
-    container.appendChild(card);
+    var maxStage = Math.max.apply(null, stages.map(function(s) { return r.stage_counts[s]||0; }));
+    var barHtml = '<div style="display:flex;gap:3px;margin-top:8px;">';
+    stages.forEach(function(s, i) {
+      var val = r.stage_counts[s] || 0;
+      var pct = maxStage > 0 ? Math.round((val/maxStage)*100) : 0;
+      barHtml += '<div style="flex:1;text-align:center;">';
+      barHtml += '<div style="height:32px;display:flex;align-items:flex-end;justify-content:center;">';
+      barHtml += '<div style="width:100%;background:rgba(35,134,54,0.6);height:' + Math.max(2,pct*0.32) + 'px;border-radius:2px 2px 0 0;"></div>';
+      barHtml += '</div>';
+      barHtml += '<div style="font-size:10px;color:#8b949e;margin-top:2px;">' + stageShort[i] + '</div>';
+      barHtml += '<div style="font-size:11px;color:#e6edf3;font-weight:600;">' + val + '</div>';
+      barHtml += '</div>';
+    });
+    barHtml += '</div>';
+
+    var topClients = (r.submissions_by_client || []).slice(0,3).map(function(x) {
+      return '<span class="client-tag">' + escHtml(x.client) + ' <strong style="color:#e6edf3">' + x.count + '</strong></span>';
+    }).join('');
+
+    var onsiteOffer = (r.stage_counts['Onsite']||0) + (r.stage_counts['Offer']||0);
+
+    div.innerHTML = '<div class="recruiter-card-header">' +
+      '<div><div class="recruiter-name">' + escHtml(r.name) + '</div>' +
+      '<div class="recruiter-meta">Active: ' + r.total_active + ' &nbsp;·&nbsp; Onsite+Offer: ' + onsiteOffer + '</div></div>' +
+      deltaHtml +
+      '</div>' +
+      '<div class="recruiter-stats">' +
+      '<div class="recruiter-stat"><div class="recruiter-stat-val">' + r.submissions_this_week + '</div><div class="recruiter-stat-label">This Wk</div></div>' +
+      '<div class="recruiter-stat"><div class="recruiter-stat-val">' + r.submissions_last_week + '</div><div class="recruiter-stat-label">Last Wk</div></div>' +
+      '<div class="recruiter-stat"><div class="recruiter-stat-val" style="color:#3fb950;">' + (r.fy_onsites||0) + '</div><div class="recruiter-stat-label">Onsites</div></div>' +
+      '<div class="recruiter-stat"><div class="recruiter-stat-val" style="color:' + (r.fy_offers > 0 ? '#3fb950' : '#8b949e') + ';">' + (r.fy_offers||0) + '</div><div class="recruiter-stat-label">Offers</div></div>' +
+      '</div>' +
+      barHtml +
+      '<div class="top-clients" style="margin-top:10px;">' + topClients + '</div>';
+
+    container.appendChild(div);
   });
 }
 
-// ===================== LEADERBOARD TABLE =====================
 function buildLeaderboardTable() {
+  var skipList = ['Unknown','Jake Flohr','Sarah Keller'];
   var tbody = document.getElementById('leaderboard-tbody');
-  var activeRecruiters = data.recruiters.filter(function(r) {
-    return SKIP_RECRUITERS.indexOf(r.name) === -1;
-  });
-  activeRecruiters.sort(function(a,b) { return (b.submissions_this_week||0) - (a.submissions_this_week||0); });
+  var recruiters = data.recruiters.filter(function(r) { return skipList.indexOf(r.name) === -1; });
+  recruiters.sort(function(a,b) { return b.submissions_this_week - a.submissions_this_week; });
 
-  activeRecruiters.forEach(function(r, i) {
-    var sc = r.stage_counts || {};
-    var onsiteOffer = (sc['Onsite']||0) + (sc['Offer']||0);
-    var wow = r.submissions_last_week !== null && r.submissions_last_week !== undefined
-      ? (r.submissions_this_week||0) - r.submissions_last_week
-      : null;
-    var wowHtml = wow === null ? '<span class="wow-null">—</span>'
-      : (wow >= 0
-        ? '<span class="delta-badge" style="background:#0d4429;color:#3fb950">▲ +' + wow + '</span>'
-        : '<span class="delta-badge" style="background:#3d1a1a;color:#f85149">▼ ' + wow + '</span>');
-
-    var rankEmoji = i === 0 ? '🥇' : (i === 1 ? '🥈' : (i === 2 ? '🥉' : (i+1)));
+  recruiters.forEach(function(r, i) {
     var tr = document.createElement('tr');
-    tr.innerHTML = '<td style="font-weight:700;color:#8b949e">' + rankEmoji + '</td>' +
-      '<td style="font-weight:700">' + r.name + '</td>' +
-      '<td><strong style="color:#3fb950">' + (r.submissions_this_week||0) + '</strong></td>' +
-      '<td style="color:#8b949e">' + (r.submissions_last_week !== null && r.submissions_last_week !== undefined ? r.submissions_last_week : '—') + '</td>' +
-      '<td>' + wowHtml + '</td>' +
-      '<td>' + (r.total_active||0) + '</td>' +
-      '<td>' + (onsiteOffer > 0 ? '<span class="badge" style="background:#3a1a0a;color:#f0883e">' + onsiteOffer + '</span>' : '—') + '</td>';
+    var delta = r.submissions_this_week - r.submissions_last_week;
+    var deltaHtml = delta > 0
+      ? '<span class="badge badge-green">+' + delta + '</span>'
+      : delta < 0 ? '<span class="badge badge-red">' + delta + '</span>'
+      : '<span class="badge badge-gray">0</span>';
+    var onsiteOffer = (r.stage_counts['Onsite']||0) + (r.stage_counts['Offer']||0);
+    var rankStyle = i === 0 ? 'color:#ffd700;font-weight:700;' : i === 1 ? 'color:#c0c0c0;font-weight:700;' : i === 2 ? 'color:#cd7f32;font-weight:700;' : 'color:#8b949e;';
+    tr.innerHTML = '<td style="' + rankStyle + '">' + (i+1) + '</td>' +
+      '<td style="font-weight:500;">' + escHtml(r.name) + '</td>' +
+      '<td><strong>' + r.submissions_this_week + '</strong></td>' +
+      '<td>' + r.submissions_last_week + '</td>' +
+      '<td>' + deltaHtml + '</td>' +
+      '<td>' + r.total_active + '</td>' +
+      '<td>' + (onsiteOffer > 0 ? '<span class="badge badge-green">'+onsiteOffer+'</span>' : '0') + '</td>';
     tbody.appendChild(tr);
   });
 }
 
-// ===================== RECRUITER AGING GROUPS =====================
-function buildRecruiterAgingGroups() {
-  var container = document.getElementById('recruiter-aging-container');
-  var activeRecruiters = data.recruiters.filter(function(r) {
-    return SKIP_RECRUITERS.indexOf(r.name) === -1;
+function buildRecruiterAgingSection() {
+  var skipList = ['Unknown','Jake Flohr','Sarah Keller'];
+  var container = document.getElementById('recruiter-aging-section');
+  var recruiters = data.recruiters.filter(function(r) {
+    return skipList.indexOf(r.name) === -1 && r.aging_candidates && r.aging_candidates.length > 0;
   });
+  recruiters.sort(function(a,b) { return b.aging_candidates.length - a.aging_candidates.length; });
 
-  activeRecruiters.sort(function(a,b) { return (b.submissions_this_week||0) - (a.submissions_this_week||0); });
+  recruiters.forEach(function(r) {
+    var div = document.createElement('div');
+    div.className = 'aging-group card';
+    div.style.padding = '0';
 
-  activeRecruiters.forEach(function(r) {
-    var aging = (r.aging_candidates || []).slice();
-    if (aging.length === 0) return;
-    aging.sort(function(a,b) { return b.days_in_stage - a.days_in_stage; });
+    var header = '<div class="aging-group-header" style="padding:12px 16px;">' + escHtml(r.name) + ' <span style="color:#8b949e;font-weight:400;">(' + r.aging_candidates.length + ' aging)</span></div>';
 
-    var group = document.createElement('div');
-    group.className = 'recruiter-aging-group';
+    var tableHtml = '<table><thead><tr><th>Candidate</th><th>Client</th><th>Stage</th><th>Days</th></tr></thead><tbody>';
 
-    var table = document.createElement('table');
-    table.innerHTML = '<thead><tr><th colspan="4" style="color:#e6edf3;font-size:13px;text-transform:none;letter-spacing:0">' + r.name + ' <span style="color:#8b949e;font-weight:400;font-size:11px">(' + aging.length + ' aging)</span></th></tr><tr><th>Candidate</th><th>Client</th><th>Stage</th><th>Days</th></tr></thead>';
-    var tb = document.createElement('tbody');
-
-    aging.forEach(function(a) {
-      var tr = document.createElement('tr');
-      if (a.days_in_stage >= 14) tr.classList.add('row-red');
-      else if (a.days_in_stage >= 10) tr.classList.add('row-orange');
-      tr.innerHTML = '<td>' + nameLink(a.full_name, a.linkedin_url || '') + '</td>' +
-        '<td style="color:#8b949e">' + (a.client || '—') + '</td>' +
-        '<td>' + stageBadge(a.stage) + '</td>' +
-        '<td>' + daysBadge(a.days_in_stage) + '</td>';
-      tb.appendChild(tr);
+    var sorted = r.aging_candidates.slice().sort(function(a,b) { return b.days_in_stage - a.days_in_stage; });
+    sorted.forEach(function(a) {
+      var rowClass = a.days_in_stage >= 14 ? 'row-red' : a.days_in_stage >= 10 ? 'row-orange' : '';
+      var nameHtml = candidateNameHtml(a.full_name, a.linkedin_url, a.candidate_id);
+      var daysBadge = a.days_in_stage >= 14
+        ? '<span class="badge badge-red">' + a.days_in_stage + 'd</span>'
+        : '<span class="badge badge-orange">' + a.days_in_stage + 'd</span>';
+      tableHtml += '<tr class="' + rowClass + '">' +
+        '<td>' + nameHtml + '</td>' +
+        '<td>' + escHtml(a.client||'—') + '</td>' +
+        '<td><span class="badge badge-gray">' + escHtml(a.stage) + '</span></td>' +
+        '<td>' + daysBadge + '</td>' +
+        '</tr>';
     });
 
-    table.appendChild(tb);
-    group.appendChild(table);
-    container.appendChild(group);
+    tableHtml += '</tbody></table>';
+    div.innerHTML = header + '<div class="scroll-table">' + tableHtml + '</div>';
+    container.appendChild(div);
   });
 }
 
-// ===================== CHARTS =====================
 function initCharts() {
-  // Funnel Chart
-  var funnelCtx = document.getElementById('funnelChart').getContext('2d');
-  var gst = data.global_stage_totals;
-  var funnelLabels = ['Recruiter Screen', 'HM Review', '1st Interview', '2nd Interview', 'Onsite', 'Offer'];
-  var funnelValues = funnelLabels.map(function(l) { return gst[l] || 0; });
+  // Funnel chart
+  var fCtx = document.getElementById('funnelChart').getContext('2d');
+  var stages = ['Recruiter Screen','HM Review','1st Interview','2nd Interview','Onsite','Offer'];
+  var vals = stages.map(function(s) { return data.global_stage_totals[s] || 0; });
 
-  var gradient = funnelCtx.createLinearGradient(0, 0, 0, 280);
-  gradient.addColorStop(0, 'rgba(35, 134, 54, 0.9)');
-  gradient.addColorStop(1, 'rgba(35, 134, 54, 0.3)');
-
-  new Chart(funnelCtx, {
+  new Chart(fCtx, {
     type: 'bar',
     data: {
-      labels: funnelLabels,
+      labels: ['RS','HM Review','1st Int.','2nd Int.','Onsite','Offer'],
       datasets: [{
         label: 'Candidates',
-        data: funnelValues,
+        data: vals,
         backgroundColor: [
-          'rgba(88,166,255,0.7)',
-          'rgba(163,113,247,0.7)',
-          'rgba(63,185,80,0.8)',
-          'rgba(227,179,65,0.8)',
-          'rgba(240,136,62,0.8)',
-          'rgba(248,81,73,0.9)'
+          'rgba(35,134,54,0.85)',
+          'rgba(35,134,54,0.75)',
+          'rgba(35,134,54,0.65)',
+          'rgba(35,134,54,0.55)',
+          'rgba(35,134,54,0.45)',
+          'rgba(63,185,80,0.9)'
         ],
         borderColor: [
-          'rgba(88,166,255,1)',
-          'rgba(163,113,247,1)',
-          'rgba(63,185,80,1)',
-          'rgba(227,179,65,1)',
-          'rgba(240,136,62,1)',
-          'rgba(248,81,73,1)'
+          '#238636','#238636','#238636','#238636','#238636','#3fb950'
         ],
         borderWidth: 1,
         borderRadius: 4
@@ -675,17 +577,21 @@ function initCharts() {
           borderColor: '#30363d',
           borderWidth: 1,
           titleColor: '#e6edf3',
-          bodyColor: '#8b949e'
+          bodyColor: '#8b949e',
+          callbacks: {
+            label: function(ctx) { return ' ' + ctx.raw + ' candidates'; }
+          }
         }
       },
       scales: {
         x: {
-          ticks: { color: '#8b949e', font: { size: 12 } },
-          grid: { color: '#21262d' }
+          grid: { color: '#21262d' },
+          ticks: { color: '#8b949e', font: { size: 12 } }
         },
         y: {
+          grid: { color: '#21262d' },
           ticks: { color: '#8b949e', font: { size: 12 } },
-          grid: { color: '#21262d' }
+          beginAtZero: true
         }
       }
     }
