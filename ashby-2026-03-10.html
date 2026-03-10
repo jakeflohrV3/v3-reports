@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>V3 Ashby Pipeline — 2026-03-10</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d0d0f;
+    --surface: #16161a;
+    --surface2: #1e1e24;
+    --border: #2a2a32;
+    --text: #e8e8f0;
+    --muted: #6b6b80;
+    --accent: #4f7cff;
+    --urgent: #ff4757;
+    --urgent-bg: rgba(255,71,87,0.08);
+    --stale: #ffaa00;
+    --stale-bg: rgba(255,170,0,0.07);
+    --ok: #00c97d;
+    --ok-bg: rgba(0,201,125,0.06);
+    --mono: 'DM Mono', monospace;
+    --sans: 'DM Sans', sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 14px;
+    line-height: 1.5;
+    min-height: 100vh;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 24px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .header-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .logo {
+    font-family: var(--mono);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--accent);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: rgba(79,124,255,0.1);
+    border: 1px solid rgba(79,124,255,0.2);
+    padding: 4px 10px;
+    border-radius: 4px;
+  }
+
+  .report-title {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text);
+  }
+
+  .report-date {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .header-stats {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+  }
+
+  .stat {
+    text-align: right;
+  }
+
+  .stat-value {
+    font-family: var(--mono);
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--text);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 11px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-top: 2px;
+  }
+
+  .stat-divider {
+    width: 1px;
+    height: 32px;
+    background: var(--border);
+  }
+
+  .urgent-stat .stat-value { color: var(--urgent); }
+
+  /* ── FILTERS ── */
+  .filters {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 12px 32px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+
+  .filter-label {
+    font-size: 11px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-right: 4px;
+  }
+
+  select {
+    background: var(--surface2);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 6px 28px 6px 10px;
+    font-family: var(--sans);
+    font-size: 13px;
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%236b6b80' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    min-width: 160px;
+    transition: border-color 0.15s;
+  }
+
+  select:hover { border-color: var(--accent); }
+  select:focus { outline: none; border-color: var(--accent); }
+
+  .filter-clear {
+    font-size: 12px;
+    color: var(--muted);
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 4px;
+    transition: color 0.15s;
+    margin-left: auto;
+  }
+  .filter-clear:hover { color: var(--text); }
+
+  /* ── ALERTS BANNER ── */
+  .alerts-banner {
+    margin: 24px 32px 0;
+    background: var(--urgent-bg);
+    border: 1px solid rgba(255,71,87,0.2);
+    border-radius: 8px;
+    padding: 16px 20px;
+  }
+
+  .alerts-title {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--urgent);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .alert-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255,71,87,0.1);
+    border: 1px solid rgba(255,71,87,0.15);
+    border-radius: 20px;
+    padding: 4px 10px 4px 8px;
+    font-size: 12px;
+    margin: 3px;
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+  .alert-pill:hover { background: rgba(255,71,87,0.18); }
+  .alert-pill .client-tag {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--urgent);
+    font-weight: 500;
+  }
+  .alert-pill .name { color: var(--text); }
+  .alert-pill .status-tag { color: var(--muted); font-size: 11px; }
+
+  /* ── MAIN CONTENT ── */
+  .main { padding: 24px 32px; }
+
+  /* ── CLIENT CARD ── */
+  .client-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    margin-bottom: 16px;
+    overflow: hidden;
+    transition: border-color 0.15s;
+  }
+  .client-card:hover { border-color: #3a3a46; }
+  .client-card.hidden { display: none; }
+
+  .client-header {
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border);
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .client-header:hover { background: var(--surface2); }
+
+  .client-name-wrap {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .client-avatar {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+
+  .client-name {
+    font-weight: 500;
+    font-size: 14px;
+  }
+
+  .client-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .candidate-count {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .flag-count {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--urgent);
+    background: var(--urgent-bg);
+    border: 1px solid rgba(255,71,87,0.15);
+    padding: 2px 7px;
+    border-radius: 10px;
+  }
+
+  .collapse-icon {
+    color: var(--muted);
+    font-size: 12px;
+    transition: transform 0.2s;
+  }
+  .client-card.collapsed .collapse-icon { transform: rotate(-90deg); }
+
+  .client-body { padding: 0; }
+  .client-card.collapsed .client-body { display: none; }
+
+  /* ── ROLE GROUP ── */
+  .role-group { border-bottom: 1px solid var(--border); }
+  .role-group:last-child { border-bottom: none; }
+
+  .role-header {
+    padding: 10px 20px;
+    background: rgba(255,255,255,0.015);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .role-name {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .role-count {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--border);
+    background: var(--surface2);
+    padding: 1px 6px;
+    border-radius: 8px;
+  }
+
+  /* ── CANDIDATE ROW ── */
+  .candidate-row {
+    display: grid;
+    grid-template-columns: 1fr 180px 160px 200px;
+    gap: 0;
+    padding: 10px 20px;
+    border-bottom: 1px solid rgba(42,42,50,0.5);
+    align-items: center;
+    transition: background 0.1s;
+  }
+  .candidate-row:last-child { border-bottom: none; }
+  .candidate-row:hover { background: var(--surface2); }
+
+  .candidate-row.hidden { display: none; }
+
+  .candidate-row.urgent { background: var(--urgent-bg); }
+  .candidate-row.urgent:hover { background: rgba(255,71,87,0.12); }
+  .candidate-row.stale { background: var(--stale-bg); }
+  .candidate-row.stale:hover { background: rgba(255,170,0,0.1); }
+
+  .cand-name {
+    font-weight: 500;
+    font-size: 13px;
+    color: var(--text);
+  }
+
+  .cand-role {
+    font-size: 12px;
+    color: var(--muted);
+    padding: 0 8px;
+  }
+
+  .stage-badge {
+    display: inline-flex;
+    align-items: center;
+    font-family: var(--mono);
+    font-size: 11px;
+    padding: 3px 8px;
+    border-radius: 4px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    color: var(--muted);
+    white-space: nowrap;
+  }
+
+  .cand-status {
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding-left: 8px;
+  }
+
+  .cand-status.urgent-status { color: var(--urgent); }
+  .cand-status.stale-status { color: var(--stale); }
+  .cand-status.ok-status { color: var(--ok); }
+
+  .status-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .urgent-status .status-dot { background: var(--urgent); }
+  .stale-status .status-dot { background: var(--stale); }
+  .ok-status .status-dot { background: var(--ok); }
+
+  /* ── FOOTER ── */
+  .footer {
+    padding: 24px 32px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--muted);
+    font-size: 12px;
+    font-family: var(--mono);
+  }
+
+  .footer-generated {
+    color: var(--border);
+  }
+
+  /* ── NO RESULTS ── */
+  .no-results {
+    text-align: center;
+    padding: 48px;
+    color: var(--muted);
+    font-size: 13px;
+    display: none;
+  }
+
+  /* ── SCROLLBAR ── */
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--muted); }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-left">
+    <div class="logo">V3</div>
+    <div>
+      <div class="report-title">Ashby Pipeline Report</div>
+      <div class="report-date">2026-03-10</div>
+    </div>
+  </div>
+  <div class="header-stats">
+    <div class="stat">
+      <div class="stat-value" id="total-candidates">5</div>
+      <div class="stat-label">Candidates</div>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat">
+      <div class="stat-value" id="total-clients">1</div>
+      <div class="stat-label">Active Clients</div>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat urgent-stat">
+      <div class="stat-value" id="total-flags">0</div>
+      <div class="stat-label">Flagged ⚠</div>
+    </div>
+  </div>
+</div>
+
+<!-- FILTERS -->
+<div class="filters">
+  <span class="filter-label">Filter</span>
+  <select id="filter-client" onchange="applyFilters()">
+    <option value="">All Clients</option>
+        <option value="Additive AI">Additive AI</option>
+  </select>
+  <select id="filter-stage" onchange="applyFilters()">
+    <option value="">All Stages</option>
+    <option value="Initial Screen">Initial Screen</option>
+    <option value="Second Round">Second Round</option>
+    <option value="Onsite">Onsite</option>
+    <option value="Post-Onsite">Post-Onsite</option>
+    <option value="Offer">Offer</option>
+  </select>
+  <select id="filter-urgency" onchange="applyFilters()">
+    <option value="">All Urgency</option>
+    <option value="urgent">🔴 Urgent Only</option>
+    <option value="stale">🟡 Stale Only</option>
+    <option value="ok">⚪ Normal Only</option>
+  </select>
+  <span class="filter-clear" onclick="clearFilters()">Clear filters</span>
+</div>
+
+<!-- ALERTS BANNER -->
+<div class="alerts-banner" id="alerts-banner">
+  <div class="alerts-title">⚠ Needs Attention — 0 candidates</div>
+  <div id="alerts-list">
+    
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="main" id="main-content">
+  <div class="client-card" data-client="Additive AI"><div class="client-header" onclick="toggleCard(this.closest('.client-card'))"><div class="client-name-wrap"><div class="client-avatar">AA</div><span class="client-name">Additive AI</span></div><div class="client-meta"><span class="candidate-count">5 candidates</span><span class="collapse-icon">▾</span></div></div><div class="client-body"><div class="role-group"><div class="role-header"><span class="role-name">Initial Screen</span><span class="role-count">1</span></div><div class="candidate-row ok" data-client="Additive AI" data-stage="Initial Screen" data-urgency="ok"><div class="cand-name">Ron Abantao<span class="cand-employer" style="display:block;font-size:11px;color:var(--muted);font-family:var(--mono);margin-top:2px;font-weight:400;">CamberCloud</span></div><div class="cand-role"></div><div class="stage-badge">Initial Screen</div><div class="cand-status ok-status"><span class="status-dot"></span>BOOKING LINK SENT · 7h ago</div></div></div><div class="role-group"><div class="role-header"><span class="role-name">BOOKING LINK SENT</span><span class="role-count">3</span></div><div class="candidate-row ok" data-client="Additive AI" data-stage="BOOKING LINK SENT" data-urgency="ok"><div class="cand-name">Akansha Vashisth</div><div class="cand-role"></div><div class="stage-badge">BOOKING LINK SENT</div><div class="cand-status ok-status"><span class="status-dot"></span>SCHEDULED · in 2d</div></div><div class="candidate-row ok" data-client="Additive AI" data-stage="BOOKING LINK SENT" data-urgency="ok"><div class="cand-name">Bharath Ramaprasad<span class="cand-employer" style="display:block;font-size:11px;color:var(--muted);font-family:var(--mono);margin-top:2px;font-weight:400;">DuoModal</span></div><div class="cand-role"></div><div class="stage-badge">BOOKING LINK SENT</div><div class="cand-status ok-status"><span class="status-dot"></span>SCHEDULED · in 6d</div></div><div class="candidate-row ok" data-client="Additive AI" data-stage="BOOKING LINK SENT" data-urgency="ok"><div class="cand-name">Joshua Choi<span class="cand-employer" style="display:block;font-size:11px;color:var(--muted);font-family:var(--mono);margin-top:2px;font-weight:400;">TikTok U S Data Security</span></div><div class="cand-role"></div><div class="stage-badge">BOOKING LINK SENT</div><div class="cand-status ok-status"><span class="status-dot"></span>SCHEDULED · in 2d</div></div></div><div class="role-group"><div class="role-header"><span class="role-name">First Technical Screen</span><span class="role-count">1</span></div><div class="candidate-row ok" data-client="Additive AI" data-stage="First Technical Screen" data-urgency="ok"><div class="cand-name">Ryan Stout<span class="cand-employer" style="display:block;font-size:11px;color:var(--muted);font-family:var(--mono);margin-top:2px;font-weight:400;">Chainlink Labs</span></div><div class="cand-role"></div><div class="stage-badge">First Technical Screen</div><div class="cand-status ok-status"><span class="status-dot"></span>SCHEDULED · in 4h</div></div></div></div></div>
+  <div class="no-results" id="no-results">No candidates match the current filters.</div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <span>V3 Talent Partners · Ashby Agency Pipeline</span>
+  <span class="footer-generated">Generated by Neo · 2026-03-10</span>
+</div>
+
+<script>
+function applyFilters() {
+  const clientFilter = document.getElementById('filter-client').value.toLowerCase();
+  const stageFilter = document.getElementById('filter-stage').value.toLowerCase();
+  const urgencyFilter = document.getElementById('filter-urgency').value;
+
+  let visibleCards = 0;
+
+  document.querySelectorAll('.client-card').forEach(card => {
+    const clientName = card.dataset.client.toLowerCase();
+    if (clientFilter && !clientName.includes(clientFilter)) {
+      card.classList.add('hidden');
+      return;
+    }
+
+    let visibleRows = 0;
+    card.querySelectorAll('.candidate-row').forEach(row => {
+      const rowStage = row.dataset.stage ? row.dataset.stage.toLowerCase() : '';
+      const rowUrgency = row.dataset.urgency || '';
+
+      const stageMatch = !stageFilter || rowStage.includes(stageFilter.toLowerCase());
+      const urgencyMatch = !urgencyFilter || rowUrgency === urgencyFilter;
+
+      if (stageMatch && urgencyMatch) {
+        row.classList.remove('hidden');
+        visibleRows++;
+      } else {
+        row.classList.add('hidden');
+      }
+    });
+
+    if (visibleRows > 0) {
+      card.classList.remove('hidden');
+      visibleCards++;
+    } else {
+      card.classList.add('hidden');
+    }
+  });
+
+  document.getElementById('no-results').style.display = visibleCards === 0 ? 'block' : 'none';
+}
+
+function clearFilters() {
+  document.getElementById('filter-client').value = '';
+  document.getElementById('filter-stage').value = '';
+  document.getElementById('filter-urgency').value = '';
+  applyFilters();
+}
+
+function toggleCard(card) {
+  card.classList.toggle('collapsed');
+}
+
+// Clicking alert pills scrolls to and highlights the relevant card
+document.querySelectorAll('.alert-pill').forEach(pill => {
+  pill.addEventListener('click', () => {
+    const clientName = pill.dataset.client;
+    const card = document.querySelector(`.client-card[data-client="${clientName}"]`);
+    if (card) {
+      card.classList.remove('collapsed');
+      card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      card.style.borderColor = 'rgba(255,71,87,0.4)';
+      setTimeout(() => card.style.borderColor = '', 2000);
+    }
+  });
+});
+</script>
+</body>
+</html>
